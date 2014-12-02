@@ -132,6 +132,7 @@
 		2FC71FE81A281770002BB2C5 /* StarVcViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FC71FE71A281770002BB2C5 /* StarVcViewController.m */; };
 		2FC71FEB1A282D87002BB2C5 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FC71FEA1A282D87002BB2C5 /* TestViewController.m */; };
 		2FC71FED1A28556E002BB2C5 /* 头像_02.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FC71FEC1A28556E002BB2C5 /* 头像_02.png */; };
+		64BEC4FC1A2D6D5F00931E0F /* NewMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64BEC4FB1A2D6D5F00931E0F /* NewMainViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -287,6 +288,9 @@
 		2FC71FE91A282D87002BB2C5 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		2FC71FEA1A282D87002BB2C5 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		2FC71FEC1A28556E002BB2C5 /* 头像_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "头像_02.png"; sourceTree = "<group>"; };
+		64BEC4FA1A2D6D5F00931E0F /* NewMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewMainViewController.h; sourceTree = "<group>"; };
+		64BEC4FB1A2D6D5F00931E0F /* NewMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewMainViewController.m; sourceTree = "<group>"; };
+		64BEC4FE1A2D729400931E0F /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -328,6 +332,7 @@
 		2F21162A1A25B5A2009B21EB /* Horoscope */ = {
 			isa = PBXGroup;
 			children = (
+				64BEC4F91A2D6D5300931E0F /* MainVC */,
 				2F2116511A25B64A009B21EB /* Image */,
 				2F2116A31A25B64A009B21EB /* Third Class */,
 				2F2116A91A25B64A009B21EB /* View */,
@@ -345,6 +350,7 @@
 			children = (
 				2F21162C1A25B5A2009B21EB /* Info.plist */,
 				2F21162D1A25B5A2009B21EB /* main.m */,
+				64BEC4FE1A2D729400931E0F /* PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -607,6 +613,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		64BEC4F91A2D6D5300931E0F /* MainVC */ = {
+			isa = PBXGroup;
+			children = (
+				64BEC4FA1A2D6D5F00931E0F /* NewMainViewController.h */,
+				64BEC4FB1A2D6D5F00931E0F /* NewMainViewController.m */,
+			);
+			path = MainVC;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -825,6 +840,7 @@
 				2F2116311A25B5A2009B21EB /* AppDelegate.m in Sources */,
 				2F2116F71A25B64A009B21EB /* JDSideMenu.m in Sources */,
 				2FC71FE21A281569002BB2C5 /* MainViewController.m in Sources */,
+				64BEC4FC1A2D6D5F00931E0F /* NewMainViewController.m in Sources */,
 				2FC71FDA1A2721AC002BB2C5 /* BaseViewController.m in Sources */,
 				2F21162E1A25B5A2009B21EB /* main.m in Sources */,
 				2FC71FDD1A2721AC002BB2C5 /* StarDicController.m in Sources */,
@@ -944,6 +960,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Horoscope/PrefixHeader.pch";
 				INFOPLIST_FILE = Horoscope/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -957,6 +974,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Horoscope/PrefixHeader.pch";
 				INFOPLIST_FILE = Horoscope/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

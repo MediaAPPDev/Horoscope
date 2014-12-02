@@ -1,0 +1,28 @@
+//
+//  PrefixHeader.pch
+//  Horoscope
+//
+//  Created by Satellite on 14/12/2.
+//  Copyright (c) 2014年 施傲天. All rights reserved.
+//
+
+#ifndef Horoscope_PrefixHeader_pch
+#define Horoscope_PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+
+// view的 X,y , width , height
+
+#define width(m) m.bounds.size.width
+#define height(m) m.bounds.size.height
+#define x(m) m.frame.origin.x
+#define y(m) m.frame.origin.y
+
+
+#define KScreenWidth [[UIScreen mainScreen] bounds].size.width
+#define KScreenHeight [[UIScreen mainScreen] bounds].size.height
+
+
+#endif
