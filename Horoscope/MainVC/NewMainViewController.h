@@ -8,6 +8,6 @@
 
 #import "BaseViewController.h"
 
-@interface NewMainViewController : BaseViewController
+@interface NewMainViewController : BaseViewController<UICollectionViewDataSource,UICollectionViewDelegate>
 
 @end

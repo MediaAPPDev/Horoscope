@@ -20,9 +20,9 @@
 #define x(m) m.frame.origin.x
 #define y(m) m.frame.origin.y
 
-
+//屏幕宽高
 #define KScreenWidth [[UIScreen mainScreen] bounds].size.width
 #define KScreenHeight [[UIScreen mainScreen] bounds].size.height
 
-
+#define KUIImage(image) [UIImage imageNamed:image]
 #endif

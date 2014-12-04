@@ -67,7 +67,12 @@ const CGFloat JDSideMenuDefaultCloseAnimationTime = 0.3;
     self.panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panRecognized:)];
     
     
-    [self.containerView addGestureRecognizer:self.tapRecognizer];
+    
+/*
+ 点击侧滑
+ */
+    
+//    [self.containerView addGestureRecognizer:self.tapRecognizer];
     
     [self.containerView addGestureRecognizer:self.panRecognizer];
 }
