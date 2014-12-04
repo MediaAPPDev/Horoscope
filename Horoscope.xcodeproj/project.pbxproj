@@ -237,6 +237,9 @@
 		64CD99321A3042FD00040744 /* iphone6+底图.png in Resources */ = {isa = PBXBuildFile; fileRef = 64CD98CD1A3042FD00040744 /* iphone6+底图.png */; };
 		64CD99331A3042FD00040744 /* iphone6底图.png in Resources */ = {isa = PBXBuildFile; fileRef = 64CD98CE1A3042FD00040744 /* iphone6底图.png */; };
 		64CD99341A3042FD00040744 /* 注册iPhone4.png in Resources */ = {isa = PBXBuildFile; fileRef = 64CD98CF1A3042FD00040744 /* 注册iPhone4.png */; };
+		64CD99521A30487E00040744 /* MainCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 64CD99511A30487E00040744 /* MainCollectionViewCell.m */; };
+		64CD99541A304CD500040744 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 64CD99531A304CD500040744 /* 1.jpg */; };
+		64CD99571A304F2A00040744 /* AddButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 64CD99561A304F2A00040744 /* AddButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -502,6 +505,11 @@
 		64CD98CD1A3042FD00040744 /* iphone6+底图.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iphone6+底图.png"; sourceTree = "<group>"; };
 		64CD98CE1A3042FD00040744 /* iphone6底图.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iphone6底图.png"; sourceTree = "<group>"; };
 		64CD98CF1A3042FD00040744 /* 注册iPhone4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "注册iPhone4.png"; sourceTree = "<group>"; };
+		64CD99501A30487E00040744 /* MainCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainCollectionViewCell.h; sourceTree = "<group>"; };
+		64CD99511A30487E00040744 /* MainCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainCollectionViewCell.m; sourceTree = "<group>"; };
+		64CD99531A304CD500040744 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
+		64CD99551A304F2A00040744 /* AddButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddButton.h; sourceTree = "<group>"; };
+		64CD99561A304F2A00040744 /* AddButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -593,6 +601,7 @@
 		2F2116511A25B64A009B21EB /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				64CD99531A304CD500040744 /* 1.jpg */,
 				64CD98621A3042FD00040744 /* LoginIcon */,
 				64CD98751A3042FD00040744 /* MainVIewIcon */,
 				64CD98B41A3042FD00040744 /* registerIcon */,
@@ -840,6 +849,10 @@
 			children = (
 				64BEC4FA1A2D6D5F00931E0F /* NewMainViewController.h */,
 				64BEC4FB1A2D6D5F00931E0F /* NewMainViewController.m */,
+				64CD99501A30487E00040744 /* MainCollectionViewCell.h */,
+				64CD99511A30487E00040744 /* MainCollectionViewCell.m */,
+				64CD99551A304F2A00040744 /* AddButton.h */,
+				64CD99561A304F2A00040744 /* AddButton.m */,
 			);
 			path = MainVC;
 			sourceTree = "<group>";
@@ -1302,6 +1315,7 @@
 				64CD99241A3042FD00040744 /* 头像设置@3x.png in Resources */,
 				2F2116FC1A25B64A009B21EB /* MenuViewController.xib in Resources */,
 				2F2116BF1A25B64A009B21EB /* 星友圈－发现首页ios版本.png in Resources */,
+				64CD99541A304CD500040744 /* 1.jpg in Resources */,
 				2F2116DC1A25B64A009B21EB /* 星友说－按下.png in Resources */,
 				2F2116C51A25B64A009B21EB /* 星座宝典传说ios.png in Resources */,
 				64CD98D81A3042FD00040744 /* 线条@2x.png in Resources */,
@@ -1385,8 +1399,10 @@
 				2FC71FE81A281770002BB2C5 /* StarVcViewController.m in Sources */,
 				2FC71FDF1A2721AC002BB2C5 /* ZoneViewController.m in Sources */,
 				2FC71FDC1A2721AC002BB2C5 /* FriendLoopViewController.m in Sources */,
+				64CD99521A30487E00040744 /* MainCollectionViewCell.m in Sources */,
 				2FC71FDE1A2721AC002BB2C5 /* TodayViewController.m in Sources */,
 				2F2116311A25B5A2009B21EB /* AppDelegate.m in Sources */,
+				64CD99571A304F2A00040744 /* AddButton.m in Sources */,
 				2F2116F71A25B64A009B21EB /* JDSideMenu.m in Sources */,
 				2FC71FE21A281569002BB2C5 /* MainViewController.m in Sources */,
 				64BEC4FC1A2D6D5F00931E0F /* NewMainViewController.m in Sources */,
