@@ -9,6 +9,7 @@
 #import "NewMainViewController.h"
 #import "MainCollectionViewCell.h"
 #import "AddButton.h"
+#import "TopView.h"
 @interface NewMainViewController ()
 {
     UICollectionView * m_CollView;
@@ -28,19 +29,32 @@
     
     m_layout = [[UICollectionViewFlowLayout alloc]init];
     [m_layout setScrollDirection:UICollectionViewScrollDirectionVertical];
+    m_layout.minimumLineSpacing = 3;
+    m_layout.minimumInteritemSpacing = 2;
     m_CollView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 64, width(self.view), height(self.view)-64) collectionViewLayout:m_layout];
    
-    [m_CollView registerClass:[MainCollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
+    [m_CollView registerClass:[MainCollectionViewCell class] forCellWithReuseIdentifier:@"collectionViewCell1"];
+    
+    [m_CollView registerClass:[TopView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"headViewww"];
+
     //设置代理
-    m_layout.itemSize = CGSizeMake(width(self.view)/3-5, width(self.view)/3-5);
+    m_layout.itemSize = CGSizeMake(width(self.view)/3-2, width(self.view)/3+15);
     m_CollView.delegate = self;
     m_CollView.dataSource = self;
+    
     [self.view addSubview:m_CollView];
-    
-    
     [self buildBlackView];
     
+    
+    
+    
 }
+
+
+
+#pragma mark---collectionViewDELEGATE
+
+
 //设置分区
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     
@@ -56,38 +70,61 @@
 //设置元素内容
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *identify = @"cell";
-    MainCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identify forIndexPath:indexPath];
-    [cell sizeToFit];
+//    static NSString *identify = @"cell";
+    MainCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"collectionViewCell1" forIndexPath:indexPath];
+//    [cell sizeToFit];
     if (!cell) {
-        cell = [[MainCollectionViewCell alloc]init];
+//        cell = [[MainCollectionViewCell alloc]init];
     }
     cell.layer.masksToBounds = YES;
     cell.layer.cornerRadius = 6.0;
     cell.layer.borderWidth = 1.0;
-    cell.layer.borderColor = [[UIColor blackColor] CGColor];
-    cell.numLabel.text = [NSString stringWithFormat:@"%ld",(long)indexPath.row];
+//    cell.layer.borderColor = [[UIColor blackColor] CGColor];
+    cell.numLabel.text = [NSString stringWithFormat:@"%ld",(long)indexPath.row+7];
     cell.leftImageView.image = KUIImage(@"排名色块小");
     cell.MainImageView.image = KUIImage(@"1.jpg");
+    NSLog(@"%@",cell);
     return cell;
 }
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionReusableView *titleView;
+    
+    if (kind == UICollectionElementKindSectionHeader) {
+        titleView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"headViewww" forIndexPath:indexPath];
+        }
+    return titleView;
+
+        
+
+    return titleView;
+}
+
+
 
 //设置元素的的大小框
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
-    UIEdgeInsets top = {5,5,5,5};
+    UIEdgeInsets top = {0,0,0,0};//{5,5,5,5};
     return top;
 }
 
 //设置顶部的大小
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
-    CGSize size={0,0};
+    CGSize size={width(self.view),width(self.view)+55};
     return size;
 }
 //设置元素大小
--(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    return CGSizeMake(width(self.view)/3-10, width(self.view)/3-5 );
-}
+//-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+//    
+//    
+////    if (indexPath.row==0) {
+////        return CGSizeMake(width(self.view)/3*2-10, width(self.view)/3*2-10);
+////    }
+//    
+//    return CGSizeMake(width(self.view)/3, width(self.view)/3+10 );
+//}
 
 //点击元素触发事件
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{

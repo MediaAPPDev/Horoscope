@@ -133,6 +133,28 @@
 		2FC71FEB1A282D87002BB2C5 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FC71FEA1A282D87002BB2C5 /* TestViewController.m */; };
 		2FC71FED1A28556E002BB2C5 /* 头像_02.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FC71FEC1A28556E002BB2C5 /* 头像_02.png */; };
 		64BEC4FC1A2D6D5F00931E0F /* NewMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64BEC4FB1A2D6D5F00931E0F /* NewMainViewController.m */; };
+		64C727131A3575B300DFE28E /* imgbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 64C726FD1A3575B300DFE28E /* imgbg.png */; };
+		64C727141A3575B300DFE28E /* imgbg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64C726FE1A3575B300DFE28E /* imgbg@2x.png */; };
+		64C727151A3575B300DFE28E /* rank2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64C726FF1A3575B300DFE28E /* rank2@2x.png */; };
+		64C727161A3575B300DFE28E /* rank@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64C727001A3575B300DFE28E /* rank@2x.png */; };
+		64C727171A3575B300DFE28E /* 图片蒙板大.png in Resources */ = {isa = PBXBuildFile; fileRef = 64C727011A3575B300DFE28E /* 图片蒙板大.png */; };
+		64C727181A3575B300DFE28E /* 图片蒙板小.png in Resources */ = {isa = PBXBuildFile; fileRef = 64C727021A3575B300DFE28E /* 图片蒙板小.png */; };
+		64C727191A3575B300DFE28E /* 大图片框点击状态(50%的黑色透明）.png in Resources */ = {isa = PBXBuildFile; fileRef = 64C727031A3575B300DFE28E /* 大图片框点击状态(50%的黑色透明）.png */; };
+		64C7271A1A3575B300DFE28E /* 小图片框点击状态(50%的黑色透明）.png in Resources */ = {isa = PBXBuildFile; fileRef = 64C727041A3575B300DFE28E /* 小图片框点击状态(50%的黑色透明）.png */; };
+		64C7271B1A3575B300DFE28E /* 弹窗@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64C727051A3575B300DFE28E /* 弹窗@2x.png */; };
+		64C7271C1A3575B300DFE28E /* 弹窗正常状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 64C727061A3575B300DFE28E /* 弹窗正常状态.png */; };
+		64C7271D1A3575B300DFE28E /* 弹窗点中状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 64C727071A3575B300DFE28E /* 弹窗点中状态.png */; };
+		64C7271E1A3575B300DFE28E /* imgbg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64C727091A3575B300DFE28E /* imgbg@3x.png */; };
+		64C7271F1A3575B300DFE28E /* rank2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64C7270A1A3575B300DFE28E /* rank2@3x.png */; };
+		64C727201A3575B300DFE28E /* rank@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64C7270B1A3575B300DFE28E /* rank@3x.png */; };
+		64C727211A3575B300DFE28E /* 图片蒙板大.png in Resources */ = {isa = PBXBuildFile; fileRef = 64C7270C1A3575B300DFE28E /* 图片蒙板大.png */; };
+		64C727221A3575B300DFE28E /* 图片蒙板小.png in Resources */ = {isa = PBXBuildFile; fileRef = 64C7270D1A3575B300DFE28E /* 图片蒙板小.png */; };
+		64C727231A3575B300DFE28E /* 大图片框点击状态(50%的黑色透明）.png in Resources */ = {isa = PBXBuildFile; fileRef = 64C7270E1A3575B300DFE28E /* 大图片框点击状态(50%的黑色透明）.png */; };
+		64C727241A3575B300DFE28E /* 小图片框点击状态(50%的黑色透明）.png in Resources */ = {isa = PBXBuildFile; fileRef = 64C7270F1A3575B300DFE28E /* 小图片框点击状态(50%的黑色透明）.png */; };
+		64C727251A3575B300DFE28E /* 弹窗@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64C727101A3575B300DFE28E /* 弹窗@3x.png */; };
+		64C727261A3575B300DFE28E /* 弹窗正常状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 64C727111A3575B300DFE28E /* 弹窗正常状态.png */; };
+		64C727271A3575B300DFE28E /* 弹窗点中状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 64C727121A3575B300DFE28E /* 弹窗点中状态.png */; };
+		64C7272D1A358F5900DFE28E /* TopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 64C7272C1A358F5900DFE28E /* TopView.m */; };
 		64CD982A1A303B1500040744 /* BdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64CD98291A303B1500040744 /* BdViewController.m */; };
 		64CD982D1A303BF400040744 /* TodayLuckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64CD982C1A303BF400040744 /* TodayLuckViewController.m */; };
 		64CD98301A30403900040744 /* XWViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64CD982F1A30403900040744 /* XWViewController.m */; };
@@ -177,39 +199,6 @@
 		64CD98DE1A3042FD00040744 /* iphone6+登陆底图.png in Resources */ = {isa = PBXBuildFile; fileRef = 64CD98721A3042FD00040744 /* iphone6+登陆底图.png */; };
 		64CD98DF1A3042FD00040744 /* iphone6.png in Resources */ = {isa = PBXBuildFile; fileRef = 64CD98731A3042FD00040744 /* iphone6.png */; };
 		64CD98E01A3042FD00040744 /* 登陆.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 64CD98741A3042FD00040744 /* 登陆.jpg */; };
-		64CD98E11A3042FD00040744 /* 图片蒙板大.png in Resources */ = {isa = PBXBuildFile; fileRef = 64CD98771A3042FD00040744 /* 图片蒙板大.png */; };
-		64CD98E21A3042FD00040744 /* 图片蒙板小.png in Resources */ = {isa = PBXBuildFile; fileRef = 64CD98781A3042FD00040744 /* 图片蒙板小.png */; };
-		64CD98E31A3042FD00040744 /* 大图片框点击状态(50%的黑色透明）.png in Resources */ = {isa = PBXBuildFile; fileRef = 64CD98791A3042FD00040744 /* 大图片框点击状态(50%的黑色透明）.png */; };
-		64CD98E41A3042FD00040744 /* 小图片框点击状态(50%的黑色透明）.png in Resources */ = {isa = PBXBuildFile; fileRef = 64CD987A1A3042FD00040744 /* 小图片框点击状态(50%的黑色透明）.png */; };
-		64CD98E51A3042FD00040744 /* 弹窗.png in Resources */ = {isa = PBXBuildFile; fileRef = 64CD987B1A3042FD00040744 /* 弹窗.png */; };
-		64CD98E61A3042FD00040744 /* 弹窗正常状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 64CD987C1A3042FD00040744 /* 弹窗正常状态.png */; };
-		64CD98E71A3042FD00040744 /* 弹窗点击状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 64CD987D1A3042FD00040744 /* 弹窗点击状态.png */; };
-		64CD98E81A3042FD00040744 /* 排名区域大.png in Resources */ = {isa = PBXBuildFile; fileRef = 64CD987E1A3042FD00040744 /* 排名区域大.png */; };
-		64CD98E91A3042FD00040744 /* 排名区域小.png in Resources */ = {isa = PBXBuildFile; fileRef = 64CD987F1A3042FD00040744 /* 排名区域小.png */; };
-		64CD98EA1A3042FD00040744 /* 照片框大.png in Resources */ = {isa = PBXBuildFile; fileRef = 64CD98801A3042FD00040744 /* 照片框大.png */; };
-		64CD98EB1A3042FD00040744 /* 照片框小.png in Resources */ = {isa = PBXBuildFile; fileRef = 64CD98811A3042FD00040744 /* 照片框小.png */; };
-		64CD98EC1A3042FD00040744 /* 图片框大.png in Resources */ = {isa = PBXBuildFile; fileRef = 64CD98831A3042FD00040744 /* 图片框大.png */; };
-		64CD98ED1A3042FD00040744 /* 图片框小.png in Resources */ = {isa = PBXBuildFile; fileRef = 64CD98841A3042FD00040744 /* 图片框小.png */; };
-		64CD98EE1A3042FD00040744 /* 图片蒙板大.png in Resources */ = {isa = PBXBuildFile; fileRef = 64CD98851A3042FD00040744 /* 图片蒙板大.png */; };
-		64CD98EF1A3042FD00040744 /* 图片蒙板小.png in Resources */ = {isa = PBXBuildFile; fileRef = 64CD98861A3042FD00040744 /* 图片蒙板小.png */; };
-		64CD98F01A3042FD00040744 /* 大图片框点击状态(50%的黑色透明）.png in Resources */ = {isa = PBXBuildFile; fileRef = 64CD98871A3042FD00040744 /* 大图片框点击状态(50%的黑色透明）.png */; };
-		64CD98F11A3042FD00040744 /* 小图片框点击状态(50%的黑色透明）.png in Resources */ = {isa = PBXBuildFile; fileRef = 64CD98881A3042FD00040744 /* 小图片框点击状态(50%的黑色透明）.png */; };
-		64CD98F21A3042FD00040744 /* 弹窗.png in Resources */ = {isa = PBXBuildFile; fileRef = 64CD98891A3042FD00040744 /* 弹窗.png */; };
-		64CD98F31A3042FD00040744 /* 弹窗正常状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 64CD988A1A3042FD00040744 /* 弹窗正常状态.png */; };
-		64CD98F41A3042FD00040744 /* 弹窗点中状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 64CD988B1A3042FD00040744 /* 弹窗点中状态.png */; };
-		64CD98F51A3042FD00040744 /* 排名色块大.png in Resources */ = {isa = PBXBuildFile; fileRef = 64CD988C1A3042FD00040744 /* 排名色块大.png */; };
-		64CD98F61A3042FD00040744 /* 排名色块小.png in Resources */ = {isa = PBXBuildFile; fileRef = 64CD988D1A3042FD00040744 /* 排名色块小.png */; };
-		64CD98F71A3042FD00040744 /* 图片框大.png in Resources */ = {isa = PBXBuildFile; fileRef = 64CD988F1A3042FD00040744 /* 图片框大.png */; };
-		64CD98F81A3042FD00040744 /* 图片框小.png in Resources */ = {isa = PBXBuildFile; fileRef = 64CD98901A3042FD00040744 /* 图片框小.png */; };
-		64CD98F91A3042FD00040744 /* 图片蒙板大.png in Resources */ = {isa = PBXBuildFile; fileRef = 64CD98911A3042FD00040744 /* 图片蒙板大.png */; };
-		64CD98FA1A3042FD00040744 /* 图片蒙板小.png in Resources */ = {isa = PBXBuildFile; fileRef = 64CD98921A3042FD00040744 /* 图片蒙板小.png */; };
-		64CD98FB1A3042FD00040744 /* 大图片框点击状态(50%的黑色透明）.png in Resources */ = {isa = PBXBuildFile; fileRef = 64CD98931A3042FD00040744 /* 大图片框点击状态(50%的黑色透明）.png */; };
-		64CD98FC1A3042FD00040744 /* 小图片框点击状态(50%的黑色透明）.png in Resources */ = {isa = PBXBuildFile; fileRef = 64CD98941A3042FD00040744 /* 小图片框点击状态(50%的黑色透明）.png */; };
-		64CD98FD1A3042FD00040744 /* 弹窗.png in Resources */ = {isa = PBXBuildFile; fileRef = 64CD98951A3042FD00040744 /* 弹窗.png */; };
-		64CD98FE1A3042FD00040744 /* 弹窗正常状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 64CD98961A3042FD00040744 /* 弹窗正常状态.png */; };
-		64CD98FF1A3042FD00040744 /* 弹窗点中状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 64CD98971A3042FD00040744 /* 弹窗点中状态.png */; };
-		64CD99001A3042FD00040744 /* 排名色块大.png in Resources */ = {isa = PBXBuildFile; fileRef = 64CD98981A3042FD00040744 /* 排名色块大.png */; };
-		64CD99011A3042FD00040744 /* 排名色块小.png in Resources */ = {isa = PBXBuildFile; fileRef = 64CD98991A3042FD00040744 /* 排名色块小.png */; };
 		64CD991A1A3042FD00040744 /* 达人秀主页.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 64CD98B31A3042FD00040744 /* 达人秀主页.jpg */; };
 		64CD991B1A3042FD00040744 /* 下一级@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64CD98B61A3042FD00040744 /* 下一级@2x.png */; };
 		64CD991C1A3042FD00040744 /* 下一级@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64CD98B71A3042FD00040744 /* 下一级@3x.png */; };
@@ -398,6 +387,29 @@
 		64BEC4FA1A2D6D5F00931E0F /* NewMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewMainViewController.h; sourceTree = "<group>"; };
 		64BEC4FB1A2D6D5F00931E0F /* NewMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewMainViewController.m; sourceTree = "<group>"; };
 		64BEC4FE1A2D729400931E0F /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		64C726FD1A3575B300DFE28E /* imgbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imgbg.png; sourceTree = "<group>"; };
+		64C726FE1A3575B300DFE28E /* imgbg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "imgbg@2x.png"; sourceTree = "<group>"; };
+		64C726FF1A3575B300DFE28E /* rank2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rank2@2x.png"; sourceTree = "<group>"; };
+		64C727001A3575B300DFE28E /* rank@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rank@2x.png"; sourceTree = "<group>"; };
+		64C727011A3575B300DFE28E /* 图片蒙板大.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "图片蒙板大.png"; sourceTree = "<group>"; };
+		64C727021A3575B300DFE28E /* 图片蒙板小.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "图片蒙板小.png"; sourceTree = "<group>"; };
+		64C727031A3575B300DFE28E /* 大图片框点击状态(50%的黑色透明）.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "大图片框点击状态(50%的黑色透明）.png"; sourceTree = "<group>"; };
+		64C727041A3575B300DFE28E /* 小图片框点击状态(50%的黑色透明）.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "小图片框点击状态(50%的黑色透明）.png"; sourceTree = "<group>"; };
+		64C727051A3575B300DFE28E /* 弹窗@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "弹窗@2x.png"; sourceTree = "<group>"; };
+		64C727061A3575B300DFE28E /* 弹窗正常状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "弹窗正常状态.png"; sourceTree = "<group>"; };
+		64C727071A3575B300DFE28E /* 弹窗点中状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "弹窗点中状态.png"; sourceTree = "<group>"; };
+		64C727091A3575B300DFE28E /* imgbg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "imgbg@3x.png"; sourceTree = "<group>"; };
+		64C7270A1A3575B300DFE28E /* rank2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rank2@3x.png"; sourceTree = "<group>"; };
+		64C7270B1A3575B300DFE28E /* rank@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rank@3x.png"; sourceTree = "<group>"; };
+		64C7270C1A3575B300DFE28E /* 图片蒙板大.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "图片蒙板大.png"; sourceTree = "<group>"; };
+		64C7270D1A3575B300DFE28E /* 图片蒙板小.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "图片蒙板小.png"; sourceTree = "<group>"; };
+		64C7270E1A3575B300DFE28E /* 大图片框点击状态(50%的黑色透明）.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "大图片框点击状态(50%的黑色透明）.png"; sourceTree = "<group>"; };
+		64C7270F1A3575B300DFE28E /* 小图片框点击状态(50%的黑色透明）.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "小图片框点击状态(50%的黑色透明）.png"; sourceTree = "<group>"; };
+		64C727101A3575B300DFE28E /* 弹窗@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "弹窗@3x.png"; sourceTree = "<group>"; };
+		64C727111A3575B300DFE28E /* 弹窗正常状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "弹窗正常状态.png"; sourceTree = "<group>"; };
+		64C727121A3575B300DFE28E /* 弹窗点中状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "弹窗点中状态.png"; sourceTree = "<group>"; };
+		64C7272B1A358F5900DFE28E /* TopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopView.h; sourceTree = "<group>"; };
+		64C7272C1A358F5900DFE28E /* TopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopView.m; sourceTree = "<group>"; };
 		64CD98281A303B1500040744 /* BdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BdViewController.h; sourceTree = "<group>"; };
 		64CD98291A303B1500040744 /* BdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BdViewController.m; sourceTree = "<group>"; };
 		64CD982B1A303BF400040744 /* TodayLuckViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodayLuckViewController.h; sourceTree = "<group>"; };
@@ -445,39 +457,6 @@
 		64CD98721A3042FD00040744 /* iphone6+登陆底图.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iphone6+登陆底图.png"; sourceTree = "<group>"; };
 		64CD98731A3042FD00040744 /* iphone6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphone6.png; sourceTree = "<group>"; };
 		64CD98741A3042FD00040744 /* 登陆.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "登陆.jpg"; sourceTree = "<group>"; };
-		64CD98771A3042FD00040744 /* 图片蒙板大.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "图片蒙板大.png"; sourceTree = "<group>"; };
-		64CD98781A3042FD00040744 /* 图片蒙板小.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "图片蒙板小.png"; sourceTree = "<group>"; };
-		64CD98791A3042FD00040744 /* 大图片框点击状态(50%的黑色透明）.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "大图片框点击状态(50%的黑色透明）.png"; sourceTree = "<group>"; };
-		64CD987A1A3042FD00040744 /* 小图片框点击状态(50%的黑色透明）.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "小图片框点击状态(50%的黑色透明）.png"; sourceTree = "<group>"; };
-		64CD987B1A3042FD00040744 /* 弹窗.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "弹窗.png"; sourceTree = "<group>"; };
-		64CD987C1A3042FD00040744 /* 弹窗正常状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "弹窗正常状态.png"; sourceTree = "<group>"; };
-		64CD987D1A3042FD00040744 /* 弹窗点击状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "弹窗点击状态.png"; sourceTree = "<group>"; };
-		64CD987E1A3042FD00040744 /* 排名区域大.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "排名区域大.png"; sourceTree = "<group>"; };
-		64CD987F1A3042FD00040744 /* 排名区域小.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "排名区域小.png"; sourceTree = "<group>"; };
-		64CD98801A3042FD00040744 /* 照片框大.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "照片框大.png"; sourceTree = "<group>"; };
-		64CD98811A3042FD00040744 /* 照片框小.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "照片框小.png"; sourceTree = "<group>"; };
-		64CD98831A3042FD00040744 /* 图片框大.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "图片框大.png"; sourceTree = "<group>"; };
-		64CD98841A3042FD00040744 /* 图片框小.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "图片框小.png"; sourceTree = "<group>"; };
-		64CD98851A3042FD00040744 /* 图片蒙板大.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "图片蒙板大.png"; sourceTree = "<group>"; };
-		64CD98861A3042FD00040744 /* 图片蒙板小.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "图片蒙板小.png"; sourceTree = "<group>"; };
-		64CD98871A3042FD00040744 /* 大图片框点击状态(50%的黑色透明）.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "大图片框点击状态(50%的黑色透明）.png"; sourceTree = "<group>"; };
-		64CD98881A3042FD00040744 /* 小图片框点击状态(50%的黑色透明）.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "小图片框点击状态(50%的黑色透明）.png"; sourceTree = "<group>"; };
-		64CD98891A3042FD00040744 /* 弹窗.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "弹窗.png"; sourceTree = "<group>"; };
-		64CD988A1A3042FD00040744 /* 弹窗正常状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "弹窗正常状态.png"; sourceTree = "<group>"; };
-		64CD988B1A3042FD00040744 /* 弹窗点中状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "弹窗点中状态.png"; sourceTree = "<group>"; };
-		64CD988C1A3042FD00040744 /* 排名色块大.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "排名色块大.png"; sourceTree = "<group>"; };
-		64CD988D1A3042FD00040744 /* 排名色块小.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "排名色块小.png"; sourceTree = "<group>"; };
-		64CD988F1A3042FD00040744 /* 图片框大.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "图片框大.png"; sourceTree = "<group>"; };
-		64CD98901A3042FD00040744 /* 图片框小.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "图片框小.png"; sourceTree = "<group>"; };
-		64CD98911A3042FD00040744 /* 图片蒙板大.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "图片蒙板大.png"; sourceTree = "<group>"; };
-		64CD98921A3042FD00040744 /* 图片蒙板小.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "图片蒙板小.png"; sourceTree = "<group>"; };
-		64CD98931A3042FD00040744 /* 大图片框点击状态(50%的黑色透明）.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "大图片框点击状态(50%的黑色透明）.png"; sourceTree = "<group>"; };
-		64CD98941A3042FD00040744 /* 小图片框点击状态(50%的黑色透明）.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "小图片框点击状态(50%的黑色透明）.png"; sourceTree = "<group>"; };
-		64CD98951A3042FD00040744 /* 弹窗.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "弹窗.png"; sourceTree = "<group>"; };
-		64CD98961A3042FD00040744 /* 弹窗正常状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "弹窗正常状态.png"; sourceTree = "<group>"; };
-		64CD98971A3042FD00040744 /* 弹窗点中状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "弹窗点中状态.png"; sourceTree = "<group>"; };
-		64CD98981A3042FD00040744 /* 排名色块大.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "排名色块大.png"; sourceTree = "<group>"; };
-		64CD98991A3042FD00040744 /* 排名色块小.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "排名色块小.png"; sourceTree = "<group>"; };
 		64CD98B31A3042FD00040744 /* 达人秀主页.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "达人秀主页.jpg"; sourceTree = "<group>"; };
 		64CD98B61A3042FD00040744 /* 下一级@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "下一级@2x.png"; sourceTree = "<group>"; };
 		64CD98B71A3042FD00040744 /* 下一级@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "下一级@3x.png"; sourceTree = "<group>"; };
@@ -849,12 +828,49 @@
 			children = (
 				64BEC4FA1A2D6D5F00931E0F /* NewMainViewController.h */,
 				64BEC4FB1A2D6D5F00931E0F /* NewMainViewController.m */,
+				64C7272B1A358F5900DFE28E /* TopView.h */,
+				64C7272C1A358F5900DFE28E /* TopView.m */,
 				64CD99501A30487E00040744 /* MainCollectionViewCell.h */,
 				64CD99511A30487E00040744 /* MainCollectionViewCell.m */,
 				64CD99551A304F2A00040744 /* AddButton.h */,
 				64CD99561A304F2A00040744 /* AddButton.m */,
 			);
 			path = MainVC;
+			sourceTree = "<group>";
+		};
+		64C726FC1A3575B300DFE28E /* 640x1136 */ = {
+			isa = PBXGroup;
+			children = (
+				64C726FD1A3575B300DFE28E /* imgbg.png */,
+				64C726FE1A3575B300DFE28E /* imgbg@2x.png */,
+				64C726FF1A3575B300DFE28E /* rank2@2x.png */,
+				64C727001A3575B300DFE28E /* rank@2x.png */,
+				64C727011A3575B300DFE28E /* 图片蒙板大.png */,
+				64C727021A3575B300DFE28E /* 图片蒙板小.png */,
+				64C727031A3575B300DFE28E /* 大图片框点击状态(50%的黑色透明）.png */,
+				64C727041A3575B300DFE28E /* 小图片框点击状态(50%的黑色透明）.png */,
+				64C727051A3575B300DFE28E /* 弹窗@2x.png */,
+				64C727061A3575B300DFE28E /* 弹窗正常状态.png */,
+				64C727071A3575B300DFE28E /* 弹窗点中状态.png */,
+			);
+			path = 640x1136;
+			sourceTree = "<group>";
+		};
+		64C727081A3575B300DFE28E /* 750x1334 */ = {
+			isa = PBXGroup;
+			children = (
+				64C727091A3575B300DFE28E /* imgbg@3x.png */,
+				64C7270A1A3575B300DFE28E /* rank2@3x.png */,
+				64C7270B1A3575B300DFE28E /* rank@3x.png */,
+				64C7270C1A3575B300DFE28E /* 图片蒙板大.png */,
+				64C7270D1A3575B300DFE28E /* 图片蒙板小.png */,
+				64C7270E1A3575B300DFE28E /* 大图片框点击状态(50%的黑色透明）.png */,
+				64C7270F1A3575B300DFE28E /* 小图片框点击状态(50%的黑色透明）.png */,
+				64C727101A3575B300DFE28E /* 弹窗@3x.png */,
+				64C727111A3575B300DFE28E /* 弹窗正常状态.png */,
+				64C727121A3575B300DFE28E /* 弹窗点中状态.png */,
+			);
+			path = 750x1334;
 			sourceTree = "<group>";
 		};
 		64CD98211A303AE600040744 /* BD */ = {
@@ -978,66 +994,11 @@
 		64CD98751A3042FD00040744 /* MainVIewIcon */ = {
 			isa = PBXGroup;
 			children = (
-				64CD98761A3042FD00040744 /* 1242x2208 */,
-				64CD98821A3042FD00040744 /* 640x1136 */,
-				64CD988E1A3042FD00040744 /* 750x1334 */,
+				64C726FC1A3575B300DFE28E /* 640x1136 */,
+				64C727081A3575B300DFE28E /* 750x1334 */,
 				64CD98B31A3042FD00040744 /* 达人秀主页.jpg */,
 			);
 			path = MainVIewIcon;
-			sourceTree = "<group>";
-		};
-		64CD98761A3042FD00040744 /* 1242x2208 */ = {
-			isa = PBXGroup;
-			children = (
-				64CD98771A3042FD00040744 /* 图片蒙板大.png */,
-				64CD98781A3042FD00040744 /* 图片蒙板小.png */,
-				64CD98791A3042FD00040744 /* 大图片框点击状态(50%的黑色透明）.png */,
-				64CD987A1A3042FD00040744 /* 小图片框点击状态(50%的黑色透明）.png */,
-				64CD987B1A3042FD00040744 /* 弹窗.png */,
-				64CD987C1A3042FD00040744 /* 弹窗正常状态.png */,
-				64CD987D1A3042FD00040744 /* 弹窗点击状态.png */,
-				64CD987E1A3042FD00040744 /* 排名区域大.png */,
-				64CD987F1A3042FD00040744 /* 排名区域小.png */,
-				64CD98801A3042FD00040744 /* 照片框大.png */,
-				64CD98811A3042FD00040744 /* 照片框小.png */,
-			);
-			path = 1242x2208;
-			sourceTree = "<group>";
-		};
-		64CD98821A3042FD00040744 /* 640x1136 */ = {
-			isa = PBXGroup;
-			children = (
-				64CD98831A3042FD00040744 /* 图片框大.png */,
-				64CD98841A3042FD00040744 /* 图片框小.png */,
-				64CD98851A3042FD00040744 /* 图片蒙板大.png */,
-				64CD98861A3042FD00040744 /* 图片蒙板小.png */,
-				64CD98871A3042FD00040744 /* 大图片框点击状态(50%的黑色透明）.png */,
-				64CD98881A3042FD00040744 /* 小图片框点击状态(50%的黑色透明）.png */,
-				64CD98891A3042FD00040744 /* 弹窗.png */,
-				64CD988A1A3042FD00040744 /* 弹窗正常状态.png */,
-				64CD988B1A3042FD00040744 /* 弹窗点中状态.png */,
-				64CD988C1A3042FD00040744 /* 排名色块大.png */,
-				64CD988D1A3042FD00040744 /* 排名色块小.png */,
-			);
-			path = 640x1136;
-			sourceTree = "<group>";
-		};
-		64CD988E1A3042FD00040744 /* 750x1334 */ = {
-			isa = PBXGroup;
-			children = (
-				64CD988F1A3042FD00040744 /* 图片框大.png */,
-				64CD98901A3042FD00040744 /* 图片框小.png */,
-				64CD98911A3042FD00040744 /* 图片蒙板大.png */,
-				64CD98921A3042FD00040744 /* 图片蒙板小.png */,
-				64CD98931A3042FD00040744 /* 大图片框点击状态(50%的黑色透明）.png */,
-				64CD98941A3042FD00040744 /* 小图片框点击状态(50%的黑色透明）.png */,
-				64CD98951A3042FD00040744 /* 弹窗.png */,
-				64CD98961A3042FD00040744 /* 弹窗正常状态.png */,
-				64CD98971A3042FD00040744 /* 弹窗点中状态.png */,
-				64CD98981A3042FD00040744 /* 排名色块大.png */,
-				64CD98991A3042FD00040744 /* 排名色块小.png */,
-			);
-			path = 750x1334;
 			sourceTree = "<group>";
 		};
 		64CD98B41A3042FD00040744 /* registerIcon */ = {
@@ -1169,7 +1130,6 @@
 				2F2116B41A25B64A009B21EB /* 筛选－正常.png in Resources */,
 				64CD99321A3042FD00040744 /* iphone6+底图.png in Resources */,
 				2F2116DD1A25B64A009B21EB /* 星友说－正常.png in Resources */,
-				64CD98EE1A3042FD00040744 /* 图片蒙板大.png in Resources */,
 				2F2116EB1A25B64A009B21EB /* 达人秀－选中.png in Resources */,
 				2F2116C31A25B64A009B21EB /* 菜单栏点击状态.png in Resources */,
 				64CD98DF1A3042FD00040744 /* iphone6.png in Resources */,
@@ -1177,23 +1137,22 @@
 				64CD99211A3042FD00040744 /* 删除按钮选中状态@2x.png in Resources */,
 				64CD98D01A3042FD00040744 /*  微博图标@2x.png in Resources */,
 				64CD99261A3042FD00040744 /* 密码图标@3x.png in Resources */,
+				64C727221A3575B300DFE28E /* 图片蒙板小.png in Resources */,
 				64CD98551A30429800040744 /* 天秤座@3x.png in Resources */,
 				2F2116B81A25B64A009B21EB /* 添加按钮点击状态.png in Resources */,
-				64CD98F31A3042FD00040744 /* 弹窗正常状态.png in Resources */,
 				2FC71FCA1A27217B002BB2C5 /* 菜单栏点击状态.png in Resources */,
+				64C727191A3575B300DFE28E /* 大图片框点击状态(50%的黑色透明）.png in Resources */,
 				2FC71FB21A27217B002BB2C5 /* 灰色底框.png in Resources */,
 				64CD99251A3042FD00040744 /* 密码图标@2x.png in Resources */,
-				64CD98FE1A3042FD00040744 /* 弹窗正常状态.png in Resources */,
-				64CD98F91A3042FD00040744 /* 图片蒙板大.png in Resources */,
 				2F2116B51A25B64A009B21EB /* 导航条.png in Resources */,
 				64CD98E01A3042FD00040744 /* 登陆.jpg in Resources */,
+				64C7271D1A3575B300DFE28E /* 弹窗点中状态.png in Resources */,
 				2FC71FED1A28556E002BB2C5 /* 头像_02.png in Resources */,
-				64CD98FA1A3042FD00040744 /* 图片蒙板小.png in Resources */,
 				2F2116E41A25B64A009B21EB /* 星资讯－正常.png in Resources */,
 				64CD99201A3042FD00040744 /* 删除按钮正常状态@3x.png in Resources */,
 				2F2116DE1A25B64A009B21EB /* 星友说－选中.png in Resources */,
 				64CD98581A30429800040744 /* 射手座@2x.png in Resources */,
-				64CD98E61A3042FD00040744 /* 弹窗正常状态.png in Resources */,
+				64C727201A3575B300DFE28E /* rank@3x.png in Resources */,
 				2F2116CB1A25B64A009B21EB /* 菜单栏点击状态.png in Resources */,
 				2F21163C1A25B5A2009B21EB /* LaunchScreen.xib in Resources */,
 				2FC71FCB1A27217B002BB2C5 /* 星座主页面.png in Resources */,
@@ -1202,9 +1161,7 @@
 				2F2116B91A25B64A009B21EB /* 菜单栏正常状态.png in Resources */,
 				64CD98D91A3042FD00040744 /* 线条@3x.png in Resources */,
 				2F2116D31A25B64A009B21EB /* 测试－轮播03_02.png in Resources */,
-				64CD98F11A3042FD00040744 /* 小图片框点击状态(50%的黑色透明）.png in Resources */,
 				2F2116C81A25B64A009B21EB /* 灰色底框.png in Resources */,
-				64CD98EA1A3042FD00040744 /* 照片框大.png in Resources */,
 				2FC71FB11A27217B002BB2C5 /* 发布－正常.png in Resources */,
 				64CD992A1A3042FD00040744 /* 正常文字框@3x.png in Resources */,
 				2FC71FBE1A27217B002BB2C5 /* news0.png in Resources */,
@@ -1213,24 +1170,25 @@
 				2FC71FC91A27217B002BB2C5 /* top3.png in Resources */,
 				2F2116EA1A25B64A009B21EB /* 达人秀－正常.png in Resources */,
 				2F2116C01A25B64A009B21EB /* 筛选按钮正常状态.png in Resources */,
+				64C727161A3575B300DFE28E /* rank@2x.png in Resources */,
 				2FC71FC11A27217B002BB2C5 /* news3.png in Resources */,
 				64CD985F1A30429800040744 /* 狮子座@2x.png in Resources */,
 				64CD98521A30429800040744 /* 处女座@2x.png in Resources */,
 				64CD99271A3042FD00040744 /* 忘记密码@2x.png in Resources */,
-				64CD98FD1A3042FD00040744 /* 弹窗.png in Resources */,
 				2F2116BB1A25B64A009B21EB /* 发布－按下.png in Resources */,
-				64CD98E41A3042FD00040744 /* 小图片框点击状态(50%的黑色透明）.png in Resources */,
-				64CD98E81A3042FD00040744 /* 排名区域大.png in Resources */,
 				64CD98D21A3042FD00040744 /* QQ图标@3x.png in Resources */,
 				2FC71FBB1A27217B002BB2C5 /* fs_nr.png in Resources */,
+				64C727251A3575B300DFE28E /* 弹窗@3x.png in Resources */,
 				64CD98D31A3042FD00040744 /* 微信图标@2x.png in Resources */,
 				2F2116391A25B5A2009B21EB /* Images.xcassets in Resources */,
-				64CD98FC1A3042FD00040744 /* 小图片框点击状态(50%的黑色透明）.png in Resources */,
 				2FC71FAD1A27217B002BB2C5 /* 3.png in Resources */,
+				64C727241A3575B300DFE28E /* 小图片框点击状态(50%的黑色透明）.png in Resources */,
 				64CD98611A30429800040744 /* 金牛座@2x.png in Resources */,
 				64CD98D51A3042FD00040744 /* 微博图标@3x.png in Resources */,
+				64C727151A3575B300DFE28E /* rank2@2x.png in Resources */,
 				2F2116BE1A25B64A009B21EB /* 导航条.png in Resources */,
 				2F2116E11A25B64A009B21EB /* 星文－按下.png in Resources */,
+				64C727181A3575B300DFE28E /* 图片蒙板小.png in Resources */,
 				64CD99281A3042FD00040744 /* 忘记密码@3x.png in Resources */,
 				64CD99231A3042FD00040744 /* 头像设置@2x.png in Resources */,
 				64CD985B1A30429800040744 /* 摩羯座@3x.png in Resources */,
@@ -1242,22 +1200,16 @@
 				2F2116E81A25B64A009B21EB /* 背景.png in Resources */,
 				64CD98DC1A3042FD00040744 /* iPhone4底图.png in Resources */,
 				2F2116F31A25B64A009B21EB /* 弹窗.png in Resources */,
+				64C727211A3575B300DFE28E /* 图片蒙板大.png in Resources */,
 				2F2116CC1A25B64A009B21EB /* 蓝色进度条(＃1cb4f6).png in Resources */,
-				64CD98F71A3042FD00040744 /* 图片框大.png in Resources */,
-				64CD98EB1A3042FD00040744 /* 照片框小.png in Resources */,
 				64CD99311A3042FD00040744 /* iphone5底图.png in Resources */,
 				64CD98D61A3042FD00040744 /* 正常文字框@2x.png in Resources */,
 				2F2116C91A25B64A009B21EB /* 灰色底框阴影线条.png in Resources */,
 				2F2116E31A25B64A009B21EB /* 星资讯－按下.png in Resources */,
-				64CD98EC1A3042FD00040744 /* 图片框大.png in Resources */,
-				64CD98FB1A3042FD00040744 /* 大图片框点击状态(50%的黑色透明）.png in Resources */,
 				2FC71FC21A27217B002BB2C5 /* say0.png in Resources */,
 				64CD98DA1A3042FD00040744 /* 选中文字框@2x.png in Resources */,
 				2F2116DB1A25B64A009B21EB /* 星友圈－正常.png in Resources */,
-				64CD98E91A3042FD00040744 /* 排名区域小.png in Resources */,
 				64CD98501A30429800040744 /* 双鱼座@2x.png in Resources */,
-				64CD98E31A3042FD00040744 /* 大图片框点击状态(50%的黑色透明）.png in Resources */,
-				64CD98E71A3042FD00040744 /* 弹窗点击状态.png in Resources */,
 				64CD98DE1A3042FD00040744 /* iphone6+登陆底图.png in Resources */,
 				2FC71FC81A27217B002BB2C5 /* top2.png in Resources */,
 				2F2116B61A25B64A009B21EB /* 星友页面ios.png in Resources */,
@@ -1266,23 +1218,19 @@
 				64CD985A1A30429800040744 /* 摩羯座@2x.png in Resources */,
 				64CD98D71A3042FD00040744 /* 正常文字框@3x.png in Resources */,
 				2F2116DF1A25B64A009B21EB /* 星友－按下.png in Resources */,
-				64CD98EF1A3042FD00040744 /* 图片蒙板小.png in Resources */,
 				64CD98601A30429800040744 /* 白羊座@3x.png in Resources */,
+				64C7271B1A3575B300DFE28E /* 弹窗@2x.png in Resources */,
 				2F2116D41A25B64A009B21EB /* 转发－按下.png in Resources */,
-				64CD98F51A3042FD00040744 /* 排名色块大.png in Resources */,
 				2FC71FAE1A27217B002BB2C5 /* 菜单栏正常状态.png in Resources */,
 				64CD985D1A30429800040744 /* 水瓶座@3x.png in Resources */,
 				2FC71FBF1A27217B002BB2C5 /* news1.png in Resources */,
 				2F2116F61A25B64A009B21EB /* 菜单栏点击状态.png in Resources */,
 				64CD99221A3042FD00040744 /* 删除按钮选中状态@3x.png in Resources */,
 				64CD98541A30429800040744 /* 天秤座@2x.png in Resources */,
-				64CD98F21A3042FD00040744 /* 弹窗.png in Resources */,
 				64CD984C1A30429800040744 /*  白羊座@2x.png in Resources */,
 				2F2116E21A25B64A009B21EB /* 星文－正常.png in Resources */,
 				2F2116CE1A25B64A009B21EB /* 订阅－按下.png in Resources */,
 				2FC71FB31A27217B002BB2C5 /* 灰色底框阴影线条.png in Resources */,
-				64CD98E21A3042FD00040744 /* 图片蒙板小.png in Resources */,
-				64CD98F41A3042FD00040744 /* 弹窗点中状态.png in Resources */,
 				2F2116DA1A25B64A009B21EB /* 星友圈－按下.png in Resources */,
 				2F2116B11A25B64A009B21EB /* 今日运势_03.png in Resources */,
 				2F2116BA1A25B64A009B21EB /* 菜单栏点击状态.png in Resources */,
@@ -1295,9 +1243,11 @@
 				2F2116E51A25B64A009B21EB /* 星资讯－选中.png in Resources */,
 				2FC71FCC1A27217B002BB2C5 /* blackView.png in Resources */,
 				2F2116B31A25B64A009B21EB /* 筛选－按下.png in Resources */,
-				64CD98F61A3042FD00040744 /* 排名色块小.png in Resources */,
 				64CD984F1A30429800040744 /* 双子座@2x.png in Resources */,
+				64C7271C1A3575B300DFE28E /* 弹窗正常状态.png in Resources */,
+				64C727271A3575B300DFE28E /* 弹窗点中状态.png in Resources */,
 				64CD98531A30429800040744 /* 处女座@3x.png in Resources */,
+				64C727231A3575B300DFE28E /* 大图片框点击状态(50%的黑色透明）.png in Resources */,
 				2FC71FAC1A27217B002BB2C5 /* 2.png in Resources */,
 				2F2116B01A25B64A009B21EB /* 今日运势_02.png in Resources */,
 				2FC71FB71A27217B002BB2C5 /* 星友圈.png in Resources */,
@@ -1316,35 +1266,31 @@
 				2F2116FC1A25B64A009B21EB /* MenuViewController.xib in Resources */,
 				2F2116BF1A25B64A009B21EB /* 星友圈－发现首页ios版本.png in Resources */,
 				64CD99541A304CD500040744 /* 1.jpg in Resources */,
+				64C7271F1A3575B300DFE28E /* rank2@3x.png in Resources */,
 				2F2116DC1A25B64A009B21EB /* 星友说－按下.png in Resources */,
 				2F2116C51A25B64A009B21EB /* 星座宝典传说ios.png in Resources */,
 				64CD98D81A3042FD00040744 /* 线条@2x.png in Resources */,
-				64CD98E51A3042FD00040744 /* 弹窗.png in Resources */,
 				64CD99291A3042FD00040744 /* 正常文字框@2x.png in Resources */,
 				2FC71FB61A27217B002BB2C5 /* 添加按钮点击状态.png in Resources */,
 				2FC71FB81A27217B002BB2C5 /* 星友页面ios.png in Resources */,
-				64CD99001A3042FD00040744 /* 排名色块大.png in Resources */,
 				2FC71FB01A27217B002BB2C5 /* 发布－按下.png in Resources */,
 				64CD98D11A3042FD00040744 /* QQ图标@2x.png in Resources */,
 				64CD98591A30429800040744 /* 射手座@3x.png in Resources */,
 				2FC71FB41A27217B002BB2C5 /* 蓝色进度条(＃1cb4f6).png in Resources */,
-				64CD98FF1A3042FD00040744 /* 弹窗点中状态.png in Resources */,
 				64CD99331A3042FD00040744 /* iphone6底图.png in Resources */,
 				2F2116D91A25B64A009B21EB /* 宝典－正常.png in Resources */,
 				2F2116D11A25B64A009B21EB /* 测试－轮播01_02.png in Resources */,
+				64C727261A3575B300DFE28E /* 弹窗正常状态.png in Resources */,
 				2F2116ED1A25B64A009B21EB /* 运势－正常.png in Resources */,
 				2F2116C21A25B64A009B21EB /* 菜单栏正常状态.png in Resources */,
 				2FC71FC31A27217B002BB2C5 /* say1.png in Resources */,
 				2F2116BC1A25B64A009B21EB /* 发布－正常.png in Resources */,
 				64CD991B1A3042FD00040744 /* 下一级@2x.png in Resources */,
 				2F2116C11A25B64A009B21EB /* 筛选按钮点击状态.png in Resources */,
-				64CD99011A3042FD00040744 /* 排名色块小.png in Resources */,
-				64CD98F01A3042FD00040744 /* 大图片框点击状态(50%的黑色透明）.png in Resources */,
 				2F2116B21A25B64A009B21EB /* 概述.docx in Resources */,
+				64C7271E1A3575B300DFE28E /* imgbg@3x.png in Resources */,
 				64CD991F1A3042FD00040744 /* 删除按钮正常状态@2x.png in Resources */,
-				64CD98E11A3042FD00040744 /* 图片蒙板大.png in Resources */,
 				2FC71FC71A27217B002BB2C5 /* top1.png in Resources */,
-				64CD98ED1A3042FD00040744 /* 图片框小.png in Resources */,
 				2F2116CF1A25B64A009B21EB /* 订阅－正常.png in Resources */,
 				2FC71FC01A27217B002BB2C5 /* news2.png in Resources */,
 				64CD991D1A3042FD00040744 /* 下一级选中状态@2x.png in Resources */,
@@ -1355,16 +1301,19 @@
 				64CD985C1A30429800040744 /* 水瓶座@2x.png in Resources */,
 				2F2116E91A25B64A009B21EB /* 达人秀－按下.png in Resources */,
 				2F2116F51A25B64A009B21EB /* 菜单栏正常状态.png in Resources */,
+				64C7271A1A3575B300DFE28E /* 小图片框点击状态(50%的黑色透明）.png in Resources */,
 				64CD992F1A3042FD00040744 /* 选中文字框@2x.png in Resources */,
-				64CD98F81A3042FD00040744 /* 图片框小.png in Resources */,
 				64CD99301A3042FD00040744 /* 选中文字框@3x.png in Resources */,
 				2F2116EE1A25B64A009B21EB /* 大图片框未点击状态.png in Resources */,
 				2FC71FBC1A27217B002BB2C5 /* fs_sx.png in Resources */,
 				64CD992D1A3042FD00040744 /* 超过60秒文字框@2x.png in Resources */,
+				64C727171A3575B300DFE28E /* 图片蒙板大.png in Resources */,
 				2F2116D71A25B64A009B21EB /* 发现－正常.png in Resources */,
+				64C727141A3575B300DFE28E /* imgbg@2x.png in Resources */,
 				64CD992E1A3042FD00040744 /* 超过60秒文字框@3x.png in Resources */,
 				2FC71FC61A27217B002BB2C5 /* todayYs2.png in Resources */,
 				64CD98DD1A3042FD00040744 /* iphone5底图.png in Resources */,
+				64C727131A3575B300DFE28E /* imgbg.png in Resources */,
 				2FC71FBD1A27217B002BB2C5 /* fs_top.png in Resources */,
 				2F2116E71A25B64A009B21EB /* 测试－正常.png in Resources */,
 				2F2116E01A25B64A009B21EB /* 星友－正常.png in Resources */,
@@ -1391,6 +1340,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64C7272D1A358F5900DFE28E /* TopView.m in Sources */,
 				64CD982D1A303BF400040744 /* TodayLuckViewController.m in Sources */,
 				2F2116F81A25B64A009B21EB /* UIViewController+JDSideMenu.m in Sources */,
 				2F2116FB1A25B64A009B21EB /* MenuViewController.m in Sources */,
@@ -1531,6 +1481,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Horoscope/PrefixHeader.pch";
 				INFOPLIST_FILE = Horoscope/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1548,6 +1499,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Horoscope/PrefixHeader.pch";
 				INFOPLIST_FILE = Horoscope/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

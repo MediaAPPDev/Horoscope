@@ -17,7 +17,15 @@
 #import "StarVcViewController.h"
 #import "TestViewController.h"
 #import "JDSideMenu.h"
+#import "MainViewController.h"
+
+
 #import "NewMainViewController.h"
+#import "TodayLuckViewController.h"
+#import "BdViewController.h"
+#import "XWViewController.h"
+
+
 @interface MenuViewController ()
 {
     UIButton * newsButton;
