@@ -51,15 +51,19 @@
         cell2.layer.masksToBounds = YES;
         cell2.layer.cornerRadius = 6.0;
         cell2.layer.borderWidth = 1.0;
+        
         cell3.layer.masksToBounds = YES;
         cell3.layer.cornerRadius = 6.0;
         cell3.layer.borderWidth = 1.0;
+        
         cell4.layer.masksToBounds = YES;
         cell4.layer.cornerRadius = 6.0;
         cell4.layer.borderWidth = 1.0;
+        
         cell5.layer.masksToBounds = YES;
         cell5.layer.cornerRadius = 6.0;
         cell5.layer.borderWidth = 1.0;
+        
         cell6.layer.masksToBounds = YES;
         cell6.layer.cornerRadius = 6.0;
         cell6.layer.borderWidth = 1.0;
