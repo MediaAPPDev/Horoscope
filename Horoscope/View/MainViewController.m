@@ -30,10 +30,11 @@
     [self buildTopviewWithBackButton:NO title:@"星座达人秀 - TOP" rightImage:@""];
     
     UIScrollView *contentScl = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height)];
-    contentScl.contentSize = CGSizeMake(0,1054);
+    contentScl.contentSize = CGSizeMake(0,1120);
+
     [self.view addSubview:contentScl];
     
-    UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 375, 1054)];
+    UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 1054)];
     imageView.image = [UIImage imageNamed:@"星座主页面"];
     [contentScl addSubview:imageView];
     NSLog(@"%f---%f",self.view.bounds.size.width,self.view.bounds.size.height);

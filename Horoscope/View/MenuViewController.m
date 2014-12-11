@@ -18,6 +18,7 @@
 #import "TestViewController.h"
 #import "JDSideMenu.h"
 #import "NewMainViewController.h"
+//#import "ma"
 @interface MenuViewController ()
 {
     UIButton * newsButton;
@@ -249,8 +250,8 @@
 
 - (IBAction)superShown:(id)sender
 {
-//    MainViewController *mainVC =[[ MainViewController alloc]init];
-    NewMainViewController *mainVC = [[NewMainViewController alloc]init];
+    MainViewController *mainVC =[[ MainViewController alloc]init];
+//    NewMainViewController *mainVC = [[NewMainViewController alloc]init];
     [self.sideMenuController setContentController:mainVC animated:YES];
     
     [_showView setHidden:YES];
