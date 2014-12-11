@@ -15,8 +15,9 @@
     if (self) {
         
         UIImageView *bgImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
-        bgImageView.image = KUIImage(@"imgbg");
+//        bgImageView.image = KUIImage(@"imgbg");
 //        bgImageView.backgroundColor = [UIColor redColor];
+        bgImageView.backgroundColor = UIColorFromRGBA(0x2f2f2f, 1);
         [self addSubview:bgImageView];
         
         self.MainImageView =[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.width-10)];

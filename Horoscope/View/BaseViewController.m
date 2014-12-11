@@ -20,32 +20,32 @@
  */
 -(void)buildTopviewWithBackButton:(BOOL)isHave title:(NSString *)title rightImage:(NSString *)rightImage
 {
-    UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 64)];
+    UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, KISHighVersion_7?64:44)];
     imageView.backgroundColor = [UIColor colorWithRed:0/225.0f green:0/225.0f blue:0/225.0f alpha:1];
     imageView.image =[UIImage imageNamed:@""];
     imageView.userInteractionEnabled =  YES;
     [self.view addSubview:imageView];
     
-    
-//    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(70, 20, self.view.bounds.size.width-140, 44)];
-    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(70, 20, self.view.bounds.size.width-140, 44)];
+    //    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(70, 20, self.view.bounds.size.width-140, 44)];
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(70, KISHighVersion_7?20:0, self.view.bounds.size.width-140, 44)];
     label.text = title;
     label.font = [UIFont boldSystemFontOfSize:22];
     label.textAlignment =NSTextAlignmentCenter;
     label.backgroundColor= [UIColor clearColor];
+
     label.textColor = [UIColor whiteColor];
     
     [imageView addSubview:label];
     
     
-    _leftButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 20, 60, 44)];
+    _leftButton = [[UIButton alloc]initWithFrame:CGRectMake(0, KISHighVersion_7?20:0, 60, 44)];
     [_leftButton setImage:[UIImage imageNamed:@"emnu.png"] forState:UIControlStateNormal];
     [imageView addSubview:_leftButton];
     
     
 //    [leftButton addTarget:self action:@selector(tapTheLeftButton:) forControlEvents:UIControlEventTouchUpInside];
     
-    UIButton *rightButton = [[UIButton alloc]initWithFrame:CGRectMake(self.view.bounds.size.width-60, 20, 60, 44)];
+    UIButton *rightButton = [[UIButton alloc]initWithFrame:CGRectMake(self.view.bounds.size.width-60, KISHighVersion_7?20:0, 60, 44)];
     
     [rightButton setImage:[UIImage imageNamed:rightImage] forState:UIControlStateNormal];
     if (isHave) {
@@ -84,6 +84,27 @@
 //    
 //}
 
+
+
+/*
+ 
+ 这玩意先不用
+ */
+-(float)niub:(float)a
+{
+    if (KScreenWidth==320) {
+        return a;
+    }
+    else if(KScreenWidth ==375){
+        return a/320*375;
+    }else
+    {
+        return a/320*414;
+    }
+}
+
+
+
 -(void)buildScrollViewWithFrame:(CGRect)frame contentSize:(CGSize)size Image:(NSString *)image
 {
     UIScrollView *scrollView = [[UIScrollView alloc]initWithFrame:frame];
@@ -96,4 +117,22 @@
     imageView.image = [UIImage imageNamed:image];
     [scrollView addSubview:imageView];
 }
+
+
+-(UILabel *)buildLabelWithFrame:(CGRect)frame backgroundColor:(UIColor *)backgroundColor textColor:(UIColor *)textClolr font:(UIFont *)font textAlignment:(NSTextAlignment)alignment text:(NSString*)text
+{
+    UILabel *label = [[UILabel alloc]initWithFrame:frame];
+    label.backgroundColor =backgroundColor;
+    label.textColor =textClolr;
+    label.font = font;
+    label.textAlignment = alignment;
+    label.text = text;
+    return label;
+}
+
+
+
+
+
+
 @end

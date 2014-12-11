@@ -14,5 +14,15 @@
 -(void)buildTopviewWithBackButton:(BOOL)isHave title:(NSString *)title rightImage:(NSString *)rightImage;
 -(void)buildScrollViewWithFrame:(CGRect)frame contentSize:(CGSize)size Image:(NSString *)image;
 - (void) gotoViews;
+-(float)niub:(float)a;
+
+
+/*
+ 
+ 创建Label快捷方式
+ */
+
+-(UILabel *)buildLabelWithFrame:(CGRect)frame backgroundColor:(UIColor *)backgroundColor textColor:(UIColor *)textClolr font:(UIFont *)font textAlignment:(NSTextAlignment)alignment text:(NSString*)text;
+
 @property(nonatomic,strong) UIButton * leftButton;
 @end

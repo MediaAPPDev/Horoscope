@@ -157,7 +157,8 @@
         StarDicController * starVC =[[StarDicController alloc]init];
         FindViewController * findVC =[[FindViewController alloc]init];
         FriendLoopViewController * friendLoop =[[FriendLoopViewController alloc]init];
-        TodayViewController * todayVC =[[TodayViewController alloc]init];
+//        TodayViewController * todayVC =[[TodayViewController alloc]init];
+    TodayLuckViewController *todayVC =[[TodayLuckViewController alloc]init];
         ZoneViewController * zoneVC =[[ZoneViewController alloc]init];
     
     StarVcViewController *svc= [[StarVcViewController alloc]init];
