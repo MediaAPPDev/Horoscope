@@ -258,8 +258,8 @@
 
 - (IBAction)superShown:(id)sender
 {
-//    MainViewController *mainVC =[[ MainViewController alloc]init];
-    NewMainViewController *mainVC = [[NewMainViewController alloc]init];
+    MainViewController *mainVC =[[ MainViewController alloc]init];
+//    NewMainViewController *mainVC = [[NewMainViewController alloc]init];
     [self.sideMenuController setContentController:mainVC animated:YES];
     
     [_showView setHidden:YES];
