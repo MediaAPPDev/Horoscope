@@ -18,6 +18,7 @@
 #import "TestViewController.h"
 #import "JDSideMenu.h"
 #import "MainViewController.h"
+#import "LoginViewController.h"
 
 
 #import "NewMainViewController.h"
@@ -53,7 +54,7 @@
 {
     
     //星座资讯 布局
-    for (int i=0 ; i<4; i++) {
+    for (int i=0 ; i<5; i++) {
         newsButton =[UIButton buttonWithType:UIButtonTypeSystem];
         //       button.frame =CGRectMake(self.superShow.frame.origin.x, self.superShow.frame.origin.y+55*(i+1), self.superShow.frame.size.width, self.superShow.frame.size.height);
         
@@ -109,7 +110,7 @@
 //星座资讯
 - (IBAction)news:(id)sender
 {
-      for (int i=0 ; i<4; i++) {
+      for (int i=0 ; i<5; i++) {
     [UIView animateWithDuration:0.5+i*0.1 animations:^{
         
    
@@ -119,11 +120,9 @@
          
 //        NSTimer * timeer= [NSTimer scheduledTimerWithTimeInterval:i+10 target:self selector:@selector(<#selector#>) userInfo:<#(id)#> repeats:<#(BOOL)#>]
         
-        
-        
-    
-        
+
     } completion:^(BOOL finished) {
+        
         
     }];
           
@@ -134,7 +133,7 @@
     //    还原
     [UIView animateWithDuration:0.5 animations:^{
         
-        for (int i=0 ; i<3; i++) {
+        for (int i=0 ; i<4; i++) {
             
             UIButton * button =(UIButton * )[self.view viewWithTag:i+20];
             button.frame =CGRectMake(0+self.view.bounds.size.width+self.view.bounds.size.width, 0+50*i, self.superShow.frame.size.width, self.superShow.frame.size.height-10);
@@ -165,7 +164,10 @@
     
     TestViewController *testVC =[[TestViewController alloc]init];
     
-
+    LoginViewController * loginVC =[[LoginViewController alloc]init];
+    
+    
+    
     
     switch (btn.tag) {
             //星咨询 10开头
@@ -192,6 +194,25 @@
             //测试
     [self.sideMenuController setContentController:testVC animated:YES];
             break;
+            
+            
+        case 14:
+            
+            //注册
+            
+            
+ 
+            [self.sideMenuController setContentController:loginVC animated:YES];
+            
+            [btn setTitle:@"testsets" forState:UIControlStateNormal];
+            
+            
+            
+            break;
+            
+
+            
+            
 //            星友说 20开头
         case 20:
 //            发现
