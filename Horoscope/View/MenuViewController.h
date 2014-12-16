@@ -15,5 +15,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *backImage;
 @property (weak, nonatomic) IBOutlet UIView *newsView;
 @property (weak, nonatomic) IBOutlet UIView *showView;
+- (IBAction)didClickMine:(UIButton *)sender;
 
 @end

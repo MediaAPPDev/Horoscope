@@ -10,6 +10,7 @@
 #import "MainCollectionViewCell.h"
 #import "AddButton.h"
 #import "TopView.h"
+#import "MineViewController.h"
 @interface NewMainViewController ()
 {
     UICollectionView * m_CollView;
@@ -24,6 +25,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
+    
+    
     
     [self buildTopviewWithBackButton:NO title:@"星座达人秀 - TOP" rightImage:@""];
     
@@ -93,6 +97,8 @@
     
     if (kind == UICollectionElementKindSectionHeader) {
         titleView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"headViewww" forIndexPath:indexPath];
+        [(TopView *)titleView addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(customViewDidClick:)]];
+        
         }
     return titleView;
 
@@ -126,6 +132,29 @@
 //    return CGSizeMake(width(self.view)/3, width(self.view)/3+10 );
 //}
 
+
+-(void)customViewDidClick:(id)sender
+{
+    [UIView animateWithDuration:0.5 animations:^{
+        ccButton.frame =CGRectMake(0, 400, 307, 72);
+        
+    } completion:^(BOOL finished) {
+    }];
+    ccButton.tag = 100;
+    
+    blackImageView.hidden = NO;
+    ccButton.hidden = NO;
+    ccButton.constellationLab.text = @"白羊座";
+    ccButton.constellationImg.image = KUIImage(@"白羊座");
+    ccButton.nameLab.text = @"昵称:奥妮克希亚";
+    ccButton.lineLab.text = @"you can do it no zuo no die why you try?";
+    // 透明界面出现  添加点击手势
+    [blackImageView addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(didHiddenBlView:)]];
+
+}
+
+
+
 //点击元素触发事件
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"%@",indexPath);
@@ -136,7 +165,7 @@
         
     } completion:^(BOOL finished) {
     }];
-    ccButton.tag = 100+indexPath.row;
+    ccButton.tag = 100+indexPath.row+7;
     
     blackImageView.hidden = NO;
     ccButton.hidden = NO;
@@ -191,8 +220,15 @@
 -(void)didClickTap:(UIButton *)sender
 {
     NSLog(@"%ld",(long)ccButton.tag);
- 
+    MineViewController *mineView = [[MineViewController alloc]init];
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:self];
+    nav.navigationBarHidden= YES;
     
+    [nav pushViewController:mineView animated:YES];
+    
+//    [self presentViewController:mineView animated:YES completion:^{
+    
+//    }];
     
     
 }

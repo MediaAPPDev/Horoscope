@@ -29,6 +29,9 @@
 #define x(m) m.frame.origin.x
 #define y(m) m.frame.origin.y
 
+#define sx(m) width(m) + x(m)
+#define sy(m) height(m) + y(m)
+
 //屏幕宽高
 #define KScreenWidth [[UIScreen mainScreen] bounds].size.width
 #define KScreenHeight [[UIScreen mainScreen] bounds].size.height

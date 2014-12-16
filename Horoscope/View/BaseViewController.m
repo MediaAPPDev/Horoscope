@@ -14,6 +14,19 @@
 //#import "JDSideMenu.h"
 @implementation BaseViewController
 
+-(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    if (self) {
+        self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+        
+        
+        UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:self];
+        
+        nav.navigationBarHidden = YES;
+    }
+    return self;
+}
+
 
 /*
  创建tabbar头条快捷方式

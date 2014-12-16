@@ -17,15 +17,18 @@
 #import "StarVcViewController.h"
 #import "TestViewController.h"
 #import "JDSideMenu.h"
+<<<<<<< Updated upstream
 #import "MainViewController.h"
 #import "LoginViewController.h"
+=======
+>>>>>>> Stashed changes
 
 
 #import "NewMainViewController.h"
 #import "TodayLuckViewController.h"
 #import "BdViewController.h"
 #import "XWViewController.h"
-
+#import "MineViewController.h"
 
 @interface MenuViewController ()
 {
@@ -263,12 +266,6 @@
         
     } completion:^(BOOL finished) {
     }];
-
-    
-    
-    
-    
-    
     
     [_newsView setHidden:YES];
     [_showView setHidden:NO];
@@ -279,8 +276,9 @@
 
 - (IBAction)superShown:(id)sender
 {
-    MainViewController *mainVC =[[ MainViewController alloc]init];
-//    NewMainViewController *mainVC = [[NewMainViewController alloc]init];
+//    MainViewController *mainVC =[[ MainViewController alloc]init];
+    NewMainViewController *mainVC = [[NewMainViewController alloc]init];
+    
     [self.sideMenuController setContentController:mainVC animated:YES];
     
     [_showView setHidden:YES];
@@ -297,4 +295,14 @@
 }
 */
 
+- (IBAction)didClickMine:(UIButton *)sender {
+    
+    MineViewController *mineVC = [[MineViewController alloc]init];
+    [self.sideMenuController setContentController:mineVC animated:YES];
+    [_showView setHidden: YES];
+    [_newsView setHidden: YES];
+    
+    
+    
+}
 @end

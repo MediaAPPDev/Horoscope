@@ -25,6 +25,7 @@
 		2FC71FE21A281569002BB2C5 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FC71FE11A281569002BB2C5 /* MainViewController.m */; };
 		2FC71FE81A281770002BB2C5 /* StarVcViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FC71FE71A281770002BB2C5 /* StarVcViewController.m */; };
 		2FC71FEB1A282D87002BB2C5 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FC71FEA1A282D87002BB2C5 /* TestViewController.m */; };
+<<<<<<< Updated upstream
 		5EB87E9A1A39688700BE4A5D /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EB87E981A39688700BE4A5D /* LoginViewController.m */; };
 		5EB87E9B1A39688700BE4A5D /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EB87E991A39688700BE4A5D /* LoginViewController.xib */; };
 		5EB87EB41A396EBF00BE4A5D /* after60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EB87E9E1A396EBF00BE4A5D /* after60@2x.png */; };
@@ -51,6 +52,9 @@
 		5EB87EC91A396EBF00BE4A5D /* userSet@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EB87EB31A396EBF00BE4A5D /* userSet@3x.png */; };
 		5EB87ECC1A39713700BE4A5D /* regeback@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EB87ECA1A39713700BE4A5D /* regeback@2x.png */; };
 		5EB87ECD1A39713700BE4A5D /* regeback@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EB87ECB1A39713700BE4A5D /* regeback@3x.png */; };
+=======
+		6434BE851A3AE44E00EB9C9B /* PhotoWall.m in Sources */ = {isa = PBXBuildFile; fileRef = 6434BE841A3AE44E00EB9C9B /* PhotoWall.m */; };
+>>>>>>> Stashed changes
 		646C43711A37F9F300FB683D /* 白羊@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 646C435B1A37F9F300FB683D /* 白羊@2x.png */; };
 		646C43721A37F9F300FB683D /* 白羊@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 646C435C1A37F9F300FB683D /* 白羊@3x.png */; };
 		646C43731A37F9F300FB683D /* 处女@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 646C435D1A37F9F300FB683D /* 处女@2x.png */; };
@@ -111,6 +115,7 @@
 		646C43CE1A381CE800FB683D /* ys_c_star_gray@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 646C43CA1A381CE800FB683D /* ys_c_star_gray@3x.png */; };
 		646C43D11A381D0900FB683D /* ys_c_datebg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 646C43CF1A381D0900FB683D /* ys_c_datebg@2x.png */; };
 		646C43D21A381D0900FB683D /* ys_c_datebg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 646C43D01A381D0900FB683D /* ys_c_datebg@3x.png */; };
+		647BEC641A3972100049B8C9 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 647BEC631A3972100049B8C9 /* MineViewController.m */; };
 		64BEC4FC1A2D6D5F00931E0F /* NewMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64BEC4FB1A2D6D5F00931E0F /* NewMainViewController.m */; };
 		64C727131A3575B300DFE28E /* imgbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 64C726FD1A3575B300DFE28E /* imgbg.png */; };
 		64C727141A3575B300DFE28E /* imgbg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64C726FE1A3575B300DFE28E /* imgbg@2x.png */; };
@@ -193,6 +198,7 @@
 		2FC71FE71A281770002BB2C5 /* StarVcViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarVcViewController.m; sourceTree = "<group>"; };
 		2FC71FE91A282D87002BB2C5 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		2FC71FEA1A282D87002BB2C5 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
+<<<<<<< Updated upstream
 		5EB87E971A39688700BE4A5D /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		5EB87E981A39688700BE4A5D /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		5EB87E991A39688700BE4A5D /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -220,6 +226,10 @@
 		5EB87EB31A396EBF00BE4A5D /* userSet@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "userSet@3x.png"; sourceTree = "<group>"; };
 		5EB87ECA1A39713700BE4A5D /* regeback@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "regeback@2x.png"; sourceTree = "<group>"; };
 		5EB87ECB1A39713700BE4A5D /* regeback@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "regeback@3x.png"; sourceTree = "<group>"; };
+=======
+		6434BE831A3AE44E00EB9C9B /* PhotoWall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoWall.h; sourceTree = "<group>"; };
+		6434BE841A3AE44E00EB9C9B /* PhotoWall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoWall.m; sourceTree = "<group>"; };
+>>>>>>> Stashed changes
 		646C435B1A37F9F300FB683D /* 白羊@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "白羊@2x.png"; sourceTree = "<group>"; };
 		646C435C1A37F9F300FB683D /* 白羊@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "白羊@3x.png"; sourceTree = "<group>"; };
 		646C435D1A37F9F300FB683D /* 处女@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "处女@2x.png"; sourceTree = "<group>"; };
@@ -280,6 +290,8 @@
 		646C43CA1A381CE800FB683D /* ys_c_star_gray@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ys_c_star_gray@3x.png"; sourceTree = "<group>"; };
 		646C43CF1A381D0900FB683D /* ys_c_datebg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ys_c_datebg@2x.png"; sourceTree = "<group>"; };
 		646C43D01A381D0900FB683D /* ys_c_datebg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ys_c_datebg@3x.png"; sourceTree = "<group>"; };
+		647BEC621A3972100049B8C9 /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
+		647BEC631A3972100049B8C9 /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
 		64BEC4FA1A2D6D5F00931E0F /* NewMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewMainViewController.h; sourceTree = "<group>"; };
 		64BEC4FB1A2D6D5F00931E0F /* NewMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewMainViewController.m; sourceTree = "<group>"; };
 		64BEC4FE1A2D729400931E0F /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -363,7 +375,11 @@
 		2F21162A1A25B5A2009B21EB /* Horoscope */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< Updated upstream
 				5EB87E951A39686600BE4A5D /* Login */,
+=======
+				647BEC611A3971F50049B8C9 /* Mine */,
+>>>>>>> Stashed changes
 				64CD98211A303AE600040744 /* BD */,
 				64CD98221A303AE600040744 /* Firends Circle */,
 				64CD98231A303AE600040744 /* Found */,
@@ -576,6 +592,17 @@
 				646C43701A37F9F300FB683D /* 天蝎@3x.png */,
 			);
 			path = YS;
+			sourceTree = "<group>";
+		};
+		647BEC611A3971F50049B8C9 /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				647BEC621A3972100049B8C9 /* MineViewController.h */,
+				647BEC631A3972100049B8C9 /* MineViewController.m */,
+				6434BE831A3AE44E00EB9C9B /* PhotoWall.h */,
+				6434BE841A3AE44E00EB9C9B /* PhotoWall.m */,
+			);
+			path = Mine;
 			sourceTree = "<group>";
 		};
 		64BEC4F91A2D6D5300931E0F /* MainVC */ = {
@@ -930,6 +957,7 @@
 				2F2116F81A25B64A009B21EB /* UIViewController+JDSideMenu.m in Sources */,
 				2F2116FB1A25B64A009B21EB /* MenuViewController.m in Sources */,
 				64CD982A1A303B1500040744 /* BdViewController.m in Sources */,
+				647BEC641A3972100049B8C9 /* MineViewController.m in Sources */,
 				2FC71FEB1A282D87002BB2C5 /* TestViewController.m in Sources */,
 				2FC71FE81A281770002BB2C5 /* StarVcViewController.m in Sources */,
 				2FC71FDF1A2721AC002BB2C5 /* ZoneViewController.m in Sources */,
@@ -939,6 +967,7 @@
 				2F2116311A25B5A2009B21EB /* AppDelegate.m in Sources */,
 				64CD99571A304F2A00040744 /* AddButton.m in Sources */,
 				2F2116F71A25B64A009B21EB /* JDSideMenu.m in Sources */,
+				6434BE851A3AE44E00EB9C9B /* PhotoWall.m in Sources */,
 				2FC71FE21A281569002BB2C5 /* MainViewController.m in Sources */,
 				64BEC4FC1A2D6D5F00931E0F /* NewMainViewController.m in Sources */,
 				64CD98301A30403900040744 /* XWViewController.m in Sources */,
