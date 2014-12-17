@@ -19,7 +19,10 @@
     UIButton *starButton;
     UILabel *nameLabel;
     UILabel * dateLabel;
-    
+    UIButton * titleBtn;
+    UIView *ysView;
+    UIImageView * ysImgView;
+    NSArray *ysArr;
 }
 @end
 
@@ -28,7 +31,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+    ysArr =[ NSArray arrayWithObjects:@"今日运势",@"明日运势",@"本周运势",@"本月运势", nil];
+
     cArray = [NSMutableArray array];
     NSMutableArray *arr = [NSMutableArray arrayWithObjects:@"ys_c_by",@"ys_c_chunv",@"ys_c_jinniu",@"ys_c_juxie",@"ys_c_mojie",@"ys_c_sheshou",@"ys_c_shizi",@"ys_c_sp",@"ys_c_sy",@"ys_c_sz",@"ys_c_tc",@"ys_c_tx", nil];
     [cArray addObjectsFromArray:arr];
@@ -42,7 +46,15 @@
     
     [self buildconstellationScroll];
 
-    [self buildTopviewWithBackButton:YES title:@"今日运势" rightImage:@""];
+    [self buildYsView];
+
+    
+    [self buildTopviewWithBackButton:YES title:@"" rightImage:@""];
+    titleBtn = [[UIButton alloc]initWithFrame:CGRectMake(50, KISHighVersion_7?20:0, KScreenWidth-100, 40)];
+    [titleBtn setTitle:@"今日运势" forState:UIControlStateNormal];
+    titleBtn.backgroundColor =[ UIColor clearColor];
+    [titleBtn addTarget:self action:@selector(changeTitle:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:titleBtn];
     
     
     
@@ -88,14 +100,14 @@
     dateBgImgView.center = CGPointMake(KScreenWidth/2, 140);
     [imageView1 addSubview:dateBgImgView];
     
-    nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 88, 19)];
-    nameLabel.center = CGPointMake(KScreenWidth/2, 140);
-    nameLabel.backgroundColor = [UIColor clearColor];
-    nameLabel.textColor  = [UIColor whiteColor];
-    nameLabel.font = [UIFont boldSystemFontOfSize:13];
-    nameLabel.textAlignment = NSTextAlignmentCenter;
-    nameLabel.text = @"4.19-5.19";
-    [imageView1 addSubview:nameLabel];
+    dateLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 88, 19)];
+    dateLabel.center = CGPointMake(KScreenWidth/2, 140);
+    dateLabel.backgroundColor = [UIColor clearColor];
+    dateLabel.textColor  = [UIColor whiteColor];
+    dateLabel.font = [UIFont boldSystemFontOfSize:13];
+    dateLabel.textAlignment = NSTextAlignmentCenter;
+    dateLabel.text = @"4.19-5.19";
+    [imageView1 addSubview:dateLabel];
 
     
     
@@ -115,7 +127,6 @@
     
     // Do any additional setup after loading the view, typically from a nib.
     [self.leftButton addTarget:self action:@selector(gotoMenu:) forControlEvents:UIControlEventTouchUpInside];
-    
     
 }
 
@@ -143,13 +154,34 @@
 }
 
 
+
+
+
 //创建运势view
 
 
 -(void)buildYsView
 {
-   
     
+    ysView = [[UIView alloc]initWithFrame:CGRectMake(0, KISHighVersion_7?64:44, KScreenWidth, KScreenHeight-(KISHighVersion_7?64:44))];
+    ysView.backgroundColor = kColorWithRGB(0, 0, 0, 0.5);
+    ysView.hidden = YES;
+    [self.view addSubview:ysView];
+   
+    ysImgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 100, 150)];
+    ysImgView.image = KUIImage(@"ys_c_down");
+    ysImgView.center = CGPointMake(KScreenWidth/2, -75);
+    ysImgView.userInteractionEnabled = YES;
+    [ysView addSubview:ysImgView];
+    
+    
+    for (int i = 0; i<4; i++) {
+        UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(0, i*36, 100, 36)];
+        [btn setTitle:ysArr[i] forState:UIControlStateNormal];
+        [btn setTag: 1000+i];
+        [btn addTarget:self action:@selector(changeYsTitle:) forControlEvents:UIControlEventTouchUpInside];
+        [ysImgView addSubview:btn];
+    }
     
     
 }
@@ -242,6 +274,39 @@
     }
 }
 
+-(void)changeTitle:(UIButton *)sender
+{
+    ysView.hidden = NO;
+    [UIView animateWithDuration:0.3 animations:^{
+        ysImgView.center = CGPointMake(KScreenWidth/2, 75);
+     } completion:^(BOOL finished) {
+         [ysView addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hiddenYsView:)]];
+    }];
+
+}
+
+-(void)changeYsTitle:(UIButton *)sender
+{
+    [titleBtn setTitle:ysArr[sender.tag-1000] forState:UIControlStateNormal];
+    [UIView animateWithDuration:0.3 animations:^{
+        ysImgView.center = CGPointMake(KScreenWidth/2, -75);
+    } completion:^(BOOL finished) {
+        ysView.hidden = YES;
+        [ysView removeGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hiddenYsView:)]];
+    }];
+
+}
+
+-(void)hiddenYsView:(id)sender
+{
+    [UIView animateWithDuration:0.3 animations:^{
+        ysImgView.center = CGPointMake(KScreenWidth/2, -75);
+    } completion:^(BOOL finished) {
+        ysView.hidden = YES;
+        [ysView removeGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hiddenYsView:)]];
+
+    }];
+}
 
 -(NSString*)titleForChildControllerMDMenuViewController:(MDMenuViewController *)menuController
 {
@@ -251,6 +316,9 @@
 {
     return @"yunshi.png";
 }
+
+
+
 
 
 - (void)didReceiveMemoryWarning {

@@ -20,7 +20,7 @@
     
     [self buildTopviewWithBackButton:YES title:@"星文" rightImage:@"订阅－正常"];
     
-    [self buildScrollViewWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height-64) contentSize:CGSizeMake(0, 1231.5f) Image:@"星文"];
+    [self buildScrollViewWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height-64) contentSize:CGSizeMake(0, 1231.5f) Image:@"neirong"];
     
 
 

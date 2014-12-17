@@ -21,7 +21,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     [self buildTopviewWithBackButton:YES title:@"星座宝典" rightImage:@""];
-    
+    self.view.backgroundColor = [UIColor whiteColor];
     scrollView  = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 110, self.view.bounds.size.width, self.view.bounds.size.height-110)];
     scrollView.contentSize = CGSizeMake(self.view.bounds.size.width*3, 0);
     scrollView.pagingEnabled = YES;

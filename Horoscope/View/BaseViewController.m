@@ -154,9 +154,9 @@
 
 - (void)setTopViewWithTitle:(NSString*)titleStr withBackButton:(BOOL)hasBacButton
 {
-    UIImageView* topImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, KISHighVersion_7 ? 64 : 44)];
+    UIImageView* topImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, KISHighVersion_7 ? 64 : 44)];
     topImageView.userInteractionEnabled = YES;
-    topImageView.backgroundColor = kColorWithRGB(23, 161, 240, 1.0);
+    topImageView.backgroundColor = kColorWithRGB(0, 0, 0, 1.0);
     topImageView.image = KUIImage(@"nav_bg");
     [self.view addSubview:topImageView];
     
@@ -164,7 +164,7 @@
 //    tapGesture.delegate = self;
 //    [topImageView addGestureRecognizer:tapGesture];
     
-    baseTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, KISHighVersion_7 ? 20 : 0, 220, 44)];
+    baseTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, KISHighVersion_7 ? 20 : 0, KScreenWidth-100, 44)];
     baseTitleLabel.textColor = [UIColor whiteColor];
     baseTitleLabel.backgroundColor = [UIColor clearColor];
     baseTitleLabel.text = titleStr;
@@ -180,8 +180,8 @@
     
     if (hasBacButton) {
         UIButton* backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, KISHighVersion_7 ? 20 : 0, 65, 44)];
-        [backButton setImage:KUIImage(@"backButton") forState:UIControlStateNormal];
-        [backButton setImage:KUIImage(@"backButton2") forState:UIControlStateHighlighted];
+        [backButton setImage:KUIImage(@"back") forState:UIControlStateNormal];
+        [backButton setImage:KUIImage(@"back") forState:UIControlStateHighlighted];
         backButton.backgroundColor = [UIColor clearColor];
         [backButton addTarget:self action:@selector(backButtonClick:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:backButton];

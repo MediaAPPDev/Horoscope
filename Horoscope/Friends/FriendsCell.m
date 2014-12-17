@@ -24,7 +24,15 @@
         self.nameLb.font = [UIFont boldSystemFontOfSize:17];
         [self addSubview:self.nameLb];
         
-        self.starImgView = [[UIImageView alloc]initWithFrame:CGRectMake(sx(self.headimgView)+10, sy(self.nameLb)+3, 20, 20)];
+        
+        
+        self.sexImg = [[UIImageView alloc]initWithFrame:CGRectMake(sx(self.headimgView)+10, sy(self.nameLb)+7, 35, 15)];
+//        self.sexImg.backgroundColor = [UIColor redColor];
+
+        [self addSubview:self.sexImg];
+        
+        
+        self.starImgView = [[UIImageView alloc]initWithFrame:CGRectMake(sx(self.sexImg)+10, sy(self.nameLb)+3, 20, 20)];
         [self addSubview:self.starImgView];
 
         self.starLb =[[UILabel alloc]initWithFrame:CGRectMake(sx(self.starImgView)+10, sy(self.nameLb)+3, 150, 20)];
@@ -41,6 +49,13 @@
         self.timeLabel.textColor = [UIColor grayColor];
         self.timeLabel.font = [UIFont systemFontOfSize:15];
         [self addSubview:self.timeLabel];
+        
+        UIButton *gzBtn = [[UIButton alloc]initWithFrame:CGRectMake(KScreenWidth-60, 40, 40, 20)];
+        gzBtn.backgroundColor = [UIColor grayColor];
+        [gzBtn setTitle:@"关注" forState:UIControlStateNormal];
+        [gzBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+        [self addSubview:gzBtn];
+        
         
         
     }

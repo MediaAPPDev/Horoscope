@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "JDSideMenu.h"
 #import "MenuViewController.h"
+
 #import "MainViewController.h" //达人秀
 #import "MDMenuViewController.h"
 
@@ -33,6 +34,9 @@
 
 
 
+#import "NewMainViewController.h"
+
+
 @interface AppDelegate ()
 
 @end
@@ -44,7 +48,14 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
+
     //****************************** MDMenuViewController initialisation ******************************************
+
+    MenuViewController *menuController = [[MenuViewController alloc] init];
+    NewMainViewController *contentController = [[NewMainViewController alloc] init];
+//    contentController.view.backgroundColor = [UIColor colorWithHue:0.5 saturation:1.0 brightness:1.0 alpha:1.0];
+//    contentController.title = [NSString stringWithFormat: @"Hue: %.2f", 0.5];
+
     
     
     
