@@ -78,9 +78,9 @@
         
         cell.headimgView.image = KUIImage(@"1.jpg");
         cell.nameLb.text = @"用户未命名";
-        cell.starImgView.image = KUIImage(@"白羊");
+        cell.starImgView.image = KUIImage(@"ys_c_by");
         cell.starLb.text = @"白羊座";
-        
+        cell.sexImg.image = KUIImage(@"sexImg");
         cell.signatureLb.text =@"所谓知之为知之不知为不知 莫装逼 ";
         cell.timeLabel.text = @"1分钟前";
         return cell;

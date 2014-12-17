@@ -127,6 +127,7 @@
 		645DEEFE1A4172D300E8C524 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 645DEEFB1A4172D300E8C524 /* 3.png */; };
 		645DEF001A4172FA00E8C524 /* 灰色底框.png in Resources */ = {isa = PBXBuildFile; fileRef = 645DEEFF1A4172FA00E8C524 /* 灰色底框.png */; };
 		645DEF021A41732A00E8C524 /* neirong.png in Resources */ = {isa = PBXBuildFile; fileRef = 645DEF011A41732A00E8C524 /* neirong.png */; };
+		645DEF041A41766E00E8C524 /* sexImg.png in Resources */ = {isa = PBXBuildFile; fileRef = 645DEF031A41766E00E8C524 /* sexImg.png */; };
 		646C43711A37F9F300FB683D /* 白羊@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 646C435B1A37F9F300FB683D /* 白羊@2x.png */; };
 		646C43721A37F9F300FB683D /* 白羊@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 646C435C1A37F9F300FB683D /* 白羊@3x.png */; };
 		646C43731A37F9F300FB683D /* 处女@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 646C435D1A37F9F300FB683D /* 处女@2x.png */; };
@@ -439,6 +440,7 @@
 		645DEEFB1A4172D300E8C524 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
 		645DEEFF1A4172FA00E8C524 /* 灰色底框.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "灰色底框.png"; sourceTree = "<group>"; };
 		645DEF011A41732A00E8C524 /* neirong.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = neirong.png; sourceTree = "<group>"; };
+		645DEF031A41766E00E8C524 /* sexImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sexImg.png; sourceTree = "<group>"; };
 		646C435B1A37F9F300FB683D /* 白羊@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "白羊@2x.png"; sourceTree = "<group>"; };
 		646C435C1A37F9F300FB683D /* 白羊@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "白羊@3x.png"; sourceTree = "<group>"; };
 		646C435D1A37F9F300FB683D /* 处女@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "处女@2x.png"; sourceTree = "<group>"; };
@@ -677,6 +679,7 @@
 		2F2116511A25B64A009B21EB /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				645DEF031A41766E00E8C524 /* sexImg.png */,
 				645DEEC91A41712600E8C524 /* emnu.png */,
 				645DEEC71A416F1400E8C524 /* back.png */,
 				645DEEAB1A414DCA00E8C524 /* QQ@2x.png */,
@@ -1435,6 +1438,7 @@
 				645DEE971A41484100E8C524 /* dianhualianxiren@3x.png in Resources */,
 				5EB87EBD1A396EBF00BE4A5D /* nextSelcted@3x.png in Resources */,
 				5EB87EB91A396EBF00BE4A5D /* fogetPass@3x.png in Resources */,
+				645DEF041A41766E00E8C524 /* sexImg.png in Resources */,
 				646C43761A37F9F300FB683D /* 金牛@3x.png in Resources */,
 				5EB87EBA1A396EBF00BE4A5D /* next@2x.png in Resources */,
 				646C43861A37F9F300FB683D /* 天蝎@3x.png in Resources */,
