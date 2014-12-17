@@ -10,6 +10,7 @@
 #import "FriendsCell.h"
 #import "TopTableViewCell.h"
 #import "AddFriendsViewController.h"
+#import "MineViewController.h"
 @interface FriendsViewController ()
 {
     UITableView *myTabelView;
@@ -89,7 +90,11 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    MineViewController *mine = [[MineViewController alloc]init];
+    mine.isRootView = NO;
+    [self.navigationController pushViewController:mine animated:YES];
+
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section

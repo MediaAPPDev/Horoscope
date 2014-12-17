@@ -26,14 +26,19 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    if (self.isRootView) {
+        [self buildTopviewWithBackButton:NO title:@"西门吹雪" rightImage:@"123123"];
+        UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(self.view.bounds.size.width-60, KISHighVersion_7?20:0, 60, 44)];
+        [button setImage:KUIImage(@"123123") forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(enterNextPage:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:button];
+
+    }else{
+        [self setTopViewWithTitle:@"西门吹雪" withBackButton:YES];
+    }
     
-    [self buildTopviewWithBackButton:NO title:@"西门吹雪" rightImage:@"123123"];
     
     
-    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(self.view.bounds.size.width-60, KISHighVersion_7?20:0, 60, 44)];
-    [button setImage:KUIImage(@"123123") forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(enterNextPage:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:button];
     
     
     
@@ -75,27 +80,27 @@
     [blackView addSubview:headImgView];
     
     //星座图标
-    UIImageView * xzImgViwe = [[UIImageView alloc]initWithFrame:CGRectMake(sx(headImgView)+10, 20, 30, 30)];
+    UIImageView * xzImgViwe = [[UIImageView alloc]initWithFrame:CGRectMake(sx(headImgView)+10, 20, 40,40)];
     xzImgViwe.image = KUIImage(@"ys_c_sp");
     [blackView addSubview:xzImgViwe];
     
     //星座LB
-    UILabel *xzLabel = [[UILabel alloc]initWithFrame:CGRectMake(sx(xzImgViwe)+10, 20, 50, 20)];
+    UILabel *xzLabel = [[UILabel alloc]initWithFrame:CGRectMake(sx(xzImgViwe)+10, 30, 70, 20)];
     xzLabel.textColor = [UIColor whiteColor];
-    xzLabel.font = [UIFont boldSystemFontOfSize:15];
+    xzLabel.font = [UIFont boldSystemFontOfSize:18];
     xzLabel.backgroundColor = [UIColor clearColor];
     xzLabel.text = @"水瓶座";
     [blackView addSubview:xzLabel];
     
     
     //年龄LB
-    UILabel *ageLabel = [self buildLabelWithFrame:CGRectMake(sx(xzLabel)+10, 20, 30, 20) backgroundColor:[UIColor clearColor] textColor:[UIColor whiteColor] font:[UIFont systemFontOfSize:15] textAlignment:NSTextAlignmentCenter text:@"22"];
+    UILabel *ageLabel = [self buildLabelWithFrame:CGRectMake(sx(xzLabel)+10, 30, 30, 20) backgroundColor:[UIColor clearColor] textColor:[UIColor whiteColor] font:[UIFont systemFontOfSize:18] textAlignment:NSTextAlignmentCenter text:@"22"];
     [blackView addSubview:ageLabel];
     
     
     
     //签名LB
-    UILabel * qmLabel = [self buildLabelWithFrame:CGRectMake(sx(headImgView)+10, sy(xzImgViwe), 200, 20) backgroundColor:[UIColor clearColor] textColor:[UIColor grayColor] font:[UIFont systemFontOfSize:12] textAlignment:NSTextAlignmentLeft text:@"no zuo no die why you try?"];
+    UILabel * qmLabel = [self buildLabelWithFrame:CGRectMake(sx(headImgView)+10, sy(xzImgViwe)+5, 200, 20) backgroundColor:[UIColor clearColor] textColor:[UIColor grayColor] font:[UIFont systemFontOfSize:14] textAlignment:NSTextAlignmentLeft text:@"no zuo no die why you try?"];
     [blackView addSubview:qmLabel];
     
     UIImageView*lineView = [[UIImageView alloc]initWithFrame:CGRectMake(0, height(blackView)-42, width(blackView), 2)];

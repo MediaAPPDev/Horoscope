@@ -9,5 +9,5 @@
 #import "BaseViewController.h"
 
 @interface MineViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>
-
+@property (nonatomic,assign)BOOL isRootView;
 @end

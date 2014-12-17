@@ -128,6 +128,8 @@
 		645DEF001A4172FA00E8C524 /* 灰色底框.png in Resources */ = {isa = PBXBuildFile; fileRef = 645DEEFF1A4172FA00E8C524 /* 灰色底框.png */; };
 		645DEF021A41732A00E8C524 /* neirong.png in Resources */ = {isa = PBXBuildFile; fileRef = 645DEF011A41732A00E8C524 /* neirong.png */; };
 		645DEF041A41766E00E8C524 /* sexImg.png in Resources */ = {isa = PBXBuildFile; fileRef = 645DEF031A41766E00E8C524 /* sexImg.png */; };
+		645DEF071A41899100E8C524 /* 排名色块大.png in Resources */ = {isa = PBXBuildFile; fileRef = 645DEF051A41899100E8C524 /* 排名色块大.png */; };
+		645DEF081A41899100E8C524 /* 排名色块小.png in Resources */ = {isa = PBXBuildFile; fileRef = 645DEF061A41899100E8C524 /* 排名色块小.png */; };
 		646C43711A37F9F300FB683D /* 白羊@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 646C435B1A37F9F300FB683D /* 白羊@2x.png */; };
 		646C43721A37F9F300FB683D /* 白羊@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 646C435C1A37F9F300FB683D /* 白羊@3x.png */; };
 		646C43731A37F9F300FB683D /* 处女@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 646C435D1A37F9F300FB683D /* 处女@2x.png */; };
@@ -441,6 +443,8 @@
 		645DEEFF1A4172FA00E8C524 /* 灰色底框.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "灰色底框.png"; sourceTree = "<group>"; };
 		645DEF011A41732A00E8C524 /* neirong.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = neirong.png; sourceTree = "<group>"; };
 		645DEF031A41766E00E8C524 /* sexImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sexImg.png; sourceTree = "<group>"; };
+		645DEF051A41899100E8C524 /* 排名色块大.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "排名色块大.png"; sourceTree = "<group>"; };
+		645DEF061A41899100E8C524 /* 排名色块小.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "排名色块小.png"; sourceTree = "<group>"; };
 		646C435B1A37F9F300FB683D /* 白羊@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "白羊@2x.png"; sourceTree = "<group>"; };
 		646C435C1A37F9F300FB683D /* 白羊@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "白羊@3x.png"; sourceTree = "<group>"; };
 		646C435D1A37F9F300FB683D /* 处女@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "处女@2x.png"; sourceTree = "<group>"; };
@@ -679,6 +683,8 @@
 		2F2116511A25B64A009B21EB /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				645DEF051A41899100E8C524 /* 排名色块大.png */,
+				645DEF061A41899100E8C524 /* 排名色块小.png */,
 				645DEF031A41766E00E8C524 /* sexImg.png */,
 				645DEEC91A41712600E8C524 /* emnu.png */,
 				645DEEC71A416F1400E8C524 /* back.png */,
@@ -1347,6 +1353,7 @@
 				646C43841A37F9F300FB683D /* 天秤@3x.png in Resources */,
 				64CD98D21A3042FD00040744 /* QQ图标@3x.png in Resources */,
 				646C43B51A37FB2400FB683D /* ys_c_tx@2x.png in Resources */,
+				645DEF081A41899100E8C524 /* 排名色块小.png in Resources */,
 				645DEECA1A41712600E8C524 /* emnu.png in Resources */,
 				645DEEE81A41715200E8C524 /* 达人秀－正常.png in Resources */,
 				647607C61A3FD7C400B71469 /* iphone5底图.png in Resources */,
@@ -1458,6 +1465,7 @@
 				645DEEE71A41715200E8C524 /* 达人秀－选中.png in Resources */,
 				646C43791A37F9F300FB683D /* 射手@2x.png in Resources */,
 				645DEE621A4132D900E8C524 /* shanchu.png in Resources */,
+				645DEF071A41899100E8C524 /* 排名色块大.png in Resources */,
 				647607C31A3FD7C400B71469 /* 超过60秒文字框@3x.png in Resources */,
 				64C7271F1A3575B300DFE28E /* rank2@3x.png in Resources */,
 				64CD98D81A3042FD00040744 /* 线条@2x.png in Resources */,

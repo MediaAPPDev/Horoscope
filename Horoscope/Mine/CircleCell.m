@@ -29,7 +29,7 @@
         [self addSubview:self.imgView];
         
         
-        self.xxLabel = [[UILabel alloc]initWithFrame:CGRectMake(160, 10, KScreenWidth-200, 60)];
+        self.xxLabel = [[UILabel alloc]initWithFrame:CGRectMake(170, 10, KScreenWidth-200, 60)];
         self.xxLabel.numberOfLines = 2;
         self.xxLabel.font = [UIFont boldSystemFontOfSize:15];
         self.xxLabel.textColor = [UIColor grayColor];

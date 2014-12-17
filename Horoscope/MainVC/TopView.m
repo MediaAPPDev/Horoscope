@@ -39,7 +39,7 @@
         _cell6.MainImageView.frame = CGRectMake(0, 0, self.bounds.size.width/3*2-2, self.bounds.size.width/3*2);
         
         _cell6.nameLabel.frame = CGRectMake(3, self.bounds.size.width/3*2, self.bounds.size.width/3*2, 30);
-        
+        _cell6.leftImageView.image = KUIImage(@"排名色块大");
         _cell6.numLabel.frame = CGRectMake(20, 20, 20, 20);
         _cell6.numLabel.font = [UIFont boldSystemFontOfSize:20];
         
@@ -64,6 +64,7 @@
     cell1.layer.borderWidth = 1.0;
     
     cell1.MainImageView.image = KUIImage(image);
+    cell1.leftImageView.image = KUIImage(@"排名色块小");
     cell1.numLabel.text = text;
     [cell1 addTarget:self action:@selector(didclickNoto:) forControlEvents:UIControlEventTouchUpInside];
 

@@ -22,6 +22,11 @@
 
 @implementation NewMainViewController
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = YES;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -218,10 +223,8 @@
 {
     NSLog(@"%ld",(long)ccButton.tag);
     MineViewController *mineView = [[MineViewController alloc]init];
-    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:self];
-    nav.navigationBarHidden= YES;
     
-    [nav pushViewController:mineView animated:YES];
+    [self.navigationController pushViewController:mineView animated:YES];
     
 //    [self presentViewController:mineView animated:YES completion:^{
     
@@ -248,7 +251,11 @@
 
 -(void)didClickButton:(NSInteger)n
 {
+    MineViewController *mine = [[MineViewController alloc]init];
+    mine.isRootView = NO;
+    [self.navigationController pushViewController:mine animated:YES];
     
+    [self didHiddenBlView:nil];
 }
 
 - (void)didReceiveMemoryWarning {

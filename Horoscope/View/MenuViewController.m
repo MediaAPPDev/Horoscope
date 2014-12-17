@@ -154,6 +154,8 @@
     
         StarDicController * starVC =[[StarDicController alloc]init];
         FoundViewController * findVC =[[FoundViewController alloc]init];
+    UINavigationController *findNav = [[UINavigationController alloc]initWithRootViewController:findVC];
+    findNav.navigationBarHidden = YES;
 //        FriendLoopViewController * friendLoop =[[FriendLoopViewController alloc]init];
     
     
@@ -221,7 +223,7 @@
         case 20:
 //            发现
             
-    [self.sideMenuController setContentController:findVC animated:YES];
+    [self.sideMenuController setContentController:findNav animated:YES];
             break;
         case 21:
 //星友
@@ -300,6 +302,7 @@
     
     MineViewController *mineVC = [[MineViewController alloc]init];
     UINavigationController *navi = [[UINavigationController alloc]initWithRootViewController:mineVC];
+    mineVC.isRootView =YES;
     navi.navigationBarHidden = YES;
     [self.sideMenuController setContentController:navi animated:YES];
     [_showView setHidden: YES];
