@@ -7,7 +7,7 @@
 //
 
 #import "BaseViewController.h"
-
-@interface NewMainViewController : BaseViewController<UICollectionViewDataSource,UICollectionViewDelegate>
+#import "TopView.h"
+@interface NewMainViewController : BaseViewController<UICollectionViewDataSource,UICollectionViewDelegate,TopViewDelegate>
 
 @end

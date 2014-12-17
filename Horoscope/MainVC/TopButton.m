@@ -1,22 +1,24 @@
 //
-//  MainCollectionViewCell.m
+//  TopButton.m
 //  Horoscope
 //
-//  Created by Satellite on 14/12/4.
+//  Created by Satellite on 14/12/16.
 //  Copyright (c) 2014年 施傲天. All rights reserved.
 //
 
-#import "MainCollectionViewCell.h"
+#import "TopButton.h"
 
-@implementation MainCollectionViewCell
+@implementation TopButton
+
+
+
 -(id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        
         UIImageView *bgImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
-//        bgImageView.image = KUIImage(@"imgbg");
-//        bgImageView.backgroundColor = [UIColor redColor];
+        //        bgImageView.image = KUIImage(@"imgbg");
+        //        bgImageView.backgroundColor = [UIColor redColor];
         bgImageView.backgroundColor = UIColorFromRGBA(0x2f2f2f, 1);
         [self addSubview:bgImageView];
         
@@ -25,7 +27,7 @@
         self.leftImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, frame.size.width/3, frame.size.width/3)];
         [self addSubview:self.MainImageView];
         [self addSubview:self.leftImageView];
-//        self.backgroundColor = [UIColor darkGrayColor];
+        //        self.backgroundColor = [UIColor darkGrayColor];
         
         
         self.numLabel = [[UILabel alloc]initWithFrame:CGRectMake(5, 5, 20, 20)];
@@ -42,8 +44,16 @@
         self.nameLabel.text = @"大风也无法撼动他";
         self.nameLabel.font = [UIFont boldSystemFontOfSize:12];
         [self addSubview:self.nameLabel];
-        
+
     }
     return self;
 }
+/*
+// Only override drawRect: if you perform custom drawing.
+// An empty implementation adversely affects performance during animation.
+- (void)drawRect:(CGRect)rect {
+    // Drawing code
+}
+*/
+
 @end

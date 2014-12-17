@@ -25,7 +25,6 @@
 		2FC71FE21A281569002BB2C5 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FC71FE11A281569002BB2C5 /* MainViewController.m */; };
 		2FC71FE81A281770002BB2C5 /* StarVcViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FC71FE71A281770002BB2C5 /* StarVcViewController.m */; };
 		2FC71FEB1A282D87002BB2C5 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FC71FEA1A282D87002BB2C5 /* TestViewController.m */; };
-<<<<<<< Updated upstream
 		5EB87E9A1A39688700BE4A5D /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EB87E981A39688700BE4A5D /* LoginViewController.m */; };
 		5EB87E9B1A39688700BE4A5D /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EB87E991A39688700BE4A5D /* LoginViewController.xib */; };
 		5EB87EB41A396EBF00BE4A5D /* after60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EB87E9E1A396EBF00BE4A5D /* after60@2x.png */; };
@@ -52,9 +51,6 @@
 		5EB87EC91A396EBF00BE4A5D /* userSet@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EB87EB31A396EBF00BE4A5D /* userSet@3x.png */; };
 		5EB87ECC1A39713700BE4A5D /* regeback@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EB87ECA1A39713700BE4A5D /* regeback@2x.png */; };
 		5EB87ECD1A39713700BE4A5D /* regeback@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EB87ECB1A39713700BE4A5D /* regeback@3x.png */; };
-=======
-		6434BE851A3AE44E00EB9C9B /* PhotoWall.m in Sources */ = {isa = PBXBuildFile; fileRef = 6434BE841A3AE44E00EB9C9B /* PhotoWall.m */; };
->>>>>>> Stashed changes
 		646C43711A37F9F300FB683D /* 白羊@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 646C435B1A37F9F300FB683D /* 白羊@2x.png */; };
 		646C43721A37F9F300FB683D /* 白羊@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 646C435C1A37F9F300FB683D /* 白羊@3x.png */; };
 		646C43731A37F9F300FB683D /* 处女@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 646C435D1A37F9F300FB683D /* 处女@2x.png */; };
@@ -115,6 +111,41 @@
 		646C43CE1A381CE800FB683D /* ys_c_star_gray@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 646C43CA1A381CE800FB683D /* ys_c_star_gray@3x.png */; };
 		646C43D11A381D0900FB683D /* ys_c_datebg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 646C43CF1A381D0900FB683D /* ys_c_datebg@2x.png */; };
 		646C43D21A381D0900FB683D /* ys_c_datebg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 646C43D01A381D0900FB683D /* ys_c_datebg@3x.png */; };
+		6476078F1A3FD21900B71469 /* TopButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6476078E1A3FD21900B71469 /* TopButton.m */; };
+		647607AF1A3FD7C400B71469 /* 背景.png in Resources */ = {isa = PBXBuildFile; fileRef = 647607921A3FD7C400B71469 /* 背景.png */; };
+		647607B01A3FD7C400B71469 /* 下一级@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 647607951A3FD7C400B71469 /* 下一级@2x.png */; };
+		647607B11A3FD7C400B71469 /* 下一级@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 647607961A3FD7C400B71469 /* 下一级@3x.png */; };
+		647607B21A3FD7C400B71469 /* 下一级选中状态@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 647607971A3FD7C400B71469 /* 下一级选中状态@2x.png */; };
+		647607B31A3FD7C400B71469 /* 下一级选中状态@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 647607981A3FD7C400B71469 /* 下一级选中状态@3x.png */; };
+		647607B41A3FD7C400B71469 /* 删除按钮正常状态@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 647607991A3FD7C400B71469 /* 删除按钮正常状态@2x.png */; };
+		647607B51A3FD7C400B71469 /* 删除按钮正常状态@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6476079A1A3FD7C400B71469 /* 删除按钮正常状态@3x.png */; };
+		647607B61A3FD7C400B71469 /* 删除按钮选中状态@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6476079B1A3FD7C400B71469 /* 删除按钮选中状态@2x.png */; };
+		647607B71A3FD7C400B71469 /* 删除按钮选中状态@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6476079C1A3FD7C400B71469 /* 删除按钮选中状态@3x.png */; };
+		647607B81A3FD7C400B71469 /* 头像设置@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6476079D1A3FD7C400B71469 /* 头像设置@2x.png */; };
+		647607B91A3FD7C400B71469 /* 头像设置@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6476079E1A3FD7C400B71469 /* 头像设置@3x.png */; };
+		647607BA1A3FD7C400B71469 /* 密码图标@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6476079F1A3FD7C400B71469 /* 密码图标@2x.png */; };
+		647607BB1A3FD7C400B71469 /* 密码图标@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 647607A01A3FD7C400B71469 /* 密码图标@3x.png */; };
+		647607BC1A3FD7C400B71469 /* 忘记密码@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 647607A11A3FD7C400B71469 /* 忘记密码@2x.png */; };
+		647607BD1A3FD7C400B71469 /* 忘记密码@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 647607A21A3FD7C400B71469 /* 忘记密码@3x.png */; };
+		647607BE1A3FD7C400B71469 /* 正常文字框@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 647607A31A3FD7C400B71469 /* 正常文字框@2x.png */; };
+		647607BF1A3FD7C400B71469 /* 正常文字框@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 647607A41A3FD7C400B71469 /* 正常文字框@3x.png */; };
+		647607C01A3FD7C400B71469 /* 用户图标@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 647607A51A3FD7C400B71469 /* 用户图标@2x.png */; };
+		647607C11A3FD7C400B71469 /* 用户图标@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 647607A61A3FD7C400B71469 /* 用户图标@3x.png */; };
+		647607C21A3FD7C400B71469 /* 超过60秒文字框@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 647607A71A3FD7C400B71469 /* 超过60秒文字框@2x.png */; };
+		647607C31A3FD7C400B71469 /* 超过60秒文字框@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 647607A81A3FD7C400B71469 /* 超过60秒文字框@3x.png */; };
+		647607C41A3FD7C400B71469 /* 选中文字框@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 647607A91A3FD7C400B71469 /* 选中文字框@2x.png */; };
+		647607C51A3FD7C400B71469 /* 选中文字框@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 647607AA1A3FD7C400B71469 /* 选中文字框@3x.png */; };
+		647607C61A3FD7C400B71469 /* iphone5底图.png in Resources */ = {isa = PBXBuildFile; fileRef = 647607AB1A3FD7C400B71469 /* iphone5底图.png */; };
+		647607C71A3FD7C400B71469 /* iphone6+底图.png in Resources */ = {isa = PBXBuildFile; fileRef = 647607AC1A3FD7C400B71469 /* iphone6+底图.png */; };
+		647607C81A3FD7C400B71469 /* iphone6底图.png in Resources */ = {isa = PBXBuildFile; fileRef = 647607AD1A3FD7C400B71469 /* iphone6底图.png */; };
+		647607C91A3FD7C400B71469 /* 注册iPhone4.png in Resources */ = {isa = PBXBuildFile; fileRef = 647607AE1A3FD7C400B71469 /* 注册iPhone4.png */; };
+		647607CC1A3FE24600B71469 /* dotted line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 647607CA1A3FE24600B71469 /* dotted line@2x.png */; };
+		647607CD1A3FE24600B71469 /* dotted line@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 647607CB1A3FE24600B71469 /* dotted line@3x.png */; };
+		647607D01A3FE2BD00B71469 /* line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 647607CE1A3FE2BD00B71469 /* line@2x.png */; };
+		647607D11A3FE2BD00B71469 /* line@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 647607CF1A3FE2BD00B71469 /* line@3x.png */; };
+		647607D41A3FF68D00B71469 /* CircleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 647607D31A3FF68D00B71469 /* CircleCell.m */; };
+		647607D71A3FF69E00B71469 /* PersonInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 647607D61A3FF69E00B71469 /* PersonInfoCell.m */; };
+		647607DB1A4003BD00B71469 /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 647607DA1A4003BD00B71469 /* PhotoViewController.m */; };
 		647BEC641A3972100049B8C9 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 647BEC631A3972100049B8C9 /* MineViewController.m */; };
 		64BEC4FC1A2D6D5F00931E0F /* NewMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64BEC4FB1A2D6D5F00931E0F /* NewMainViewController.m */; };
 		64C727131A3575B300DFE28E /* imgbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 64C726FD1A3575B300DFE28E /* imgbg.png */; };
@@ -198,7 +229,6 @@
 		2FC71FE71A281770002BB2C5 /* StarVcViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarVcViewController.m; sourceTree = "<group>"; };
 		2FC71FE91A282D87002BB2C5 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		2FC71FEA1A282D87002BB2C5 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
-<<<<<<< Updated upstream
 		5EB87E971A39688700BE4A5D /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		5EB87E981A39688700BE4A5D /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		5EB87E991A39688700BE4A5D /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -226,10 +256,6 @@
 		5EB87EB31A396EBF00BE4A5D /* userSet@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "userSet@3x.png"; sourceTree = "<group>"; };
 		5EB87ECA1A39713700BE4A5D /* regeback@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "regeback@2x.png"; sourceTree = "<group>"; };
 		5EB87ECB1A39713700BE4A5D /* regeback@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "regeback@3x.png"; sourceTree = "<group>"; };
-=======
-		6434BE831A3AE44E00EB9C9B /* PhotoWall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoWall.h; sourceTree = "<group>"; };
-		6434BE841A3AE44E00EB9C9B /* PhotoWall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoWall.m; sourceTree = "<group>"; };
->>>>>>> Stashed changes
 		646C435B1A37F9F300FB683D /* 白羊@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "白羊@2x.png"; sourceTree = "<group>"; };
 		646C435C1A37F9F300FB683D /* 白羊@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "白羊@3x.png"; sourceTree = "<group>"; };
 		646C435D1A37F9F300FB683D /* 处女@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "处女@2x.png"; sourceTree = "<group>"; };
@@ -290,6 +316,45 @@
 		646C43CA1A381CE800FB683D /* ys_c_star_gray@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ys_c_star_gray@3x.png"; sourceTree = "<group>"; };
 		646C43CF1A381D0900FB683D /* ys_c_datebg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ys_c_datebg@2x.png"; sourceTree = "<group>"; };
 		646C43D01A381D0900FB683D /* ys_c_datebg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ys_c_datebg@3x.png"; sourceTree = "<group>"; };
+		6476078D1A3FD21900B71469 /* TopButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopButton.h; sourceTree = "<group>"; };
+		6476078E1A3FD21900B71469 /* TopButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopButton.m; sourceTree = "<group>"; };
+		647607921A3FD7C400B71469 /* 背景.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "背景.png"; sourceTree = "<group>"; };
+		647607951A3FD7C400B71469 /* 下一级@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "下一级@2x.png"; sourceTree = "<group>"; };
+		647607961A3FD7C400B71469 /* 下一级@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "下一级@3x.png"; sourceTree = "<group>"; };
+		647607971A3FD7C400B71469 /* 下一级选中状态@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "下一级选中状态@2x.png"; sourceTree = "<group>"; };
+		647607981A3FD7C400B71469 /* 下一级选中状态@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "下一级选中状态@3x.png"; sourceTree = "<group>"; };
+		647607991A3FD7C400B71469 /* 删除按钮正常状态@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "删除按钮正常状态@2x.png"; sourceTree = "<group>"; };
+		6476079A1A3FD7C400B71469 /* 删除按钮正常状态@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "删除按钮正常状态@3x.png"; sourceTree = "<group>"; };
+		6476079B1A3FD7C400B71469 /* 删除按钮选中状态@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "删除按钮选中状态@2x.png"; sourceTree = "<group>"; };
+		6476079C1A3FD7C400B71469 /* 删除按钮选中状态@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "删除按钮选中状态@3x.png"; sourceTree = "<group>"; };
+		6476079D1A3FD7C400B71469 /* 头像设置@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "头像设置@2x.png"; sourceTree = "<group>"; };
+		6476079E1A3FD7C400B71469 /* 头像设置@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "头像设置@3x.png"; sourceTree = "<group>"; };
+		6476079F1A3FD7C400B71469 /* 密码图标@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "密码图标@2x.png"; sourceTree = "<group>"; };
+		647607A01A3FD7C400B71469 /* 密码图标@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "密码图标@3x.png"; sourceTree = "<group>"; };
+		647607A11A3FD7C400B71469 /* 忘记密码@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "忘记密码@2x.png"; sourceTree = "<group>"; };
+		647607A21A3FD7C400B71469 /* 忘记密码@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "忘记密码@3x.png"; sourceTree = "<group>"; };
+		647607A31A3FD7C400B71469 /* 正常文字框@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "正常文字框@2x.png"; sourceTree = "<group>"; };
+		647607A41A3FD7C400B71469 /* 正常文字框@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "正常文字框@3x.png"; sourceTree = "<group>"; };
+		647607A51A3FD7C400B71469 /* 用户图标@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "用户图标@2x.png"; sourceTree = "<group>"; };
+		647607A61A3FD7C400B71469 /* 用户图标@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "用户图标@3x.png"; sourceTree = "<group>"; };
+		647607A71A3FD7C400B71469 /* 超过60秒文字框@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "超过60秒文字框@2x.png"; sourceTree = "<group>"; };
+		647607A81A3FD7C400B71469 /* 超过60秒文字框@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "超过60秒文字框@3x.png"; sourceTree = "<group>"; };
+		647607A91A3FD7C400B71469 /* 选中文字框@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "选中文字框@2x.png"; sourceTree = "<group>"; };
+		647607AA1A3FD7C400B71469 /* 选中文字框@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "选中文字框@3x.png"; sourceTree = "<group>"; };
+		647607AB1A3FD7C400B71469 /* iphone5底图.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iphone5底图.png"; sourceTree = "<group>"; };
+		647607AC1A3FD7C400B71469 /* iphone6+底图.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iphone6+底图.png"; sourceTree = "<group>"; };
+		647607AD1A3FD7C400B71469 /* iphone6底图.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iphone6底图.png"; sourceTree = "<group>"; };
+		647607AE1A3FD7C400B71469 /* 注册iPhone4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "注册iPhone4.png"; sourceTree = "<group>"; };
+		647607CA1A3FE24600B71469 /* dotted line@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dotted line@2x.png"; sourceTree = "<group>"; };
+		647607CB1A3FE24600B71469 /* dotted line@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dotted line@3x.png"; sourceTree = "<group>"; };
+		647607CE1A3FE2BD00B71469 /* line@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "line@2x.png"; sourceTree = "<group>"; };
+		647607CF1A3FE2BD00B71469 /* line@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "line@3x.png"; sourceTree = "<group>"; };
+		647607D21A3FF68D00B71469 /* CircleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleCell.h; sourceTree = "<group>"; };
+		647607D31A3FF68D00B71469 /* CircleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleCell.m; sourceTree = "<group>"; };
+		647607D51A3FF69E00B71469 /* PersonInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonInfoCell.h; sourceTree = "<group>"; };
+		647607D61A3FF69E00B71469 /* PersonInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonInfoCell.m; sourceTree = "<group>"; };
+		647607D91A4003BD00B71469 /* PhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewController.h; sourceTree = "<group>"; };
+		647607DA1A4003BD00B71469 /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
 		647BEC621A3972100049B8C9 /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
 		647BEC631A3972100049B8C9 /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
 		64BEC4FA1A2D6D5F00931E0F /* NewMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewMainViewController.h; sourceTree = "<group>"; };
@@ -375,11 +440,9 @@
 		2F21162A1A25B5A2009B21EB /* Horoscope */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< Updated upstream
+				647607D81A4003A700B71469 /* BIGimg */,
 				5EB87E951A39686600BE4A5D /* Login */,
-=======
 				647BEC611A3971F50049B8C9 /* Mine */,
->>>>>>> Stashed changes
 				64CD98211A303AE600040744 /* BD */,
 				64CD98221A303AE600040744 /* Firends Circle */,
 				64CD98231A303AE600040744 /* Found */,
@@ -430,6 +493,9 @@
 		2F2116511A25B64A009B21EB /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				647607901A3FD7C400B71469 /* constellationICON */,
+				647607911A3FD7C400B71469 /* iphone 6 */,
+				647607931A3FD7C400B71469 /* registerIcon */,
 				64CD99531A304CD500040744 /* 1.jpg */,
 				646C435A1A37F98400FB683D /* YS */,
 				64CD98621A3042FD00040744 /* LoginIcon */,
@@ -594,13 +660,84 @@
 			path = YS;
 			sourceTree = "<group>";
 		};
+		647607901A3FD7C400B71469 /* constellationICON */ = {
+			isa = PBXGroup;
+			children = (
+				647607CA1A3FE24600B71469 /* dotted line@2x.png */,
+				647607CB1A3FE24600B71469 /* dotted line@3x.png */,
+				647607CE1A3FE2BD00B71469 /* line@2x.png */,
+				647607CF1A3FE2BD00B71469 /* line@3x.png */,
+			);
+			path = constellationICON;
+			sourceTree = "<group>";
+		};
+		647607911A3FD7C400B71469 /* iphone 6 */ = {
+			isa = PBXGroup;
+			children = (
+				647607921A3FD7C400B71469 /* 背景.png */,
+			);
+			path = "iphone 6";
+			sourceTree = "<group>";
+		};
+		647607931A3FD7C400B71469 /* registerIcon */ = {
+			isa = PBXGroup;
+			children = (
+				647607941A3FD7C400B71469 /* icon */,
+				647607AB1A3FD7C400B71469 /* iphone5底图.png */,
+				647607AC1A3FD7C400B71469 /* iphone6+底图.png */,
+				647607AD1A3FD7C400B71469 /* iphone6底图.png */,
+				647607AE1A3FD7C400B71469 /* 注册iPhone4.png */,
+			);
+			path = registerIcon;
+			sourceTree = "<group>";
+		};
+		647607941A3FD7C400B71469 /* icon */ = {
+			isa = PBXGroup;
+			children = (
+				647607951A3FD7C400B71469 /* 下一级@2x.png */,
+				647607961A3FD7C400B71469 /* 下一级@3x.png */,
+				647607971A3FD7C400B71469 /* 下一级选中状态@2x.png */,
+				647607981A3FD7C400B71469 /* 下一级选中状态@3x.png */,
+				647607991A3FD7C400B71469 /* 删除按钮正常状态@2x.png */,
+				6476079A1A3FD7C400B71469 /* 删除按钮正常状态@3x.png */,
+				6476079B1A3FD7C400B71469 /* 删除按钮选中状态@2x.png */,
+				6476079C1A3FD7C400B71469 /* 删除按钮选中状态@3x.png */,
+				6476079D1A3FD7C400B71469 /* 头像设置@2x.png */,
+				6476079E1A3FD7C400B71469 /* 头像设置@3x.png */,
+				6476079F1A3FD7C400B71469 /* 密码图标@2x.png */,
+				647607A01A3FD7C400B71469 /* 密码图标@3x.png */,
+				647607A11A3FD7C400B71469 /* 忘记密码@2x.png */,
+				647607A21A3FD7C400B71469 /* 忘记密码@3x.png */,
+				647607A31A3FD7C400B71469 /* 正常文字框@2x.png */,
+				647607A41A3FD7C400B71469 /* 正常文字框@3x.png */,
+				647607A51A3FD7C400B71469 /* 用户图标@2x.png */,
+				647607A61A3FD7C400B71469 /* 用户图标@3x.png */,
+				647607A71A3FD7C400B71469 /* 超过60秒文字框@2x.png */,
+				647607A81A3FD7C400B71469 /* 超过60秒文字框@3x.png */,
+				647607A91A3FD7C400B71469 /* 选中文字框@2x.png */,
+				647607AA1A3FD7C400B71469 /* 选中文字框@3x.png */,
+			);
+			path = icon;
+			sourceTree = "<group>";
+		};
+		647607D81A4003A700B71469 /* BIGimg */ = {
+			isa = PBXGroup;
+			children = (
+				647607D91A4003BD00B71469 /* PhotoViewController.h */,
+				647607DA1A4003BD00B71469 /* PhotoViewController.m */,
+			);
+			path = BIGimg;
+			sourceTree = "<group>";
+		};
 		647BEC611A3971F50049B8C9 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
 				647BEC621A3972100049B8C9 /* MineViewController.h */,
 				647BEC631A3972100049B8C9 /* MineViewController.m */,
-				6434BE831A3AE44E00EB9C9B /* PhotoWall.h */,
-				6434BE841A3AE44E00EB9C9B /* PhotoWall.m */,
+				647607D21A3FF68D00B71469 /* CircleCell.h */,
+				647607D31A3FF68D00B71469 /* CircleCell.m */,
+				647607D51A3FF69E00B71469 /* PersonInfoCell.h */,
+				647607D61A3FF69E00B71469 /* PersonInfoCell.m */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -612,6 +749,8 @@
 				64BEC4FB1A2D6D5F00931E0F /* NewMainViewController.m */,
 				64C7272B1A358F5900DFE28E /* TopView.h */,
 				64C7272C1A358F5900DFE28E /* TopView.m */,
+				6476078D1A3FD21900B71469 /* TopButton.h */,
+				6476078E1A3FD21900B71469 /* TopButton.m */,
 				64CD99501A30487E00040744 /* MainCollectionViewCell.h */,
 				64CD99511A30487E00040744 /* MainCollectionViewCell.m */,
 				64CD99551A304F2A00040744 /* AddButton.h */,
@@ -828,8 +967,11 @@
 				2F21163C1A25B5A2009B21EB /* LaunchScreen.xib in Resources */,
 				64CD98D91A3042FD00040744 /* 线条@3x.png in Resources */,
 				646C43B31A37FB2400FB683D /* ys_c_tc@2x.png in Resources */,
+				647607C21A3FD7C400B71469 /* 超过60秒文字框@2x.png in Resources */,
+				647607B01A3FD7C400B71469 /* 下一级@2x.png in Resources */,
 				646C43771A37F9F300FB683D /* 巨蟹@2x.png in Resources */,
 				646C43C41A381CDB00FB683D /* ys_c_down@3x.png in Resources */,
+				647607BE1A3FD7C400B71469 /* 正常文字框@2x.png in Resources */,
 				64C727161A3575B300DFE28E /* rank@2x.png in Resources */,
 				646C43AC1A37FB2400FB683D /* ys_c_shizi@3x.png in Resources */,
 				646C43AA1A37FB2400FB683D /* ys_c_sheshou@3x.png in Resources */,
@@ -842,6 +984,7 @@
 				646C43841A37F9F300FB683D /* 天秤@3x.png in Resources */,
 				64CD98D21A3042FD00040744 /* QQ图标@3x.png in Resources */,
 				646C43B51A37FB2400FB683D /* ys_c_tx@2x.png in Resources */,
+				647607C61A3FD7C400B71469 /* iphone5底图.png in Resources */,
 				646C43A11A37FB2400FB683D /* ys_c_chunv@2x.png in Resources */,
 				5EB87EC81A396EBF00BE4A5D /* userSet@2x.png in Resources */,
 				646C43A21A37FB2400FB683D /* ys_c_chunv@3x.png in Resources */,
@@ -851,6 +994,7 @@
 				5EB87EC21A396EBF00BE4A5D /* selected@2x.png in Resources */,
 				64C727251A3575B300DFE28E /* 弹窗@3x.png in Resources */,
 				646C437F1A37F9F300FB683D /* 双子@2x.png in Resources */,
+				647607C11A3FD7C400B71469 /* 用户图标@3x.png in Resources */,
 				64CD98D31A3042FD00040744 /* 微信图标@2x.png in Resources */,
 				2F2116391A25B5A2009B21EB /* Images.xcassets in Resources */,
 				5EB87EB61A396EBF00BE4A5D /* delSelected@2x.png in Resources */,
@@ -858,6 +1002,7 @@
 				646C43CE1A381CE800FB683D /* ys_c_star_gray@3x.png in Resources */,
 				64C727151A3575B300DFE28E /* rank2@2x.png in Resources */,
 				646C43781A37F9F300FB683D /* 巨蟹@3x.png in Resources */,
+				647607C41A3FD7C400B71469 /* 选中文字框@2x.png in Resources */,
 				5EB87EB41A396EBF00BE4A5D /* after60@2x.png in Resources */,
 				64CD98DC1A3042FD00040744 /* iPhone4底图.png in Resources */,
 				646C43AD1A37FB2400FB683D /* ys_c_sp@2x.png in Resources */,
@@ -872,18 +1017,25 @@
 				646C43A71A37FB2400FB683D /* ys_c_mojie@2x.png in Resources */,
 				646C43C51A381CDB00FB683D /* ys_c_downline@2x.png in Resources */,
 				646C43AF1A37FB2400FB683D /* ys_c_sy@2x.png in Resources */,
+				647607BB1A3FD7C400B71469 /* 密码图标@3x.png in Resources */,
 				5EB87EBF1A396EBF00BE4A5D /* regedel@3x.png in Resources */,
 				646C43B91A38136400FB683D /* ys_c_Topbg@2x.png in Resources */,
 				5EB87EBE1A396EBF00BE4A5D /* regedel@2x.png in Resources */,
 				5EB87EB51A396EBF00BE4A5D /* after60@3x.png in Resources */,
 				646C43731A37F9F300FB683D /* 处女@2x.png in Resources */,
+				647607CC1A3FE24600B71469 /* dotted line@2x.png in Resources */,
 				646C43751A37F9F300FB683D /* 金牛@2x.png in Resources */,
 				64CD98DE1A3042FD00040744 /* iphone6+登陆底图.png in Resources */,
+				647607B61A3FD7C400B71469 /* 删除按钮选中状态@2x.png in Resources */,
 				646C43D21A381D0900FB683D /* ys_c_datebg@3x.png in Resources */,
+				647607C71A3FD7C400B71469 /* iphone6+底图.png in Resources */,
 				646C43CD1A381CE800FB683D /* ys_c_star_gray@2x.png in Resources */,
+				647607B11A3FD7C400B71469 /* 下一级@3x.png in Resources */,
 				646C437B1A37F9F300FB683D /* 狮子@2x.png in Resources */,
 				646C43A01A37FB2400FB683D /* ys_c_by@3x.png in Resources */,
+				647607B91A3FD7C400B71469 /* 头像设置@3x.png in Resources */,
 				646C43711A37F9F300FB683D /* 白羊@2x.png in Resources */,
+				647607CD1A3FE24600B71469 /* dotted line@3x.png in Resources */,
 				646C43811A37F9F300FB683D /* 水瓶@2x.png in Resources */,
 				64CD98DB1A3042FD00040744 /* 选中文字框@3x.png in Resources */,
 				646C43BD1A38146E00FB683D /* 摩羯@2x.png in Resources */,
@@ -891,8 +1043,10 @@
 				64CD98D71A3042FD00040744 /* 正常文字框@3x.png in Resources */,
 				5EB87EB81A396EBF00BE4A5D /* fogetPass@2x.png in Resources */,
 				64C7271B1A3575B300DFE28E /* 弹窗@2x.png in Resources */,
+				647607BC1A3FD7C400B71469 /* 忘记密码@2x.png in Resources */,
 				646C43C31A381CDB00FB683D /* ys_c_down@2x.png in Resources */,
 				646C43741A37F9F300FB683D /* 处女@3x.png in Resources */,
+				647607B31A3FD7C400B71469 /* 下一级选中状态@3x.png in Resources */,
 				646C43AB1A37FB2400FB683D /* ys_c_shizi@2x.png in Resources */,
 				646C43B01A37FB2400FB683D /* ys_c_sy@3x.png in Resources */,
 				5EB87EBD1A396EBF00BE4A5D /* nextSelcted@3x.png in Resources */,
@@ -900,41 +1054,57 @@
 				646C43761A37F9F300FB683D /* 金牛@3x.png in Resources */,
 				5EB87EBA1A396EBF00BE4A5D /* next@2x.png in Resources */,
 				646C43861A37F9F300FB683D /* 天蝎@3x.png in Resources */,
+				647607B81A3FD7C400B71469 /* 头像设置@2x.png in Resources */,
 				5EB87E9B1A39688700BE4A5D /* LoginViewController.xib in Resources */,
 				64CD98D41A3042FD00040744 /* 微信图标@3x.png in Resources */,
 				646C43BA1A38136400FB683D /* ys_c_Topbg@3x.png in Resources */,
 				2F2116FC1A25B64A009B21EB /* MenuViewController.xib in Resources */,
+				647607C81A3FD7C400B71469 /* iphone6底图.png in Resources */,
+				647607C01A3FD7C400B71469 /* 用户图标@2x.png in Resources */,
 				5EB87EC71A396EBF00BE4A5D /* userDefalt@3x.png in Resources */,
 				64CD99541A304CD500040744 /* 1.jpg in Resources */,
 				646C43B21A37FB2400FB683D /* ys_c_sz@3x.png in Resources */,
 				646C43A61A37FB2400FB683D /* ys_c_juxie@3x.png in Resources */,
 				646C43791A37F9F300FB683D /* 射手@2x.png in Resources */,
+				647607C31A3FD7C400B71469 /* 超过60秒文字框@3x.png in Resources */,
 				64C7271F1A3575B300DFE28E /* rank2@3x.png in Resources */,
 				64CD98D81A3042FD00040744 /* 线条@2x.png in Resources */,
+				647607B41A3FD7C400B71469 /* 删除按钮正常状态@2x.png in Resources */,
+				647607BD1A3FD7C400B71469 /* 忘记密码@3x.png in Resources */,
 				646C43A31A37FB2400FB683D /* ys_c_jinniu@2x.png in Resources */,
 				5EB87EB71A396EBF00BE4A5D /* delSelected@3x.png in Resources */,
 				64CD98D11A3042FD00040744 /* QQ图标@2x.png in Resources */,
+				647607BF1A3FD7C400B71469 /* 正常文字框@3x.png in Resources */,
 				646C43A91A37FB2400FB683D /* ys_c_sheshou@2x.png in Resources */,
 				646C437A1A37F9F300FB683D /* 射手@3x.png in Resources */,
 				64C7271E1A3575B300DFE28E /* imgbg@3x.png in Resources */,
+				647607BA1A3FD7C400B71469 /* 密码图标@2x.png in Resources */,
 				646C43A51A37FB2400FB683D /* ys_c_juxie@2x.png in Resources */,
 				646C43D11A381D0900FB683D /* ys_c_datebg@2x.png in Resources */,
 				646C439F1A37FB2400FB683D /* ys_c_by@2x.png in Resources */,
 				646C43831A37F9F300FB683D /* 天秤@2x.png in Resources */,
 				5EB87ECC1A39713700BE4A5D /* regeback@2x.png in Resources */,
 				646C437E1A37F9F300FB683D /* 双鱼@3x.png in Resources */,
+				647607D01A3FE2BD00B71469 /* line@2x.png in Resources */,
 				646C43821A37F9F300FB683D /* 水瓶@3x.png in Resources */,
+				647607B51A3FD7C400B71469 /* 删除按钮正常状态@3x.png in Resources */,
+				647607AF1A3FD7C400B71469 /* 背景.png in Resources */,
+				647607C91A3FD7C400B71469 /* 注册iPhone4.png in Resources */,
+				647607C51A3FD7C400B71469 /* 选中文字框@3x.png in Resources */,
 				64C727141A3575B300DFE28E /* imgbg@2x.png in Resources */,
 				64CD98DD1A3042FD00040744 /* iphone5底图.png in Resources */,
 				5EB87EC61A396EBF00BE4A5D /* userDefalt@2x.png in Resources */,
+				647607D11A3FE2BD00B71469 /* line@3x.png in Resources */,
 				64C727131A3575B300DFE28E /* imgbg.png in Resources */,
 				646C43AE1A37FB2400FB683D /* ys_c_sp@3x.png in Resources */,
 				646C43CC1A381CE800FB683D /* ys_c_star_blue@3x.png in Resources */,
+				647607B71A3FD7C400B71469 /* 删除按钮选中状态@3x.png in Resources */,
 				5EB87EC51A396EBF00BE4A5D /* textNormal@3x.png in Resources */,
 				646C437D1A37F9F300FB683D /* 双鱼@2x.png in Resources */,
 				646C43B61A37FB2400FB683D /* ys_c_tx@3x.png in Resources */,
 				646C43B41A37FB2400FB683D /* ys_c_tc@3x.png in Resources */,
 				646C43CB1A381CE800FB683D /* ys_c_star_blue@2x.png in Resources */,
+				647607B21A3FD7C400B71469 /* 下一级选中状态@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -952,11 +1122,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				647607D71A3FF69E00B71469 /* PersonInfoCell.m in Sources */,
 				64C7272D1A358F5900DFE28E /* TopView.m in Sources */,
 				64CD982D1A303BF400040744 /* TodayLuckViewController.m in Sources */,
 				2F2116F81A25B64A009B21EB /* UIViewController+JDSideMenu.m in Sources */,
 				2F2116FB1A25B64A009B21EB /* MenuViewController.m in Sources */,
 				64CD982A1A303B1500040744 /* BdViewController.m in Sources */,
+				647607DB1A4003BD00B71469 /* PhotoViewController.m in Sources */,
+				6476078F1A3FD21900B71469 /* TopButton.m in Sources */,
 				647BEC641A3972100049B8C9 /* MineViewController.m in Sources */,
 				2FC71FEB1A282D87002BB2C5 /* TestViewController.m in Sources */,
 				2FC71FE81A281770002BB2C5 /* StarVcViewController.m in Sources */,
@@ -967,11 +1140,11 @@
 				2F2116311A25B5A2009B21EB /* AppDelegate.m in Sources */,
 				64CD99571A304F2A00040744 /* AddButton.m in Sources */,
 				2F2116F71A25B64A009B21EB /* JDSideMenu.m in Sources */,
-				6434BE851A3AE44E00EB9C9B /* PhotoWall.m in Sources */,
 				2FC71FE21A281569002BB2C5 /* MainViewController.m in Sources */,
 				64BEC4FC1A2D6D5F00931E0F /* NewMainViewController.m in Sources */,
 				64CD98301A30403900040744 /* XWViewController.m in Sources */,
 				2FC71FDA1A2721AC002BB2C5 /* BaseViewController.m in Sources */,
+				647607D41A3FF68D00B71469 /* CircleCell.m in Sources */,
 				2F21162E1A25B5A2009B21EB /* main.m in Sources */,
 				2FC71FDD1A2721AC002BB2C5 /* StarDicController.m in Sources */,
 				5EB87E9A1A39688700BE4A5D /* LoginViewController.m in Sources */,

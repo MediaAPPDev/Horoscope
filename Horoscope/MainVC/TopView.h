@@ -7,7 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TopButton.h"
+
+
+@protocol TopViewDelegate;
 
 @interface TopView : UICollectionReusableView
+@property(nonatomic,strong)TopButton *cell1;
+@property(nonatomic,strong)TopButton *cell2;
+@property(nonatomic,strong)TopButton *cell3;
+@property(nonatomic,strong)TopButton *cell4;
+@property(nonatomic,strong)TopButton *cell5;
+@property(nonatomic,strong)TopButton *cell6;
+@property (nonatomic,assign)id<TopViewDelegate>delegate;
+@end
+
+@protocol TopViewDelegate <NSObject>
+
+-(void)didClickButton:(NSInteger)n;
 
 @end

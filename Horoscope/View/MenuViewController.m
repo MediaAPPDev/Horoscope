@@ -17,11 +17,9 @@
 #import "StarVcViewController.h"
 #import "TestViewController.h"
 #import "JDSideMenu.h"
-<<<<<<< Updated upstream
+
 #import "MainViewController.h"
 #import "LoginViewController.h"
-=======
->>>>>>> Stashed changes
 
 
 #import "NewMainViewController.h"
@@ -34,7 +32,6 @@
 {
     UIButton * newsButton;
     UIButton * saysBtton;
-    
 }
 
 @end

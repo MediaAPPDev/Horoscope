@@ -9,7 +9,6 @@
 #import "NewMainViewController.h"
 #import "MainCollectionViewCell.h"
 #import "AddButton.h"
-#import "TopView.h"
 #import "MineViewController.h"
 @interface NewMainViewController ()
 {
@@ -17,6 +16,7 @@
     UICollectionViewFlowLayout * m_layout;
     UIImageView * blackImageView;
     AddButton * ccButton;
+    
 }
 @end
 
@@ -27,7 +27,7 @@
     // Do any additional setup after loading the view.
 
     
-    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(didClickNotification:) name:@"didClick_wx_drx" object:nil];
     
     [self buildTopviewWithBackButton:NO title:@"星座达人秀 - TOP" rightImage:@""];
     
@@ -39,6 +39,8 @@
    
     [m_CollView registerClass:[MainCollectionViewCell class] forCellWithReuseIdentifier:@"collectionViewCell1"];
     
+    TopView *topview = [[TopView alloc]init];
+    topview.delegate = self;
     [m_CollView registerClass:[TopView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"headViewww"];
 
     //设置代理
@@ -97,8 +99,7 @@
     
     if (kind == UICollectionElementKindSectionHeader) {
         titleView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"headViewww" forIndexPath:indexPath];
-        [(TopView *)titleView addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(customViewDidClick:)]];
-        
+
         }
     return titleView;
 
@@ -106,7 +107,10 @@
 
     return titleView;
 }
-
+-(void)didClickNotification:(NSNotification*)sender
+{
+    [self customViewDidClick:sender.object];
+}
 
 
 //设置元素的的大小框
@@ -133,14 +137,14 @@
 //}
 
 
--(void)customViewDidClick:(id)sender
+-(void)customViewDidClick:(int)sender
 {
     [UIView animateWithDuration:0.5 animations:^{
         ccButton.frame =CGRectMake(0, 400, 307, 72);
         
     } completion:^(BOOL finished) {
     }];
-    ccButton.tag = 100;
+    ccButton.tag = sender;
     
     blackImageView.hidden = NO;
     ccButton.hidden = NO;
@@ -187,13 +191,6 @@
 }
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
-
 
 -(void)buildBlackView
 {
@@ -237,10 +234,8 @@
 -(void)didHiddenBlView:(UIGestureRecognizer*)sender
 {
     
-    
     [UIView animateWithDuration:0.5 animations:^{
         ccButton.frame =CGRectMake(-307, 400, 307, 72);
-        
         
     } completion:^(BOOL finished) {
     }];
@@ -251,6 +246,15 @@
     
 }
 
+-(void)didClickButton:(NSInteger)n
+{
+    
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 
 /*
 #pragma mark - Navigation
