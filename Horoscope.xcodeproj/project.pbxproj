@@ -94,6 +94,9 @@
 		645DEEB81A414DCA00E8C524 /* weibo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 645DEEB01A414DCA00E8C524 /* weibo@3x.png */; };
 		645DEEB91A414DCA00E8C524 /* weixin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 645DEEB11A414DCA00E8C524 /* weixin@2x.png */; };
 		645DEEBA1A414DCA00E8C524 /* weixin@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 645DEEB21A414DCA00E8C524 /* weixin@3x.png */; };
+		645DEEBD1A41607500E8C524 /* FoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 645DEEBC1A41607500E8C524 /* FoundViewController.m */; };
+		645DEEC01A41648B00E8C524 /* RequestTaskService.m in Sources */ = {isa = PBXBuildFile; fileRef = 645DEEBF1A41648B00E8C524 /* RequestTaskService.m */; };
+		645DEEC61A41675600E8C524 /* ChangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 645DEEC51A41675600E8C524 /* ChangeViewController.m */; };
 		646C43711A37F9F300FB683D /* 白羊@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 646C435B1A37F9F300FB683D /* 白羊@2x.png */; };
 		646C43721A37F9F300FB683D /* 白羊@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 646C435C1A37F9F300FB683D /* 白羊@3x.png */; };
 		646C43731A37F9F300FB683D /* 处女@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 646C435D1A37F9F300FB683D /* 处女@2x.png */; };
@@ -370,6 +373,12 @@
 		645DEEB01A414DCA00E8C524 /* weibo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weibo@3x.png"; sourceTree = "<group>"; };
 		645DEEB11A414DCA00E8C524 /* weixin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weixin@2x.png"; sourceTree = "<group>"; };
 		645DEEB21A414DCA00E8C524 /* weixin@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weixin@3x.png"; sourceTree = "<group>"; };
+		645DEEBB1A41607500E8C524 /* FoundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoundViewController.h; sourceTree = "<group>"; };
+		645DEEBC1A41607500E8C524 /* FoundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundViewController.m; sourceTree = "<group>"; };
+		645DEEBE1A41648B00E8C524 /* RequestTaskService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestTaskService.h; sourceTree = "<group>"; };
+		645DEEBF1A41648B00E8C524 /* RequestTaskService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestTaskService.m; sourceTree = "<group>"; };
+		645DEEC41A41675600E8C524 /* ChangeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeViewController.h; sourceTree = "<group>"; };
+		645DEEC51A41675600E8C524 /* ChangeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeViewController.m; sourceTree = "<group>"; };
 		646C435B1A37F9F300FB683D /* 白羊@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "白羊@2x.png"; sourceTree = "<group>"; };
 		646C435C1A37F9F300FB683D /* 白羊@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "白羊@3x.png"; sourceTree = "<group>"; };
 		646C435D1A37F9F300FB683D /* 处女@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "处女@2x.png"; sourceTree = "<group>"; };
@@ -726,6 +735,8 @@
 		645DEE301A4132B700E8C524 /* OpenSourceData */ = {
 			isa = PBXGroup;
 			children = (
+				645DEEBE1A41648B00E8C524 /* RequestTaskService.h */,
+				645DEEBF1A41648B00E8C524 /* RequestTaskService.m */,
 				645DEE631A41333700E8C524 /* AFNetworking */,
 				645DEE451A4132D900E8C524 /* PhotoWall */,
 				645DEE311A4132C100E8C524 /* json */,
@@ -979,6 +990,8 @@
 				647607D61A3FF69E00B71469 /* PersonInfoCell.m */,
 				645DEE881A4137A200E8C524 /* PersonInfoChangeViewController.h */,
 				645DEE891A4137A200E8C524 /* PersonInfoChangeViewController.m */,
+				645DEEC41A41675600E8C524 /* ChangeViewController.h */,
+				645DEEC51A41675600E8C524 /* ChangeViewController.m */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -1042,6 +1055,8 @@
 		64CD98231A303AE600040744 /* Found */ = {
 			isa = PBXGroup;
 			children = (
+				645DEEBB1A41607500E8C524 /* FoundViewController.h */,
+				645DEEBC1A41607500E8C524 /* FoundViewController.m */,
 			);
 			path = Found;
 			sourceTree = "<group>";
@@ -1402,6 +1417,7 @@
 				645DEE821A41333700E8C524 /* UIImageView+AFNetworking.m in Sources */,
 				64CD982A1A303B1500040744 /* BdViewController.m in Sources */,
 				647607DB1A4003BD00B71469 /* PhotoViewController.m in Sources */,
+				645DEEC61A41675600E8C524 /* ChangeViewController.m in Sources */,
 				6476078F1A3FD21900B71469 /* TopButton.m in Sources */,
 				645DEE8A1A4137A200E8C524 /* PersonInfoChangeViewController.m in Sources */,
 				647BEC641A3972100049B8C9 /* MineViewController.m in Sources */,
@@ -1423,6 +1439,8 @@
 				645DEE931A41474900E8C524 /* TopTableViewCell.m in Sources */,
 				645DEE8D1A413F4500E8C524 /* FriendsViewController.m in Sources */,
 				64BEC4FC1A2D6D5F00931E0F /* NewMainViewController.m in Sources */,
+				645DEEC01A41648B00E8C524 /* RequestTaskService.m in Sources */,
+				645DEEBD1A41607500E8C524 /* FoundViewController.m in Sources */,
 				645DEE7F1A41333700E8C524 /* AFURLRequestSerialization.m in Sources */,
 				64CD98301A30403900040744 /* XWViewController.m in Sources */,
 				2FC71FDA1A2721AC002BB2C5 /* BaseViewController.m in Sources */,

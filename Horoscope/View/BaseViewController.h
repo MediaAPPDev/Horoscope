@@ -16,7 +16,7 @@
 - (void) gotoViews;
 -(float)niub:(float)a;
 
-
+- (void)setTopViewWithTitle:(NSString*)titleStr withBackButton:(BOOL)hasBacButton;
 /*
  
  创建Label快捷方式

@@ -13,7 +13,10 @@
 //#import "UIViewController+JDSideMenu.h"
 //#import "JDSideMenu.h"
 @implementation BaseViewController
-
+{
+    UILabel * baseTitleLabel;
+    UIActivityIndicatorView * m_loginActivity;
+}
 -(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     if (self) {
@@ -144,7 +147,66 @@
 }
 
 
+- (void)setTopViewWithTitle:(NSString*)titleStr withBackButton:(BOOL)hasBacButton
+{
+    UIImageView* topImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, KISHighVersion_7 ? 64 : 44)];
+    topImageView.userInteractionEnabled = YES;
+    topImageView.backgroundColor = kColorWithRGB(23, 161, 240, 1.0);
+    topImageView.image = KUIImage(@"nav_bg");
+    [self.view addSubview:topImageView];
+    
+//    UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapTopViewClick:)];
+//    tapGesture.delegate = self;
+//    [topImageView addGestureRecognizer:tapGesture];
+    
+    baseTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, KISHighVersion_7 ? 20 : 0, 220, 44)];
+    baseTitleLabel.textColor = [UIColor whiteColor];
+    baseTitleLabel.backgroundColor = [UIColor clearColor];
+    baseTitleLabel.text = titleStr;
+    baseTitleLabel.textAlignment = NSTextAlignmentCenter;
+    baseTitleLabel.font = [UIFont boldSystemFontOfSize:20];
+    [self.view addSubview:baseTitleLabel];
+    
+    m_loginActivity = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    m_loginActivity.color = [UIColor whiteColor];
+    m_loginActivity.activityIndicatorViewStyle =UIActivityIndicatorViewStyleWhite;
+    [self.view addSubview:m_loginActivity];
+    [self changeActivityPositionWithTitle:baseTitleLabel.text];
+    
+    if (hasBacButton) {
+        UIButton* backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, KISHighVersion_7 ? 20 : 0, 65, 44)];
+        [backButton setImage:KUIImage(@"backButton") forState:UIControlStateNormal];
+        [backButton setImage:KUIImage(@"backButton2") forState:UIControlStateHighlighted];
+        backButton.backgroundColor = [UIColor clearColor];
+        [backButton addTarget:self action:@selector(backButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:backButton];
+    }
+}
 
+//根据标题的长度更改UIActivity的位置
+-(void)changeActivityPositionWithTitle:(NSString *)title
+{
+    CGSize size = [title sizeWithFont:baseTitleLabel.font constrainedToSize:CGSizeMake(220, 30)];
+    //文字的左起位置
+    float title_left_x = 160 - size.width/2;
+    if (title_left_x<50) {  //不会超过左边界
+        title_left_x = 50;
+    }
+    m_loginActivity.frame = CGRectMake(title_left_x-20, KISHighVersion_7?27:7, 20, 20);
+    m_loginActivity.center = CGPointMake(title_left_x-20, KISHighVersion_7?42:22);
+    
+}
+/**
+ *  返回按钮关闭页面
+ *
+ *  @param sender
+ */
+- (void)backButtonClick:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+    [[RequestTaskService singleton] clearRequest:[NSString stringWithUTF8String:object_getClassName(self)]];
+    
+}
 
 
 

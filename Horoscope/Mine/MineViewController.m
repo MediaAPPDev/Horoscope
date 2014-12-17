@@ -275,9 +275,8 @@
 -(void)enterNextPage:(id)sender
 {
     PersonInfoChangeViewController *p = [[PersonInfoChangeViewController alloc]init];
-    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:self];
     
-    [nav pushViewController:p animated:YES];
+    [self.navigationController pushViewController:p animated:YES];
 
 }
 

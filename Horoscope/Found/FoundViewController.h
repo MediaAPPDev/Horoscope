@@ -1,5 +1,5 @@
 //
-//  PersonInfoChangeViewController.h
+//  FoundViewController.h
 //  Horoscope
 //
 //  Created by Satellite on 14/12/17.
@@ -8,6 +8,6 @@
 
 #import "BaseViewController.h"
 
-@interface PersonInfoChangeViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource>
+@interface FoundViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>
 
 @end

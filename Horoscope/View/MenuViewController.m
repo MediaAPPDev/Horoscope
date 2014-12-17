@@ -12,12 +12,11 @@
 #import "StarDicController.h"
 #import "TodayViewController.h"
 #import "ZoneViewController.h"
-#import "MainViewController.h"
 #import "UIViewController+JDSideMenu.h"
 #import "StarVcViewController.h"
 #import "TestViewController.h"
 #import "JDSideMenu.h"
-
+#import "FoundViewController.h"
 #import "MainViewController.h"
 #import "LoginViewController.h"
 #import "FriendsViewController.h"
@@ -154,9 +153,14 @@
 {
     
         StarDicController * starVC =[[StarDicController alloc]init];
-        FindViewController * findVC =[[FindViewController alloc]init];
+        FoundViewController * findVC =[[FoundViewController alloc]init];
 //        FriendLoopViewController * friendLoop =[[FriendLoopViewController alloc]init];
+    
+    
     FriendsViewController * friendLoop = [[FriendsViewController alloc]init];
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:friendLoop];
+    nav.navigationBarHidden = YES;
+
 //        TodayViewController * todayVC =[[TodayViewController alloc]init];
     TodayLuckViewController *todayVC =[[TodayLuckViewController alloc]init];
         ZoneViewController * zoneVC =[[ZoneViewController alloc]init];
@@ -167,8 +171,6 @@
     
     LoginViewController * loginVC =[[LoginViewController alloc]init];
     
-    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:friendLoop];
-    nav.navigationBarHidden = YES;
     
     
     switch (btn.tag) {
@@ -297,7 +299,9 @@
 - (IBAction)didClickMine:(UIButton *)sender {
     
     MineViewController *mineVC = [[MineViewController alloc]init];
-    [self.sideMenuController setContentController:mineVC animated:YES];
+    UINavigationController *navi = [[UINavigationController alloc]initWithRootViewController:mineVC];
+    navi.navigationBarHidden = YES;
+    [self.sideMenuController setContentController:navi animated:YES];
     [_showView setHidden: YES];
     [_newsView setHidden: YES];
     
