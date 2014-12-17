@@ -57,20 +57,20 @@
 //    JDSideMenu * jd =(JDSideMenu *)self.parentViewController;
 //    [jd showMenuAnimated:YES];
     
-    [self.leftButton addTarget:self action:@selector(gotoMenu:) forControlEvents:UIControlEventTouchUpInside];
+//    [self.leftButton addTarget:self action:@selector(gotoMenu:) forControlEvents:UIControlEventTouchUpInside];
     
 }
-- (void)gotoMenu:(UIGestureRecognizer * )ges
-{
-    if ([self.sideMenuController isMenuVisible]) {
-        [self.sideMenuController hideMenuAnimated:YES];
-    }else
-    {
-        [self.sideMenuController showMenuAnimated:YES];
-    }
-    
-    
-}
+//- (void)gotoMenu:(UIGestureRecognizer * )ges
+//{
+//    if ([self.sideMenuController isMenuVisible]) {
+//        [self.sideMenuController hideMenuAnimated:YES];
+//    }else
+//    {
+//        [self.sideMenuController showMenuAnimated:YES];
+//    }
+//    
+//    
+//}
 
 -(NSString*)titleForChildControllerMDMenuViewController:(MDMenuViewController *)menuController
 {

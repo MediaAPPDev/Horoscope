@@ -85,8 +85,12 @@
 
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     MineViewController *mine = [[MineViewController alloc]init];
-    mine.isRootView = NO;
-    [self.navigationController pushViewController:mine animated:YES];
+//    mine.isRootView = NO;
+//    [self.menuController pushViewController:mine withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
+    
+    [self.menuController pushViewController:mine withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
+    
+//        [self.navigationController pushViewController:mine animated:YES];
 
 }
 

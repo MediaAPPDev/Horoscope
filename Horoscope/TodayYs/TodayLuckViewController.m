@@ -126,7 +126,7 @@
     [scr addSubview:textView];
     
     // Do any additional setup after loading the view, typically from a nib.
-    [self.leftButton addTarget:self action:@selector(gotoMenu:) forControlEvents:UIControlEventTouchUpInside];
+//    [self.leftButton addTarget:self action:@selector(gotoMenu:) forControlEvents:UIControlEventTouchUpInside];
     
 }
 
@@ -230,15 +230,15 @@
 }
 
 
-- (void)gotoMenu:(UIGestureRecognizer * )ges
-{
-    if ([self.sideMenuController isMenuVisible]) {
-        [self.sideMenuController hideMenuAnimated:YES];
-    }else
-    {
-        [self.sideMenuController showMenuAnimated:YES];
-    }
-}
+//- (void)gotoMenu:(UIGestureRecognizer * )ges
+//{
+//    if ([self.sideMenuController isMenuVisible]) {
+//        [self.sideMenuController hideMenuAnimated:YES];
+//    }else
+//    {
+//        [self.sideMenuController showMenuAnimated:YES];
+//    }
+//}
 
 /*
  

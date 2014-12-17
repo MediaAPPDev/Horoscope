@@ -41,7 +41,9 @@
 
 -(void)backToLastPage:(id)sender
 {
-    [self.navigationController popViewControllerAnimated:YES];
+    
+    [self.menuController popViewControllerAnimated:YES];
+//    [self.navigationController popViewControllerAnimated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

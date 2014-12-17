@@ -224,7 +224,7 @@
     NSLog(@"%ld",(long)ccButton.tag);
     MineViewController *mineView = [[MineViewController alloc]init];
     
-    [self.navigationController pushViewController:mineView animated:YES];
+    [self.menuController pushViewController:mineView withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
     
 //    [self presentViewController:mineView animated:YES completion:^{
     
@@ -253,7 +253,7 @@
 {
     MineViewController *mine = [[MineViewController alloc]init];
     mine.isRootView = NO;
-    [self.navigationController pushViewController:mine animated:YES];
+     [self.menuController pushViewController:mine withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
     
     [self didHiddenBlView:nil];
 }

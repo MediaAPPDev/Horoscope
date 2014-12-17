@@ -7,6 +7,8 @@
 //
 
 #import "DefaultMenuView.h"
+#import "MineViewController.h"
+#import "MDMenuViewController.h"
 
 @implementation DefaultMenuView
 -(id)initWithFrame:(CGRect)frame
@@ -45,6 +47,9 @@
 //        _faceImageButton.backgroundColor =[UIColor redColor];
         [_faceImageButton setBackgroundImage:[UIImage imageNamed:@"touxiang1.png"] forState:UIControlStateNormal];
         
+        [_faceImageButton addTarget:self action:@selector(faceChangeAction:) forControlEvents:UIControlEventTouchUpInside];
+        
+        
         
 
         
@@ -55,6 +60,7 @@
         _settingButton.frame =CGRectMake(10, _headView.frame.origin.y+20, 25, 25);
         
         [_settingButton setBackgroundImage:[UIImage imageNamed:@"shezhi.png"] forState:UIControlStateNormal];
+        [_settingButton addTarget:self action:@selector(settingChangeAction:) forControlEvents:UIControlEventTouchUpInside];
         
         
         
@@ -77,6 +83,28 @@
     }
     return self;
 }
+
+//添加方法 更换头像
+- (void) faceChangeAction:(UIButton *)btn
+{
+    
+    MineViewController * mine =[[MineViewController alloc]init];
+    
+    
+    
+//   [self.menuController pushViewController:mine withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
+    
+    
+    
+    
+}
+//添加方法 个人设置
+-(void)  settingChangeAction:(UIButton * )btn
+{
+   
+    
+}
+
 -(void)setMenuItems:(NSArray *)menuItems
 {
     MenuItems = menuItems;
@@ -192,6 +220,7 @@
     if([self.delegate respondsToSelector:@selector(MenuViewDidSelectMenuItem:atIndex:)])
     {
         [self.delegate MenuViewDidSelectMenuItem:entity.itemType atIndex:indexPath.row];
+        
     }
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView1 cellForRowAtIndexPath:(NSIndexPath *)indexPath

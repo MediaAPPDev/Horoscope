@@ -267,7 +267,9 @@ static int TOP_BAR_HEIGHT = 50;
     [stack push:childController];
     ((id<MDMenuViewControllerDelegate>)childController).menuController = self;
     
+//    UINavigationController * nav =[[UINavigationController alloc]initWithRootViewController:childController];
     
+//    DefaultMenuView  *menuVC =  _menuView;
     
     [self showViewController:childController withTransitionAnimator:animator];
 }

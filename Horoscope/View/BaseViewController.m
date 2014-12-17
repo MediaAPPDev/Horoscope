@@ -74,15 +74,9 @@
     [self.leftButton addTarget:self action:@selector(gotoMenu:) forControlEvents:UIControlEventTouchUpInside];
     
 }
-- (void)gotoMenu:(UIGestureRecognizer * )ges
+- (void)gotoMenu:(UIButton  * )btn
 {
-//    if ([self.sideMenuController isMenuVisible]) {
-//        [self.sideMenuController hideMenuAnimated:YES];
-//    }else
-//    {
-//        [self.sideMenuController showMenuAnimated:YES];
-//    }
-    
+
     
     
     [self.menuController showMenu:self.menuController.topBar];
@@ -208,7 +202,9 @@
  */
 - (void)backButtonClick:(id)sender
 {
-    [self.navigationController popViewControllerAnimated:YES];
+//    [self.navigationController popViewControllerAnimated:YES];
+    
+    [self.menuController popViewControllerAnimated:YES];
     [[RequestTaskService singleton] clearRequest:[NSString stringWithUTF8String:object_getClassName(self)]];
     
 }

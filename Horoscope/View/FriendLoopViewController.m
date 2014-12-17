@@ -19,23 +19,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    [self buildTopviewWithBackButton:YES title:@"星友" rightImage:@"添加按钮点击状态"];
+    [self buildTopviewWithBackButton:YES title:@"星友圈" rightImage:@"添加按钮点击状态"];
     
     [self buildScrollViewWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height-64) contentSize:CGSizeMake(0, 1014) Image:@"星友页面ios"];
-    [self.leftButton addTarget:self action:@selector(gotoMenu:) forControlEvents:UIControlEventTouchUpInside];
+//    [self.leftButton addTarget:self action:@selector(gotoMenu:) forControlEvents:UIControlEventTouchUpInside];
     
 }
-- (void)gotoMenu:(UIGestureRecognizer * )ges
-{
-    if ([self.sideMenuController isMenuVisible]) {
-        [self.sideMenuController hideMenuAnimated:YES];
-    }else
-    {
-        [self.sideMenuController showMenuAnimated:YES];
-    }
-    
-    
-}
+//- (void)gotoMenu:(UIGestureRecognizer * )ges
+//{
+//    if ([self.sideMenuController isMenuVisible]) {
+//        [self.sideMenuController hideMenuAnimated:YES];
+//    }else
+//    {
+//        [self.sideMenuController showMenuAnimated:YES];
+//    }
+//    
+//    
+//}
 
 -(NSString*)titleForChildControllerMDMenuViewController:(MDMenuViewController *)menuController
 {

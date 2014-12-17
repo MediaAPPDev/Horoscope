@@ -58,6 +58,10 @@
     [self dismissViewControllerAnimated:YES completion:^{
         
     }];
+    
+    
+    
+//     [self.menuController pushViewController:nav withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
