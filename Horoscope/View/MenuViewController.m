@@ -20,7 +20,7 @@
 
 #import "MainViewController.h"
 #import "LoginViewController.h"
-
+#import "FriendsViewController.h"
 
 #import "NewMainViewController.h"
 #import "TodayLuckViewController.h"
@@ -155,7 +155,8 @@
     
         StarDicController * starVC =[[StarDicController alloc]init];
         FindViewController * findVC =[[FindViewController alloc]init];
-        FriendLoopViewController * friendLoop =[[FriendLoopViewController alloc]init];
+//        FriendLoopViewController * friendLoop =[[FriendLoopViewController alloc]init];
+    FriendsViewController * friendLoop = [[FriendsViewController alloc]init];
 //        TodayViewController * todayVC =[[TodayViewController alloc]init];
     TodayLuckViewController *todayVC =[[TodayLuckViewController alloc]init];
         ZoneViewController * zoneVC =[[ZoneViewController alloc]init];
@@ -166,7 +167,8 @@
     
     LoginViewController * loginVC =[[LoginViewController alloc]init];
     
-    
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:friendLoop];
+    nav.navigationBarHidden = YES;
     
     
     switch (btn.tag) {
@@ -223,7 +225,7 @@
 //星友
             
             friendLoop.title =@"星友";
-     [self.sideMenuController setContentController:friendLoop animated:YES];
+     [self.sideMenuController setContentController:nav animated:YES];
             break;
         case 22:
 //            朋友圈

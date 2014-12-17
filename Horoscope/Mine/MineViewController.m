@@ -10,6 +10,7 @@
 #import "CircleCell.h"
 #import "PersonInfoCell.h"
 #import "PhotoViewController.h"
+#import "PersonInfoChangeViewController.h"
 @interface MineViewController ()
 {
     UIScrollView * mainScrl;
@@ -26,7 +27,20 @@
     // Do any additional setup after loading the view.
     
     
-    [self buildTopviewWithBackButton:YES title:@"西门吹雪" rightImage:@""];
+    [self buildTopviewWithBackButton:NO title:@"西门吹雪" rightImage:@"123123"];
+    
+    
+    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(self.view.bounds.size.width-60, KISHighVersion_7?20:0, 60, 44)];
+    [button setImage:KUIImage(@"123123") forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(enterNextPage:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
+    
+    
+    
+    
+    
+    
+    
     mainScrl =[[ UIScrollView alloc]initWithFrame:CGRectMake(0, KISHighVersion_7?64:44, KScreenWidth, KScreenHeight-(KISHighVersion_7?64:44))];
     mainScrl.backgroundColor = [UIColor grayColor];
 
@@ -254,6 +268,17 @@
     
     [self presentViewController:photoVC animated:YES completion:^{
     }];
+}
+
+
+//进入设置界面
+-(void)enterNextPage:(id)sender
+{
+    PersonInfoChangeViewController *p = [[PersonInfoChangeViewController alloc]init];
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:self];
+    
+    [nav pushViewController:p animated:YES];
+
 }
 
 - (void)didReceiveMemoryWarning {

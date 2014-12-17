@@ -77,7 +77,7 @@
     nameLabel.textColor  = [UIColor whiteColor];
     nameLabel.font = [UIFont boldSystemFontOfSize:17];
     nameLabel.textAlignment = NSTextAlignmentCenter;
-    nameLabel.text = @"XX座";
+    nameLabel.text = @"白羊座";
     [imageView1 addSubview:nameLabel];
     
     
@@ -173,10 +173,10 @@
             
             [starButton setBackgroundImage:KUIImage(xArray[sender.tag-1000]) forState:UIControlStateNormal];
             
-            
+            nameLabel.text = [NSString stringWithFormat:@"%@座",xArray[sender.tag-1000]];
             /*
              重写 namelabel。text  datelabel.text、
-             nameLabel.text = ;
+             
              dateLabel.text = ;
              */
             
