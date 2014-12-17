@@ -175,8 +175,8 @@
     
     if (hasBacButton) {
         UIButton* backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, KISHighVersion_7 ? 20 : 0, 65, 44)];
-        [backButton setImage:KUIImage(@"backButton") forState:UIControlStateNormal];
-        [backButton setImage:KUIImage(@"backButton2") forState:UIControlStateHighlighted];
+        [backButton setImage:KUIImage(@"back") forState:UIControlStateNormal];
+        [backButton setImage:KUIImage(@"back") forState:UIControlStateHighlighted];
         backButton.backgroundColor = [UIColor clearColor];
         [backButton addTarget:self action:@selector(backButtonClick:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:backButton];

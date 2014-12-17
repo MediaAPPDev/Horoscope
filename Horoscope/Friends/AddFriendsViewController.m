@@ -18,8 +18,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self buildTopviewWithBackButton:NO title:@"添加好友" rightImage:@""];
-    
+//    [self buildTopviewWithBackButton:NO title:@"添加好友" rightImage:@""];
+    [self setTopViewWithTitle:@"添加好友" withBackButton:YES];
     self.view.backgroundColor = kColorWithRGB(220, 220, 220, 1);
     UITextField *tf= [[ UITextField alloc]initWithFrame:CGRectMake(10, KISHighVersion_7?74:54, KScreenWidth-80, 34)];
     tf.placeholder = @"通过星缘号查找";
