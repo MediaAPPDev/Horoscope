@@ -58,14 +58,19 @@
 }
 - (void)gotoMenu:(UIGestureRecognizer * )ges
 {
-    if ([self.sideMenuController isMenuVisible]) {
-         [self.sideMenuController hideMenuAnimated:YES];
-    }else
-    {
-          [self.sideMenuController showMenuAnimated:YES];
-    }
+   [self.menuController showMenu:self.menuController.topBar];
     
    
+}
+
+
+-(NSString*)titleForChildControllerMDMenuViewController:(MDMenuViewController *)menuController
+{
+    return @"星座达人";
+}
+-(NSString*)iconForChildControllerMDMenuViewController:(MDMenuViewController *)menuController
+{
+    return @"darenxiu.png";
 }
 
 -(void)buildBlackView

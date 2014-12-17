@@ -243,6 +243,15 @@
 }
 
 
+-(NSString*)titleForChildControllerMDMenuViewController:(MDMenuViewController *)menuController
+{
+    return @"今日运势";
+}
+-(NSString*)iconForChildControllerMDMenuViewController:(MDMenuViewController *)menuController
+{
+    return @"yunshi.png";
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

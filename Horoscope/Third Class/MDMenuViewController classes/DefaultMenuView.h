@@ -1,0 +1,21 @@
+//
+//  DefaultMenuView.h
+//  MDMenuViewController Demo
+//
+//  Created by Mohammed Eldehairy on 5/4/14.
+//  Copyright (c) 2014 Mohammed Eldehairy. All rights reserved.
+//
+
+#import "MenuView.h"
+
+@interface DefaultMenuView : MenuView<UITableViewDataSource,UITableViewDelegate,MenuViewCellViewDelegate>
+{
+    UITableView *tableView;
+    NSArray *MenuItems;
+    BOOL firstLoad;
+}
+@property (nonatomic,strong)UIView * headView;
+@property (nonatomic,strong)UIButton * faceImageButton;
+@property (nonatomic,strong)UILabel * name;
+@property (nonatomic,strong)UIButton * settingButton;
+@end

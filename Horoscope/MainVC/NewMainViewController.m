@@ -256,6 +256,15 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+-(NSString*)titleForChildControllerMDMenuViewController:(MDMenuViewController *)menuController
+{
+    return @"星座达人";
+}
+-(NSString*)iconForChildControllerMDMenuViewController:(MDMenuViewController *)menuController
+{
+    return @"darenxiu.png";
+}
 /*
 #pragma mark - Navigation
 

@@ -9,14 +9,17 @@
 #import <UIKit/UIKit.h>
 #import "JDSideMenu.h"
 #import "UIViewController+JDSideMenu.h"
+#import "MDMenuChildViewController.h"
 //#import "JDSideMenu.h"
-@interface BaseViewController : UIViewController
+@interface BaseViewController : MDMenuChildViewController
 -(void)buildTopviewWithBackButton:(BOOL)isHave title:(NSString *)title rightImage:(NSString *)rightImage;
 -(void)buildScrollViewWithFrame:(CGRect)frame contentSize:(CGSize)size Image:(NSString *)image;
 - (void) gotoViews;
 -(float)niub:(float)a;
 
 - (void)setTopViewWithTitle:(NSString*)titleStr withBackButton:(BOOL)hasBacButton;
+
+// [self.menuController showMenu:self.menuController.topBar ];
 /*
  
  创建Label快捷方式

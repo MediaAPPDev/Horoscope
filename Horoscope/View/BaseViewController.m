@@ -76,13 +76,18 @@
 }
 - (void)gotoMenu:(UIGestureRecognizer * )ges
 {
-    if ([self.sideMenuController isMenuVisible]) {
-        [self.sideMenuController hideMenuAnimated:YES];
-    }else
-    {
-        [self.sideMenuController showMenuAnimated:YES];
-    }
+//    if ([self.sideMenuController isMenuVisible]) {
+//        [self.sideMenuController hideMenuAnimated:YES];
+//    }else
+//    {
+//        [self.sideMenuController showMenuAnimated:YES];
+//    }
     
+    
+    
+    [self.menuController showMenu:self.menuController.topBar];
+    
+    //
     
 }
 //- (void)tapTheLeftButton:(UIGestureRecognizer *)gesture

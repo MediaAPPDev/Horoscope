@@ -130,6 +130,15 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(NSString*)titleForChildControllerMDMenuViewController:(MDMenuViewController *)menuController
+{
+    return @"星座宝典";
+}
+-(NSString*)iconForChildControllerMDMenuViewController:(MDMenuViewController *)menuController
+{
+    return @"baodian.png";
+}
+
 /*
 #pragma mark - Navigation
 

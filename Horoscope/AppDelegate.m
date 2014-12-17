@@ -9,7 +9,29 @@
 #import "AppDelegate.h"
 #import "JDSideMenu.h"
 #import "MenuViewController.h"
-#import "MainViewController.h"
+#import "MainViewController.h" //达人秀
+#import "MDMenuViewController.h"
+
+
+#import "NewMainViewController.h"//达人秀
+#import "FoundViewController.h" //发现
+
+#import "FriendsViewController.h" //星友
+
+#import "FriendLoopViewController.h" //星友圈
+
+#import "TodayLuckViewController.h" //运势
+
+#import "BdViewController.h" //宝典
+
+#import "XWViewController.h" //星文
+
+
+#import "TestViewController.h" //测试
+
+
+
+
 
 @interface AppDelegate ()
 
@@ -19,29 +41,186 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    [self.window makeKeyAndVisible];
     
-    MenuViewController *menuController = [[MenuViewController alloc] init];
-    MainViewController *contentController = [[MainViewController alloc] init];
-//    contentController.view.backgroundColor = [UIColor colorWithHue:0.5 saturation:1.0 brightness:1.0 alpha:1.0];
-//    contentController.title = [NSString stringWithFormat: @"Hue: %.2f", 0.5];
-    
-    UIViewController *navController = [[UINavigationController alloc] initWithRootViewController:contentController];
+    //****************************** MDMenuViewController initialisation ******************************************
     
     
     
-    contentController.navigationController.navigationBarHidden=YES;
-    JDSideMenu *sideMenu = [[JDSideMenu alloc] initWithContentController:navController
-                                                          menuController:menuController];
     
+//    NSArray *viewControllers = [NSArray arrayWithObjects:[[ServicesViewController alloc] initWithNibName:@"ServicesViewController" bundle:nil],[[FavouritViewController alloc] initWithNibName:@"FavouritViewController" bundle:nil],[[ContactUsViewController alloc] initWithNibName:@"ContactUsViewController" bundle:nil],[[AboutViewController alloc] initWithNibName:@"AboutViewController" bundle:nil], nil];
+    
+    
+/*           NSArray *viewControllers = [NSArray arrayWithObjects:[[MainViewController alloc] init],[[FoundViewController alloc] init],[[FriendsViewController alloc] init],[[FriendLoopViewController alloc]  init],[[TodayLuckViewController alloc] init],[[BdViewController alloc] init],[[XWViewController alloc] init],[[TestViewController alloc] init], nil];
+ */
+//    UIViewController * mainsVC =[[MainViewController alloc] init]    ;
+//    
+//     UIViewController * FoundVC =[[FoundViewController alloc] init]    ;
 
     
-//    [sideMenu setBackgroundImage:[UIImage imageNamed:@"menuwallpaper"]];
-//    [navController.navigationController.navigationBar setHidden:YES];
-    self.window.rootViewController = sideMenu;
+        NSArray *viewControllers = [NSArray arrayWithObjects:[[NewMainViewController alloc] init],[[FoundViewController alloc] init],[[FriendsViewController alloc] init],[[FriendLoopViewController alloc]  init],[[TodayLuckViewController alloc] init],[[BdViewController alloc] init],[[XWViewController alloc] init],[[TestViewController alloc] init], nil];
     
-    return YES;}
+    
+    
+    MDMenuViewController *mainViewC = [[MDMenuViewController alloc] initWithChildViewControllers:viewControllers];
+    
+    
+    
+    
+    //************************************************************************************************************
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    //****************************** MDMenuViewController customise top bar ******************************************
+    
+    // set main menu button image
+    [mainViewC.topBar.menuBtn setImage:[UIImage imageNamed:@"menu_icon (1).png"] forState:UIControlStateNormal];
+    
+    
+    
+    // set back button image
+    [mainViewC.topBar.backBtn setImage:[UIImage imageNamed:@"icon_back_white.png"] forState:UIControlStateNormal];
+    
+    
+    
+    // set top bar background color
+    [mainViewC.topBar setBackgroundColor:[UIColor colorWithWhite:0.85 alpha:1.0]];
+    
+    
+    
+    // set top bar title text color
+    [mainViewC.topBar.titleLbl setTextColor:[UIColor whiteColor]];
+    
+    
+    
+    // set top bar background image
+    mainViewC.topBar.backgroundImage.image = [UIImage imageNamed:@"topBar.jpg"];
+    
+    
+//    [mainViewC.topBar setHidden:YES];
+    
+    //************************************************************************************************************
+    
+    
+    
+    
+    
+    
+    
+    
+    // MDMenuController background view image
+    mainViewC.view.backgroundColor = [UIColor colorWithRed:(46.0f/255.0f) green:(46.0f/255.0f) blue:(46.0f/255.0f) alpha:1.0];
+    //     mainViewC.view.backgroundColor = [UIColor redColor];
+    
+    
+    
+    //if you want to disable or enable content view swipt to the side when menu is shown
+    mainViewC.contentViewSwiptToTheSideEnabled = YES;
+    
+    
+    
+    
+    
+    
+    
+    
+    //****************************** MDMenuViewController customise menu view ***************************************
+    
+    
+    
+    
+    
+    // menu item title text color when selected
+    [mainViewC.menuView setMenuItemTitleTextColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+    
+    
+    
+    // menu item title text color when unSelected
+    [mainViewC.menuView setMenuItemTitleTextColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+    
+    
+    // menu item background color when unSelected
+    [mainViewC.menuView setMenuItemBackgroundColor:[UIColor colorWithRed:(46.0f/255.0f) green:(46.0f/255.0f) blue:(46.0f/255.0f) alpha:1.0] forState:UIControlStateNormal];
+    
+    
+    
+    // menu item background color when selected
+    [mainViewC.menuView setMenuItemBackgroundColor:[UIColor colorWithRed:(47.0f/255.0f) green:(123.0f/255.0f) blue:(154.0f/255.0f) alpha:1.0] forState:UIControlStateHighlighted];
+    
+    
+    
+    // menu vie background color
+    
+    //tableVIew 背景
+    //    [mainViewC.menuView setBackgroundColor:[UIColor colorWithRed:(46.0f/255.0f) green:(46.0f/255.0f) blue:(46.0f/255.0f) alpha:1.0]];
+    
+    [mainViewC.menuView setBackgroundColor:[UIColor colorWithRed:(46.0f/255.0f) green:(46.0f/255.0f) blue:(46.0f/255.0f) alpha:1.0]];
+    
+    
+    
+    
+    //disabel ripple animation
+    
+    [mainViewC.menuView setDisableRippleAnimation:NO];
+    
+    
+    //************************************************************************************************************
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    self.window.rootViewController = mainViewC;
+    
+    
+    // Override point for customization after application launch.
+    self.window.backgroundColor = [UIColor colorWithRed:(135.0f/255.0f) green:(125.0f/255.0f) blue:(111.0f/255.0f) alpha:1.0];
+    [self.window makeKeyAndVisible];
+    return YES;
+    
+    
+    
+    
+    
+    
+//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//    [self.window makeKeyAndVisible];
+//    
+//    MenuViewController *menuController = [[MenuViewController alloc] init];
+//    MainViewController *contentController = [[MainViewController alloc] init];
+////    contentController.view.backgroundColor = [UIColor colorWithHue:0.5 saturation:1.0 brightness:1.0 alpha:1.0];
+////    contentController.title = [NSString stringWithFormat: @"Hue: %.2f", 0.5];
+//    
+//    UIViewController *navController = [[UINavigationController alloc] initWithRootViewController:contentController];
+//    
+//    
+//    
+//    contentController.navigationController.navigationBarHidden=YES;
+//    JDSideMenu *sideMenu = [[JDSideMenu alloc] initWithContentController:navController
+//                                                          menuController:menuController];
+//    
+//
+//    
+////    [sideMenu setBackgroundImage:[UIImage imageNamed:@"menuwallpaper"]];
+////    [navController.navigationController.navigationBar setHidden:YES];
+//    self.window.rootViewController = sideMenu;
+    
+//    return YES;
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

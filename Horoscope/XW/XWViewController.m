@@ -25,6 +25,15 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(NSString*)titleForChildControllerMDMenuViewController:(MDMenuViewController *)menuController
+{
+    return @"星文";
+}
+-(NSString*)iconForChildControllerMDMenuViewController:(MDMenuViewController *)menuController
+{
+    return @"xingwen.png";
+}
+
 /*
 #pragma mark - Navigation
 

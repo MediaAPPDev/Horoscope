@@ -72,6 +72,15 @@
     
 }
 
+-(NSString*)titleForChildControllerMDMenuViewController:(MDMenuViewController *)menuController
+{
+    return @"测试";
+}
+-(NSString*)iconForChildControllerMDMenuViewController:(MDMenuViewController *)menuController
+{
+    return @"ceshi.png";
+}
+
 
 ///*
 // 创建tabbar头条快捷方式

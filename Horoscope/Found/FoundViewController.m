@@ -8,6 +8,7 @@
 
 #import "FoundViewController.h"
 #import "FriendsCell.h"
+#import "DefaultMenuView.h"
 @interface FoundViewController ()
 {
     UITableView *myTabelView;
@@ -19,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+//    [self.menuController.topBar setHidden:YES];
     
     [self buildTopviewWithBackButton:NO title:@"发现" rightImage:@""];
     
@@ -50,6 +51,8 @@
     return 10;
 }
 
+
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
@@ -71,6 +74,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
+   
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
@@ -96,6 +100,15 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+-(NSString*)titleForChildControllerMDMenuViewController:(MDMenuViewController *)menuController
+{
+    return @"发现";
+}
+-(NSString*)iconForChildControllerMDMenuViewController:(MDMenuViewController *)menuController
+{
+    return @"faxian.png";
+}
 /*
 #pragma mark - Navigation
 
