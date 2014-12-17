@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "JDSideMenu.h"
 #import "MenuViewController.h"
-#import "MainViewController.h"
+#import "NewMainViewController.h"
 
 @interface AppDelegate ()
 
@@ -23,7 +23,7 @@
     [self.window makeKeyAndVisible];
     
     MenuViewController *menuController = [[MenuViewController alloc] init];
-    MainViewController *contentController = [[MainViewController alloc] init];
+    NewMainViewController *contentController = [[NewMainViewController alloc] init];
 //    contentController.view.backgroundColor = [UIColor colorWithHue:0.5 saturation:1.0 brightness:1.0 alpha:1.0];
 //    contentController.title = [NSString stringWithFormat: @"Hue: %.2f", 0.5];
     
