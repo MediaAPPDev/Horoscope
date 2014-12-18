@@ -10,9 +10,10 @@
 #import "PageLoadFootView.h"
 #import "WeiboData.h"
 #import "HBCoreLabel.h"
+#import "BaseViewController.h"
 
 #define WeiboUpdateNotification  @"WeiboUpdateNotification"
-@interface WeiboViewControlle : UIViewController<PageLoadFootViewDelegate,UIActionSheetDelegate,HBCoreLabelDelegate,UITableViewDataSource,UITableViewDelegate>
+@interface WeiboViewControlle : BaseViewController<PageLoadFootViewDelegate,UIActionSheetDelegate,HBCoreLabelDelegate,UITableViewDataSource,UITableViewDelegate>
 {
 
     
