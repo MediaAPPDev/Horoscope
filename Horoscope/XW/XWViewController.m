@@ -25,12 +25,13 @@
     
     tableView.delegate =self;
     tableView.dataSource =self;
-//    tableView.frame =CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y+10, self.view.bounds.size.width, self.view.bounds.size.height);
-    tableView.frame =self.view.bounds;
+    tableView.frame =CGRectMake(0,(KISHighVersion_7?64:44), KScreenWidth, KScreenHeight -(KISHighVersion_7?64:44));
+//  sx(<#m#>)
+//    tableView.frame =self.view.bo;
     
     [self.view addSubview:tableView];
     
-    [self buildTopviewWithBackButton:YES title:@"星文" rightImage:nil];
+//    [self buildTopviewWithBackButton:YES title:@"星文" rightImage:nil];
 }
 
 

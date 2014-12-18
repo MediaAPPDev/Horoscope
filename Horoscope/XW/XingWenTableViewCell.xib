@@ -18,7 +18,7 @@
                         <rect key="frame" x="15" y="12" width="60" height="64.5"/>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1eg-kG-ckI">
-                        <rect key="frame" x="91" y="27" width="63" height="30"/>
+                        <rect key="frame" x="97" y="27" width="63" height="30"/>
                         <state key="normal" title="星座社交">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
@@ -36,9 +36,6 @@
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="xingwenback.png" translatesAutoresizingMaskIntoConstraints="NO" id="emG-J6-DSG">
-                        <rect key="frame" x="8" y="203" width="302" height="123"/>
-                    </imageView>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qcS-WH-pEs">
                         <rect key="frame" x="29" y="341" width="30" height="30"/>
                         <state key="normal" title="赞">
@@ -57,6 +54,9 @@
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="xingwenback.png" translatesAutoresizingMaskIntoConstraints="NO" id="emG-J6-DSG">
+                        <rect key="frame" x="9" y="210" width="302" height="123"/>
+                    </imageView>
                 </subviews>
             </tableViewCellContentView>
             <point key="canvasLocation" x="403" y="429"/>
