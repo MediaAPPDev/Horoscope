@@ -18,7 +18,37 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self buildTopviewWithBackButton:YES title:@"星文" rightImage:@"订阅－正常"];
+    
+    UITableView * tableView =[[UITableView alloc]init];
+    NSArray * arrry =@[@"a",@"a",@"a",@"a",@"a"@"a"];
+    
+    tableView.delegate =self;
+    tableView.dataSource =self;
+    tableView.frame =self.view.bounds;
+    
+    [self.view addSubview:tableView];
+    
+    
 }
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
+    
+    return <#expression#>
+    
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    
+    
+    return cell;
+    
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

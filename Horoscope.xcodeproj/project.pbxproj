@@ -138,6 +138,9 @@
 		5ED3CFA91A418BA80083BCDE /* menu_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5ED3CFA01A418BA80083BCDE /* menu_icon.png */; };
 		5ED3CFAA1A418BA80083BCDE /* phone-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5ED3CFA11A418BA80083BCDE /* phone-icon.png */; };
 		5ED3CFAB1A418BA80083BCDE /* topBar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5ED3CFA21A418BA80083BCDE /* topBar.jpg */; };
+		5ED3CFAF1A4283230083BCDE /* XingWenTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ED3CFAD1A4283230083BCDE /* XingWenTableViewCell.m */; };
+		5ED3CFB01A4283230083BCDE /* XingWenTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5ED3CFAE1A4283230083BCDE /* XingWenTableViewCell.xib */; };
+		5ED3CFB31A42861D0083BCDE /* xingwenback.png in Resources */ = {isa = PBXBuildFile; fileRef = 5ED3CFB21A42861D0083BCDE /* xingwenback.png */; };
 		645400051A426E2900FA69C7 /* SetUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 645400041A426E2900FA69C7 /* SetUpViewController.m */; };
 		645400081A42708500FA69C7 /* SafeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 645400071A42708500FA69C7 /* SafeViewController.m */; };
 		6454000B1A42711700FA69C7 /* BangdingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6454000A1A42711700FA69C7 /* BangdingViewController.m */; };
@@ -539,6 +542,10 @@
 		5ED3CFA01A418BA80083BCDE /* menu_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_icon.png; sourceTree = "<group>"; };
 		5ED3CFA11A418BA80083BCDE /* phone-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone-icon.png"; sourceTree = "<group>"; };
 		5ED3CFA21A418BA80083BCDE /* topBar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = topBar.jpg; sourceTree = "<group>"; };
+		5ED3CFAC1A4283230083BCDE /* XingWenTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XingWenTableViewCell.h; sourceTree = "<group>"; };
+		5ED3CFAD1A4283230083BCDE /* XingWenTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XingWenTableViewCell.m; sourceTree = "<group>"; };
+		5ED3CFAE1A4283230083BCDE /* XingWenTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XingWenTableViewCell.xib; sourceTree = "<group>"; };
+		5ED3CFB21A42861D0083BCDE /* xingwenback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xingwenback.png; sourceTree = "<group>"; };
 		645400031A426E2900FA69C7 /* SetUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetUpViewController.h; sourceTree = "<group>"; };
 		645400041A426E2900FA69C7 /* SetUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetUpViewController.m; sourceTree = "<group>"; };
 		645400061A42708500FA69C7 /* SafeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SafeViewController.h; sourceTree = "<group>"; };
@@ -858,7 +865,6 @@
 				5EB87E951A39686600BE4A5D /* Login */,
 				647BEC611A3971F50049B8C9 /* Mine */,
 				64CD98211A303AE600040744 /* BD */,
-				64CD98221A303AE600040744 /* Firends Circle */,
 				64CD98231A303AE600040744 /* Found */,
 				64CD98241A303AE600040744 /* Friends */,
 				64CD98251A303AE600040744 /* Test */,
@@ -1167,6 +1173,14 @@
 				5ED3CFA21A418BA80083BCDE /* topBar.jpg */,
 			);
 			path = topBarImage;
+			sourceTree = "<group>";
+		};
+		5ED3CFB11A42861D0083BCDE /* XingWenImage */ = {
+			isa = PBXGroup;
+			children = (
+				5ED3CFB21A42861D0083BCDE /* xingwenback.png */,
+			);
+			path = XingWenImage;
 			sourceTree = "<group>";
 		};
 		645DEE301A4132B700E8C524 /* OpenSourceData */ = {
@@ -1511,13 +1525,6 @@
 			path = BD;
 			sourceTree = "<group>";
 		};
-		64CD98221A303AE600040744 /* Firends Circle */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Firends Circle";
-			sourceTree = "<group>";
-		};
 		64CD98231A303AE600040744 /* Found */ = {
 			isa = PBXGroup;
 			children = (
@@ -1575,8 +1582,12 @@
 		64CD98271A303AE600040744 /* XW */ = {
 			isa = PBXGroup;
 			children = (
+				5ED3CFB11A42861D0083BCDE /* XingWenImage */,
 				64CD982E1A30403900040744 /* XWViewController.h */,
 				64CD982F1A30403900040744 /* XWViewController.m */,
+				5ED3CFAC1A4283230083BCDE /* XingWenTableViewCell.h */,
+				5ED3CFAD1A4283230083BCDE /* XingWenTableViewCell.m */,
+				5ED3CFAE1A4283230083BCDE /* XingWenTableViewCell.xib */,
 			);
 			path = XW;
 			sourceTree = "<group>";
@@ -1928,12 +1939,14 @@
 				645DEEFC1A4172D300E8C524 /* 1.png in Resources */,
 				646C43A51A37FB2400FB683D /* ys_c_juxie@2x.png in Resources */,
 				5ED3CF531A416FCE0083BCDE /* darenxiuIanxia@2x.png in Resources */,
+				5ED3CFB01A4283230083BCDE /* XingWenTableViewCell.xib in Resources */,
 				645DEEBA1A414DCA00E8C524 /* weixin@3x.png in Resources */,
 				646C43D11A381D0900FB683D /* ys_c_datebg@2x.png in Resources */,
 				5ED3CF5A1A416FCE0083BCDE /* fenxianlan@3x.png in Resources */,
 				5ED3CF4E1A416FCE0083BCDE /* ceshi@3x.png in Resources */,
 				646C439F1A37FB2400FB683D /* ys_c_by@2x.png in Resources */,
 				646C43831A37F9F300FB683D /* 天秤@2x.png in Resources */,
+				5ED3CFB31A42861D0083BCDE /* xingwenback.png in Resources */,
 				645DEEE61A41715200E8C524 /* 达人秀－按下.png in Resources */,
 				645DEEF61A41715200E8C524 /* 星资讯－正常.png in Resources */,
 				5EB87ECC1A39713700BE4A5D /* regeback@2x.png in Resources */,
@@ -2066,6 +2079,7 @@
 				5EB87E9A1A39688700BE4A5D /* LoginViewController.m in Sources */,
 				5ED3CF401A416FCE0083BCDE /* DefaultMenuView.m in Sources */,
 				645DEE7B1A41333700E8C524 /* AFHTTPSessionManager.m in Sources */,
+				5ED3CFAF1A4283230083BCDE /* XingWenTableViewCell.m in Sources */,
 				645DEE5B1A4132D900E8C524 /* EGOCache.m in Sources */,
 				645DEE7C1A41333700E8C524 /* AFNetworkReachabilityManager.m in Sources */,
 				645DEE801A41333700E8C524 /* AFURLResponseSerialization.m in Sources */,
