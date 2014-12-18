@@ -7,6 +7,7 @@
 //
 
 #import "XWViewController.h"
+#import "XingWenTableViewCell.h"
 
 @interface XWViewController ()
 
@@ -24,30 +25,57 @@
     
     tableView.delegate =self;
     tableView.dataSource =self;
+//    tableView.frame =CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y+10, self.view.bounds.size.width, self.view.bounds.size.height);
     tableView.frame =self.view.bounds;
     
     [self.view addSubview:tableView];
     
-    
+    [self buildTopviewWithBackButton:YES title:@"星文" rightImage:nil];
 }
 
+
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 400;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
     
-    return <#expression#>
+    return 10;
+    
     
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *CustomCellIdentifier = @"CustomCellIdentifier";
+    
+    static BOOL nibsRegistered = NO;
+    if (!nibsRegistered) {
+        UINib *nib = [UINib nibWithNibName:@"XingWenTableViewCell" bundle:nil];
+        [tableView registerNib:nib forCellReuseIdentifier:CustomCellIdentifier];
+        nibsRegistered = YES;
+    }
+    
+    XingWenTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CustomCellIdentifier];
     
     
+//    NSUInteger row = [indexPath row];
+//    NSDictionary *rowData = [self.dataList objectAtIndex:row];
+    
+//    cell.name = [rowData objectForKey:@"name"];
+//    cell.dec = [rowData objectForKey:@"dec"];
+//    cell.loc = [rowData objectForKey:@"loc"];
+//    cell.image = [imageList objectAtIndex:row];
     
     return cell;
-    
 }
-
 
 
 - (void)didReceiveMemoryWarning {
