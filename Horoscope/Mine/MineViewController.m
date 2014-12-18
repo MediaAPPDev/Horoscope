@@ -271,8 +271,11 @@
     photoVC.num = sender.tag;
     photoVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     
-    [self presentViewController:photoVC animated:YES completion:^{
-    }];
+//    [self presentViewController:photoVC animated:YES completion:^{
+//    }];
+    
+    [self.menuController pushViewController:photoVC withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeNone]];
+    
 }
 
 

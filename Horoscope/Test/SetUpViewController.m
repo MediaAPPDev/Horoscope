@@ -77,7 +77,7 @@
     }
 
     
-    NSArray *ar =[NSArray arrayWithObjects:@"QQ",@"weixin",@"weibo",@"shouji", nil];
+    NSArray *ar =[NSArray arrayWithObjects:@"qq绑定图标大",@"微信绑定图标大",@"微博绑定图标大",@"手机绑定图标大", nil];
     
     //        if (self.isHaveImg) {
     for (int i = 0; i<4; i++) {

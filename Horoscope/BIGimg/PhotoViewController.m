@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.view.backgroundColor = [UIColor redColor];
     UIScrollView *scrollView =[[ UIScrollView alloc]initWithFrame:self.view.frame];
     scrollView.pagingEnabled = YES;
     scrollView.contentSize = CGSizeMake(KScreenWidth*self.photoArray.count, 0);
@@ -55,11 +56,7 @@
 }
 -(void)backView
 {
-    [self dismissViewControllerAnimated:YES completion:^{
-        
-    }];
-    
-    
+ [self.menuController popViewControllerAnimated:NO];
     
 //     [self.menuController pushViewController:nav withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
 }

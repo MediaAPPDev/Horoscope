@@ -35,7 +35,7 @@
     [self.view addSubview:myTableView];
     
     titleArr = [NSArray arrayWithObjects:@"手机通讯录",@"QQ",@"微信",@"新浪微博", nil];
-    imgArr = [NSArray arrayWithObjects:@"shouji",@"QQ",@"weixin",@"weibo", nil];
+    imgArr = [NSArray arrayWithObjects:@"qq绑定图标大",@"微信绑定图标大",@"微博绑定图标大",@"手机绑定图标大", nil];
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {

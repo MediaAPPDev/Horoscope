@@ -145,6 +145,13 @@
 		645400111A42724800FA69C7 /* PrivacyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 645400101A42724800FA69C7 /* PrivacyViewController.m */; };
 		645400141A42730800FA69C7 /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 645400131A42730800FA69C7 /* FeedbackViewController.m */; };
 		645400171A4274A400FA69C7 /* SetUpCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 645400161A4274A400FA69C7 /* SetUpCell.m */; };
+		645400191A42827F00FA69C7 /* todayYs2.png in Resources */ = {isa = PBXBuildFile; fileRef = 645400181A42827F00FA69C7 /* todayYs2.png */; };
+		6454001B1A4284DB00FA69C7 /* 弹窗正常状态.png in Resources */ = {isa = PBXBuildFile; fileRef = 6454001A1A4284DB00FA69C7 /* 弹窗正常状态.png */; };
+		6454001D1A4285A500FA69C7 /* 白羊座@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6454001C1A4285A500FA69C7 /* 白羊座@2x.png */; };
+		645400221A42860200FA69C7 /* 手机绑定图标大@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6454001E1A42860200FA69C7 /* 手机绑定图标大@2x.png */; };
+		645400231A42860200FA69C7 /* 微博绑定图标大@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6454001F1A42860200FA69C7 /* 微博绑定图标大@2x.png */; };
+		645400241A42860200FA69C7 /* 微信绑定图标大@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 645400201A42860200FA69C7 /* 微信绑定图标大@2x.png */; };
+		645400251A42860200FA69C7 /* qq绑定图标大@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 645400211A42860200FA69C7 /* qq绑定图标大@2x.png */; };
 		645DEE3F1A4132C100E8C524 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 645DEE341A4132C100E8C524 /* NSObject+SBJSON.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		645DEE401A4132C100E8C524 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 645DEE361A4132C100E8C524 /* NSString+SBJSON.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		645DEE411A4132C100E8C524 /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 645DEE381A4132C100E8C524 /* SBJSON.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -546,6 +553,13 @@
 		645400131A42730800FA69C7 /* FeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackViewController.m; sourceTree = "<group>"; };
 		645400151A4274A400FA69C7 /* SetUpCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetUpCell.h; sourceTree = "<group>"; };
 		645400161A4274A400FA69C7 /* SetUpCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetUpCell.m; sourceTree = "<group>"; };
+		645400181A42827F00FA69C7 /* todayYs2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = todayYs2.png; sourceTree = "<group>"; };
+		6454001A1A4284DB00FA69C7 /* 弹窗正常状态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "弹窗正常状态.png"; sourceTree = "<group>"; };
+		6454001C1A4285A500FA69C7 /* 白羊座@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "白羊座@2x.png"; sourceTree = "<group>"; };
+		6454001E1A42860200FA69C7 /* 手机绑定图标大@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "手机绑定图标大@2x.png"; sourceTree = "<group>"; };
+		6454001F1A42860200FA69C7 /* 微博绑定图标大@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "微博绑定图标大@2x.png"; sourceTree = "<group>"; };
+		645400201A42860200FA69C7 /* 微信绑定图标大@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "微信绑定图标大@2x.png"; sourceTree = "<group>"; };
+		645400211A42860200FA69C7 /* qq绑定图标大@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qq绑定图标大@2x.png"; sourceTree = "<group>"; };
 		645DEE321A4132C100E8C524 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
 		645DEE331A4132C100E8C524 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
 		645DEE341A4132C100E8C524 /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
@@ -894,7 +908,13 @@
 		2F2116511A25B64A009B21EB /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				6454001E1A42860200FA69C7 /* 手机绑定图标大@2x.png */,
+				6454001F1A42860200FA69C7 /* 微博绑定图标大@2x.png */,
+				645400201A42860200FA69C7 /* 微信绑定图标大@2x.png */,
+				645400211A42860200FA69C7 /* qq绑定图标大@2x.png */,
+				6454001A1A4284DB00FA69C7 /* 弹窗正常状态.png */,
 				645DEF051A41899100E8C524 /* 排名色块大.png */,
+				645400181A42827F00FA69C7 /* todayYs2.png */,
 				645DEF061A41899100E8C524 /* 排名色块小.png */,
 				645DEF031A41766E00E8C524 /* sexImg.png */,
 				645DEEC91A41712600E8C524 /* emnu.png */,
@@ -1263,6 +1283,7 @@
 		646C435A1A37F98400FB683D /* YS */ = {
 			isa = PBXGroup;
 			children = (
+				6454001C1A4285A500FA69C7 /* 白羊座@2x.png */,
 				646C43CF1A381D0900FB683D /* ys_c_datebg@2x.png */,
 				646C43D01A381D0900FB683D /* ys_c_datebg@3x.png */,
 				646C43C71A381CE800FB683D /* ys_c_star_blue@2x.png */,
@@ -1694,6 +1715,7 @@
 				646C43A81A37FB2400FB683D /* ys_c_mojie@3x.png in Resources */,
 				645DEEF01A41715200E8C524 /* say2.png in Resources */,
 				2F21163C1A25B5A2009B21EB /* LaunchScreen.xib in Resources */,
+				645400221A42860200FA69C7 /* 手机绑定图标大@2x.png in Resources */,
 				5ED3CF661A416FCE0083BCDE /* touxiang1@3x.png in Resources */,
 				5ED3CF5B1A416FCE0083BCDE /* menuBeijing@2x.png in Resources */,
 				5ED3CF6A1A416FCE0083BCDE /* touxiangdikuang@3x.png in Resources */,
@@ -1723,6 +1745,7 @@
 				5ED3CF521A416FCE0083BCDE /* darenxiu@3x.png in Resources */,
 				646C43C61A381CDB00FB683D /* ys_c_downline@3x.png in Resources */,
 				5EB87EC31A396EBF00BE4A5D /* selected@3x.png in Resources */,
+				645400231A42860200FA69C7 /* 微博绑定图标大@2x.png in Resources */,
 				646C43841A37F9F300FB683D /* 天秤@3x.png in Resources */,
 				64CD98D21A3042FD00040744 /* QQ图标@3x.png in Resources */,
 				646C43B51A37FB2400FB683D /* ys_c_tx@2x.png in Resources */,
@@ -1736,12 +1759,14 @@
 				5EB87EC81A396EBF00BE4A5D /* userSet@2x.png in Resources */,
 				646C43A21A37FB2400FB683D /* ys_c_chunv@3x.png in Resources */,
 				5EB87EC01A396EBF00BE4A5D /* regepass@2x.png in Resources */,
+				645400251A42860200FA69C7 /* qq绑定图标大@2x.png in Resources */,
 				645DEEE91A41715200E8C524 /* 发现－按下.png in Resources */,
 				646C43801A37F9F300FB683D /* 双子@3x.png in Resources */,
 				646C43A41A37FB2400FB683D /* ys_c_jinniu@3x.png in Resources */,
 				5EB87EC21A396EBF00BE4A5D /* selected@2x.png in Resources */,
 				64C727251A3575B300DFE28E /* 弹窗@3x.png in Resources */,
 				5ED3CF491A416FCE0083BCDE /* baodian@3x.png in Resources */,
+				645400241A42860200FA69C7 /* 微信绑定图标大@2x.png in Resources */,
 				645DEEB61A414DCA00E8C524 /* shouji@3x.png in Resources */,
 				646C437F1A37F9F300FB683D /* 双子@2x.png in Resources */,
 				647607C11A3FD7C400B71469 /* 用户图标@3x.png in Resources */,
@@ -1874,6 +1899,7 @@
 				645DEE621A4132D900E8C524 /* shanchu.png in Resources */,
 				645DEF071A41899100E8C524 /* 排名色块大.png in Resources */,
 				647607C31A3FD7C400B71469 /* 超过60秒文字框@3x.png in Resources */,
+				6454001B1A4284DB00FA69C7 /* 弹窗正常状态.png in Resources */,
 				64C7271F1A3575B300DFE28E /* rank2@3x.png in Resources */,
 				5ED3CF5F1A416FCE0083BCDE /* taluopai@2x.png in Resources */,
 				64CD98D81A3042FD00040744 /* 线条@2x.png in Resources */,
@@ -1912,6 +1938,7 @@
 				645DEEF61A41715200E8C524 /* 星资讯－正常.png in Resources */,
 				5EB87ECC1A39713700BE4A5D /* regeback@2x.png in Resources */,
 				646C437E1A37F9F300FB683D /* 双鱼@3x.png in Resources */,
+				645400191A42827F00FA69C7 /* todayYs2.png in Resources */,
 				5ED3CF981A418B0B0083BCDE /* side_menu_active@3x.png in Resources */,
 				647607D01A3FE2BD00B71469 /* line@2x.png in Resources */,
 				645DEEF31A41715200E8C524 /* 星友说－正常.png in Resources */,
@@ -1926,6 +1953,7 @@
 				5ED3CF641A416FCE0083BCDE /* tishi@3x.png in Resources */,
 				647607C51A3FD7C400B71469 /* 选中文字框@3x.png in Resources */,
 				5ED3CFA81A418BA80083BCDE /* menu_icon (1).png in Resources */,
+				6454001D1A4285A500FA69C7 /* 白羊座@2x.png in Resources */,
 				645DEEB41A414DCA00E8C524 /* QQ@3x.png in Resources */,
 				64C727141A3575B300DFE28E /* imgbg@2x.png in Resources */,
 				645DEEB51A414DCA00E8C524 /* shouji@2x.png in Resources */,
