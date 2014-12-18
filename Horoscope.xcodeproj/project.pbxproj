@@ -138,6 +138,12 @@
 		5ED3CFA91A418BA80083BCDE /* menu_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5ED3CFA01A418BA80083BCDE /* menu_icon.png */; };
 		5ED3CFAA1A418BA80083BCDE /* phone-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5ED3CFA11A418BA80083BCDE /* phone-icon.png */; };
 		5ED3CFAB1A418BA80083BCDE /* topBar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5ED3CFA21A418BA80083BCDE /* topBar.jpg */; };
+		645400051A426E2900FA69C7 /* SetUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 645400041A426E2900FA69C7 /* SetUpViewController.m */; };
+		645400081A42708500FA69C7 /* SafeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 645400071A42708500FA69C7 /* SafeViewController.m */; };
+		6454000B1A42711700FA69C7 /* BangdingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6454000A1A42711700FA69C7 /* BangdingViewController.m */; };
+		6454000E1A4271A100FA69C7 /* NotifiationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6454000D1A4271A100FA69C7 /* NotifiationViewController.m */; };
+		645400111A42724800FA69C7 /* PrivacyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 645400101A42724800FA69C7 /* PrivacyViewController.m */; };
+		645400141A42730800FA69C7 /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 645400131A42730800FA69C7 /* FeedbackViewController.m */; };
 		645DEE3F1A4132C100E8C524 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 645DEE341A4132C100E8C524 /* NSObject+SBJSON.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		645DEE401A4132C100E8C524 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 645DEE361A4132C100E8C524 /* NSString+SBJSON.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		645DEE411A4132C100E8C524 /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 645DEE381A4132C100E8C524 /* SBJSON.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -525,6 +531,18 @@
 		5ED3CFA01A418BA80083BCDE /* menu_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_icon.png; sourceTree = "<group>"; };
 		5ED3CFA11A418BA80083BCDE /* phone-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone-icon.png"; sourceTree = "<group>"; };
 		5ED3CFA21A418BA80083BCDE /* topBar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = topBar.jpg; sourceTree = "<group>"; };
+		645400031A426E2900FA69C7 /* SetUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetUpViewController.h; sourceTree = "<group>"; };
+		645400041A426E2900FA69C7 /* SetUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetUpViewController.m; sourceTree = "<group>"; };
+		645400061A42708500FA69C7 /* SafeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SafeViewController.h; sourceTree = "<group>"; };
+		645400071A42708500FA69C7 /* SafeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SafeViewController.m; sourceTree = "<group>"; };
+		645400091A42711700FA69C7 /* BangdingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BangdingViewController.h; sourceTree = "<group>"; };
+		6454000A1A42711700FA69C7 /* BangdingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BangdingViewController.m; sourceTree = "<group>"; };
+		6454000C1A4271A100FA69C7 /* NotifiationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotifiationViewController.h; sourceTree = "<group>"; };
+		6454000D1A4271A100FA69C7 /* NotifiationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotifiationViewController.m; sourceTree = "<group>"; };
+		6454000F1A42724800FA69C7 /* PrivacyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrivacyViewController.h; sourceTree = "<group>"; };
+		645400101A42724800FA69C7 /* PrivacyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrivacyViewController.m; sourceTree = "<group>"; };
+		645400121A42730800FA69C7 /* FeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackViewController.h; sourceTree = "<group>"; };
+		645400131A42730800FA69C7 /* FeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackViewController.m; sourceTree = "<group>"; };
 		645DEE321A4132C100E8C524 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
 		645DEE331A4132C100E8C524 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
 		645DEE341A4132C100E8C524 /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
@@ -1503,6 +1521,18 @@
 		64CD98251A303AE600040744 /* Test */ = {
 			isa = PBXGroup;
 			children = (
+				645400031A426E2900FA69C7 /* SetUpViewController.h */,
+				645400041A426E2900FA69C7 /* SetUpViewController.m */,
+				645400061A42708500FA69C7 /* SafeViewController.h */,
+				645400071A42708500FA69C7 /* SafeViewController.m */,
+				645400091A42711700FA69C7 /* BangdingViewController.h */,
+				6454000A1A42711700FA69C7 /* BangdingViewController.m */,
+				6454000C1A4271A100FA69C7 /* NotifiationViewController.h */,
+				6454000D1A4271A100FA69C7 /* NotifiationViewController.m */,
+				6454000F1A42724800FA69C7 /* PrivacyViewController.h */,
+				645400101A42724800FA69C7 /* PrivacyViewController.m */,
+				645400121A42730800FA69C7 /* FeedbackViewController.h */,
+				645400131A42730800FA69C7 /* FeedbackViewController.m */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -1647,11 +1677,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
 				5ED3CF971A418B0B0083BCDE /* side_menu_active@2x.png in Resources */,
-
 				645DEF021A41732A00E8C524 /* neirong.png in Resources */,
-
 				645DEEA71A414B5500E8C524 /* button-click@3x.png in Resources */,
 				645DEEE31A41715200E8C524 /* news1.png in Resources */,
 				64CD98DF1A3042FD00040744 /* iphone6.png in Resources */,
@@ -1670,11 +1697,8 @@
 				646C43B31A37FB2400FB683D /* ys_c_tc@2x.png in Resources */,
 				5ED3CF871A41870A0083BCDE /* shezhi@3x.png in Resources */,
 				647607C21A3FD7C400B71469 /* 超过60秒文字框@2x.png in Resources */,
-
 				5ED3CF731A416FCE0083BCDE /* xingyouquan@2x.png in Resources */,
-
 				645DEEE51A41715200E8C524 /* news3.png in Resources */,
-
 				647607B01A3FD7C400B71469 /* 下一级@2x.png in Resources */,
 				5ED3CFA61A418BA80083BCDE /* icon_1320_white60.png in Resources */,
 				5ED3CF651A416FCE0083BCDE /* touxiang1@2x.png in Resources */,
@@ -1733,23 +1757,17 @@
 				64CD98DC1A3042FD00040744 /* iPhone4底图.png in Resources */,
 				5ED3CF7B1A416FCE0083BCDE /* yunshi@3x_10.png in Resources */,
 				646C43AD1A37FB2400FB683D /* ys_c_sp@2x.png in Resources */,
-
 				5ED3CF4D1A416FCE0083BCDE /* ceshi@2x.png in Resources */,
-
 				645DEEF21A41715200E8C524 /* 星友说－选中.png in Resources */,
 				645DEEF71A41715200E8C524 /* yunshi.png in Resources */,
-
 				5EB87EBB1A396EBF00BE4A5D /* next@3x.png in Resources */,
 				5EB87EC41A396EBF00BE4A5D /* textNormal@2x.png in Resources */,
 				646C43721A37F9F300FB683D /* 白羊@3x.png in Resources */,
 				5ED3CFA31A418BA80083BCDE /* backBtn.png in Resources */,
 				5ED3CF951A418B0B0083BCDE /* side_menu@2x.png in Resources */,
 				645DEE961A41484100E8C524 /* dianhualianxiren@2x.png in Resources */,
-
 				5ED3CF961A418B0B0083BCDE /* side_menu@3x.png in Resources */,
-
 				645DEEF81A41715200E8C524 /* news0.png in Resources */,
-
 				645DEE5A1A4132D900E8C524 /* addpicbtn.png in Resources */,
 				64CD98D61A3042FD00040744 /* 正常文字框@2x.png in Resources */,
 				645DEEC81A416F1400E8C524 /* back.png in Resources */,
@@ -1758,12 +1776,9 @@
 				64CD98DA1A3042FD00040744 /* 选中文字框@2x.png in Resources */,
 				646C43BE1A38146E00FB683D /* 摩羯@3x.png in Resources */,
 				646C43A71A37FB2400FB683D /* ys_c_mojie@2x.png in Resources */,
-
 				5ED3CF911A418B0B0083BCDE /* back@2x.png in Resources */,
 				5ED3CF581A416FCE0083BCDE /* faxianIanxia@3x.png in Resources */,
-
 				645DEEEF1A41715200E8C524 /* 星友圈－按下.png in Resources */,
-
 				646C43C51A381CDB00FB683D /* ys_c_downline@2x.png in Resources */,
 				646C43AF1A37FB2400FB683D /* ys_c_sy@2x.png in Resources */,
 				5ED3CFA71A418BA80083BCDE /* icon_back_white.png in Resources */,
@@ -1796,11 +1811,8 @@
 				647607B91A3FD7C400B71469 /* 头像设置@3x.png in Resources */,
 				5ED3CF6C1A416FCE0083BCDE /* xingwen@2x.png in Resources */,
 				646C43711A37F9F300FB683D /* 白羊@2x.png in Resources */,
-
 				5ED3CF4B1A416FCE0083BCDE /* baodianIanxia@2x.png in Resources */,
-
 				645DEEE21A41715200E8C524 /* 宝典－按下.png in Resources */,
-
 				647607CD1A3FE24600B71469 /* dotted line@3x.png in Resources */,
 				646C43811A37F9F300FB683D /* 水瓶@2x.png in Resources */,
 				5ED3CFA51A418BA80083BCDE /* concept-icon-poster60.png in Resources */,
@@ -1964,7 +1976,9 @@
 				5ED3CF451A416FCE0083BCDE /* MDTransitionAnimatorFactory.m in Sources */,
 				645DEE431A4132C100E8C524 /* SBJsonParser.m in Sources */,
 				2F2116FB1A25B64A009B21EB /* MenuViewController.m in Sources */,
+				645400081A42708500FA69C7 /* SafeViewController.m in Sources */,
 				645DEE821A41333700E8C524 /* UIImageView+AFNetworking.m in Sources */,
+				645400111A42724800FA69C7 /* PrivacyViewController.m in Sources */,
 				64CD982A1A303B1500040744 /* BdViewController.m in Sources */,
 				647607DB1A4003BD00B71469 /* PhotoViewController.m in Sources */,
 				645DEEC61A41675600E8C524 /* ChangeViewController.m in Sources */,
@@ -1987,8 +2001,11 @@
 				5ED3CF821A416FCE0083BCDE /* MJPopupBackgroundView.m in Sources */,
 				2F2116311A25B5A2009B21EB /* AppDelegate.m in Sources */,
 				64CD99571A304F2A00040744 /* AddButton.m in Sources */,
+				6454000E1A4271A100FA69C7 /* NotifiationViewController.m in Sources */,
+				645400141A42730800FA69C7 /* FeedbackViewController.m in Sources */,
 				2F2116F71A25B64A009B21EB /* JDSideMenu.m in Sources */,
 				645DEE5E1A4132D900E8C524 /* EGOImageLoader.m in Sources */,
+				6454000B1A42711700FA69C7 /* BangdingViewController.m in Sources */,
 				5ED3CF411A416FCE0083BCDE /* MDCellView.m in Sources */,
 				645DEE3F1A4132C100E8C524 /* NSObject+SBJSON.m in Sources */,
 				2FC71FE21A281569002BB2C5 /* MainViewController.m in Sources */,
@@ -2020,6 +2037,7 @@
 				645DEE7C1A41333700E8C524 /* AFNetworkReachabilityManager.m in Sources */,
 				645DEE801A41333700E8C524 /* AFURLResponseSerialization.m in Sources */,
 				5ED3CF441A416FCE0083BCDE /* MDStack.m in Sources */,
+				645400051A426E2900FA69C7 /* SetUpViewController.m in Sources */,
 				2FC71FDB1A2721AC002BB2C5 /* FindViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
