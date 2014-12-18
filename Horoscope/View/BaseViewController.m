@@ -209,6 +209,12 @@
     
 }
 
-
+//去除无数据时tableview下方的各种横线
+- (void)setExtraCellLineHidden: (UITableView *)tableView
+{
+    UIView *view =[ [UIView alloc]init];
+    view.backgroundColor = [UIColor clearColor];
+    [tableView setTableFooterView:view];
+}
 
 @end

@@ -50,8 +50,8 @@
         self.timeLabel.font = [UIFont systemFontOfSize:15];
         [self addSubview:self.timeLabel];
         
-        UIButton *gzBtn = [[UIButton alloc]initWithFrame:CGRectMake(KScreenWidth-60, 40, 40, 20)];
-        gzBtn.backgroundColor = [UIColor grayColor];
+        UIButton *gzBtn = [[UIButton alloc]initWithFrame:CGRectMake(KScreenWidth-70, 40, 40, 20)];
+        gzBtn.backgroundColor = kColorWithRGB(220, 220, 220, 1);
         [gzBtn setTitle:@"关注" forState:UIControlStateNormal];
         [gzBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
         [self addSubview:gzBtn];

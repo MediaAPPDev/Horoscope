@@ -66,6 +66,7 @@
         }
         cell.headimgView.image = KUIImage(imgArr[indexPath.row]);
         cell.nameLb.text = nameArr[indexPath.row];
+        cell.accessoryType = YES;
         return cell;
         
     }else{
@@ -91,9 +92,12 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    MineViewController *mine = [[MineViewController alloc]init];
-    mine.isRootView = NO;
-   [self.menuController pushViewController:mine withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
+    if (indexPath.section ==1) {
+        MineViewController *mine = [[MineViewController alloc]init];
+        mine.isRootView = NO;
+        [self.menuController pushViewController:mine withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
+    }
+
 
 }
 

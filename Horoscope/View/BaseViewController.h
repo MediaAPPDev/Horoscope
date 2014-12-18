@@ -26,6 +26,6 @@
  */
 
 -(UILabel *)buildLabelWithFrame:(CGRect)frame backgroundColor:(UIColor *)backgroundColor textColor:(UIColor *)textClolr font:(UIFont *)font textAlignment:(NSTextAlignment)alignment text:(NSString*)text;
-
+- (void)setExtraCellLineHidden: (UITableView *)tableView;
 @property(nonatomic,strong) UIButton * leftButton;
 @end

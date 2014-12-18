@@ -18,9 +18,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self buildTopviewWithBackButton:NO title:@"反馈意见" rightImage:@""];
-
+    [self setTopViewWithTitle:@"反馈意见" withBackButton:YES];
     
+    self.view.backgroundColor =[UIColor whiteColor];
+
     UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(self.view.bounds.size.width-60, KISHighVersion_7?20:0, 60, 44)];
 //    [button setImage:KUIImage(@"123123") forState:UIControlStateNormal];
     [button setTitle:@"发送" forState:UIControlStateNormal];
@@ -28,9 +29,11 @@
     [self.view addSubview:button];
 
     
-    UITextView *textView = [[UITextView alloc]initWithFrame:CGRectMake(0, KISHighVersion_7?74:54, KScreenWidth, KScreenWidth/4*3)];
+    UITextView *textView = [[UITextView alloc]initWithFrame:CGRectMake(0, KISHighVersion_7?74:54, KScreenWidth, KScreenWidth/3*2)];
     textView.text = @"请输入您要反馈的问题";
-    
+    textView.font = [UIFont systemFontOfSize:14];
+    textView.layer.borderColor = [[UIColor grayColor]CGColor];
+    textView.layer.borderWidth = 1;
     [self.view addSubview:textView];
     
 }

@@ -19,23 +19,38 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self buildTopviewWithBackButton:NO title:@"消息通知" rightImage:@""];
+    [self setTopViewWithTitle:@"消息通知" withBackButton:YES];
     
-    myTableView  = [[UITableView alloc]initWithFrame:CGRectMake(0, KISHighVersion_7?64:44, KScreenWidth, 100+40*9+10) style:UITableViewStylePlain];
+    self.view.backgroundColor =[UIColor whiteColor];
+
+    myTableView  = [[UITableView alloc]initWithFrame:CGRectMake(0, KISHighVersion_7?64:44, KScreenWidth, KScreenHeight-(KISHighVersion_7?64:44)) style:UITableViewStylePlain];
     myTableView.bounces = NO;
     myTableView.delegate = self;
     myTableView.dataSource = self;
     
     [self.view addSubview:myTableView];
-    
-    titleArr = [NSArray arrayWithObjects:@"新消息提醒",@"接受新消息提醒",@"声音",@"震动",@"免打扰时段",@"勿扰时段",@"功能提醒", nil];
+    [self setExtraCellLineHidden:myTableView];
+
+    titleArr = [NSArray arrayWithObjects:@"接受新消息提醒",@"声音",@"震动",@"勿扰时段",@"功能提醒", nil];
     
 }
 
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2;
+}
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 7;
+    switch (section) {
+        case 0:
+            return 3;
+            break;
+            
+        default:
+            return 2;
+            break;
+    }
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -45,9 +60,26 @@
     if (!cell) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
-    cell.textLabel.text = [titleArr objectAtIndex:indexPath.row];
+    cell.textLabel.text = [titleArr objectAtIndex:(indexPath.section*3+indexPath.row)];
+    if (indexPath.section==1) {
+        cell.accessoryType = YES;
+    }else{
+        cell.accessoryType =NO;
+    }
 //    cell.accessoryType = YES;
     return cell;
+}
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if (section==0) {
+        return @"新消息提醒";
+    }else{
+        return @"免打扰设置";
+    }
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 30;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

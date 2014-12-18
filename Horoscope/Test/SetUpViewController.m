@@ -30,12 +30,13 @@
     
     
     [self buildTopviewWithBackButton:NO title:@"设置" rightImage:@""];
-    
-    myTableView  = [[UITableView alloc]initWithFrame:CGRectMake(0, KISHighVersion_7?64:44, KScreenWidth, 100+40*9+10) style:UITableViewStylePlain];
+    self.view.backgroundColor = [UIColor whiteColor];
+    myTableView  = [[UITableView alloc]initWithFrame:CGRectMake(0, KISHighVersion_7?64:44, KScreenWidth, KScreenHeight-(KISHighVersion_7?64:44)) style:UITableViewStylePlain];
     myTableView.bounces = NO;
     myTableView.delegate = self;
     myTableView.dataSource = self;
 
+    [self setExtraCellLineHidden:myTableView];
     [self.view addSubview:myTableView];
     
     titleArr = [NSArray arrayWithObjects:@"账号安全",@"账号绑定",@"消息提醒",@"隐私",@"黑名单",@"清理缓存",@"关于",@"反馈意见",@"给我评分",@"退出账号", nil];
@@ -70,17 +71,33 @@
 {
     static NSString *identifier = @"cell";
     SetUpCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+
     if (!cell) {
         cell = [[SetUpCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
+
+    
+    NSArray *ar =[NSArray arrayWithObjects:@"QQ",@"weixin",@"weibo",@"shouji", nil];
+    
+    //        if (self.isHaveImg) {
+    for (int i = 0; i<4; i++) {
+        UIImageView *img = [[UIImageView alloc]initWithFrame:CGRectMake(KScreenWidth-180+30*i+5, 5, 30, 30)];
+        img.image = KUIImage(ar[i]);
+        //                img.backgroundColor = [UIColor redColor];
+        [cell addSubview:img];
+        if (indexPath.section==0&&indexPath.row==1) {
+            img.hidden = NO;
+        }else{
+            img.hidden = YES;
+        }
+    }
+
     cell.titleLabel.text = [titleArr objectAtIndex:(2*indexPath.section+indexPath.row)];
+    if (indexPath.section ==4) {
+        cell.titleLabel.text = @"退出账号";
+    }
     cell.accessoryType = YES;
     
-    if (indexPath.section==0&&indexPath.row==1) {
-        cell.isHaveImg = YES;
-    }else{
-        cell.isHaveImg =NO;
-    }
     
     return cell;
 }
@@ -112,22 +129,9 @@
         case 1:
             switch (indexPath.row) {
                 case 0:
-                    [self.menuController pushViewController:safe withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
-                    break;
-                    case 1:
-                    [self.menuController pushViewController:bd withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
-                    break;
-                default:
-                    break;
-            }
-            
-            break;
-        case 2:
-            switch (indexPath.row) {
-                case 0:
                     [self.menuController pushViewController:not withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
                     break;
-                case 1:
+                    case 1:
                     [self.menuController pushViewController:priv withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
                     break;
                 default:
@@ -135,17 +139,20 @@
             }
             
             break;
-        case 3:
+        case 2:
             break;
-        case 4:
+        case 3:
             switch (indexPath.row) {
-                case 0:
+                case 1:
                     [self.menuController pushViewController:fee withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
                     break;
-
+                    
                 default:
                     break;
             }
+
+            break;
+        case 4:
             
             break;
             
@@ -155,7 +162,10 @@
     
     
 }
-
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 20;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

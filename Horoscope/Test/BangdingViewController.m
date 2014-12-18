@@ -12,6 +12,7 @@
 {
     UITableView * myTableView;
     NSArray * titleArr;
+    NSArray * imgArr;
 }
 @end
 
@@ -20,17 +21,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self buildTopviewWithBackButton:NO title:@"绑定" rightImage:@""];
+//    [self buildTopviewWithBackButton:NO title:@"绑定" rightImage:@""];
+    [self setTopViewWithTitle:@"绑定" withBackButton:YES];
     
-    myTableView  = [[UITableView alloc]initWithFrame:CGRectMake(0, KISHighVersion_7?64:44, KScreenWidth, 100+40*9+10) style:UITableViewStylePlain];
+    self.view.backgroundColor =[UIColor whiteColor];
+
+    myTableView  = [[UITableView alloc]initWithFrame:CGRectMake(0, KISHighVersion_7?64:44, KScreenWidth, KScreenHeight-(KISHighVersion_7?64:44)) style:UITableViewStylePlain];
     myTableView.bounces = NO;
     myTableView.delegate = self;
     myTableView.dataSource = self;
-    
+    [self setExtraCellLineHidden:myTableView];
+
     [self.view addSubview:myTableView];
     
     titleArr = [NSArray arrayWithObjects:@"手机通讯录",@"QQ",@"微信",@"新浪微博", nil];
-
+    imgArr = [NSArray arrayWithObjects:@"shouji",@"QQ",@"weixin",@"weibo", nil];
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -45,7 +50,8 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
     }
     cell.textLabel.text = [titleArr objectAtIndex:indexPath.row];
-    cell.imageView.image = KUIImage(@"");
+    cell.imageView.image = KUIImage(imgArr[indexPath.row]);
+    cell.imageView.frame = CGRectMake(10, 5, 30, 30);
     cell.accessoryType = YES;
     return cell;
 }

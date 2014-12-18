@@ -20,13 +20,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self buildTopviewWithBackButton:NO title:@"安全" rightImage:@""];
+//    [self buildTopviewWithBackButton:NO title:@"安全" rightImage:@""];
     
-    myTableView  = [[UITableView alloc]initWithFrame:CGRectMake(0, KISHighVersion_7?64:44, KScreenWidth, 100+40*9+10) style:UITableViewStylePlain];
+    [self setTopViewWithTitle:@"安全" withBackButton:YES];
+    self.view.backgroundColor =[UIColor whiteColor];
+    myTableView  = [[UITableView alloc]initWithFrame:CGRectMake(0, KISHighVersion_7?64:44, KScreenWidth, KScreenHeight-(KISHighVersion_7?64:44)) style:UITableViewStylePlain];
     myTableView.bounces = NO;
     myTableView.delegate = self;
     myTableView.dataSource = self;
-    
+    [self setExtraCellLineHidden:myTableView];
+
     [self.view addSubview:myTableView];
     
     titleArr = [NSArray arrayWithObjects:@"修改绑定手机",@"密码修改", nil];

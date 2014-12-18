@@ -18,13 +18,7 @@
         self.titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(20, 0, 80, 40)];
         [self addSubview:self.titleLabel];
         
-        if (self.isHaveImg) {
-            for (int i = 0; i<4; i++) {
-                UIImageView *img = [[UIImageView alloc]initWithFrame:CGRectMake(130+30*i, 5, 30, 30)];
-                img.image = KUIImage(@"");
-                [self addSubview:img];
-            }
-          }
+//          }
         
         
         
