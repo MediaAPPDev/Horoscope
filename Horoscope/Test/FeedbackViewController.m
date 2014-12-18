@@ -20,10 +20,23 @@
     
     [self buildTopviewWithBackButton:NO title:@"反馈意见" rightImage:@""];
 
+    
+    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(self.view.bounds.size.width-60, KISHighVersion_7?20:0, 60, 44)];
+//    [button setImage:KUIImage(@"123123") forState:UIControlStateNormal];
+    [button setTitle:@"发送" forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(enterNextPage:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
+
+    
     UITextView *textView = [[UITextView alloc]initWithFrame:CGRectMake(0, KISHighVersion_7?74:54, KScreenWidth, KScreenWidth/4*3)];
     textView.text = @"请输入您要反馈的问题";
     
     [self.view addSubview:textView];
+    
+}
+
+-(void)enterNextPage:(id)sender
+{
     
 }
 

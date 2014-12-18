@@ -7,6 +7,13 @@
 //
 
 #import "SetUpViewController.h"
+#import "SetUpCell.h"
+
+#import "SafeViewController.h"
+#import "BangdingViewController.h"
+#import "NotifiationViewController.h"
+#import "PrivacyViewController.h"
+#import "FeedbackViewController.h"
 
 @interface SetUpViewController ()
 {
@@ -24,7 +31,7 @@
     
     [self buildTopviewWithBackButton:NO title:@"设置" rightImage:@""];
     
-    myTableView  = [[UITableView alloc]initWithFrame:CGRectMake(0, KScreenWidth/2+KScreenWidth*.52-30, KScreenWidth, 100+40*9+10) style:UITableViewStylePlain];
+    myTableView  = [[UITableView alloc]initWithFrame:CGRectMake(0, KISHighVersion_7?64:44, KScreenWidth, 100+40*9+10) style:UITableViewStylePlain];
     myTableView.bounces = NO;
     myTableView.delegate = self;
     myTableView.dataSource = self;
@@ -62,12 +69,19 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *identifier = @"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    SetUpCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        cell = [[SetUpCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
-    cell.textLabel.text = [titleArr objectAtIndex:(2*indexPath.section+indexPath.row)];
+    cell.titleLabel.text = [titleArr objectAtIndex:(2*indexPath.section+indexPath.row)];
     cell.accessoryType = YES;
+    
+    if (indexPath.section==0&&indexPath.row==1) {
+        cell.isHaveImg = YES;
+    }else{
+        cell.isHaveImg =NO;
+    }
+    
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -75,10 +89,69 @@
     //当手指离开某行时，就让某行的选中状态消失
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    if (indexPath.section ==0) {
-        
-    }
+    SafeViewController *safe = [[SafeViewController alloc]init];
+    BangdingViewController *bd = [[BangdingViewController alloc]init];
+    NotifiationViewController *not = [[NotifiationViewController alloc]init];
+    PrivacyViewController *priv = [[PrivacyViewController alloc]init];
+    FeedbackViewController *fee =[[FeedbackViewController alloc]init];
     
+    
+    switch (indexPath.section) {
+        case 0:
+            switch (indexPath.row) {
+                case 0:
+                    [self.menuController pushViewController:safe withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
+                    break;
+                    case 1:
+                    [self.menuController pushViewController:bd withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
+                    break;
+                default:
+                    break;
+            }
+            break;
+        case 1:
+            switch (indexPath.row) {
+                case 0:
+                    [self.menuController pushViewController:safe withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
+                    break;
+                    case 1:
+                    [self.menuController pushViewController:bd withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
+                    break;
+                default:
+                    break;
+            }
+            
+            break;
+        case 2:
+            switch (indexPath.row) {
+                case 0:
+                    [self.menuController pushViewController:not withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
+                    break;
+                case 1:
+                    [self.menuController pushViewController:priv withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
+                    break;
+                default:
+                    break;
+            }
+            
+            break;
+        case 3:
+            break;
+        case 4:
+            switch (indexPath.row) {
+                case 0:
+                    [self.menuController pushViewController:fee withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
+                    break;
+
+                default:
+                    break;
+            }
+            
+            break;
+            
+        default:
+            break;
+    }
     
     
 }

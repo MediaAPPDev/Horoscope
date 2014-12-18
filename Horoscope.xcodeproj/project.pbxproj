@@ -144,6 +144,7 @@
 		6454000E1A4271A100FA69C7 /* NotifiationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6454000D1A4271A100FA69C7 /* NotifiationViewController.m */; };
 		645400111A42724800FA69C7 /* PrivacyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 645400101A42724800FA69C7 /* PrivacyViewController.m */; };
 		645400141A42730800FA69C7 /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 645400131A42730800FA69C7 /* FeedbackViewController.m */; };
+		645400171A4274A400FA69C7 /* SetUpCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 645400161A4274A400FA69C7 /* SetUpCell.m */; };
 		645DEE3F1A4132C100E8C524 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 645DEE341A4132C100E8C524 /* NSObject+SBJSON.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		645DEE401A4132C100E8C524 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 645DEE361A4132C100E8C524 /* NSString+SBJSON.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		645DEE411A4132C100E8C524 /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 645DEE381A4132C100E8C524 /* SBJSON.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -543,6 +544,8 @@
 		645400101A42724800FA69C7 /* PrivacyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrivacyViewController.m; sourceTree = "<group>"; };
 		645400121A42730800FA69C7 /* FeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackViewController.h; sourceTree = "<group>"; };
 		645400131A42730800FA69C7 /* FeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackViewController.m; sourceTree = "<group>"; };
+		645400151A4274A400FA69C7 /* SetUpCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetUpCell.h; sourceTree = "<group>"; };
+		645400161A4274A400FA69C7 /* SetUpCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetUpCell.m; sourceTree = "<group>"; };
 		645DEE321A4132C100E8C524 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
 		645DEE331A4132C100E8C524 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
 		645DEE341A4132C100E8C524 /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
@@ -1533,6 +1536,8 @@
 				645400101A42724800FA69C7 /* PrivacyViewController.m */,
 				645400121A42730800FA69C7 /* FeedbackViewController.h */,
 				645400131A42730800FA69C7 /* FeedbackViewController.m */,
+				645400151A4274A400FA69C7 /* SetUpCell.h */,
+				645400161A4274A400FA69C7 /* SetUpCell.m */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -2037,6 +2042,7 @@
 				645DEE7C1A41333700E8C524 /* AFNetworkReachabilityManager.m in Sources */,
 				645DEE801A41333700E8C524 /* AFURLResponseSerialization.m in Sources */,
 				5ED3CF441A416FCE0083BCDE /* MDStack.m in Sources */,
+				645400171A4274A400FA69C7 /* SetUpCell.m in Sources */,
 				645400051A426E2900FA69C7 /* SetUpViewController.m in Sources */,
 				2FC71FDB1A2721AC002BB2C5 /* FindViewController.m in Sources */,
 			);
