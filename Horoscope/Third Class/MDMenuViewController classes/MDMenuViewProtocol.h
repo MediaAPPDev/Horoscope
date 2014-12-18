@@ -10,7 +10,7 @@
 @protocol MenuViewDelegate <NSObject>
 
 -(void)MenuViewDidSelectMenuItem:(MenuItem)item atIndex:(NSInteger)index;
-
+-(void)pushViewController:(UIViewController*)childController animated:(BOOL)animated;
 @end
 @protocol MDMenuViewProtocol <NSObject>
 

@@ -9,6 +9,7 @@
 #import "DefaultMenuView.h"
 #import "MineViewController.h"
 #import "MDMenuViewController.h"
+#import "SetUpViewController.h"
 
 @implementation DefaultMenuView
 -(id)initWithFrame:(CGRect)frame
@@ -92,6 +93,8 @@
     
     
     
+     [self.delegate pushViewController:mine animated:YES];
+    
 //   [self.menuController pushViewController:mine withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
     
     
@@ -101,7 +104,10 @@
 //添加方法 个人设置
 -(void)  settingChangeAction:(UIButton * )btn
 {
-   
+    SetUpViewController * setUp =[[SetUpViewController alloc]init];
+    
+    
+     [self.delegate pushViewController:setUp animated:YES];
     
 }
 

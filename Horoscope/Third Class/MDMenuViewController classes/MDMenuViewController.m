@@ -237,6 +237,9 @@ static int TOP_BAR_HEIGHT = 50;
     
 }
 
+
+
+
 //************************************************ show view controller *************************
 //**************************************************************************************************
 -(void)pushViewController:(UIViewController*)childController animated:(BOOL)animated

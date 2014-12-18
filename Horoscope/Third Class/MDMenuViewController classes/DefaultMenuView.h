@@ -19,5 +19,5 @@
 @property (nonatomic,strong)UIButton * faceImageButton;
 @property (nonatomic,strong)UILabel * name;
 @property (nonatomic,strong)UIButton * settingButton;
-@property (nonatomic,strong)MDMenuViewController * menuVC;
+//@property (nonatomic,strong)MDMenuViewController * menuVC;
 @end
