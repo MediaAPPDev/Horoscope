@@ -20,10 +20,12 @@
 @property(nonatomic,strong)TopButton *cell5;
 @property(nonatomic,strong)TopButton *cell6;
 @property (nonatomic,assign)id<TopViewDelegate>delegate;
+@property (nonatomic,assign)NSMutableArray *infoArray;
+-(void)changeImgAndName:(NSMutableArray *)arr;
+
 @end
 
 @protocol TopViewDelegate <NSObject>
 
 -(void)didClickButton:(NSInteger)n;
-
 @end

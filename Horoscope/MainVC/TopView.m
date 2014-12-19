@@ -16,25 +16,17 @@
     self = [super initWithFrame:frame];
     if (self) {
         
+        _cell1 = [self buildButtonWithFrame:CGRectMake(1, 0, self.bounds.size.width/3-4, self.bounds.size.width/3+15) dic:[self.infoArray objectAtIndex:1] tag:101 text:@"2"];
         
+        _cell2 = [self buildButtonWithFrame:CGRectMake( self.bounds.size.width/3+1, 0, self.bounds.size.width/3-4, self.bounds.size.width/3+15) dic:[self.infoArray objectAtIndex:2] tag:102 text:@"3"];
         
+        _cell3 = [self buildButtonWithFrame:CGRectMake( self.bounds.size.width/3*2+2, 0, self.bounds.size.width/3-3, self.bounds.size.width/3+15) dic:[self.infoArray objectAtIndex:3] tag:103 text:@"4"];
         
-        _cell1 = [self buildButtonWithFrame:CGRectMake(1, 0, self.bounds.size.width/3-4, self.bounds.size.width/3+15) image:@"1.jpg" tag:101 text:@"2"];
+        _cell4 = [self buildButtonWithFrame:CGRectMake(1,  self.bounds.size.width/3+18, self.bounds.size.width/3-4, self.bounds.size.width/3+15) dic:[self.infoArray objectAtIndex:4] tag:104 text:@"5"];
+
+        _cell5 = [self buildButtonWithFrame:CGRectMake(1,  self.bounds.size.width/3*2+36, self.bounds.size.width/3-4, self.bounds.size.width/3+15) dic:[self.infoArray objectAtIndex:5] tag:105 text:@"6"];
         
-        _cell2 = [self buildButtonWithFrame:CGRectMake( self.bounds.size.width/3+1, 0, self.bounds.size.width/3-4, self.bounds.size.width/3+15) image:@"1.jpg" tag:102 text:@"3"];
-        
-        
-        _cell3 = [self buildButtonWithFrame:CGRectMake( self.bounds.size.width/3*2+2, 0, self.bounds.size.width/3-3, self.bounds.size.width/3+15) image:@"1.jpg" tag:103 text:@"4"];
-        
-        
-        _cell4 = [self buildButtonWithFrame:CGRectMake(1,  self.bounds.size.width/3+18, self.bounds.size.width/3-4, self.bounds.size.width/3+15) image:@"1.jpg" tag:104 text:@"5"];
-        
-        
-        _cell5 = [self buildButtonWithFrame:CGRectMake(1,  self.bounds.size.width/3*2+36, self.bounds.size.width/3-4, self.bounds.size.width/3+15) image:@"1.jpg" tag:105 text:@"6"];
-        
-        
-        _cell6 = [self buildButtonWithFrame:CGRectMake(self.bounds.size.width/3+1, self.bounds.size.width/3+18, self.bounds.size.width/3*2-2, self.bounds.size.width/3*2+33) image:@"1.jpg" tag:100 text:@"1"];
-        
+        _cell6 = [self buildButtonWithFrame:CGRectMake(self.bounds.size.width/3+1, self.bounds.size.width/3+18, self.bounds.size.width/3*2-2, self.bounds.size.width/3*2+33) dic:[self.infoArray objectAtIndex:0] tag:100 text:@"1"];
   
         _cell6.MainImageView.frame = CGRectMake(0, 0, self.bounds.size.width/3*2-2, self.bounds.size.width/3*2);
         
@@ -56,20 +48,46 @@
 #pragma mark 表头
 
 
--(TopButton *)buildButtonWithFrame:(CGRect)frame image:(NSString *)image tag:(int)tag text:(NSString *)text
+-(TopButton *)buildButtonWithFrame:(CGRect)frame dic:(NSDictionary *)dic tag:(int)tag text:(NSString *)text
 {
-    TopButton *cell1 = [[TopButton alloc]initWithFrame:frame];
-    cell1.layer.masksToBounds = YES;
-    cell1.layer.cornerRadius = 6.0;
-    cell1.layer.borderWidth = 1.0;
-    
-    cell1.MainImageView.image = KUIImage(image);
+    TopButton *cell1;
+    if (!cell1) {
+        cell1= [[TopButton alloc]initWithFrame:frame];
+        cell1.layer.masksToBounds = YES;
+        cell1.layer.cornerRadius = 6.0;
+        cell1.layer.borderWidth = 1.0;
+    }
+    cell1.MainImageView.imageURL = [NSURL URLWithString:[dic objectForKey:@"photo"]];
     cell1.leftImageView.image = KUIImage(@"排名色块小");
     cell1.numLabel.text = text;
+    cell1.nameLabel.text = [dic objectForKey:@"nickname"];
     [cell1 addTarget:self action:@selector(didclickNoto:) forControlEvents:UIControlEventTouchUpInside];
-
     return cell1;
 }
+
+-(void)changeImgAndName:(NSMutableArray *)arr
+{
+    _cell1.MainImageView.imageURL = [NSURL URLWithString:[[arr objectAtIndex:1] objectForKey:@"photo"]];
+    _cell1.nameLabel.text = [[arr objectAtIndex:1] objectForKey:@"nickname"];
+
+    _cell2.MainImageView.imageURL = [NSURL URLWithString:[[arr objectAtIndex:2] objectForKey:@"photo"]];
+    _cell2.nameLabel.text = [[arr objectAtIndex:2] objectForKey:@"nickname"];
+
+    _cell3.MainImageView.imageURL = [NSURL URLWithString:[[arr objectAtIndex:3] objectForKey:@"photo"]];
+    _cell3.nameLabel.text = [[arr objectAtIndex:3] objectForKey:@"nickname"];
+    _cell4.MainImageView.imageURL = [NSURL URLWithString:[[arr objectAtIndex:4] objectForKey:@"photo"]];
+    _cell4.nameLabel.text = [[arr objectAtIndex:4] objectForKey:@"nickname"];
+
+    _cell5.MainImageView.imageURL = [NSURL URLWithString:[[arr objectAtIndex:5] objectForKey:@"photo"]];
+    _cell5.nameLabel.text = [[arr objectAtIndex:5] objectForKey:@"nickname"];
+
+    _cell6.MainImageView.imageURL = [NSURL URLWithString:[[arr objectAtIndex:0] objectForKey:@"photo"]];
+    _cell6.nameLabel.text = [[arr objectAtIndex:0] objectForKey:@"nickname"];
+
+}
+
+
+
 -(void)didclickNoto:(UIButton *)sender
 {
     [[NSNotificationCenter defaultCenter]postNotificationName:@"didClick_wx_drx" object:@(sender.tag)];

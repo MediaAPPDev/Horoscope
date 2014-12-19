@@ -205,7 +205,7 @@
 //    [self.navigationController popViewControllerAnimated:YES];
     
     [self.menuController popViewControllerAnimated:YES];
-    [[RequestTaskService singleton] clearRequest:[NSString stringWithUTF8String:object_getClassName(self)]];
+//    [[RequestTaskService singleton] clearRequest:[NSString stringWithUTF8String:object_getClassName(self)]];
     
 }
 

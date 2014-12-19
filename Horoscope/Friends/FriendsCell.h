@@ -16,4 +16,5 @@
 @property (nonatomic,strong)UILabel * signatureLb;
 @property (nonatomic,strong)UILabel * timeLabel;
 @property (nonatomic,strong)UIImageView * sexImg;
+@property (nonatomic,strong)UIButton * gzBtn;
 @end

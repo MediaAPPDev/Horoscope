@@ -16,7 +16,9 @@
     UICollectionViewFlowLayout * m_layout;
     UIImageView * blackImageView;
     AddButton * ccButton;
-    
+    NSMutableArray *infoArray;
+    NSMutableArray *arr1;
+    TopView *topView;
 }
 @end
 
@@ -31,6 +33,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(asdfasdf:) name:@"getInfoFromNet" object:nil];
+    
+    [[NetManager sharedManager]PostNetWithString:@"http://120.131.70.218/userlist.php"];
+    
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(didClickNotification:) name:@"didClick_wx_drx" object:nil];
     
@@ -44,8 +50,7 @@
    
     [m_CollView registerClass:[MainCollectionViewCell class] forCellWithReuseIdentifier:@"collectionViewCell1"];
     
-    TopView *topview = [[TopView alloc]init];
-    topview.delegate = self;
+    topView = [[TopView alloc]init];
     [m_CollView registerClass:[TopView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"headViewww"];
 
     //设置代理
@@ -56,26 +61,48 @@
     [self.view addSubview:m_CollView];
     [self buildBlackView];
     
-    
-    
+    infoArray = [NSMutableArray array];
+    arr1 = [NSMutableArray array];
     
 }
 
-
+//测试
+-(void)asdfasdf:(NSNotification *)info
+{
+    if ([info.userInfo isKindOfClass:[NSDictionary class]]) {
+        NSLog(@"1");
+    }else{
+        NSLog(@"%@",info.userInfo.class);
+        
+        NSMutableArray *arr= (NSMutableArray *)info.userInfo;
+        
+        [arr1 removeAllObjects];
+        [infoArray removeAllObjects];
+        for (int i = 0; i<arr.count; i++) {
+            NSDictionary *dic = [arr objectAtIndex:i];
+            if (i<6) {
+                [arr1 addObject:dic];
+            }else{
+                [infoArray addObject:dic];
+            }
+        }
+        [m_CollView reloadData];
+    }
+}
 
 #pragma mark---collectionViewDELEGATE
 
 
 //设置分区
--(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
-    
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
     return 1;
 }
 
 //每个分区上的元素个数
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 24;
+    return infoArray.count;
 }
 
 //设置元素内容
@@ -87,34 +114,53 @@
     if (!cell) {
 //        cell = [[MainCollectionViewCell alloc]init];
     }
-    cell.layer.masksToBounds = YES;
-    cell.layer.cornerRadius = 6.0;
-    cell.layer.borderWidth = 1.0;
+    
+    NSDictionary *dic = [infoArray objectAtIndex:indexPath.row];
+    
+//    cell.layer.masksToBounds = YES;
+//    cell.layer.cornerRadius = 6.0;
+//    cell.layer.borderWidth = 1.0;
 //    cell.layer.borderColor = [[UIColor blackColor] CGColor];
     cell.numLabel.text = [NSString stringWithFormat:@"%ld",(long)indexPath.row+7];
     cell.leftImageView.image = KUIImage(@"排名色块小");
-    cell.MainImageView.image = KUIImage(@"1.jpg");
+    cell.MainImageView.imageURL = [NSURL URLWithString:[dic objectForKey:@"photo"]];
+    cell.nameLabel.text = [dic objectForKey:@"nickname"];
     NSLog(@"%@",cell);
     return cell;
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionReusableView *titleView;
+    TopView *titleView;
     
     if (kind == UICollectionElementKindSectionHeader) {
         titleView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"headViewww" forIndexPath:indexPath];
+        if (arr1.count==6) {
+            titleView.cell1.MainImageView.imageURL = [NSURL URLWithString:[[arr1 objectAtIndex:1] objectForKey:@"photo"]];
+            titleView.cell1.nameLabel.text = [[arr1 objectAtIndex:1] objectForKey:@"nickname"];
+            
+            titleView.cell2.MainImageView.imageURL = [NSURL URLWithString:[[arr1 objectAtIndex:2] objectForKey:@"photo"]];
+            titleView.cell2.nameLabel.text = [[arr1 objectAtIndex:2] objectForKey:@"nickname"];
+            
+            titleView.cell3.MainImageView.imageURL = [NSURL URLWithString:[[arr1 objectAtIndex:2] objectForKey:@"photo"]];
+            titleView.cell3.nameLabel.text = [[arr1 objectAtIndex:3] objectForKey:@"nickname"];
+            titleView.cell4.MainImageView.imageURL = [NSURL URLWithString:[[arr1 objectAtIndex:4] objectForKey:@"photo"]];
+            titleView.cell4.nameLabel.text = [[arr1 objectAtIndex:4] objectForKey:@"nickname"];
+            
+            titleView.cell5.MainImageView.imageURL = [NSURL URLWithString:[[arr1 objectAtIndex:5] objectForKey:@"photo"]];
+            titleView.cell5.nameLabel.text = [[arr1 objectAtIndex:5] objectForKey:@"nickname"];
+            
+            titleView.cell6.MainImageView.imageURL = [NSURL URLWithString:[[arr1 objectAtIndex:0] objectForKey:@"photo"]];
+            titleView.cell6.nameLabel.text = [[arr1 objectAtIndex:0] objectForKey:@"nickname"];
+        }
 
         }
-    return titleView;
-
         
-
     return titleView;
 }
 -(void)didClickNotification:(NSNotification*)sender
 {
-    [self customViewDidClick:sender.object];
+    [self customViewDidClick:[sender.object intValue]];
 }
 
 
@@ -151,12 +197,14 @@
     }];
     ccButton.tag = sender;
     
+    NSDictionary *dic = [NSDictionary dictionaryWithDictionary:[arr1 objectAtIndex:ccButton.tag]];
+    
     blackImageView.hidden = NO;
     ccButton.hidden = NO;
-    ccButton.constellationLab.text = @"白羊座";
+    ccButton.constellationLab.text = KISDictionaryHaveKey(dic, @"xing");
     ccButton.constellationImg.image = KUIImage(@"白羊座");
-    ccButton.nameLab.text = @"昵称:奥妮克希亚";
-    ccButton.lineLab.text = @"you can do it no zuo no die why you try?";
+    ccButton.nameLab.text = [NSString stringWithFormat:@"昵称:%@",KISDictionaryHaveKey(dic,@"nickname")];
+    ccButton.lineLab.text = KISDictionaryHaveKey(dic, @"phrase");
     // 透明界面出现  添加点击手势
     [blackImageView addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(didHiddenBlView:)]];
 
@@ -174,14 +222,18 @@
         
     } completion:^(BOOL finished) {
     }];
+    
+    NSDictionary *dic = infoArray[indexPath.row];
+    
+    
     ccButton.tag = 100+indexPath.row+7;
     
     blackImageView.hidden = NO;
     ccButton.hidden = NO;
-    ccButton.constellationLab.text = @"白羊座";
+    ccButton.constellationLab.text = [NSString stringWithFormat:@"%@",KISDictionaryHaveKey(dic, @"xing")];
     ccButton.constellationImg.image = KUIImage(@"白羊座");
-    ccButton.nameLab.text = @"昵称:奥妮克希亚";
-    ccButton.lineLab.text = @"you can do it no zuo no die why you try?";
+    ccButton.nameLab.text = [NSString stringWithFormat:@"%@",KISDictionaryHaveKey(dic, @"nickname")];
+    ccButton.lineLab.text = [NSString stringWithFormat:@"%@",KISDictionaryHaveKey(dic, @"phrase")];
     // 透明界面出现  添加点击手势
     [blackImageView addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(didHiddenBlView:)]];
 
@@ -225,7 +277,7 @@
     MineViewController *mineView = [[MineViewController alloc]init];
     
     [self.menuController pushViewController:mineView withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
-    
+    [self didHiddenBlView:nil];
 //    [self presentViewController:mineView animated:YES completion:^{
     
 //    }];

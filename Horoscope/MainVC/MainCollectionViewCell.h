@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "EGOImageView.h"
 @interface MainCollectionViewCell : UICollectionViewCell
 @property (nonatomic,strong)UIImageView * leftImageView;
-@property (nonatomic,strong)UIImageView * MainImageView;
+@property (nonatomic,strong)EGOImageView * MainImageView;
 @property (nonatomic,strong)UILabel     * numLabel;
 @property (nonatomic,strong)UILabel     *nameLabel;
 @end

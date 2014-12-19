@@ -85,6 +85,7 @@
         cell.sexImg.image = KUIImage(@"sexImg");
         cell.signatureLb.text =@"所谓知之为知之不知为不知 莫装逼 ";
         cell.timeLabel.text = @"1分钟前";
+        cell.gzBtn.hidden = YES;
         return cell;
     }
 }
