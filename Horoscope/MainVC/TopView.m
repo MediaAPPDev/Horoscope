@@ -35,6 +35,7 @@
         _cell6.numLabel.frame = CGRectMake(20, 20, 20, 20);
         _cell6.numLabel.font = [UIFont boldSystemFontOfSize:20];
         
+            
         [self addSubview:_cell1];
         [self addSubview:_cell2];
         [self addSubview:_cell3];
@@ -60,36 +61,17 @@
     cell1.MainImageView.imageURL = [NSURL URLWithString:[dic objectForKey:@"photo"]];
     cell1.leftImageView.image = KUIImage(@"排名色块小");
     cell1.numLabel.text = text;
+    cell1.tag = tag;
     cell1.nameLabel.text = [dic objectForKey:@"nickname"];
     [cell1 addTarget:self action:@selector(didclickNoto:) forControlEvents:UIControlEventTouchUpInside];
+
     return cell1;
-}
-
--(void)changeImgAndName:(NSMutableArray *)arr
-{
-    _cell1.MainImageView.imageURL = [NSURL URLWithString:[[arr objectAtIndex:1] objectForKey:@"photo"]];
-    _cell1.nameLabel.text = [[arr objectAtIndex:1] objectForKey:@"nickname"];
-
-    _cell2.MainImageView.imageURL = [NSURL URLWithString:[[arr objectAtIndex:2] objectForKey:@"photo"]];
-    _cell2.nameLabel.text = [[arr objectAtIndex:2] objectForKey:@"nickname"];
-
-    _cell3.MainImageView.imageURL = [NSURL URLWithString:[[arr objectAtIndex:3] objectForKey:@"photo"]];
-    _cell3.nameLabel.text = [[arr objectAtIndex:3] objectForKey:@"nickname"];
-    _cell4.MainImageView.imageURL = [NSURL URLWithString:[[arr objectAtIndex:4] objectForKey:@"photo"]];
-    _cell4.nameLabel.text = [[arr objectAtIndex:4] objectForKey:@"nickname"];
-
-    _cell5.MainImageView.imageURL = [NSURL URLWithString:[[arr objectAtIndex:5] objectForKey:@"photo"]];
-    _cell5.nameLabel.text = [[arr objectAtIndex:5] objectForKey:@"nickname"];
-
-    _cell6.MainImageView.imageURL = [NSURL URLWithString:[[arr objectAtIndex:0] objectForKey:@"photo"]];
-    _cell6.nameLabel.text = [[arr objectAtIndex:0] objectForKey:@"nickname"];
-
 }
 
 
 
 -(void)didclickNoto:(UIButton *)sender
 {
-    [[NSNotificationCenter defaultCenter]postNotificationName:@"didClick_wx_drx" object:@(sender.tag)];
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"didClick_wx_drx" object:@(sender.tag-100)];
 }
 @end
