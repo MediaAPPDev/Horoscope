@@ -45,12 +45,14 @@
     static NSString *identifier = @"cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
+        
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
     cell.textLabel.text = [titleArr objectAtIndex:indexPath.row];
     cell.imageView.image = KUIImage(@"");
     cell.accessoryType = YES;
     return cell;
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

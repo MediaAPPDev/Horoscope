@@ -22,9 +22,10 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "AFNetworking.h"
 #import "SBJSON.h"
-#import "RequestTaskService.h"
+//#import "RequestTaskService.h"
 
 #import "NetManager.h"
+//#import "RequestTaskService.h"
 #endif
 
 

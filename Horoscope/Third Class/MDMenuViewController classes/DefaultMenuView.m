@@ -91,7 +91,7 @@
     
     MineViewController * mine =[[MineViewController alloc]init];
     
-    
+    mine.isRootView =YES;
     
      [self.delegate pushViewController:mine animated:YES];
     

@@ -8,6 +8,6 @@
 
 #import "BaseViewController.h"
 
-@interface XWViewController : BaseViewController
+@interface XWViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource>
 
 @end
