@@ -35,7 +35,7 @@
         _cell6.numLabel.frame = CGRectMake(20, 20, 20, 20);
         _cell6.numLabel.font = [UIFont boldSystemFontOfSize:20];
         
-            
+        
         [self addSubview:_cell1];
         [self addSubview:_cell2];
         [self addSubview:_cell3];

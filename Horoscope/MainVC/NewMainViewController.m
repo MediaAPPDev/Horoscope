@@ -278,9 +278,6 @@
     
     [self.menuController pushViewController:mineView withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
     [self didHiddenBlView:nil];
-//    [self presentViewController:mineView animated:YES completion:^{
-    
-//    }];
     
     
 }
