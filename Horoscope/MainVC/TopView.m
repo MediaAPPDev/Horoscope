@@ -72,6 +72,6 @@
 
 -(void)didclickNoto:(UIButton *)sender
 {
-    [[NSNotificationCenter defaultCenter]postNotificationName:@"didClick_wx_drx" object:@(sender.tag-100)];
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"didClick_wx_drx" object:nil userInfo:@{@"tag":@(sender.tag-100)}];
 }
 @end

@@ -198,7 +198,8 @@
 
 -(void)showAlertViewWithtitle:(NSString *)title message:(NSString *)message
 {
-    [self showAlertViewWithtitle:title message:message];
+    UIAlertView *ale = [[UIAlertView alloc]initWithTitle:title message:message delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+    [ale show];
 }
 
 

@@ -16,6 +16,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        [self setExclusiveTouch :YES];
         UIImageView *bgImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
         //        bgImageView.image = KUIImage(@"imgbg");
         //        bgImageView.backgroundColor = [UIColor redColor];

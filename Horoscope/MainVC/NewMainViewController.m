@@ -19,6 +19,7 @@
     NSMutableArray *infoArray;
     NSMutableArray *arr1;
     TopView *topView;
+    NSMutableArray *allArr;
 }
 @end
 
@@ -58,6 +59,7 @@
     
     infoArray = [NSMutableArray array];
     arr1 = [NSMutableArray array];
+    allArr = [NSMutableArray array];
     [self getInfoFromNet];
     
 }
@@ -68,13 +70,13 @@
         if ([responseObject isKindOfClass:[NSDictionary class]]) {
             NSLog(@"1");
         }else{
-            
-            NSMutableArray *arr= [NSMutableArray arrayWithArray:responseObject];
+            [allArr removeAllObjects];
+            [allArr addObjectsFromArray:responseObject];
             
             [arr1 removeAllObjects];
             [infoArray removeAllObjects];
-            for (int i = 0; i<arr.count; i++) {
-                NSDictionary *dic = [arr objectAtIndex:i];
+            for (int i = 0; i<allArr.count; i++) {
+                NSDictionary *dic = [allArr objectAtIndex:i];
                 if (i<6) {
                     [arr1 addObject:dic];
                 }else{
@@ -83,7 +85,6 @@
             }
             [m_CollView reloadData];
         }
-
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [self showAlertViewWithtitle:@"提示" message:@"好友列表请求失败"];
     }];
@@ -161,7 +162,7 @@
 }
 -(void)didClickNotification:(NSNotification*)sender
 {
-    [self customViewDidClick:[sender.object intValue]];
+    [self customViewDidClick:[[sender.userInfo objectForKey:@"tag"] intValue]];
 }
 
 
@@ -227,7 +228,7 @@
     NSDictionary *dic = infoArray[indexPath.row];
     
     
-    ccButton.tag = 100+indexPath.row+7;
+    ccButton.tag = indexPath.row+7;
     
     blackImageView.hidden = NO;
     ccButton.hidden = NO;
@@ -247,9 +248,6 @@
 {
     return YES;
 }
-
-
-
 -(void)buildBlackView
 {
     blackImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height)];
@@ -259,9 +257,7 @@
     [self.view addSubview:blackImageView];
     
     ccButton = [[AddButton alloc]initWithFrame:CGRectMake(-307, 400, 307, 72)];
-    
-    
-    
+        
     //    ccButton.backgroundColor = [UIColor clearColor];
 //    [ccButton setImage:[UIImage imageNamed:@"btimg"] forState:UIControlStateNormal];
     [ccButton addTarget:self action:@selector(didClickTap:) forControlEvents:UIControlEventTouchUpInside];
@@ -276,7 +272,11 @@
 {
     NSLog(@"%ld",(long)ccButton.tag);
     MineViewController *mineView = [[MineViewController alloc]init];
+    mineView.isRootView = NO;
     
+    NSDictionary *dic =[allArr objectAtIndex:sender.tag];
+    
+    mineView.userid =KISDictionaryHaveKey(dic, @"uid");
     [self.menuController pushViewController:mineView withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
     [self didHiddenBlView:nil];
     

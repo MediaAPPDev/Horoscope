@@ -45,7 +45,7 @@
         self.signatureLb.font = [UIFont systemFontOfSize:15];
         [self addSubview:self.signatureLb];
 
-        self.timeLabel =[[UILabel alloc]initWithFrame:CGRectMake(KScreenWidth-80, 20, 70, 20)];
+        self.timeLabel =[[UILabel alloc]initWithFrame:CGRectMake(KScreenWidth-70, 20, 70, 20)];
         self.timeLabel.textColor = [UIColor grayColor];
         self.timeLabel.font = [UIFont systemFontOfSize:15];
         [self addSubview:self.timeLabel];

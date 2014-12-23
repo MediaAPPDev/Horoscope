@@ -8,14 +8,15 @@
 
 #import "FoundViewController.h"
 #import "FriendsCell.h"
-
 #import "DefaultMenuView.h"
-
 #import "MineViewController.h"
+
+#define kUrl @"http://120.131.70.218/finduser"
 
 @interface FoundViewController ()
 {
     UITableView *myTabelView;
+    NSMutableArray * infoArray;
 }
 @end
 
@@ -41,18 +42,41 @@
     myTabelView.dataSource = self;
     myTabelView.rowHeight = 90;
     [self.view addSubview:myTabelView];
-
+    infoArray =[NSMutableArray array];
+    [self getInfoFromNet];
 }
+
+#pragma  mark ---网络请求
+-(void)getInfoFromNet
+{
+    [[AFHTTPSessionManager manager]GET:kUrl parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"get----%@",responseObject);
+        
+        if (![responseObject isKindOfClass:[NSArray class]]) {
+            return ;
+        }
+        [infoArray addObjectsFromArray:responseObject];
+        [myTabelView reloadData];
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"error---%@",error);
+    }];
+    
+    
+}
+
+
+
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return 1;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section==0) {
-        return 2;
-    }
-    return 10;
+//    if (section==0) {
+//        return 2;
+//    }
+    return infoArray.count;
 }
 
 
@@ -65,14 +89,16 @@
         if (!cell) {
             cell = [[FriendsCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         }
-        
-        cell.headimgView.image = KUIImage(@"1.jpg");
-        cell.nameLb.text = @"用户未命名";
+    
+    NSDictionary *dic = [infoArray objectAtIndex:indexPath.row];
+    cell.headimgView.placeholderImage = KUIImage(@"placeholder.jpg");
+    cell.headimgView.imageURL = [NSURL URLWithString:KISDictionaryHaveKey(dic, @"photo")];
+        cell.nameLb.text = KISDictionaryHaveKey(dic, @"nickname");
         cell.starImgView.image = KUIImage(@"ys_c_by");
-        cell.starLb.text = @"白羊座";
+        cell.starLb.text = KISDictionaryHaveKey(dic, @"xing");;
     cell.sexImg.image = KUIImage(@"sexImg");
 
-        cell.signatureLb.text =@"所谓知之为知之不知为不知 莫装逼 ";
+        cell.signatureLb.text =KISDictionaryHaveKey(dic, @"phrase");;
         cell.timeLabel.text = @"1分钟前";
         return cell;
 }

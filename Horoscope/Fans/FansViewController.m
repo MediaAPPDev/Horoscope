@@ -8,6 +8,7 @@
 
 #import "FansViewController.h"
 #import "FriendsCell.h"
+#import "MineViewController.h"
 @interface FansViewController ()
 {
     UITableView * myTableView;
@@ -90,8 +91,18 @@
     cell.timeLabel.text = @"1分钟前";
     cell.gzBtn.hidden = YES;
     return cell;
-
 }
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSDictionary *dic = [infoArr objectAtIndex:indexPath.row];
+    MineViewController *mineVC = [[MineViewController alloc]init];
+    mineVC.isRootView = NO;
+    mineVC.userid = KISDictionaryHaveKey(dic, @"id");
+    [self.menuController pushViewController:mineVC withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
+}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

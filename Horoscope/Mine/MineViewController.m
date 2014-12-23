@@ -11,7 +11,7 @@
 #import "PersonInfoCell.h"
 #import "PhotoViewController.h"
 #import "PersonInfoChangeViewController.h"
-#import "EGOImageView.h"
+#import "EGOImageButton.h"
 #import "FansViewController.h"
 @interface MineViewController ()
 {
@@ -19,7 +19,7 @@
     UITableView  * myTableView;
     NSArray *arr1;
     NSArray *arr2;
-    EGOImageView *headImgView;//头像
+    EGOImageButton *headImgView;//头像
     UIImageView * xzImgViwe;//星座图标
     UILabel *xzLabel;//星座名称
     UILabel *ageLabel;//年龄
@@ -28,6 +28,9 @@
     UIButton * gzBtn;//关注Btn
     UILabel *titleLabel;
     UILabel *useridLabel;
+    
+    UIActionSheet * photoSheet;
+    
 }
 @end
 
@@ -108,11 +111,9 @@
         }
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        [self showAlertViewWithtitle:@"提示" message:@"好友列表请求失败"];
+        [self showAlertViewWithtitle:@"提示" message:@"请求失败"];
     }];
 }
-
-
 
 //创建第一条
 -(void)buildFirstView
@@ -122,8 +123,9 @@
     [mainScrl addSubview:blackView];
     
     //头像
-   headImgView =[[ EGOImageView alloc]initWithFrame:CGRectMake(30, 15, (width(blackView)/2-30)/2, (width(blackView)/2-30)/2)];
+   headImgView =[[ EGOImageButton alloc]initWithFrame:CGRectMake(30, 15, (width(blackView)/2-30)/2, (width(blackView)/2-30)/2)];
     headImgView.placeholderImage = KUIImage(@"1.jpg");
+    [headImgView addTarget:self action:@selector(changeHeadImage:) forControlEvents:UIControlEventTouchUpInside];
     [blackView addSubview:headImgView];
     
     //星座图标
@@ -343,6 +345,108 @@
     [self.menuController pushViewController:p withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeNone]];
 
 }
+
+-(void)changeHeadImage:(id)sender
+{
+    photoSheet = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"相机",@"相册", nil];
+    [photoSheet showInView:self.view];
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    switch (buttonIndex) {
+        case 0:
+        {
+            UIImagePickerController * imagePicker;
+            if (imagePicker==nil) {
+                imagePicker=[[UIImagePickerController alloc]init];
+                imagePicker.delegate=self;
+                imagePicker.allowsEditing = YES;
+            }
+            if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+                imagePicker.sourceType=UIImagePickerControllerSourceTypeCamera;
+                
+                [self presentViewController:imagePicker animated:YES completion:^{
+                    
+                }];
+            }
+            else {
+                UIAlertView *cameraAlert=[[UIAlertView alloc]initWithTitle:@"温馨提示" message:@"您的设备不支持相机" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
+                [cameraAlert show];
+            }
+        }break;
+        case 1:
+        {
+            UIImagePickerController * imagePicker;
+            if (imagePicker==nil) {
+                imagePicker=[[UIImagePickerController alloc]init];
+                imagePicker.delegate=self;
+                imagePicker.allowsEditing = YES;
+            }
+            if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
+                imagePicker.sourceType=UIImagePickerControllerSourceTypePhotoLibrary;
+                
+                [self presentViewController:imagePicker animated:YES completion:^{
+                    
+                }];
+            }
+            else {
+                UIAlertView *libraryAlert=[[UIAlertView alloc]initWithTitle:@"温馨提示" message:@"您的设备不支持相册" delegate:self cancelButtonTitle:@"了解" otherButtonTitles:nil];
+                [libraryAlert show];
+            }
+        }break;
+        default:
+            break;
+            
+            
+    }
+
+}
+#pragma mark----imagepick delegate
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    [picker dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+    UIImage*selectImage = [info objectForKey:@"UIImagePickerControllerEditedImage"];
+    if (picker.sourceType ==UIImagePickerControllerSourceTypeCamera) {
+        UIImageWriteToSavedPhotosAlbum(selectImage, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+    }
+//    [addGroup.m_photoButton setImage:selectImage forState:UIControlStateNormal];
+    [headImgView setImage:selectImage forState:UIControlStateNormal];
+    
+//    imagePath=[self writeImageToFile:selectImage ImageName:@"NewGroup.jpg"];
+    NSString *filePath = [NSString stringWithFormat:@"%@%@",RootDocPath,@"/img"];
+    
+    [UIImagePNGRepresentation(selectImage) writeToFile:filePath atomically:YES];
+    
+
+    NSString *uid = [NSString stringWithFormat:@""];
+        NSDictionary *parameters = @{@"Uid":uid,@"file":filePath};
+    
+    
+    
+    [[AFHTTPSessionManager manager]POST:@"http://120.131.70.218/uploader/uppoo" parameters:@{@"uid":@"6283429397",@"file":selectImage} constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        [formData appendPartWithFileURL:[NSURL fileURLWithPath:filePath] name:@"headImg" error:nil];
+    } success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"上传成功");
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"上传失败");
+    }];
+    
+    
+    
+    
+}
+- (void)image: (UIImage *) image didFinishSavingWithError: (NSError *) error contextInfo: (void *) contextInfo
+{
+    
+}
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [picker dismissViewControllerAnimated:YES completion:^{}];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
