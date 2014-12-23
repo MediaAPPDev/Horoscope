@@ -29,6 +29,10 @@
 //  sx(<#m#>)
 //    tableView.frame =self.view.bo;
     
+    
+    
+    
+    
     [self.view addSubview:tableView];
     
 //    [self buildTopviewWithBackButton:YES title:@"星文" rightImage:nil];

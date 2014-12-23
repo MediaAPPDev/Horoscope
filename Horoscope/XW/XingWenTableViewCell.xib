@@ -8,59 +8,73 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="400" id="KGk-i7-Jjw" customClass="XingWenTableViewCell">
+        <tableViewCell contentMode="scaleAspectFill" selectionStyle="default" indentationWidth="10" rowHeight="400" id="KGk-i7-Jjw" customClass="XingWenTableViewCell">
             <rect key="frame" x="0.0" y="0.0" width="320" height="392"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="touxiang1.png" translatesAutoresizingMaskIntoConstraints="NO" id="te2-bE-n8C">
-                        <rect key="frame" x="14" y="9" width="60" height="64.5"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="touxiang1.png" translatesAutoresizingMaskIntoConstraints="NO" id="te2-bE-n8C">
+                        <rect key="frame" x="14" y="6" width="60" height="60"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="60" id="7bu-NW-VBG"/>
-                            <constraint firstAttribute="height" constant="64.5" id="ABH-3f-h5f"/>
+                            <constraint firstAttribute="height" constant="60" id="9XS-1Z-g6q"/>
+                            <constraint firstAttribute="width" constant="60" id="wMT-8y-E2d"/>
                         </constraints>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1eg-kG-ckI">
-                        <rect key="frame" x="95" y="27" width="63" height="30"/>
+                        <rect key="frame" x="95" y="22" width="63" height="30"/>
                         <state key="normal" title="星座社交">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="11月20日 16：23" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LJF-y2-Ung">
-                        <rect key="frame" x="180" y="31" width="132" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="11月20日 16：23" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LJF-y2-Ung">
+                        <rect key="frame" x="194" y="28" width="117.5" height="19"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qcS-WH-pEs">
-                        <rect key="frame" x="29" y="341" width="30" height="30"/>
-                        <state key="normal" title="赞">
-                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="qcS-WH-pEs">
+                        <rect key="frame" x="13" y="356" width="78" height="28"/>
+                        <fontDescription key="fontDescription" name="STHeitiSC-Medium" family="Heiti SC" pointSize="15"/>
+                        <inset key="contentEdgeInsets" minX="11" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <state key="normal" title="赞" backgroundImage="zan@2X.png">
+                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
+                        <connections>
+                            <action selector="zanAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="5MS-BD-7pY"/>
+                        </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3B3-Lj-HDf">
-                        <rect key="frame" x="255" y="341" width="30" height="30"/>
-                        <state key="normal" title="分享">
+                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3B3-Lj-HDf">
+                        <rect key="frame" x="228" y="356" width="84" height="28"/>
+                        <inset key="contentEdgeInsets" minX="12" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <state key="normal" title="分享" backgroundImage="share@2X.png">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
+                        <connections>
+                            <action selector="shareAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="MfB-or-JjZ"/>
+                        </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XMc-dy-BBJ">
-                        <rect key="frame" x="137" y="341" width="30" height="30"/>
-                        <state key="normal" title="评论">
-                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XMc-dy-BBJ">
+                        <rect key="frame" x="120" y="356" width="81" height="28"/>
+                        <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="14"/>
+                        <inset key="contentEdgeInsets" minX="11" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <inset key="titleEdgeInsets" minX="11" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <state key="normal" title="评论" backgroundImage="pinglun@2X.png">
+                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
+                        <connections>
+                            <action selector="pinglunAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="5zx-Qn-OoP"/>
+                        </connections>
                     </button>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="xingwenback.png" translatesAutoresizingMaskIntoConstraints="NO" id="emG-J6-DSG">
-                        <rect key="frame" x="9" y="210" width="303" height="123"/>
+                        <rect key="frame" x="8" y="200" width="304" height="150"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="303" id="pbE-Oy-YBd"/>
-                            <constraint firstAttribute="height" constant="123" id="vf5-d4-dOX"/>
+                            <constraint firstAttribute="height" constant="150" id="lAL-bT-t9V"/>
                         </constraints>
                     </imageView>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tcB-fq-bsh">
-                        <rect key="frame" x="8" y="74" width="304" height="128"/>
+                        <rect key="frame" x="8" y="74" width="304" height="124"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -68,17 +82,36 @@
                     </textView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="tcB-fq-bsh" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="9f1-6d-Rvv"/>
-                    <constraint firstItem="emG-J6-DSG" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="Aug-b7-jhL"/>
-                    <constraint firstItem="emG-J6-DSG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="1" id="gk9-JH-Ft1"/>
-                    <constraint firstItem="tcB-fq-bsh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="pbB-MW-xxP"/>
+                    <constraint firstItem="tcB-fq-bsh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="2gm-zn-qUc"/>
+                    <constraint firstItem="te2-bE-n8C" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="35t-ep-pM2"/>
+                    <constraint firstItem="emG-J6-DSG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="4MS-iG-NYd"/>
+                    <constraint firstItem="qcS-WH-pEs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="EVS-ME-SKy"/>
+                    <constraint firstItem="te2-bE-n8C" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="FpS-ov-0Qz"/>
+                    <constraint firstAttribute="centerX" secondItem="XMc-dy-BBJ" secondAttribute="centerX" id="LYJ-If-Eb4"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="LJF-y2-Ung" secondAttribute="trailing" id="MTr-n5-o23"/>
+                    <constraint firstItem="tcB-fq-bsh" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="dnx-yt-1Tg"/>
+                    <constraint firstItem="3B3-Lj-HDf" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="jhr-AR-9WT"/>
+                    <constraint firstItem="emG-J6-DSG" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="xbV-iF-QcW"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="facePic" destination="te2-bE-n8C" id="AGN-tJ-yTl"/>
+                <outlet property="newsPic" destination="emG-J6-DSG" id="12S-fk-37j"/>
+                <outlet property="newsText" destination="tcB-fq-bsh" id="tKP-UD-2wd"/>
+                <outlet property="newsTime" destination="LJF-y2-Ung" id="bfI-Ec-LsE"/>
+                <outlet property="pinglun" destination="XMc-dy-BBJ" id="B83-bd-v66"/>
+                <outlet property="share" destination="3B3-Lj-HDf" id="v1G-ZP-vOL"/>
+                <outlet property="titleName" destination="1eg-kG-ckI" id="XXG-zk-OxI"/>
+                <outlet property="zan" destination="qcS-WH-pEs" id="ORr-0L-V5n"/>
+            </connections>
             <point key="canvasLocation" x="403" y="429"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="pinglun@2X.png" width="176" height="60"/>
+        <image name="share@2X.png" width="176" height="60"/>
         <image name="touxiang1.png" width="120" height="137"/>
         <image name="xingwenback.png" width="1418" height="710"/>
+        <image name="zan@2X.png" width="176" height="60"/>
     </resources>
 </document>

@@ -10,4 +10,21 @@
 
 @interface XingWenTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIButton *zan;
+@property (weak, nonatomic) IBOutlet UIButton *pinglun;
+@property (weak, nonatomic) IBOutlet UIButton *share;
+
+@property (weak, nonatomic) IBOutlet UIImageView *facePic;
+
+@property (weak, nonatomic) IBOutlet UIButton *titleName;
+
+@property (weak, nonatomic) IBOutlet UILabel *newsTime;
+
+@property (weak, nonatomic) IBOutlet UITextView *newsText;
+@property (weak, nonatomic) IBOutlet UIImageView *newsPic;
+
+
+
+
+
 @end

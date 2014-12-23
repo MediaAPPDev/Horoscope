@@ -53,8 +53,7 @@
 
     //****************************** MDMenuViewController initialisation ******************************************
 
-    MenuViewController *menuController = [[MenuViewController alloc] init];
-    NewMainViewController *contentController = [[NewMainViewController alloc] init];
+ 
 //    contentController.view.backgroundColor = [UIColor colorWithHue:0.5 saturation:1.0 brightness:1.0 alpha:1.0];
 //    contentController.title = [NSString stringWithFormat: @"Hue: %.2f", 0.5];
 
@@ -170,8 +169,7 @@
     [mainViewC.menuView setMenuItemBackgroundColor:[UIColor colorWithRed:(47.0f/255.0f) green:(123.0f/255.0f) blue:(154.0f/255.0f) alpha:1.0] forState:UIControlStateHighlighted];
     
     
-    
-    // menu vie background color
+         // menu vie background color
     
     //tableVIew 背景
     //    [mainViewC.menuView setBackgroundColor:[UIColor colorWithRed:(46.0f/255.0f) green:(46.0f/255.0f) blue:(46.0f/255.0f) alpha:1.0]];

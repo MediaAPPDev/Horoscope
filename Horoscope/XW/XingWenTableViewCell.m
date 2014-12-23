@@ -19,5 +19,13 @@
 
     // Configure the view for the selected state
 }
+- (IBAction)zanAction:(id)sender {
+}
+- (IBAction)pinglunAction:(id)sender {
+}
+
+- (IBAction)shareAction:(id)sender {
+}
+
 
 @end
