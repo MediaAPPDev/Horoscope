@@ -16,6 +16,8 @@
     UITableView *myTabelView;
     NSArray *nameArr;
     NSArray *imgArr;
+    NSMutableArray * infoArr;
+    NSMutableDictionary * infoDic;
 }
 @end
 
@@ -42,17 +44,54 @@
     
     nameArr = [NSArray arrayWithObjects:@"新朋友",@"好友推荐", nil];
     imgArr =[NSArray arrayWithObjects:@"xinpingyou",@"dianhualianxiren", nil];
+    
+    infoArr = [NSMutableArray array];
+    infoDic = [NSMutableDictionary dictionary];
+    [self getInfoFromNet];
+    
+    
+    
 }
+
+#pragma  mark ---网络请求
+-(void)getInfoFromNet
+{
+    [[AFHTTPSessionManager manager]GET:@"http://120.131.70.218/userfriend.php?uid=6283429397" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"get----%@",responseObject);
+        
+        
+        if ([responseObject isKindOfClass:[NSDictionary class]]) {
+            infoDic = responseObject;
+            [myTabelView reloadData];
+        }
+        
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"error---%@",error);
+    }];
+    
+ 
+}
+
+
+
+
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 27;
+    return [infoDic allKeys].count+1;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section==0) {
         return 2;
     }
-    return 5;
+    
+    NSArray *keysArr = [infoDic allKeys];
+    keysArr = [keysArr sortedArrayUsingSelector:@selector(compare:)];
+    
+    NSArray *arr = [infoDic objectForKey:keysArr[section]];
+    return arr.count;
+    
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

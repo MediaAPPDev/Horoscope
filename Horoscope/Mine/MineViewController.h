@@ -10,4 +10,5 @@
 
 @interface MineViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,assign)BOOL isRootView;
+@property (nonatomic,copy) NSString * userid;
 @end

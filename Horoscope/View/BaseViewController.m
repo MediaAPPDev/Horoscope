@@ -195,6 +195,14 @@
     m_loginActivity.center = CGPointMake(title_left_x-20, KISHighVersion_7?42:22);
     
 }
+
+-(void)showAlertViewWithtitle:(NSString *)title message:(NSString *)message
+{
+    [self showAlertViewWithtitle:title message:message];
+}
+
+
+
 /**
  *  返回按钮关闭页面
  *

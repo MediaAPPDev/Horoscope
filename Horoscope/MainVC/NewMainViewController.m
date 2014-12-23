@@ -33,11 +33,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(asdfasdf:) name:@"getInfoFromNet" object:nil];
-    
-    [[NetManager sharedManager]PostNetWithString:@"http://120.131.70.218/userlist.php"];
-    
-    
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(didClickNotification:) name:@"didClick_wx_drx" object:nil];
     
     [self buildTopviewWithBackButton:NO title:@"星座达人秀 - TOP" rightImage:@""];
@@ -63,32 +58,38 @@
     
     infoArray = [NSMutableArray array];
     arr1 = [NSMutableArray array];
+    [self getInfoFromNet];
     
 }
 
-//测试
--(void)asdfasdf:(NSNotification *)info
+-(void)getInfoFromNet
 {
-    if ([info.userInfo isKindOfClass:[NSDictionary class]]) {
-        NSLog(@"1");
-    }else{
-        NSLog(@"%@",info.userInfo.class);
-        
-        NSMutableArray *arr= (NSMutableArray *)info.userInfo;
-        
-        [arr1 removeAllObjects];
-        [infoArray removeAllObjects];
-        for (int i = 0; i<arr.count; i++) {
-            NSDictionary *dic = [arr objectAtIndex:i];
-            if (i<6) {
-                [arr1 addObject:dic];
-            }else{
-                [infoArray addObject:dic];
+    [[AFHTTPSessionManager manager]GET:@"http://120.131.70.218/userlist.php" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        if ([responseObject isKindOfClass:[NSDictionary class]]) {
+            NSLog(@"1");
+        }else{
+            
+            NSMutableArray *arr= [NSMutableArray arrayWithArray:responseObject];
+            
+            [arr1 removeAllObjects];
+            [infoArray removeAllObjects];
+            for (int i = 0; i<arr.count; i++) {
+                NSDictionary *dic = [arr objectAtIndex:i];
+                if (i<6) {
+                    [arr1 addObject:dic];
+                }else{
+                    [infoArray addObject:dic];
+                }
             }
+            [m_CollView reloadData];
         }
-        [m_CollView reloadData];
-    }
+
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [self showAlertViewWithtitle:@"提示" message:@"好友列表请求失败"];
+    }];
 }
+
+
 
 #pragma mark---collectionViewDELEGATE
 

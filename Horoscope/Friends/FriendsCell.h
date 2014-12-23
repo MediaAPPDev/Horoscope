@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "EGOImageView.h"
 @interface FriendsCell : UITableViewCell
-@property (nonatomic,strong)UIImageView * headimgView;
+@property (nonatomic,strong)EGOImageView * headimgView;
 @property (nonatomic,strong)UILabel * nameLb;
 @property (nonatomic,strong)UIImageView * starImgView;
 @property (nonatomic,strong)UILabel * starLb;

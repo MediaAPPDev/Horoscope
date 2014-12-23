@@ -56,7 +56,7 @@
         [scrollView addSubview:imageView];
     }
     
-    
+    [self getInfoFromNetWithStar:@"byz"];
     
 //    [self.leftButton addTarget:self action:@selector(gotoMenu:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -72,6 +72,16 @@
 //    
 //    
 //}
+
+-(void)getInfoFromNetWithStar:(NSString *)star
+{
+    NSString *urlStr=[NSString stringWithFormat:@"%@%@%@",NBBaseUrl,@"/book.php?name=",star];
+    [[AFHTTPSessionManager manager]GET:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [self showAlertViewWithtitle:@"提示" message:@"好友列表请求失败"];
+    }];
+}
 
 -(void)changeScroll:(UIButton *)sender
 {

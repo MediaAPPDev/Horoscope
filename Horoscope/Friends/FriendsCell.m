@@ -15,7 +15,7 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.headimgView = [[UIImageView alloc]initWithFrame:CGRectMake(20, 15, 60, 60)];
+        self.headimgView = [[EGOImageView alloc]initWithFrame:CGRectMake(20, 15, 60, 60)];
         [self addSubview:self.headimgView];
         
         

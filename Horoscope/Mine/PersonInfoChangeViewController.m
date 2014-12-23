@@ -58,6 +58,7 @@
         }
         cell.titleLabel.text= arr1[indexPath.row];
         cell.ctLabel.text = arr2[indexPath.row];
+    cell.accessoryType = YES;
         return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -67,7 +68,7 @@
     
     ChangeViewController *change = [[ChangeViewController alloc]init];
     change.contentStr = arr2[indexPath.row];
-    [self.navigationController pushViewController:change animated:YES];
+    [self.menuController pushViewController:change withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
     
     
 }

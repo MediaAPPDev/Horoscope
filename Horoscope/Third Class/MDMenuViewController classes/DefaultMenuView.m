@@ -221,6 +221,7 @@
 }
 -(void)tableView:(UITableView *)tableView1 didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"%ld",(long)indexPath.row);
     
     MenuItemEntity *entity = [MenuItems objectAtIndex:indexPath.row];
     if([self.delegate respondsToSelector:@selector(MenuViewDidSelectMenuItem:atIndex:)])

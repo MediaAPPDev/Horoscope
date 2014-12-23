@@ -29,6 +29,9 @@
 #endif
 
 
+#define NBBaseUrl @"http://120.131.70.218"
+
+
 
 
 // view的 X,y , width , height

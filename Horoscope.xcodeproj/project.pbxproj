@@ -309,6 +309,7 @@
 		646C43CE1A381CE800FB683D /* ys_c_star_gray@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 646C43CA1A381CE800FB683D /* ys_c_star_gray@3x.png */; };
 		646C43D11A381D0900FB683D /* ys_c_datebg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 646C43CF1A381D0900FB683D /* ys_c_datebg@2x.png */; };
 		646C43D21A381D0900FB683D /* ys_c_datebg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 646C43D01A381D0900FB683D /* ys_c_datebg@3x.png */; };
+		647406BE1A4917EB00CC6DB2 /* FansViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 647406BD1A4917EB00CC6DB2 /* FansViewController.m */; };
 		6476078F1A3FD21900B71469 /* TopButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6476078E1A3FD21900B71469 /* TopButton.m */; };
 		647607AF1A3FD7C400B71469 /* 背景.png in Resources */ = {isa = PBXBuildFile; fileRef = 647607921A3FD7C400B71469 /* 背景.png */; };
 		647607B01A3FD7C400B71469 /* 下一级@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 647607951A3FD7C400B71469 /* 下一级@2x.png */; };
@@ -771,6 +772,8 @@
 		646C43CA1A381CE800FB683D /* ys_c_star_gray@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ys_c_star_gray@3x.png"; sourceTree = "<group>"; };
 		646C43CF1A381D0900FB683D /* ys_c_datebg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ys_c_datebg@2x.png"; sourceTree = "<group>"; };
 		646C43D01A381D0900FB683D /* ys_c_datebg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ys_c_datebg@3x.png"; sourceTree = "<group>"; };
+		647406BC1A4917EB00CC6DB2 /* FansViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FansViewController.h; sourceTree = "<group>"; };
+		647406BD1A4917EB00CC6DB2 /* FansViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FansViewController.m; sourceTree = "<group>"; };
 		6476078D1A3FD21900B71469 /* TopButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopButton.h; sourceTree = "<group>"; };
 		6476078E1A3FD21900B71469 /* TopButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopButton.m; sourceTree = "<group>"; };
 		647607921A3FD7C400B71469 /* 背景.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "背景.png"; sourceTree = "<group>"; };
@@ -900,6 +903,7 @@
 			children = (
 				5ECC41AD1A42CB5200A5D3B4 /* RequestURL */,
 				647607D81A4003A700B71469 /* BIGimg */,
+				647406BB1A4917DE00CC6DB2 /* Fans */,
 				5EB87E951A39686600BE4A5D /* Login */,
 				647BEC611A3971F50049B8C9 /* Mine */,
 				64CD98211A303AE600040744 /* BD */,
@@ -1445,6 +1449,15 @@
 				646C43701A37F9F300FB683D /* 天蝎@3x.png */,
 			);
 			path = YS;
+			sourceTree = "<group>";
+		};
+		647406BB1A4917DE00CC6DB2 /* Fans */ = {
+			isa = PBXGroup;
+			children = (
+				647406BC1A4917EB00CC6DB2 /* FansViewController.h */,
+				647406BD1A4917EB00CC6DB2 /* FansViewController.m */,
+			);
+			path = Fans;
 			sourceTree = "<group>";
 		};
 		647607901A3FD7C400B71469 /* constellationICON */ = {
@@ -2095,6 +2108,7 @@
 				64CD982D1A303BF400040744 /* TodayLuckViewController.m in Sources */,
 				2F2116F81A25B64A009B21EB /* UIViewController+JDSideMenu.m in Sources */,
 				5ED3CF451A416FCE0083BCDE /* MDTransitionAnimatorFactory.m in Sources */,
+				647406BE1A4917EB00CC6DB2 /* FansViewController.m in Sources */,
 				645DEE431A4132C100E8C524 /* SBJsonParser.m in Sources */,
 				5E6C7CD41A42C875005C4554 /* AFURLRequestSerialization.m in Sources */,
 				2F2116FB1A25B64A009B21EB /* MenuViewController.m in Sources */,

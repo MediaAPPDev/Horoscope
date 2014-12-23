@@ -11,12 +11,23 @@
 #import "PersonInfoCell.h"
 #import "PhotoViewController.h"
 #import "PersonInfoChangeViewController.h"
+#import "EGOImageView.h"
+#import "FansViewController.h"
 @interface MineViewController ()
 {
     UIScrollView * mainScrl;
     UITableView  * myTableView;
     NSArray *arr1;
     NSArray *arr2;
+    EGOImageView *headImgView;//头像
+    UIImageView * xzImgViwe;//星座图标
+    UILabel *xzLabel;//星座名称
+    UILabel *ageLabel;//年龄
+    UILabel * qmLabel;//签名
+    UIButton * funsBtn;//粉丝BTN
+    UIButton * gzBtn;//关注Btn
+    UILabel *titleLabel;
+    UILabel *useridLabel;
 }
 @end
 
@@ -27,24 +38,25 @@
     // Do any additional setup after loading the view.
     
     if (self.isRootView) {
-        [self buildTopviewWithBackButton:NO title:@"西门吹雪" rightImage:@"123123"];
+        [self buildTopviewWithBackButton:NO title:@"" rightImage:@"123123"];
+        
         UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(self.view.bounds.size.width-60, KISHighVersion_7?20:0, 60, 44)];
         [button setImage:KUIImage(@"123123") forState:UIControlStateNormal];
         [button addTarget:self action:@selector(enterNextPage:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:button];
 
     }else{
-        [self setTopViewWithTitle:@"西门吹雪" withBackButton:YES];
+        [self setTopViewWithTitle:@"" withBackButton:YES];
     }
+    titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(70, KISHighVersion_7?20:0, self.view.bounds.size.width-140, 44)];
+    titleLabel.font = [UIFont boldSystemFontOfSize:22];
+    titleLabel.textAlignment =NSTextAlignmentCenter;
+    titleLabel.backgroundColor= [UIColor clearColor];
+    titleLabel.text = @"用户";
+    titleLabel.textColor = [UIColor whiteColor];
+    [self.view addSubview:titleLabel];
     
-    
-    
-    
-    
-    
-    
-    
-    
+
     
     mainScrl =[[ UIScrollView alloc]initWithFrame:CGRectMake(0, KISHighVersion_7?64:44, KScreenWidth, KScreenHeight-(KISHighVersion_7?64:44))];
     mainScrl.backgroundColor = [UIColor grayColor];
@@ -65,7 +77,42 @@
     arr1 = [NSArray arrayWithObjects:@"情感状态",@"外貌",@"职业",@"爱好",@"语言",@"出生地",@"学校",@"公司", nil];
     arr2 = [NSArray arrayWithObjects:@"单身",@"180cm 55kg 强壮",@"学生",@"泡妞 游戏 电影 读书",@"中 英 法 德 西班牙 日 韩 俄罗斯 意大利",@"China",@"英国剑桥",@"SF", nil];
     
+    
+    [self getInfoFromNetWithUserId:self.userid];
+    
+    
 }
+
+-(void)getInfoFromNetWithUserId:(NSString *)userid
+{
+    NSString *urlStr ;
+    if (self.isRootView) {
+        urlStr = @"http://120.131.70.218/userdetail.php?uid=6283429397";
+    }else{
+        urlStr = [NSString stringWithFormat:@"%@%@%@",NBBaseUrl,@"/userdetail.php?uid=",userid];
+    }
+    
+    
+    [[AFHTTPSessionManager manager]GET:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        if ([responseObject isKindOfClass:[NSDictionary class]]) {
+            NSDictionary *dic = [NSDictionary dictionaryWithDictionary:responseObject];
+            headImgView.imageURL = [NSURL URLWithString:KISDictionaryHaveKey(dic, @"photo")];
+//            xzImgViwe.image = KUIImage(@"");
+            xzLabel.text = KISDictionaryHaveKey(dic, @"xing");
+            qmLabel.text = KISDictionaryHaveKey(dic, @"phrase");
+            titleLabel.text = KISDictionaryHaveKey(dic, @"nickname");
+            ageLabel.text = KISDictionaryHaveKey(dic, @"userage");
+            useridLabel.text = [NSString stringWithFormat:@"星缘号:%@",KISDictionaryHaveKey(dic,@"id")];
+            [funsBtn setTitle:[NSString stringWithFormat:@"粉丝 %@",KISDictionaryHaveKey(dic,@"fans")] forState:UIControlStateNormal];
+            [gzBtn setTitle:[NSString stringWithFormat:@"关注 %@",KISDictionaryHaveKey(dic,@"follow")] forState:UIControlStateNormal];
+        }
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [self showAlertViewWithtitle:@"提示" message:@"好友列表请求失败"];
+    }];
+}
+
+
 
 //创建第一条
 -(void)buildFirstView
@@ -75,17 +122,17 @@
     [mainScrl addSubview:blackView];
     
     //头像
-    UIImageView *headImgView =[[ UIImageView alloc]initWithFrame:CGRectMake(47, 15, (width(blackView)/2-30)/2, (width(blackView)/2-30)/2)];
-    headImgView.image = KUIImage(@"1.jpg");
+   headImgView =[[ EGOImageView alloc]initWithFrame:CGRectMake(30, 15, (width(blackView)/2-30)/2, (width(blackView)/2-30)/2)];
+    headImgView.placeholderImage = KUIImage(@"1.jpg");
     [blackView addSubview:headImgView];
     
     //星座图标
-    UIImageView * xzImgViwe = [[UIImageView alloc]initWithFrame:CGRectMake(sx(headImgView)+10, 20, 40,40)];
+    xzImgViwe = [[UIImageView alloc]initWithFrame:CGRectMake(sx(headImgView)+10, 20, 40,40)];
     xzImgViwe.image = KUIImage(@"ys_c_sp");
     [blackView addSubview:xzImgViwe];
     
     //星座LB
-    UILabel *xzLabel = [[UILabel alloc]initWithFrame:CGRectMake(sx(xzImgViwe)+10, 30, 70, 20)];
+    xzLabel = [[UILabel alloc]initWithFrame:CGRectMake(sx(xzImgViwe)+10, 30, 70, 20)];
     xzLabel.textColor = [UIColor whiteColor];
     xzLabel.font = [UIFont boldSystemFontOfSize:18];
     xzLabel.backgroundColor = [UIColor clearColor];
@@ -94,36 +141,36 @@
     
     
     //年龄LB
-    UILabel *ageLabel = [self buildLabelWithFrame:CGRectMake(sx(xzLabel)+10, 30, 30, 20) backgroundColor:[UIColor clearColor] textColor:[UIColor whiteColor] font:[UIFont systemFontOfSize:18] textAlignment:NSTextAlignmentCenter text:@"22"];
+    ageLabel = [self buildLabelWithFrame:CGRectMake(sx(xzLabel)+10, 30, 30, 20) backgroundColor:[UIColor clearColor] textColor:[UIColor whiteColor] font:[UIFont systemFontOfSize:18] textAlignment:NSTextAlignmentCenter text:@"22"];
     [blackView addSubview:ageLabel];
     
     
     
     //签名LB
-    UILabel * qmLabel = [self buildLabelWithFrame:CGRectMake(sx(headImgView)+10, sy(xzImgViwe)+5, 200, 20) backgroundColor:[UIColor clearColor] textColor:[UIColor grayColor] font:[UIFont systemFontOfSize:14] textAlignment:NSTextAlignmentLeft text:@"no zuo no die why you try?"];
+    qmLabel = [self buildLabelWithFrame:CGRectMake(sx(headImgView)+10, sy(xzImgViwe)+5, 200, 20) backgroundColor:[UIColor clearColor] textColor:[UIColor grayColor] font:[UIFont systemFontOfSize:14] textAlignment:NSTextAlignmentLeft text:@"no zuo no die why you try?"];
     [blackView addSubview:qmLabel];
     
     UIImageView*lineView = [[UIImageView alloc]initWithFrame:CGRectMake(0, height(blackView)-42, width(blackView), 2)];
     lineView.image = KUIImage(@"dotted line");
     [blackView addSubview:lineView];
     
-    UIButton * button1= [[UIButton alloc]initWithFrame:CGRectMake(0, height(blackView)-40, width(blackView)*0.56, 40)];
+    funsBtn= [[UIButton alloc]initWithFrame:CGRectMake(0, height(blackView)-40, width(blackView)*0.56, 40)];
     
-    button1.backgroundColor = [UIColor clearColor];
-    [button1 setTitle:@"粉丝 205" forState:UIControlStateNormal];
-    [button1 addTarget:self action:@selector(didClickFuns:) forControlEvents:UIControlEventTouchUpInside];
-    [blackView addSubview:button1];
+    funsBtn.backgroundColor = [UIColor clearColor];
+    [funsBtn setTitle:@"粉丝 205" forState:UIControlStateNormal];
+    [funsBtn addTarget:self action:@selector(didClickFuns:) forControlEvents:UIControlEventTouchUpInside];
+    [blackView addSubview:funsBtn];
     
     UIImageView *lineLView = [[UIImageView alloc]initWithFrame:CGRectMake(width(blackView)*0.56, height(blackView)-40, 2, 40)];
     lineLView.image = KUIImage(@"line");
     [blackView addSubview:lineLView];
     
-    UIButton * button2= [[UIButton alloc]initWithFrame:CGRectMake(width(blackView)*0.56+2, height(blackView)-40, width(blackView)-width(blackView)*0.56+2, 40)];
+    gzBtn= [[UIButton alloc]initWithFrame:CGRectMake(width(blackView)*0.56+2, height(blackView)-40, width(blackView)-width(blackView)*0.56+2, 40)];
     
-    button2.backgroundColor = [UIColor clearColor];
-    [button2 addTarget:self action:@selector(didClickgz:) forControlEvents:UIControlEventTouchUpInside];
-    [button2 setTitle:@"关注 250" forState:UIControlStateNormal];
-    [blackView addSubview:button2];
+    gzBtn.backgroundColor = [UIColor clearColor];
+    [gzBtn addTarget:self action:@selector(didClickgz:) forControlEvents:UIControlEventTouchUpInside];
+    [gzBtn setTitle:@"关注 250" forState:UIControlStateNormal];
+    [blackView addSubview:gzBtn];
     
     
     
@@ -219,8 +266,8 @@
         UILabel *lb1 = [self buildLabelWithFrame:CGRectMake(0, 0, 80, 40) backgroundColor:[UIColor clearColor] textColor:[UIColor blackColor] font:[UIFont boldSystemFontOfSize:17] textAlignment:NSTextAlignmentRight text:@"基本资料"];
         [view1 addSubview:lb1];
         
-        UILabel *lb2 = [self buildLabelWithFrame:CGRectMake(KScreenWidth-200, 0, 180, 40) backgroundColor:[UIColor clearColor] textColor:[UIColor blackColor] font:[UIFont boldSystemFontOfSize:17] textAlignment:NSTextAlignmentRight text:@"星缘号 ：1234567890"];
-        [view1 addSubview:lb2];
+        useridLabel = [self buildLabelWithFrame:CGRectMake(KScreenWidth-200, 0, 180, 40) backgroundColor:[UIColor clearColor] textColor:[UIColor blackColor] font:[UIFont boldSystemFontOfSize:17] textAlignment:NSTextAlignmentRight text:@"星缘号:"];
+        [view1 addSubview:useridLabel];
 
         return view;
     }
@@ -252,16 +299,25 @@
 //点击 粉丝
 -(void)didClickFuns:(UIButton *)sender
 {
-    UIAlertView *ale = [[UIAlertView alloc]initWithTitle:@"提示" message:@"粉丝250" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
-    [ale show];
+//    UIAlertView *ale = [[UIAlertView alloc]initWithTitle:@"提示" message:@"粉丝250" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+//    [ale show];
+    
+    FansViewController *fans = [[FansViewController alloc]init];
+    fans.isFans = YES;
+    [self.menuController pushViewController:fans withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
 
 }
 
 //点击关注
 -(void)didClickgz:(UIButton *)sender
 {
-    UIAlertView *ale = [[UIAlertView alloc]initWithTitle:@"提示" message:@"关注250" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
-    [ale show];
+//    UIAlertView *ale = [[UIAlertView alloc]initWithTitle:@"提示" message:@"关注250" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+//    [ale show];
+    
+    FansViewController *fans = [[FansViewController alloc]init];
+    fans.isFans = NO;
+    [self.menuController pushViewController:fans withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
+    
 }
 
 -(void)seeBigImg:(UIButton *)sender
@@ -274,7 +330,7 @@
 //    [self presentViewController:photoVC animated:YES completion:^{
 //    }];
     
-    [self.menuController pushViewController:photoVC withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeNone]];
+    [self.menuController pushViewController:photoVC withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
     
 }
 
@@ -282,9 +338,9 @@
 //进入设置界面
 -(void)enterNextPage:(id)sender
 {
-    PersonInfoChangeViewController *p = [[PersonInfoChangeViewController alloc]init];
+    PersonInfoChangeViewController * p= [[PersonInfoChangeViewController alloc]init];
     
-    [self.navigationController pushViewController:p animated:YES];
+    [self.menuController pushViewController:p withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeNone]];
 
 }
 

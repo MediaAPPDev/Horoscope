@@ -18,7 +18,7 @@
 -(float)niub:(float)a;
 
 - (void)setTopViewWithTitle:(NSString*)titleStr withBackButton:(BOOL)hasBacButton;
-
+-(void)showAlertViewWithtitle:(NSString *)title message:(NSString *)message;
 // [self.menuController showMenu:self.menuController.topBar ];
 /*
  
