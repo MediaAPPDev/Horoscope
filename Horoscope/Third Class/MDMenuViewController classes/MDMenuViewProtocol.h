@@ -7,10 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MDTransitionAnimatorProtocol.h"
 @protocol MenuViewDelegate <NSObject>
 
 -(void)MenuViewDidSelectMenuItem:(MenuItem)item atIndex:(NSInteger)index;
 -(void)pushViewController:(UIViewController*)childController animated:(BOOL)animated;
+
+-(void)pushViewController:(UIViewController *)childController withTransitionAnimator:(id<MDTransitionAnimatorProtocol>)animator;
 @end
 @protocol MDMenuViewProtocol <NSObject>
 

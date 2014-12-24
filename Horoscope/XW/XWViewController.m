@@ -9,6 +9,8 @@
 #import "XWViewController.h"
 #import "XingWenTableViewCell.h"
 
+#import "AFAppDotNetAPIClient.h"
+
 @interface XWViewController ()
 
 @end
@@ -28,6 +30,26 @@
     tableView.frame =CGRectMake(0,(KISHighVersion_7?64:44), KScreenWidth, KScreenHeight -(KISHighVersion_7?64:44));
 //  sx(<#m#>)
 //    tableView.frame =self.view.bo;
+    
+    [[AFAppDotNetAPIClient sharedClient] GET:@"article.php" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        
+        
+        _allArray = responseObject;
+        
+        
+   
+        
+        
+    
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    
+        
+    }];
+    
+   
     
     
     
@@ -53,6 +75,8 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
     
+ 
+    
     return 10;
     
     
@@ -69,6 +93,28 @@
     }
     
     XingWenTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CustomCellIdentifier];
+    
+    
+//    @property (weak, nonatomic) IBOutlet UIButton *zan;
+//    @property (weak, nonatomic) IBOutlet UIButton *pinglun;
+//    @property (weak, nonatomic) IBOutlet UIButton *share;
+//    
+//    @property (weak, nonatomic) IBOutlet UIImageView *facePic;
+//    
+//    @property (weak, nonatomic) IBOutlet UIButton *titleName;
+//    
+//    @property (weak, nonatomic) IBOutlet UILabel *newsTime;
+//    
+//    @property (weak, nonatomic) IBOutlet UITextView *newsText;
+//    @property (weak, nonatomic) IBOutlet UIImageView *newsPic;
+    
+    
+    
+    NSDictionary * dic =_allArray[0];
+    
+    cell.zan.titleLabel.text = [_allArray[indexPath.row]valueForKey:@"count1"];
+//    [tableView reloadData];
+    
     
     
 //    NSUInteger row = [indexPath row];

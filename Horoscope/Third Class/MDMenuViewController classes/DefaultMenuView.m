@@ -61,7 +61,7 @@
         _settingButton.frame =CGRectMake(10, _headView.frame.origin.y+20, 25, 25);
         
         [_settingButton setBackgroundImage:[UIImage imageNamed:@"shezhi.png"] forState:UIControlStateNormal];
-        [_settingButton addTarget:self action:@selector(settingChangeAction:) forControlEvents:UIControlEventTouchUpInside];
+//        [_settingButton addTarget:self action:@selector(settingChangeAction:) forControlEvents:UIControlEventTouchUpInside];
         
         
         
@@ -93,7 +93,11 @@
     
     mine.isRootView =YES;
     
+    
+    
      [self.delegate pushViewController:mine animated:YES];
+    
+//    [self.delegate pushViewController:mine withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
     
 //   [self.menuController pushViewController:mine withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
     
@@ -164,6 +168,12 @@
     }];
 
 }
+
+
+
+
+
+
 -(void)hideMenuFromView:(UIView *)containerView withRecommendedAnimationDuration:(NSTimeInterval)duration
 {
     [UIView animateWithDuration:duration animations:^{

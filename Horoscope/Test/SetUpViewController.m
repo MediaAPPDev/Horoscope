@@ -11,7 +11,7 @@
 
 #import "SafeViewController.h"
 #import "BangdingViewController.h"
-#import "NotifiationViewController.h"
+#import "NotifiationViewController.h"s
 #import "PrivacyViewController.h"
 #import "FeedbackViewController.h"
 
@@ -39,8 +39,18 @@
     [self setExtraCellLineHidden:myTableView];
     [self.view addSubview:myTableView];
     
+    
+//    [self v]
     titleArr = [NSArray arrayWithObjects:@"账号安全",@"账号绑定",@"消息提醒",@"隐私",@"黑名单",@"清理缓存",@"关于",@"反馈意见",@"给我评分",@"退出账号", nil];
 }
+
+-(void)backToLastPage:(id)sender
+{
+    
+    [self.menuController popViewControllerAnimated:YES];
+    //    [self.navigationController popViewControllerAnimated:YES];
+}
+
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {

@@ -7,6 +7,7 @@
 //
 
 #import "MDMenuViewController.h"
+#import "SetUpViewController.h"
 
 @interface MDMenuViewController ()
 
@@ -92,7 +93,9 @@ static int TOP_BAR_HEIGHT = 50;
         gradientBackground.alpha = 1.0f;
         gradientBackground.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
         
+        [_menuView.settingButton addTarget:self action:@selector(settingChangeAction:) forControlEvents:UIControlEventTouchUpInside];
         
+//        _menuView.delegate
         
         animatingMenu = NO;
         
@@ -102,13 +105,27 @@ static int TOP_BAR_HEIGHT = 50;
     }
     return self;
 }
+
+-(void)settingChangeAction:(UIButton *)btn
+{
+    
+    
+    SetUpViewController * setUp =[[SetUpViewController alloc]init];
+    
+    
+   
+    [self pushViewController:setUp withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
+//    [self pushViewController:setUp animated:YES];
+    
+
+}
 -(void)setMenuView:(MenuView *)menuView
 {
     if(![menuView conformsToProtocol:@protocol(MDMenuViewProtocol)] || ![menuView isKindOfClass:[MenuView class]])
     {
         [NSException raise:@"Invalid Menu View : Menu view must be a subclass of base class MenuView And conforms to protocol MDMenuViewControllerDelegate" format:@""];
     }
-    _menuView = menuView;
+    _menuView = (DefaultMenuView *)menuView;
     
     [_menuView setMenuItems:sideMenuItems];
     
@@ -217,6 +234,8 @@ static int TOP_BAR_HEIGHT = 50;
 -(UIViewController*)topChildViewControllerAtIndex:(NSInteger)index
 {
     return [((MDStack*)[childViewControllersStacks objectAtIndex:index]) lastObject];
+    
+//    return nil;
 }
 //************************************************ menu view delegate *****************************
 //**************************************************************************************************
@@ -226,6 +245,8 @@ static int TOP_BAR_HEIGHT = 50;
     [self hideMenu:_topBar];
     
     
+    
+   
     
     UIViewController *childController = [self topChildViewControllerAtIndex:index];
     
@@ -249,8 +270,6 @@ static int TOP_BAR_HEIGHT = 50;
         [NSException raise:@"Invalid child view controller : child view controller must conform to protocol MDMenuViewControllerDelegate" format:@""];
     }
     
-    
-    
 
     MDAnimationType animation = animated ? MDAnimationTypeSlideFromRight : MDAnimationTypeNone;
     
@@ -266,6 +285,9 @@ static int TOP_BAR_HEIGHT = 50;
     }
     
     MDStack *stack = [childViewControllersStacks objectAtIndex:currentControllerIndex];
+    
+//    MDStack * stack =[[MDStack alloc]init];
+    
     
     [stack push:childController];
     ((id<MDMenuViewControllerDelegate>)childController).menuController = self;

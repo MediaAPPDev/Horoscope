@@ -10,4 +10,7 @@
 
 @interface XWViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource>
 
+
+@property (nonatomic,strong)NSArray * allArray;
+
 @end

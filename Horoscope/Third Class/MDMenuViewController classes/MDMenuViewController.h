@@ -40,8 +40,8 @@ typedef enum
     
 }
 @property(nonatomic)BOOL contentViewSwiptToTheSideEnabled;
-@property(nonatomic,retain)MenuView *menuView;
-//@property(nonatomic,retain)DefaultMenuView *menuView;
+//@property(nonatomic,retain)MenuView *menuView;
+@property(nonatomic,retain)DefaultMenuView *menuView;
 @property(nonatomic,readonly)UIView *contentView;
 @property(nonatomic,readonly)TopBarView *topBar;
 -(void)showMenu:(TopBarView*)topBar;
