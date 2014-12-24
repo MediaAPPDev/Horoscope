@@ -66,10 +66,16 @@
             [button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
         }
         
-        UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(self.view.bounds.size.width*i, 0, self.view.bounds.size.width, self.view.bounds.size.height-64-44)];
-        imageView.image = [UIImage imageNamed:arr[i]];
-        [scrollView addSubview:imageView];
+//        UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(self.view.bounds.size.width*i, 0, self.view.bounds.size.width, self.view.bounds.size.height-64-44)];
+//        imageView.image = [UIImage imageNamed:arr[i]];
+//        [scrollView addSubview:imageView];
         
+        UITextView *txV = [[UITextView alloc]initWithFrame:CGRectMake(self.view.bounds.size.width*i, 0, self.view.bounds.size.width, self.view.bounds.size.height-64-44)];
+        txV.backgroundColor = [UIColor grayColor];
+        txV.textColor = [UIColor redColor];
+        txV.font = [UIFont systemFontOfSize:16];
+        txV.tag = 1999+i;
+        [scrollView addSubview:txV];
     }
     self.hud = [[MBProgressHUD alloc]initWithView:self.view];
     [self.view addSubview:self.hud];
@@ -119,16 +125,27 @@
 
 -(void)getInfoFromNetWithStar:(NSString *)star
 {
-    NSString *urlStr=[NSString string];
+//    NSString *urlStr=[NSString string];
     [self.hud show:YES];
-//    NSString *urlStr = @"http://120.131.70.218/book.php?name=白羊座";
+    NSString *urlStr = [NSString stringWithFormat:@"http://120.131.70.218/book.php?name=%@",star];
 //    urlStr = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSLog(@"urlstr---%@",urlStr);
 
-[[AFHTTPSessionManager manager]GET:@"http://120.131.70.218/book.php?name=1" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+[[AFHTTPSessionManager manager]GET:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
     [self.hud hide:YES];
         NSLog(@"responseObject -- %@",responseObject);
-        
+    if (![responseObject isKindOfClass:[NSDictionary class]]) {
+        return ;
+    }
+    NSDictionary *dic = responseObject;
+    UITextView *text1 = (UITextView *)[self.view viewWithTag:1999+0];
+    UITextView *text2 = (UITextView *)[self.view viewWithTag:1999+1];
+    UITextView *text3 = (UITextView *)[self.view viewWithTag:1999+2];
+    text1.text = KISDictionaryHaveKey(dic, @"content1");
+    text2.text = KISDictionaryHaveKey(dic, @"content2");
+    text3.text = KISDictionaryHaveKey(dic, @"content3");
+    
+    
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [self.hud hide:YES];
         [self showAlertViewWithtitle:@"提示" message:@"请求失败"];
