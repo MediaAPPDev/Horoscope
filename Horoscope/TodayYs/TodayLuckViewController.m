@@ -162,7 +162,6 @@
 
 -(void)buildYsView
 {
-    
     ysView = [[UIView alloc]initWithFrame:CGRectMake(0, KISHighVersion_7?64:44, KScreenWidth, KScreenHeight-(KISHighVersion_7?64:44))];
     ysView.backgroundColor = kColorWithRGB(0, 0, 0, 0.5);
     ysView.hidden = YES;
@@ -182,8 +181,6 @@
         [btn addTarget:self action:@selector(changeYsTitle:) forControlEvents:UIControlEventTouchUpInside];
         [ysImgView addSubview:btn];
     }
-    
-    
 }
 
 

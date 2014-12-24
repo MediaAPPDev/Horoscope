@@ -415,29 +415,69 @@
 //    [addGroup.m_photoButton setImage:selectImage forState:UIControlStateNormal];
     [headImgView setImage:selectImage forState:UIControlStateNormal];
     
-//    imagePath=[self writeImageToFile:selectImage ImageName:@"NewGroup.jpg"];
-    NSString *filePath = [NSString stringWithFormat:@"%@%@",RootDocPath,@"/img"];
-    
-    [UIImagePNGRepresentation(selectImage) writeToFile:filePath atomically:YES];
-    
 
-    NSString *uid = [NSString stringWithFormat:@""];
-        NSDictionary *parameters = @{@"Uid":uid,@"file":filePath};
+    NSString *filePath = [self writeImageToFile:selectImage ImageName:@"headImage.png"];
     
+//    [AFHTTPSessionManager manager]. requestSerializer = [ AFHTTPRequestSerializer serializer ];
+//    
+//    [AFHTTPSessionManager manager]. responseSerializer = [ AFHTTPResponseSerializer serializer ];
     
+    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:@"uid",@"123123123",@"file",filePath, nil];
     
-    [[AFHTTPSessionManager manager]POST:@"http://120.131.70.218/uploader/uppoo" parameters:@{@"uid":@"6283429397",@"file":selectImage} constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        [formData appendPartWithFileURL:[NSURL fileURLWithPath:filePath] name:@"headImg" error:nil];
-    } success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSLog(@"上传成功");
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"上传失败");
+//    [[AFHTTPSessionManager manager]POST:@"http://120.131.70.218/uploader/uppoo" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+//        NSLog(@"Success :%@ %@",task.response, responseObject);
+//    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+//        NSLog(@"Error---:%@",error);
+//    }];
+    
+//    [[AFHTTPSessionManager manager]POST:@"http://120.131.70.218/uploader/uppoo" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+//        [formData appendPartWithFileURL:[NSURL fileURLWithPath:filePath] name:@"file" fileName:@"headImage.png" mimeType:@"image/jpeg" error:nil];
+//        
+//    } success:^(NSURLSessionDataTask *task, id responseObject) {
+//        NSLog(@"Success :%@ %@",task.response, responseObject);
+//
+//    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+//        NSLog(@"Error---:%@",error);
+//
+//    }];
+    
+    [[AFHTTPSessionManager manager]uploadTaskWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://120.131.70.218/uploader/uppoo"]] fromFile:[NSURL fileURLWithPath:filePath] progress:nil completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        if (error) {
+            NSLog(@"%@",error);
+        }else{
+            NSLog(@"%@ %@",response, responseObject);
+        }
     }];
     
     
     
-    
 }
+
+//将图片保存到本地，返回保存的路径
+-(NSString*)writeImageToFile:(UIImage*)thumbimg ImageName:(NSString*)imageName
+{
+    NSString *path = [RootDocPath stringByAppendingPathComponent:@"GroupImage"];
+    NSFileManager *fm = [NSFileManager defaultManager];
+    if([fm fileExistsAtPath:path] == NO)
+    {
+        [fm createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:nil];
+    }
+    NSString  *openImgPath = [NSString stringWithFormat:@"%@/%@",path,imageName];
+    
+    NSData *data = UIImageJPEGRepresentation(thumbimg, 0.7);
+    
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+    if ([data writeToFile:openImgPath atomically:NO]) {
+        return openImgPath;
+    }
+    return nil;
+}
+
+
+
+
 - (void)image: (UIImage *) image didFinishSavingWithError: (NSError *) error contextInfo: (void *) contextInfo
 {
     

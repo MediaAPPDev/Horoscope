@@ -12,6 +12,10 @@
 {
     UIImageView *blueImageView;
     UIScrollView *scrollView;
+    UIView * starView;
+    UIImageView * starImageView;
+    NSMutableArray *ysArr;
+    UIButton *rightBtn;
 }
 @end
 
@@ -20,13 +24,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self buildTopviewWithBackButton:YES title:@"星座宝典" rightImage:@""];
+    [self buildTopviewWithBackButton:NO title:@"星座宝典" rightImage:@""];
+   
+    rightBtn = [[UIButton alloc]initWithFrame:CGRectMake(KScreenWidth-60, KISHighVersion_7?20:0, 60, 44)];
+    
+    [rightBtn setTitle:@"白羊座" forState:UIControlStateNormal];
+    [rightBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    //    rightBtn.backgroundColor = [UIColor 3redColor];
+    [rightBtn addTarget:self action:@selector(changeXing:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:rightBtn];
+
+    
     
     scrollView  = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 110, self.view.bounds.size.width, self.view.bounds.size.height-110)];
     scrollView.contentSize = CGSizeMake(self.view.bounds.size.width*3, 0);
     scrollView.pagingEnabled = YES;
     scrollView.userInteractionEnabled = NO;
     [self.view addSubview:scrollView];
+    
     
     
     NSArray *arr= [ NSArray arrayWithObjects:@"1",@"2",@"3", nil];
@@ -54,10 +69,15 @@
         UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(self.view.bounds.size.width*i, 0, self.view.bounds.size.width, self.view.bounds.size.height-64-44)];
         imageView.image = [UIImage imageNamed:arr[i]];
         [scrollView addSubview:imageView];
+        
     }
+    self.hud = [[MBProgressHUD alloc]initWithView:self.view];
+    [self.view addSubview:self.hud];
+    self.hud.labelText = @"加载中...";
+    [self getInfoFromNetWithStar:@"1"];
     
-    [self getInfoFromNetWithStar:@"byz"];
-    
+    ysArr = [NSMutableArray arrayWithObjects:@"白羊座",@"处女座",@"金牛座",@"巨蟹座",@"摩羯座",@"射手座",@"狮子座",@"水瓶座",@"双鱼座",@"双子座",@"天秤座",@"天蝎座", nil];
+    [self buildYsView];
 //    [self.leftButton addTarget:self action:@selector(gotoMenu:) forControlEvents:UIControlEventTouchUpInside];
     
 }
@@ -72,16 +92,86 @@
 //    
 //    
 //}
+-(void)buildYsView
+{
+    starView = [[UIView alloc]initWithFrame:CGRectMake(0, KISHighVersion_7?64:44, KScreenWidth, KScreenHeight-(KISHighVersion_7?64:44))];
+    starView.backgroundColor = kColorWithRGB(0, 0, 0, 0.5);
+    starView.hidden = YES;
+    [self.view addSubview:starView];
+    
+    starImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 100, 432)];
+    starImageView.image = KUIImage(@"ys_c_down");
+    starImageView.center = CGPointMake(KScreenWidth, 216);
+    starImageView.userInteractionEnabled = YES;
+    [starView addSubview:starImageView];
+    
+    
+    for (int i = 0; i<12; i++) {
+        UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(0, i*36, 100, 36)];
+        [btn setTitle:ysArr[i] forState:UIControlStateNormal];
+        [btn setTag: 1000+i];
+        [btn addTarget:self action:@selector(changeTitle:) forControlEvents:UIControlEventTouchUpInside];
+        [starImageView addSubview:btn];
+    }
+    
+    
+}
 
 -(void)getInfoFromNetWithStar:(NSString *)star
 {
-    NSString *urlStr=[NSString stringWithFormat:@"%@%@%@",NBBaseUrl,@"/book.php?name=",star];
-    [[AFHTTPSessionManager manager]GET:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSString *urlStr=[NSString string];
+    [self.hud show:YES];
+//    NSString *urlStr = @"http://120.131.70.218/book.php?name=白羊座";
+//    urlStr = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSLog(@"urlstr---%@",urlStr);
+
+[[AFHTTPSessionManager manager]GET:@"http://120.131.70.218/book.php?name=1" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+    [self.hud hide:YES];
+        NSLog(@"responseObject -- %@",responseObject);
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        [self showAlertViewWithtitle:@"提示" message:@"好友列表请求失败"];
+        [self.hud hide:YES];
+        [self showAlertViewWithtitle:@"提示" message:@"请求失败"];
     }];
 }
+
+//更改星座
+-(void)changeXing:(UIButton *)sender
+{
+    starView.hidden = NO;
+    [UIView animateWithDuration:0.3 animations:^{
+        starImageView.center = CGPointMake(KScreenWidth-50, 216);
+    } completion:^(BOOL finished) {
+        [starView addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hiddenYsView:)]];
+    }];
+
+}
+-(void)changeTitle:(UIButton *)sender
+{
+    UIButton *button = (UIButton *)[self.view viewWithTag:sender.tag];
+    [rightBtn setTitle:button.titleLabel.text forState:UIControlStateNormal];
+    
+    [self getInfoFromNetWithStar:[NSString stringWithFormat:@"%ld",(long)sender.tag-1000]];
+    
+    starView.hidden = YES;
+    [UIView animateWithDuration:0.3 animations:^{
+        starImageView.center = CGPointMake(KScreenWidth, 216);
+    } completion:^(BOOL finished) {
+        [starView removeGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hiddenYsView:)]];
+    }];
+
+}
+-(void)hiddenYsView:(id)sender
+{
+    starView.hidden = YES;
+
+    [UIView animateWithDuration:0.3 animations:^{
+        starImageView.center = CGPointMake(KScreenWidth,216);
+    } completion:^(BOOL finished) {
+        [starView removeGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hiddenYsView:)]];
+    }];
+}
+
 
 -(void)changeScroll:(UIButton *)sender
 {

@@ -19,6 +19,12 @@
 
 - (void)setTopViewWithTitle:(NSString*)titleStr withBackButton:(BOOL)hasBacButton;
 -(void)showAlertViewWithtitle:(NSString *)title message:(NSString *)message;
+
+
+@property (nonatomic,strong)MBProgressHUD *hud;
+
+
+
 // [self.menuController showMenu:self.menuController.topBar ];
 /*
  

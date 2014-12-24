@@ -83,7 +83,6 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
         static NSString *identifier = @"cell";
         FriendsCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
         if (!cell) {
@@ -105,10 +104,6 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
-    
-   
-
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     MineViewController *mine = [[MineViewController alloc]init];
 //    mine.isRootView = NO;

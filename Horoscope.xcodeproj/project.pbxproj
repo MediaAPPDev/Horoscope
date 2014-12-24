@@ -390,6 +390,7 @@
 		64CD99521A30487E00040744 /* MainCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 64CD99511A30487E00040744 /* MainCollectionViewCell.m */; };
 		64CD99541A304CD500040744 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 64CD99531A304CD500040744 /* 1.jpg */; };
 		64CD99571A304F2A00040744 /* AddButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 64CD99561A304F2A00040744 /* AddButton.m */; };
+		64FF05F41A4A92A4002D8EA3 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 64FF05F31A4A92A4002D8EA3 /* MBProgressHUD.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -883,6 +884,8 @@
 		64CD99531A304CD500040744 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		64CD99551A304F2A00040744 /* AddButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddButton.h; sourceTree = "<group>"; };
 		64CD99561A304F2A00040744 /* AddButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddButton.m; sourceTree = "<group>"; };
+		64FF05F21A4A92A4002D8EA3 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		64FF05F31A4A92A4002D8EA3 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1359,6 +1362,8 @@
 		645DEE301A4132B700E8C524 /* OpenSourceData */ = {
 			isa = PBXGroup;
 			children = (
+				64FF05F21A4A92A4002D8EA3 /* MBProgressHUD.h */,
+				64FF05F31A4A92A4002D8EA3 /* MBProgressHUD.m */,
 				645DEE451A4132D900E8C524 /* PhotoWall */,
 				645DEE311A4132C100E8C524 /* json */,
 				645859D21A42BD9F00E409FE /* NetManager.h */,
@@ -2238,6 +2243,7 @@
 				645DEE411A4132C100E8C524 /* SBJSON.m in Sources */,
 				5ED3CF801A416FCE0083BCDE /* MenuView.m in Sources */,
 				5E6C7CDE1A42C875005C4554 /* UIWebView+AFNetworking.m in Sources */,
+				64FF05F41A4A92A4002D8EA3 /* MBProgressHUD.m in Sources */,
 				5E6C7CDC1A42C875005C4554 /* UIProgressView+AFNetworking.m in Sources */,
 				5ED3CF461A416FCE0083BCDE /* MDTransitionAnimatorNone.m in Sources */,
 				647607D41A3FF68D00B71469 /* CircleCell.m in Sources */,
@@ -2377,6 +2383,10 @@
 				INFOPLIST_FILE = Horoscope/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Horoscope/MainVC/Horoscope-Bridging-Header.h";
@@ -2397,6 +2407,10 @@
 				INFOPLIST_FILE = Horoscope/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Horoscope/MainVC/Horoscope-Bridging-Header.h";

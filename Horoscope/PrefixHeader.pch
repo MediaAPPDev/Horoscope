@@ -22,6 +22,9 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "AFNetworking.h"
 #import "SBJSON.h"
+#import "NSString+SBJSON.h"
+
+#import "MBProgressHUD.h"
 //#import "RequestTaskService.h"
 
 #import "NetManager.h"
