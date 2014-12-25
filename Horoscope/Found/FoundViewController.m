@@ -105,8 +105,11 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    NSDictionary *dic = infoArray[indexPath.row];
+    
     MineViewController *mine = [[MineViewController alloc]init];
-//    mine.isRootView = NO;
+    mine.isRootView = NO;
+    mine.userid = KISDictionaryHaveKey(dic, @"uid");
 //    [self.menuController pushViewController:mine withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
     
     [self.menuController pushViewController:mine withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];

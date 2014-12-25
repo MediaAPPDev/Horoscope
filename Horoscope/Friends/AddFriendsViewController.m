@@ -66,7 +66,6 @@
     [self.view addSubview:self.hud];
 }
 
-
 //回收键盘
 
 

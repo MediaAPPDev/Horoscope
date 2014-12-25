@@ -119,10 +119,10 @@
     
     NSDictionary *dic = [infoArray objectAtIndex:indexPath.row];
     
-//    cell.layer.masksToBounds = YES;
-//    cell.layer.cornerRadius = 6.0;
-//    cell.layer.borderWidth = 1.0;
-//    cell.layer.borderColor = [[UIColor blackColor] CGColor];
+    cell.layer.masksToBounds = YES;
+    cell.layer.cornerRadius = 6.0;
+    cell.layer.borderWidth = 1.0;
+    cell.layer.borderColor = [[UIColor blackColor] CGColor];
     cell.numLabel.text = [NSString stringWithFormat:@"%ld",(long)indexPath.row+7];
     cell.leftImageView.image = KUIImage(@"排名色块小");
     cell.MainImageView.imageURL = [NSURL URLWithString:[dic objectForKey:@"photo"]];
@@ -228,7 +228,7 @@
     NSDictionary *dic = infoArray[indexPath.row];
     
     
-    ccButton.tag = indexPath.row+7;
+    ccButton.tag = indexPath.row+6;
     
     blackImageView.hidden = NO;
     ccButton.hidden = NO;

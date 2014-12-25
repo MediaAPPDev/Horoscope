@@ -135,6 +135,7 @@
     if (indexPath.section ==1) {
         MineViewController *mine = [[MineViewController alloc]init];
         mine.isRootView = NO;
+        
         [self.menuController pushViewController:mine withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
     }
 
