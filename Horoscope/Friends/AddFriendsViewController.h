@@ -8,6 +8,6 @@
 
 #import "BaseViewController.h"
 
-@interface AddFriendsViewController : BaseViewController
+@interface AddFriendsViewController : BaseViewController<UITextFieldDelegate>
 
 @end

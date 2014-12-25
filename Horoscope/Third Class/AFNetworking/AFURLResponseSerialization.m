@@ -262,10 +262,7 @@ static id AFJSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJSONReadingO
 //                    [NSJSONSerialization isValidJSONObject:<#(id)#>]
 //                    responseObject = [NSJSONSerialization JSONObjectWithData:data options:self.readingOptions error:&serializationError];
                     NSString *receiveStr = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-                    
                     responseObject = [receiveStr JSONValue];
-
-                    
                 } else {
                     return nil;
                 }

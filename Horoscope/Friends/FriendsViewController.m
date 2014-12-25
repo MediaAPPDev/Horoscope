@@ -151,7 +151,7 @@
 -(void)enterNextPage:(id)sender
 {
     AddFriendsViewController *add =[[AddFriendsViewController alloc]init];
-    [self.navigationController pushViewController:add animated:YES];
+    [self.menuController pushViewController:add withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
 }
 
 

@@ -390,6 +390,7 @@
 		64CD99521A30487E00040744 /* MainCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 64CD99511A30487E00040744 /* MainCollectionViewCell.m */; };
 		64CD99541A304CD500040744 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 64CD99531A304CD500040744 /* 1.jpg */; };
 		64CD99571A304F2A00040744 /* AddButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 64CD99561A304F2A00040744 /* AddButton.m */; };
+		64D2F5DF1A4BB828005C6368 /* SearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64D2F5DE1A4BB828005C6368 /* SearchResultViewController.m */; };
 		64FF05F41A4A92A4002D8EA3 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 64FF05F31A4A92A4002D8EA3 /* MBProgressHUD.m */; };
 /* End PBXBuildFile section */
 
@@ -884,6 +885,8 @@
 		64CD99531A304CD500040744 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		64CD99551A304F2A00040744 /* AddButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddButton.h; sourceTree = "<group>"; };
 		64CD99561A304F2A00040744 /* AddButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddButton.m; sourceTree = "<group>"; };
+		64D2F5DD1A4BB828005C6368 /* SearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultViewController.h; sourceTree = "<group>"; };
+		64D2F5DE1A4BB828005C6368 /* SearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultViewController.m; sourceTree = "<group>"; };
 		64FF05F21A4A92A4002D8EA3 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		64FF05F31A4A92A4002D8EA3 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1700,6 +1703,8 @@
 				645DEE921A41474900E8C524 /* TopTableViewCell.m */,
 				645DEE8E1A41407F00E8C524 /* FriendsCell.h */,
 				645DEE8F1A41407F00E8C524 /* FriendsCell.m */,
+				64D2F5DD1A4BB828005C6368 /* SearchResultViewController.h */,
+				64D2F5DE1A4BB828005C6368 /* SearchResultViewController.m */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -2218,6 +2223,7 @@
 				2F2116311A25B5A2009B21EB /* AppDelegate.m in Sources */,
 				64CD99571A304F2A00040744 /* AddButton.m in Sources */,
 				6454000E1A4271A100FA69C7 /* NotifiationViewController.m in Sources */,
+				64D2F5DF1A4BB828005C6368 /* SearchResultViewController.m in Sources */,
 				645400141A42730800FA69C7 /* FeedbackViewController.m in Sources */,
 				2F2116F71A25B64A009B21EB /* JDSideMenu.m in Sources */,
 				645DEE5E1A4132D900E8C524 /* EGOImageLoader.m in Sources */,

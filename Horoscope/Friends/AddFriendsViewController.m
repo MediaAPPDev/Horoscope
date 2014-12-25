@@ -7,9 +7,12 @@
 //
 
 #import "AddFriendsViewController.h"
-
+#import "SearchResultViewController.h"
 @interface AddFriendsViewController ()
-
+{
+    UITextField *searchTf;
+    NSMutableArray *infoArr;
+}
 @end
 
 @implementation AddFriendsViewController
@@ -21,23 +24,24 @@
 //    [self buildTopviewWithBackButton:NO title:@"添加好友" rightImage:@""];
     [self setTopViewWithTitle:@"添加好友" withBackButton:YES];
     self.view.backgroundColor = kColorWithRGB(220, 220, 220, 1);
-    UITextField *tf= [[ UITextField alloc]initWithFrame:CGRectMake(10, KISHighVersion_7?74:54, KScreenWidth-80, 34)];
-    tf.placeholder = @"通过星缘号查找";
-    tf.borderStyle = UITextBorderStyleLine;
-    tf.tag = 10000111;
-    [self.view addSubview:tf];
+    searchTf= [[ UITextField alloc]initWithFrame:CGRectMake(10, KISHighVersion_7?74:54, KScreenWidth-80, 34)];
+    searchTf.placeholder = @"通过星缘号查找";
+    searchTf.borderStyle = UITextBorderStyleLine;
+    searchTf.tag = 10000111;
+    searchTf.delegate = self;
+    [self.view addSubview:searchTf];
     
     UIButton *button = [[UIButton alloc]init];
-    button.frame = CGRectMake(sx(tf)+10, KISHighVersion_7?74:54, 50, 30);
+    button.frame = CGRectMake(sx(searchTf)+10, KISHighVersion_7?74:54, 50, 30);
     button.backgroundColor = [UIColor grayColor];
     [button addTarget:self action:@selector(cancelKeyBoard:) forControlEvents:UIControlEventTouchUpInside];
-    [button setTitle:@"取消" forState:UIControlStateNormal];
+    [button setTitle:@"搜索" forState:UIControlStateNormal];
     [self.view addSubview:button];
     
     NSArray *imgArr = [NSArray arrayWithObjects:@"shouji",@"weixin",@"QQ",@"weibo", nil];
     NSArray *textArr = [NSArray arrayWithObjects:@"通讯录好友",@"微信好友",@"QQ好友",@"微博好友", nil];
     for (int i = 0; i<4; i++) {
-        UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, sy(tf)+30+i*80, KScreenWidth, 80)];
+        UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, sy(searchTf)+30+i*80, KScreenWidth, 80)];
         view.backgroundColor = [UIColor whiteColor];
         UIView *customView =[[ UIView alloc]initWithFrame:CGRectMake(0, 79, KScreenWidth, 1)];
         customView.backgroundColor = [UIColor grayColor];
@@ -55,7 +59,11 @@
         
     }
     
+    infoArr  = [NSMutableArray array] ;
     
+    self.hud = [[MBProgressHUD alloc]initWithView:self.view];
+    self.hud.labelText = @"获取中...";
+    [self.view addSubview:self.hud];
 }
 
 
@@ -64,10 +72,41 @@
 
 -(void)cancelKeyBoard:(id)sender
 {
-    
     UITextField *tf = (UITextField*)[self.view viewWithTag:10000111];
     [tf resignFirstResponder];
+    
+    [self getInfoFromNetWithString:tf.text];
+    
 }
+-(void)getInfoFromNetWithString:(NSString *)str
+{
+    [self.hud show:YES];
+    NSString *urlStr =@"http://120.131.70.218/finduserbyname?name=";
+    [[AFHTTPSessionManager manager]GET:[urlStr stringByAppendingString:str] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        [self.hud hide:YES];
+        if (![responseObject isKindOfClass:[NSArray class]]) {
+            return ;
+        }
+        
+        [infoArr addObjectsFromArray:responseObject];
+        if (infoArr.count<1) {
+            [self showAlertViewWithtitle:@"提示" message:@"查无此人,请输入精确信息"];
+            return;
+        }
+        SearchResultViewController *searchVC = [[SearchResultViewController alloc]init];
+        
+        searchVC.infoArray =[NSMutableArray arrayWithArray:infoArr];
+        
+        [self.menuController pushViewController:searchVC withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
+        
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [self.hud hide:YES];
+        [self showAlertViewWithtitle:@"提示" message:@"请求失败"];
+    }];
+}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
