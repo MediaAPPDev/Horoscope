@@ -11,6 +11,8 @@
 
 #import "AFAppDotNetAPIClient.h"
 
+#import "UIImageView+AFNetworking.h"
+
 @interface XWViewController ()
 
 @end
@@ -22,26 +24,24 @@
     // Do any additional setup after loading the view.
     [self buildTopviewWithBackButton:YES title:@"星文" rightImage:@"订阅－正常"];
     
-    UITableView * tableView =[[UITableView alloc]init];
+    _tableView =[[UITableView alloc]init];
     NSArray * arrry =@[@"a",@"a",@"a",@"a",@"a"@"a"];
     
-    tableView.delegate =self;
-    tableView.dataSource =self;
-    tableView.frame =CGRectMake(0,(KISHighVersion_7?64:44), KScreenWidth, KScreenHeight -(KISHighVersion_7?64:44));
+    _tableView.delegate =self;
+    _tableView.dataSource =self;
+    _tableView.frame =CGRectMake(0,(KISHighVersion_7?64:44), KScreenWidth, KScreenHeight -(KISHighVersion_7?64:44));
 //  sx(<#m#>)
 //    tableView.frame =self.view.bo;
-    
+    //解析
     [[AFAppDotNetAPIClient sharedClient] GET:@"article.php" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         
-        
-        
+
+
         _allArray = responseObject;
-        
-        
    
         
-        
-    
+        [_tableView reloadData];
+
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         
@@ -55,7 +55,7 @@
     
     
     
-    [self.view addSubview:tableView];
+    [self.view addSubview:_tableView];
     
 //    [self buildTopviewWithBackButton:YES title:@"星文" rightImage:nil];
 }
@@ -77,7 +77,7 @@
     
  
     
-    return 10;
+    return _allArray.count;
     
     
 }
@@ -109,21 +109,45 @@
 //    @property (weak, nonatomic) IBOutlet UIImageView *newsPic;
     
     
+    if (_allArray.count <1) {
+        
+    }else{
+        
+        [cell.titleName setTitle:[_allArray[indexPath.row]valueForKey:@"title"] forState:UIControlStateNormal];
+        
+        [cell.facePic setImage:[UIImage imageNamed:@"touxiang1.png"]];
+        
+        
+         [cell.newsPic setImageWithURL:[NSURL URLWithString:[_allArray[indexPath.row]valueForKey:@"photo"]]placeholderImage:[UIImage imageNamed:@"touxiang1.png"]];
+        
+        cell.newsText.text=[_allArray[indexPath.row]valueForKey:@"content"];
+        cell.newsText.editable =NO;
+        
+        cell.newsTime.text =[_allArray[indexPath.row]valueForKey:@"crtime"];
+
+        [cell.zan setTitle:[_allArray[indexPath.row]valueForKey:@"count1"] forState:UIControlStateNormal];
+        
+              [cell.pinglun setTitle:[_allArray[indexPath.row]valueForKey:@"count2"] forState:UIControlStateNormal];
+        
+        [cell.share setTitle:[_allArray[indexPath.row]valueForKey:@"count3"] forState:UIControlStateNormal];
+        //    [tableView reloadData];
+        
+        
+        
+        
+        
+        //    NSUInteger row = [indexPath row];
+        //    NSDictionary *rowData = [self.dataList objectAtIndex:row];
+        
+        //    cell.name = [rowData objectForKey:@"name"];
+        //    cell.dec = [rowData objectForKey:@"dec"];
+        //    cell.loc = [rowData objectForKey:@"loc"];
+        //    cell.image = [imageList objectAtIndex:row];
+
+        
+    }
     
-    NSDictionary * dic =_allArray[0];
     
-    cell.zan.titleLabel.text = [_allArray[indexPath.row]valueForKey:@"count1"];
-//    [tableView reloadData];
-    
-    
-    
-//    NSUInteger row = [indexPath row];
-//    NSDictionary *rowData = [self.dataList objectAtIndex:row];
-    
-//    cell.name = [rowData objectForKey:@"name"];
-//    cell.dec = [rowData objectForKey:@"dec"];
-//    cell.loc = [rowData objectForKey:@"loc"];
-//    cell.image = [imageList objectAtIndex:row];
     
     return cell;
 }

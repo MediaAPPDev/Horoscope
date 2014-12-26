@@ -22,20 +22,23 @@
                             <constraint firstAttribute="width" constant="60" id="wMT-8y-E2d"/>
                         </constraints>
                     </imageView>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1eg-kG-ckI">
-                        <rect key="frame" x="95" y="22" width="63" height="30"/>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1eg-kG-ckI">
+                        <rect key="frame" x="82" y="22" width="111" height="30"/>
                         <state key="normal" title="星座社交">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="11月20日 16：23" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LJF-y2-Ung">
-                        <rect key="frame" x="194" y="28" width="117.5" height="19"/>
+                        <rect key="frame" x="194" y="47" width="117.5" height="19"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="qcS-WH-pEs">
                         <rect key="frame" x="13" y="356" width="78" height="28"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="28" id="CEE-AM-j5P"/>
+                        </constraints>
                         <fontDescription key="fontDescription" name="STHeitiSC-Medium" family="Heiti SC" pointSize="15"/>
                         <inset key="contentEdgeInsets" minX="11" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <state key="normal" title="赞" backgroundImage="zan@2X.png">
@@ -47,6 +50,9 @@
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3B3-Lj-HDf">
                         <rect key="frame" x="228" y="356" width="84" height="28"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="28" id="a3N-sg-msS"/>
+                        </constraints>
                         <inset key="contentEdgeInsets" minX="12" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <state key="normal" title="分享" backgroundImage="share@2X.png">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -57,6 +63,9 @@
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XMc-dy-BBJ">
                         <rect key="frame" x="120" y="356" width="81" height="28"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="28" id="Z8u-c9-jND"/>
+                        </constraints>
                         <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="14"/>
                         <inset key="contentEdgeInsets" minX="11" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <inset key="titleEdgeInsets" minX="11" minY="0.0" maxX="0.0" maxY="0.0"/>

@@ -13,4 +13,6 @@
 
 @property (nonatomic,strong)NSArray * allArray;
 
+@property (nonatomic,strong)UITableView * tableView;
+
 @end
