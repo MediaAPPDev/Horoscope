@@ -18,7 +18,8 @@
         NSArray *postsFromResponse = [JSON valueForKeyPath:@"data"];
         NSMutableArray *mutablePosts = [NSMutableArray arrayWithCapacity:[postsFromResponse count]];
         for (NSDictionary *attributes in postsFromResponse) {
-//            ModelData *post = [[Post alloc] initWithAttributes:attributes];
+            
+            //            ModelData *post = [[Post alloc] initWithAttributes:attributes];
 //            [mutablePosts addObject:post];
         }
         

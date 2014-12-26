@@ -29,7 +29,10 @@
     // Do any additional setup after loading the view.
     
     
-    [self buildTopviewWithBackButton:NO title:@"设置" rightImage:@""];
+//    [self buildTopviewWithBackButton:NO title:@"设置" rightImage:@""];
+    
+    [self setTopViewWithTitle:@"个人设置" withBackButton:YES];
+    
     self.view.backgroundColor = [UIColor whiteColor];
     myTableView  = [[UITableView alloc]initWithFrame:CGRectMake(0, KISHighVersion_7?64:44, KScreenWidth, KScreenHeight-(KISHighVersion_7?64:44)) style:UITableViewStylePlain];
     myTableView.bounces = NO;

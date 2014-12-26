@@ -41,7 +41,9 @@
     // Do any additional setup after loading the view.
     
     if (self.isRootView) {
-        [self buildTopviewWithBackButton:NO title:@"" rightImage:@"123123"];
+//        [self buildTopviewWithBackButton:NO title:@"" rightImage:@"123123"];
+        
+        [self setTopViewWithTitle:@"" withBackButton:YES];
         
         UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(self.view.bounds.size.width-60, KISHighVersion_7?20:0, 60, 44)];
         [button setImage:KUIImage(@"123123") forState:UIControlStateNormal];
@@ -81,6 +83,8 @@
     arr2 = [NSArray arrayWithObjects:@"单身",@"180cm 55kg 强壮",@"学生",@"泡妞 游戏 电影 读书",@"中 英 法 德 西班牙 日 韩 俄罗斯 意大利",@"China",@"英国剑桥",@"SF", nil];
     
     
+    [self setIsRootView:NO];
+    
     [self getInfoFromNetWithUserId:self.userid];
     
     
@@ -99,6 +103,7 @@
     [[AFHTTPSessionManager manager]GET:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject isKindOfClass:[NSDictionary class]]) {
             NSDictionary *dic = [NSDictionary dictionaryWithDictionary:responseObject];
+            
             headImgView.imageURL = [NSURL URLWithString:KISDictionaryHaveKey(dic, @"photo")];
 //            xzImgViwe.image = KUIImage(@"");
             xzLabel.text = KISDictionaryHaveKey(dic, @"xing");
