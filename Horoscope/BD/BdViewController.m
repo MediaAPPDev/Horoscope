@@ -49,7 +49,7 @@
     NSArray * titleArr = [NSArray arrayWithObjects:@"传说",@"特点",@"爱情", nil];
     
     blueImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 108, self.view.bounds.size.width/3, 2)];
-    blueImageView.image = [UIImage imageNamed:@"蓝色进度条(＃1cb4f6)"];
+    blueImageView.backgroundColor = UIColorFromRGBA(0x1cb4f6, 1);
     [self.view addSubview:blueImageView];
     
     for (int i = 0;  i <3; i++) {
@@ -58,6 +58,22 @@
         
         [button setBackgroundImage:[UIImage imageNamed:@"灰色底框"] forState:UIControlStateNormal];
         [button setTitle:titleArr[i] forState:UIControlStateNormal];
+        switch (i) {
+            case 0:
+                [button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+                break;
+            case 1:
+                [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+                break;
+            case 2:
+                [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+                break;
+    
+            default:
+                break;
+        }
+        
+        
         [button addTarget:self action:@selector(changeScroll:) forControlEvents:UIControlEventTouchUpInside];
         button.tag = 100+i;
         [self.view addSubview:button];
@@ -71,8 +87,8 @@
 //        [scrollView addSubview:imageView];
         
         UITextView *txV = [[UITextView alloc]initWithFrame:CGRectMake(self.view.bounds.size.width*i, 0, self.view.bounds.size.width, self.view.bounds.size.height-64-44)];
-        txV.backgroundColor = [UIColor grayColor];
-        txV.textColor = [UIColor redColor];
+        txV.backgroundColor = [UIColor whiteColor];
+        txV.textColor = [UIColor blackColor];
         txV.font = [UIFont systemFontOfSize:16];
         txV.tag = 1999+i;
         [scrollView addSubview:txV];
@@ -134,6 +150,7 @@
 [[AFHTTPSessionManager manager]GET:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
     [self.hud hide:YES];
         NSLog(@"responseObject -- %@",responseObject);
+    
     if (![responseObject isKindOfClass:[NSDictionary class]]) {
         return ;
     }
@@ -168,7 +185,7 @@
     UIButton *button = (UIButton *)[self.view viewWithTag:sender.tag];
     [rightBtn setTitle:button.titleLabel.text forState:UIControlStateNormal];
     
-    [self getInfoFromNetWithStar:[NSString stringWithFormat:@"%ld",(long)sender.tag-1000]];
+    [self getInfoFromNetWithStar:[NSString stringWithFormat:@"%ld",(long)sender.tag-999]];
     
     starView.hidden = YES;
     [UIView animateWithDuration:0.3 animations:^{

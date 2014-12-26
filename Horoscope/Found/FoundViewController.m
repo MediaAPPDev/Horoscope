@@ -11,7 +11,7 @@
 #import "DefaultMenuView.h"
 #import "MineViewController.h"
 
-#define kUrl @"http://120.131.70.218/finduser"
+#define kUrl @"http://120.131.70.218/finduser?uid=6283429397"
 
 @interface FoundViewController ()
 {
