@@ -77,6 +77,9 @@
     [self getInfoFromNetWithString:tf.text];
     
 }
+
+#pragma mark ---获取网络数据
+
 -(void)getInfoFromNetWithString:(NSString *)str
 {
     [self.hud show:YES];
