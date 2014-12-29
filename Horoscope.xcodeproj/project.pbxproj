@@ -366,6 +366,11 @@
 		647607D71A3FF69E00B71469 /* PersonInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 647607D61A3FF69E00B71469 /* PersonInfoCell.m */; };
 		647607DB1A4003BD00B71469 /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 647607DA1A4003BD00B71469 /* PhotoViewController.m */; };
 		647BEC641A3972100049B8C9 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 647BEC631A3972100049B8C9 /* MineViewController.m */; };
+		649E9C751A4E5C250024B10C /* ActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649E9C741A4E5C250024B10C /* ActivityViewController.m */; };
+		649E9C781A4E619C0024B10C /* ActivityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 649E9C771A4E619C0024B10C /* ActivityCell.m */; };
+		649E9C7B1A4E65890024B10C /* DatyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 649E9C7A1A4E65890024B10C /* DatyView.m */; };
+		649E9C7E1A4E6ACB0024B10C /* TastCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 649E9C7D1A4E6ACB0024B10C /* TastCell.m */; };
+		649E9C801A4E803F0024B10C /* 123.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 649E9C7F1A4E803F0024B10C /* 123.jpg */; };
 		64BEC4FC1A2D6D5F00931E0F /* NewMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64BEC4FB1A2D6D5F00931E0F /* NewMainViewController.m */; };
 		64C727131A3575B300DFE28E /* imgbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 64C726FD1A3575B300DFE28E /* imgbg.png */; };
 		64C727141A3575B300DFE28E /* imgbg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64C726FE1A3575B300DFE28E /* imgbg@2x.png */; };
@@ -861,6 +866,15 @@
 		647607DA1A4003BD00B71469 /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
 		647BEC621A3972100049B8C9 /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
 		647BEC631A3972100049B8C9 /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
+		649E9C731A4E5C250024B10C /* ActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityViewController.h; sourceTree = "<group>"; };
+		649E9C741A4E5C250024B10C /* ActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityViewController.m; sourceTree = "<group>"; };
+		649E9C761A4E619C0024B10C /* ActivityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityCell.h; sourceTree = "<group>"; };
+		649E9C771A4E619C0024B10C /* ActivityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityCell.m; sourceTree = "<group>"; };
+		649E9C791A4E65890024B10C /* DatyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatyView.h; sourceTree = "<group>"; };
+		649E9C7A1A4E65890024B10C /* DatyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatyView.m; sourceTree = "<group>"; };
+		649E9C7C1A4E6ACB0024B10C /* TastCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TastCell.h; sourceTree = "<group>"; };
+		649E9C7D1A4E6ACB0024B10C /* TastCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TastCell.m; sourceTree = "<group>"; };
+		649E9C7F1A4E803F0024B10C /* 123.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 123.jpg; sourceTree = "<group>"; };
 		64BEC4FA1A2D6D5F00931E0F /* NewMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewMainViewController.h; sourceTree = "<group>"; };
 		64BEC4FB1A2D6D5F00931E0F /* NewMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewMainViewController.m; sourceTree = "<group>"; };
 		64BEC4FE1A2D729400931E0F /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -1015,6 +1029,7 @@
 		2F2116511A25B64A009B21EB /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				649E9C7F1A4E803F0024B10C /* 123.jpg */,
 				6441674B1A4960AB004277F8 /* placeholder.jpg */,
 				644167491A4957F1004277F8 /* blackView.png */,
 				6454001E1A42860200FA69C7 /* 手机绑定图标大@2x.png */,
@@ -1666,6 +1681,21 @@
 			path = Mine;
 			sourceTree = "<group>";
 		};
+		649E9C721A4E5BF30024B10C /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				649E9C731A4E5C250024B10C /* ActivityViewController.h */,
+				649E9C741A4E5C250024B10C /* ActivityViewController.m */,
+				649E9C761A4E619C0024B10C /* ActivityCell.h */,
+				649E9C771A4E619C0024B10C /* ActivityCell.m */,
+				649E9C791A4E65890024B10C /* DatyView.h */,
+				649E9C7A1A4E65890024B10C /* DatyView.m */,
+				649E9C7C1A4E6ACB0024B10C /* TastCell.h */,
+				649E9C7D1A4E6ACB0024B10C /* TastCell.m */,
+			);
+			name = Activity;
+			sourceTree = "<group>";
+		};
 		64BEC4F91A2D6D5300931E0F /* MainVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -1727,6 +1757,7 @@
 		64CD98241A303AE600040744 /* Friends */ = {
 			isa = PBXGroup;
 			children = (
+				649E9C721A4E5BF30024B10C /* Activity */,
 				645DEE8B1A413F4500E8C524 /* FriendsViewController.h */,
 				645DEE8C1A413F4500E8C524 /* FriendsViewController.m */,
 				645DEEA81A414C5F00E8C524 /* AddFriendsViewController.h */,
@@ -2016,6 +2047,7 @@
 				5ED3CF911A418B0B0083BCDE /* back@2x.png in Resources */,
 				5ED3CF581A416FCE0083BCDE /* faxianIanxia@3x.png in Resources */,
 				645DEEEF1A41715200E8C524 /* 星友圈－按下.png in Resources */,
+				649E9C801A4E803F0024B10C /* 123.jpg in Resources */,
 				646C43C51A381CDB00FB683D /* ys_c_downline@2x.png in Resources */,
 				646C43AF1A37FB2400FB683D /* ys_c_sy@2x.png in Resources */,
 				5ED3CFA71A418BA80083BCDE /* icon_back_white.png in Resources */,
@@ -2243,6 +2275,7 @@
 				5ED3CF831A416FCE0083BCDE /* TopBarView.m in Sources */,
 				645DEE8A1A4137A200E8C524 /* PersonInfoChangeViewController.m in Sources */,
 				5E6C7CCF1A42C875005C4554 /* AFHTTPRequestOperationManager.m in Sources */,
+				649E9C7E1A4E6ACB0024B10C /* TastCell.m in Sources */,
 				5ED3CF481A416FCE0083BCDE /* MDTransitionAnimatorSlideFromRight.m in Sources */,
 				647BEC641A3972100049B8C9 /* MineViewController.m in Sources */,
 				5ED3CF431A416FCE0083BCDE /* MDMenuViewController.m in Sources */,
@@ -2258,6 +2291,7 @@
 				645DEE5D1A4132D900E8C524 /* EGOImageLoadConnection.m in Sources */,
 				5ED3CF7F1A416FCE0083BCDE /* MenuItemEntity.m in Sources */,
 				64CD99521A30487E00040744 /* MainCollectionViewCell.m in Sources */,
+				649E9C7B1A4E65890024B10C /* DatyView.m in Sources */,
 				2FC71FDE1A2721AC002BB2C5 /* TodayViewController.m in Sources */,
 				5ED3CF821A416FCE0083BCDE /* MJPopupBackgroundView.m in Sources */,
 				2F2116311A25B5A2009B21EB /* AppDelegate.m in Sources */,
@@ -2277,6 +2311,7 @@
 				645DEE931A41474900E8C524 /* TopTableViewCell.m in Sources */,
 				5E6C7CD51A42C875005C4554 /* AFURLResponseSerialization.m in Sources */,
 				645DEE8D1A413F4500E8C524 /* FriendsViewController.m in Sources */,
+				649E9C751A4E5C250024B10C /* ActivityViewController.m in Sources */,
 				64BEC4FC1A2D6D5F00931E0F /* NewMainViewController.m in Sources */,
 				5ED3CF421A416FCE0083BCDE /* MDMenuChildViewController.m in Sources */,
 				645DEEBD1A41607500E8C524 /* FoundViewController.m in Sources */,
@@ -2285,6 +2320,7 @@
 				5ED3CF471A416FCE0083BCDE /* MDTransitionAnimatorSlideFromLeft.m in Sources */,
 				5E6C7CD61A42C875005C4554 /* AFURLSessionManager.m in Sources */,
 				5ECA51F91A491607006F0CC3 /* ModelData.m in Sources */,
+				649E9C781A4E619C0024B10C /* ActivityCell.m in Sources */,
 				645DEE401A4132C100E8C524 /* NSString+SBJSON.m in Sources */,
 				645DEE411A4132C100E8C524 /* SBJSON.m in Sources */,
 				5ED3CF801A416FCE0083BCDE /* MenuView.m in Sources */,

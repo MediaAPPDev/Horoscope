@@ -16,6 +16,7 @@
 {
     UILabel * baseTitleLabel;
     UIActivityIndicatorView * m_loginActivity;
+    float baseTopHeight;
 }
 -(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
