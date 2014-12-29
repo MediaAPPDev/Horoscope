@@ -21,7 +21,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     [self buildTopviewWithBackButton:YES title:@"星友圈" rightImage:@"添加按钮点击状态"];
     
-    [self buildScrollViewWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height-64) contentSize:CGSizeMake(0, 1014) Image:@"星友页面ios"];
+    [self buildScrollViewWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height-64) contentSize:CGSizeMake(0, 1014) Image:@"星友圈.png"];
 //    [self.leftButton addTarget:self action:@selector(gotoMenu:) forControlEvents:UIControlEventTouchUpInside];
     
 }

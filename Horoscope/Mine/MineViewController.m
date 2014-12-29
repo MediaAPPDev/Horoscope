@@ -99,7 +99,6 @@
         urlStr = [NSString stringWithFormat:@"%@%@%@",NBBaseUrl,@"/userdetail.php?uid=",userid];
     }
     
-    
     [[AFHTTPSessionManager manager]GET:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject isKindOfClass:[NSDictionary class]]) {
             NSDictionary *dic = [NSDictionary dictionaryWithDictionary:responseObject];
@@ -110,7 +109,7 @@
             qmLabel.text = KISDictionaryHaveKey(dic, @"phrase");
             titleLabel.text = KISDictionaryHaveKey(dic, @"nickname");
             ageLabel.text = KISDictionaryHaveKey(dic, @"userage");
-            useridLabel.text = [NSString stringWithFormat:@"星缘号:%@",KISDictionaryHaveKey(dic,@"id")];
+            useridLabel.text = [NSString stringWithFormat:@"ID:%@",KISDictionaryHaveKey(dic,@"id")];
             [funsBtn setTitle:[NSString stringWithFormat:@"粉丝 %@",KISDictionaryHaveKey(dic,@"fans")] forState:UIControlStateNormal];
             [gzBtn setTitle:[NSString stringWithFormat:@"关注 %@",KISDictionaryHaveKey(dic,@"follow")] forState:UIControlStateNormal];
         }
