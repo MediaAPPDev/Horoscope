@@ -23,7 +23,6 @@
 #import "AFNetworking.h"
 #import "SBJSON.h"
 #import "NSString+SBJSON.h"
-
 #import "MBProgressHUD.h"
 //#import "RequestTaskService.h"
 
@@ -79,4 +78,7 @@ alpha:alphaValue]
 
 #define KISHighVersion_7 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0)
 
+#define KTopHeight KISHighVersion_7?64:44
+
+#define KTopY KScreenHeight-KTopHeight
 #endif

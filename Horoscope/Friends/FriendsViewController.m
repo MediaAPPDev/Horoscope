@@ -11,6 +11,7 @@
 #import "TopTableViewCell.h"
 #import "AddFriendsViewController.h"
 #import "MineViewController.h"
+#import "ActivityViewController.h"
 @interface FriendsViewController ()
 {
     UITableView *myTabelView;
@@ -42,8 +43,8 @@
     myTabelView.rowHeight = 90;
     [self.view addSubview:myTabelView];
     
-    nameArr = [NSArray arrayWithObjects:@"新朋友",@"好友推荐", nil];
-    imgArr =[NSArray arrayWithObjects:@"xinpingyou",@"dianhualianxiren", nil];
+    nameArr = [NSArray arrayWithObjects:@"新朋友",@"好友推荐",@"活动", nil];
+    imgArr =[NSArray arrayWithObjects:@"xinpingyou",@"dianhualianxiren",@"dianhualianxiren", nil];
     
     infoArr = [NSMutableArray array];
     infoDic = [NSMutableDictionary dictionary];
@@ -83,7 +84,7 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section==0) {
-        return 2;
+        return 3;
     }
     
     NSArray *keysArr = [infoDic allKeys];
@@ -132,6 +133,10 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.section ==0&&indexPath.row ==2) {
+        ActivityViewController *activC =[[ActivityViewController alloc]init];
+        [self.menuController pushViewController:activC withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
+    }
     if (indexPath.section ==1) {
         MineViewController *mine = [[MineViewController alloc]init];
         mine.isRootView = NO;
