@@ -41,6 +41,7 @@
     imageView.backgroundColor = [UIColor colorWithRed:0/225.0f green:0/225.0f blue:0/225.0f alpha:1];
     imageView.image =[UIImage imageNamed:@""];
     imageView.userInteractionEnabled =  YES;
+    [self.view bringSubviewToFront:imageView];
     [self.view addSubview:imageView];
     
     //    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(70, 20, self.view.bounds.size.width-140, 44)];

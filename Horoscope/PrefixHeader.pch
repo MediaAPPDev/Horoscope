@@ -33,7 +33,7 @@
 
 #define NBBaseUrl @"http://120.131.70.218"
 
-
+#define YSKEY @"14898fc797ac4929b8d725965498c22c"
 
 
 // view的 X,y , width , height
