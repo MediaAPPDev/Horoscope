@@ -67,12 +67,12 @@
                   symbolName = "-[MineViewController imagePickerController:didFinishPickingMediaWithInfo:]"
                   moduleName = "Horoscope"
                   urlString = "file:///Users/satellite/Desktop/Horoscope/Horoscope/Mine/MineViewController.m"
-                  timestampString = "441626380.836133"
+                  timestampString = "441686953.53372"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "449"
-                  endingLineNumber = "449"
-                  offsetFromSymbolStart = "456">
+                  startingLineNumber = "448"
+                  endingLineNumber = "448"
+                  offsetFromSymbolStart = "440">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -81,12 +81,12 @@
                   symbolName = "__74-[MineViewController imagePickerController:didFinishPickingMediaWithInfo:]_block_invoke_2"
                   moduleName = "Horoscope"
                   urlString = "file:///Users/satellite/Desktop/Horoscope/Horoscope/Mine/MineViewController.m"
-                  timestampString = "441626380.836322"
+                  timestampString = "441686953.533838"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "449"
-                  endingLineNumber = "449"
-                  offsetFromSymbolStart = "96">
+                  startingLineNumber = "448"
+                  endingLineNumber = "448"
+                  offsetFromSymbolStart = "92">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -113,12 +113,12 @@
                   symbolName = "-[MineViewController imagePickerController:didFinishPickingMediaWithInfo:]"
                   moduleName = "Horoscope"
                   urlString = "file:///Users/satellite/Desktop/Horoscope/Horoscope/Mine/MineViewController.m"
-                  timestampString = "441626380.837236"
+                  timestampString = "441686953.534564"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "449"
-                  endingLineNumber = "449"
-                  offsetFromSymbolStart = "456">
+                  startingLineNumber = "448"
+                  endingLineNumber = "448"
+                  offsetFromSymbolStart = "440">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -127,12 +127,12 @@
                   symbolName = "__74-[MineViewController imagePickerController:didFinishPickingMediaWithInfo:]_block_invoke_2"
                   moduleName = "Horoscope"
                   urlString = "file:///Users/satellite/Desktop/Horoscope/Horoscope/Mine/MineViewController.m"
-                  timestampString = "441626380.837683"
+                  timestampString = "441686953.534685"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "449"
-                  endingLineNumber = "449"
-                  offsetFromSymbolStart = "96">
+                  startingLineNumber = "448"
+                  endingLineNumber = "448"
+                  offsetFromSymbolStart = "92">
                </Location>
             </Locations>
          </BreakpointContent>

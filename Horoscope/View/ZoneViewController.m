@@ -15,7 +15,13 @@
     // Do any additional setup after loading the view, typically from a nib.
     [self buildTopviewWithBackButton:YES title:@"星友圈" rightImage:@"发布－正常"];
     
-    [self buildScrollViewWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height-64) contentSize:CGSizeMake(0, 1288) Image:@"星友圈"];
+    
+//    [self setTopViewWithTitle:@"星友圈.png" withBackButton:YES];
+    
+//    KScreenHeight
+    
+//    [self buildScrollViewWithFrame:self.view.bounds contentSize:CGSizeMake(KScreenWidth, KScreenHeight) Image:@"星友圈.png"];
+    [self buildScrollViewWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height-64) contentSize:CGSizeMake(0, 1288) Image:@"frendloop.png"];
 }
 
 - (void)didReceiveMemoryWarning {
