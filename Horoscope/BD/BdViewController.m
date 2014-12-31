@@ -16,6 +16,10 @@
     UIImageView * starImageView;
     NSMutableArray *ysArr;
     UIButton *rightBtn;
+    UIScrollView *constellationScrl;
+    NSMutableArray * cArray; //选择星座
+    NSMutableArray * xArray; //星座
+
 }
 @end
 
@@ -34,7 +38,15 @@
     [rightBtn addTarget:self action:@selector(changeXing:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:rightBtn];
 
+    cArray = [NSMutableArray array];
+    NSMutableArray *arr2 = [NSMutableArray arrayWithObjects:@"ys_c_by",@"ys_c_chunv",@"ys_c_jinniu",@"ys_c_juxie",@"ys_c_mojie",@"ys_c_sheshou",@"ys_c_shizi",@"ys_c_sp",@"ys_c_sy",@"ys_c_sz",@"ys_c_tc",@"ys_c_tx", nil];
+    [cArray addObjectsFromArray:arr2];
     
+    xArray = [NSMutableArray array];
+    
+    NSMutableArray *arr1 = [NSMutableArray arrayWithObjects:@"白羊",@"处女",@"金牛",@"巨蟹",@"摩羯",@"射手",@"狮子",@"水瓶",@"双鱼",@"双子",@"天秤",@"天蝎",nil];
+    [xArray addObjectsFromArray:arr1];
+
     
     scrollView  = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 110, self.view.bounds.size.width, self.view.bounds.size.height-110)];
     scrollView.contentSize = CGSizeMake(self.view.bounds.size.width*3, 0);
@@ -99,10 +111,43 @@
     [self getInfoFromNetWithStar:@"1"];
     
     ysArr = [NSMutableArray arrayWithObjects:@"白羊座",@"处女座",@"金牛座",@"巨蟹座",@"摩羯座",@"射手座",@"狮子座",@"水瓶座",@"双鱼座",@"双子座",@"天秤座",@"天蝎座", nil];
-    [self buildYsView];
+    [self buildconstellationScroll];
+    
+//    [self buildYsView];
 //    [self.leftButton addTarget:self action:@selector(gotoMenu:) forControlEvents:UIControlEventTouchUpInside];
     
 }
+
+-(void)buildconstellationScroll
+{
+    constellationScrl = [[UIScrollView alloc]initWithFrame:CGRectMake(0, -16, KScreenWidth, 80)];
+    constellationScrl.contentSize = CGSizeMake(600, 0);
+    constellationScrl.backgroundColor = UIColorFromRGBA(0x2f2f2f, 1);
+    [self.view addSubview:constellationScrl];
+    
+    for (int i = 0; i<12; i++) {
+        UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(50*i+10, 0, 50, 50)];
+        button.tag = 1000+i;
+        [button setImage:KUIImage(cArray[i]) forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(changeConstellation:) forControlEvents:UIControlEventTouchUpInside];
+        [constellationScrl addSubview:button];
+        
+        UILabel *lb= [[UILabel alloc]initWithFrame:CGRectMake(50*i+10, 50, 50, 30)];
+        lb.backgroundColor = [UIColor clearColor];
+        lb.textColor = [UIColor whiteColor];
+        lb.textAlignment = NSTextAlignmentCenter;
+        lb.text = xArray[i];
+        lb.font = [UIFont systemFontOfSize:13];
+        [constellationScrl addSubview:lb];
+        
+        
+    }
+    constellationScrl.hidden = YES;
+    
+}
+
+
+
 //- (void)gotoMenu:(UIGestureRecognizer * )ges
 //{
 //    if ([self.sideMenuController isMenuVisible]) {
@@ -114,27 +159,63 @@
 //    
 //    
 //}
--(void)buildYsView
+//-(void)buildYsView
+//{
+//    starView = [[UIView alloc]initWithFrame:CGRectMake(0, KISHighVersion_7?64:44, KScreenWidth, KScreenHeight-(KISHighVersion_7?64:44))];
+//    starView.backgroundColor = kColorWithRGB(0, 0, 0, 0.5);
+//    starView.hidden = YES;
+//    [self.view addSubview:starView];
+//    
+//    starImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 100, 432)];
+//    starImageView.image = KUIImage(@"ys_c_down");
+//    starImageView.center = CGPointMake(KScreenWidth, 216);
+//    starImageView.userInteractionEnabled = YES;
+//    [starView addSubview:starImageView];
+//    
+//    
+//    for (int i = 0; i<12; i++) {
+//        UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(0, i*36, 100, 36)];
+//        [btn setTitle:ysArr[i] forState:UIControlStateNormal];
+//        [btn setTag: 1000+i];
+//        [btn addTarget:self action:@selector(changeTitle:) forControlEvents:UIControlEventTouchUpInside];
+//        [starImageView addSubview:btn];
+//    }
+//    
+//    
+//}
+//点击星座选择button方法
+-(void)changeConstellation:(UIButton *)sender
 {
-    starView = [[UIView alloc]initWithFrame:CGRectMake(0, KISHighVersion_7?64:44, KScreenWidth, KScreenHeight-(KISHighVersion_7?64:44))];
-    starView.backgroundColor = kColorWithRGB(0, 0, 0, 0.5);
-    starView.hidden = YES;
-    [self.view addSubview:starView];
-    
-    starImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 100, 432)];
-    starImageView.image = KUIImage(@"ys_c_down");
-    starImageView.center = CGPointMake(KScreenWidth, 216);
-    starImageView.userInteractionEnabled = YES;
-    [starView addSubview:starImageView];
-    
-    
-    for (int i = 0; i<12; i++) {
-        UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(0, i*36, 100, 36)];
-        [btn setTitle:ysArr[i] forState:UIControlStateNormal];
-        [btn setTag: 1000+i];
-        [btn addTarget:self action:@selector(changeTitle:) forControlEvents:UIControlEventTouchUpInside];
-        [starImageView addSubview:btn];
+    if (constellationScrl.hidden ==NO) {
+        [UIView animateWithDuration:0.3 animations:^{
+            constellationScrl.frame = CGRectMake(0, -16, KScreenWidth, 80);
+//            scr.frame = CGRectMake(0, 64, KScreenWidth, KScreenHeight-64);
+            
+        } completion:^(BOOL finished) {
+            constellationScrl. hidden =YES;
+            [rightBtn setTitle:[NSString stringWithFormat:@"%@座",xArray[sender.tag-1000]] forState:UIControlStateNormal];
+//            [starButton setBackgroundImage:KUIImage(xArray[sender.tag-1000]) forState:UIControlStateNormal];
+            
+//            nameLabel.text = [NSString stringWithFormat:@"%@座",xArray[sender.tag-1000]];
+            /*
+             重写 namelabel。text  datelabel.text、
+             
+             dateLabel.text = ;
+             */
+            
+            NSLog(@"----%@",xArray[sender.tag-1000]);
+//            [scr removeGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hiddenConstellScr:)]];
+        }];
+        
     }
+    
+    
+    
+    
+    /*
+     后续添加 选择星座方法 并且添加网络请求 更换星座数据
+     
+     */
     
     
 }
@@ -172,13 +253,25 @@
 //更改星座
 -(void)changeXing:(UIButton *)sender
 {
-    starView.hidden = NO;
-    [UIView animateWithDuration:0.3 animations:^{
-        starImageView.center = CGPointMake(KScreenWidth-50, 216);
-    } completion:^(BOOL finished) {
-        [starView addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hiddenYsView:)]];
-    }];
+//    starView.hidden = NO;
+//    [UIView animateWithDuration:0.3 animations:^{
+//        starImageView.center = CGPointMake(KScreenWidth-50, 216);
+//    } completion:^(BOOL finished) {
+//        [starView addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hiddenYsView:)]];
+//    }];
 
+    constellationScrl.hidden = NO;
+    [UIView animateWithDuration:0.3 animations:^{
+        constellationScrl.frame = CGRectMake(0, 64, KScreenWidth, 80);
+//        scr.frame = CGRectMake(0, 144, KScreenWidth, KScreenHeight-144);
+        
+//        [scr addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hiddenConstellScr:)]];
+        
+    } completion:^(BOOL finished) {
+    }];
+    
+
+    
 }
 -(void)changeTitle:(UIButton *)sender
 {

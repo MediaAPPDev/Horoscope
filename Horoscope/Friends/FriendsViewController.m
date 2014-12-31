@@ -19,6 +19,10 @@
     NSArray *imgArr;
     NSMutableArray * infoArr;
     NSMutableDictionary * infoDic;
+    UIView * ysView;
+    UIImageView * ysImgView;
+    NSMutableArray * ysArr;
+    UIButton * titleBtn;
 }
 @end
 
@@ -27,7 +31,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self buildTopviewWithBackButton:NO title:@"星友" rightImage:@""];
+    [self buildTopviewWithBackButton:NO title:@"" rightImage:@""];
+    ysArr = [NSMutableArray arrayWithObjects:@"全部",@"我关注的",@"我的粉丝", nil];
+    
+    titleBtn = [[UIButton alloc]initWithFrame:CGRectMake(50, KISHighVersion_7?20:0, KScreenWidth-100, 40)];
+    [titleBtn setTitle:@"星友(全部)" forState:UIControlStateNormal];
+    titleBtn.backgroundColor =[ UIColor clearColor];
+    [titleBtn addTarget:self action:@selector(changeTitle:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:titleBtn];
+
+    
+    
     
     UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(self.view.bounds.size.width-60, KISHighVersion_7?20:0, 60, 44)];
     [button setImage:KUIImage(@"123123") forState:UIControlStateNormal];
@@ -50,8 +64,29 @@
     infoDic = [NSMutableDictionary dictionary];
     [self getInfoFromNet];
     
+    [self buildYsView];
     
+}
+-(void)buildYsView
+{
+    ysView = [[UIView alloc]initWithFrame:CGRectMake(0, KISHighVersion_7?64:44, KScreenWidth, KScreenHeight-(KISHighVersion_7?64:44))];
+    ysView.backgroundColor = kColorWithRGB(0, 0, 0, 0.5);
+    ysView.hidden = YES;
+    [self.view addSubview:ysView];
     
+    ysImgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 100, 108)];
+    ysImgView.image = KUIImage(@"ys_c_down");
+    ysImgView.center = CGPointMake(KScreenWidth/2, -54);
+    ysImgView.userInteractionEnabled = YES;
+    [ysView addSubview:ysImgView];
+    
+    for (int i = 0; i<3; i++) {
+        UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(0, i*36, 100, 36)];
+        [btn setTitle:ysArr[i] forState:UIControlStateNormal];
+        [btn setTag: 1000+i];
+        [btn addTarget:self action:@selector(changeYsTitle:) forControlEvents:UIControlEventTouchUpInside];
+        [ysImgView addSubview:btn];
+    }
 }
 
 #pragma  mark ---网络请求
@@ -166,6 +201,42 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(void)changeTitle:(UIButton *)sender
+{
+    ysView.hidden = NO;
+    [UIView animateWithDuration:0.3 animations:^{
+        ysImgView.center = CGPointMake(KScreenWidth/2, 54);
+    } completion:^(BOOL finished) {
+        [ysView addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hiddenYsView:)]];
+    }];
+    
+}
+
+-(void)changeYsTitle:(UIButton *)sender
+{
+    [titleBtn setTitle:ysArr[sender.tag-1000] forState:UIControlStateNormal];
+    [UIView animateWithDuration:0.3 animations:^{
+        ysImgView.center = CGPointMake(KScreenWidth/2, -54);
+    } completion:^(BOOL finished) {
+        ysView.hidden = YES;
+        [ysView removeGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hiddenYsView:)]];
+    }];
+    
+}
+
+-(void)hiddenYsView:(id)sender
+{
+    [UIView animateWithDuration:0.3 animations:^{
+        ysImgView.center = CGPointMake(KScreenWidth/2, -54);
+    } completion:^(BOOL finished) {
+        ysView.hidden = YES;
+        [ysView removeGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hiddenYsView:)]];
+        
+    }];
+}
+
+
 
 -(NSString*)titleForChildControllerMDMenuViewController:(MDMenuViewController *)menuController
 {

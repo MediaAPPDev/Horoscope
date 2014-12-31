@@ -53,7 +53,6 @@
         self.datyView3.rightImgView.placeholderImage = KUIImage(@"1.jpg");
         self.datyView4.rightImgView.placeholderImage = KUIImage(@"1.jpg");
 
-        
         [self.bgImgView addSubview:self.datyView1];
         [self.bgImgView addSubview:self.datyView2];
         [self.bgImgView addSubview:self.datyView3];
