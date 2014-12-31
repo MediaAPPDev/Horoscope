@@ -25,8 +25,7 @@
     [self buildTopviewWithBackButton:YES title:@"星文" rightImage:@"订阅－正常"];
     
     _tableView =[[UITableView alloc]init];
-    NSArray * arrry =@[@"a",@"a",@"a",@"a",@"a"@"a"];
-    
+
     _tableView.delegate =self;
     _tableView.dataSource =self;
     _tableView.frame =CGRectMake(0,(KISHighVersion_7?64:44), KScreenWidth, KScreenHeight -(KISHighVersion_7?64:44));

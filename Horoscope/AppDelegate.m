@@ -30,7 +30,9 @@
 #import "XWViewController.h" //星文
 
 
-#import "TestViewController.h" //测试
+//#import "TestViewController.h" //测试
+#import "TestViewController.h"
+#import "SexttestViewController.h"
 
 
 
@@ -69,7 +71,7 @@
 //     UIViewController * FoundVC =[[FoundViewController alloc] init]    ;
 
     
-        NSArray *viewControllers = [NSArray arrayWithObjects:[[NewMainViewController alloc] init],[[FoundViewController alloc] init],[[FriendsViewController alloc] init],[[FriendLoopViewController alloc]  init],[[TodayLuckViewController alloc] init],[[BdViewController alloc] init],[[XWViewController alloc] init],[[TestViewController alloc] init], nil];
+        NSArray *viewControllers = [NSArray arrayWithObjects:[[NewMainViewController alloc] init],[[FoundViewController alloc] init],[[FriendsViewController alloc] init],[[FriendLoopViewController alloc]  init],[[TodayLuckViewController alloc] init],[[BdViewController alloc] init],[[XWViewController alloc] init],[[SexttestViewController alloc] init], nil];
     
     
     
