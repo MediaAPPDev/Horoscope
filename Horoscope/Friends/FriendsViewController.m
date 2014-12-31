@@ -92,7 +92,8 @@
 #pragma  mark ---网络请求
 -(void)getInfoFromNet
 {
-    [[AFHTTPSessionManager manager]GET:@"http://120.131.70.218/userfriend.php?uid=6283429397" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+      [[AFAppDotNetAPIClient sharedClient] GET:@"userfriend.php?uid=6283429397" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+ 
         NSLog(@"get----%@",responseObject);
         
         

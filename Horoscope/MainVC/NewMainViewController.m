@@ -66,7 +66,7 @@
 
 -(void)getInfoFromNet
 {
-    [[AFHTTPSessionManager manager]GET:@"http://120.131.70.218/userlist.php" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+    [[AFAppDotNetAPIClient sharedClient] GET:@"userlist.php" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject isKindOfClass:[NSDictionary class]]) {
             NSLog(@"1");
         }else if([responseObject isKindOfClass:[NSArray class]]){

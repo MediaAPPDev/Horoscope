@@ -74,8 +74,6 @@
     [self.view addSubview:titleBtn];
     
     
-    
-    
     scr = [[ UIScrollView alloc]initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height-64)];
     scr.backgroundColor = [UIColor whiteColor];
     scr.contentSize = CGSizeMake(0, 188+64+139+400);
@@ -352,6 +350,9 @@
              
              dateLabel.text = ;
              */
+            StarStr  =[NSString stringWithFormat:@"%@座",xArray[sender.tag-1000]];
+            
+            [self getInfoFromNetWithStar:StarStr date:dateStr];
             
             NSLog(@"----%@",xArray[sender.tag-1000]);
             [scr removeGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hiddenConstellScr:)]];
@@ -432,7 +433,25 @@
     [UIView animateWithDuration:0.3 animations:^{
         ysImgView.center = CGPointMake(KScreenWidth/2, -75);
         
-        StarStr = ysArr[sender.tag-1000];
+//        StarStr = ysArr[sender.tag-1000];
+        if (sender.tag-1000==0)
+        {
+            //today,tomorrow,week,nextweek,month,year
+            dateStr = @"today";
+        }
+        else if (sender.tag-1000==1)
+        {
+            dateStr =@"tomorrow";
+        }
+        else if (sender.tag-1000 ==2)
+        {
+            dateStr =@"week";
+        }
+        else
+        {
+            dateStr =@"month";
+        }
+        
         [self getInfoFromNetWithStar:StarStr date:dateStr];
         
     } completion:^(BOOL finished) {

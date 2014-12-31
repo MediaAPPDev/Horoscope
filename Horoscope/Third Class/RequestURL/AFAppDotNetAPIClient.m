@@ -6,7 +6,7 @@
 
 #import "AFAppDotNetAPIClient.h"
 
-static NSString * const AFAppDotNetAPIBaseURLString = @"http://120.131.70.218/";
+static NSString * const AFAppDotNetAPIBaseURLString = @"http://star.allappropriate.com/";
 
 @implementation AFAppDotNetAPIClient
 

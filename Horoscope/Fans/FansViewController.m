@@ -47,12 +47,12 @@
 {
     NSString *urlStr ;
     if (self.isFans) {
-        urlStr = @"http://120.131.70.218/userfans.php?uid=6283429397";
+        urlStr = @"userfans.php?uid=6283429397";
     }else{
-        urlStr =@"http://120.131.70.218/userfollow.php?uid=6283429397";
+        urlStr =@"userfollow.php?uid=6283429397";
     }
     
-    [[AFHTTPSessionManager manager]GET:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+      [[AFAppDotNetAPIClient sharedClient] GET:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         
         if (![responseObject isKindOfClass:[NSArray class]]) {
             return ;

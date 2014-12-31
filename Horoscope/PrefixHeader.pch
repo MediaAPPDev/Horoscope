@@ -24,6 +24,7 @@
 #import "SBJSON.h"
 #import "NSString+SBJSON.h"
 #import "MBProgressHUD.h"
+#import "AFAppDotNetAPIClient.h"
 //#import "RequestTaskService.h"
 
 #import "NetManager.h"
@@ -32,6 +33,8 @@
 
 
 #define NBBaseUrl @"http://120.131.70.218"
+//http://star.allappropriate.com/book.php
+
 
 #define YSKEY @"14898fc797ac4929b8d725965498c22c"
 

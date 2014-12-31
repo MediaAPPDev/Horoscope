@@ -83,8 +83,10 @@
 -(void)getInfoFromNetWithString:(NSString *)str
 {
     [self.hud show:YES];
-    NSString *urlStr =@"http://120.131.70.218/finduserbyname?name=";
-    [[AFHTTPSessionManager manager]GET:[urlStr stringByAppendingString:str] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSString *urlStr =@"finduserbyname?name=";
+
+        [[AFAppDotNetAPIClient sharedClient] GET:[urlStr stringByAppendingString:str] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        
         [self.hud hide:YES];
         if (![responseObject isKindOfClass:[NSArray class]]) {
             return ;

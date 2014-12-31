@@ -41,10 +41,10 @@
 
 -(void)getInfoFromNet
 {
-    NSString *urlStr  = @"http://120.131.70.218/eventslist";
+    NSString *urlStr  = @"eventslist";
     
     
-    [[AFHTTPSessionManager manager]GET:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+   [[AFAppDotNetAPIClient sharedClient] GET:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         
         if (![responseObject isKindOfClass:[NSArray class]]) {
             return ;

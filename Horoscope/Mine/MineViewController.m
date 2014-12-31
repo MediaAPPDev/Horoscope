@@ -94,12 +94,12 @@
 {
     NSString *urlStr ;
     if (self.isRootView) {
-        urlStr = @"http://120.131.70.218/userdetail.php?uid=6283429397";
+        urlStr = @"userdetail.php?uid=6283429397";
     }else{
-        urlStr = [NSString stringWithFormat:@"%@%@%@",NBBaseUrl,@"/userdetail.php?uid=",userid];
+        urlStr = [NSString stringWithFormat:@"%@%@",@"userdetail.php?uid=",userid];
     }
     
-    [[AFHTTPSessionManager manager]GET:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+     [[AFAppDotNetAPIClient sharedClient] GET:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject isKindOfClass:[NSDictionary class]]) {
             NSDictionary *dic = [NSDictionary dictionaryWithDictionary:responseObject];
             
@@ -444,14 +444,24 @@
 //        NSLog(@"Error---:%@",error);
 //
 //    }];
+//     [[AFAppDotNetAPIClient sharedClient] GET:@"userfriend.php?uid=6283429397" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
     
-    [[AFHTTPSessionManager manager]uploadTaskWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://120.131.70.218/uploader/uppoo"]] fromFile:[NSURL fileURLWithPath:filePath] progress:nil completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
-        if (error) {
-            NSLog(@"%@",error);
-        }else{
-            NSLog(@"%@ %@",response, responseObject);
-        }
-    }];
+         
+         [[AFAppDotNetAPIClient sharedClient]POST:@"uploader/uppoo" parameters:dic constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+             [formData appendPartWithFileURL:[NSURL URLWithString:filePath] name:@"file" fileName:@"headImage.png" mimeType:@"image/jpeg" error:nil];
+         } success:^(NSURLSessionDataTask *task, id responseObject) {
+             NSLog(@"responseObject %@",responseObject);
+         } failure:^(NSURLSessionDataTask *task, NSError *error) {
+             NSLog(@"%@",error);
+         }];
+         
+//    [[AFHTTPSessionManager manager]uploadTaskWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://120.131.70.218/uploader/uppoo"]] fromFile:[NSURL fileURLWithPath:filePath] progress:nil completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+//        if (error) {
+//            NSLog(@"%@",error);
+//        }else{
+//            NSLog(@"%@ %@",response, responseObject);
+//        }
+//    }];
     
     
     

@@ -224,11 +224,11 @@
 {
 //    NSString *urlStr=[NSString string];
     [self.hud show:YES];
-    NSString *urlStr = [NSString stringWithFormat:@"http://120.131.70.218/book.php?name=%@",star];
+    NSString *urlStr = [NSString stringWithFormat:@"book.php?name=%@",star];
 //    urlStr = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSLog(@"urlstr---%@",urlStr);
 
-[[AFHTTPSessionManager manager]GET:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+  [[AFAppDotNetAPIClient sharedClient] GET:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
     [self.hud hide:YES];
         NSLog(@"responseObject -- %@",responseObject);
     
