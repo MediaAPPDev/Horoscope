@@ -23,7 +23,7 @@
     if (self) {
         self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
         
-        
+
         UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:self];
         
         nav.navigationBarHidden = YES;
@@ -31,7 +31,16 @@
     return self;
 }
 
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+//    if (KISHighVersion_7) { // 判断是否是IOS7
+    
 
+        
+//    }
+
+}
 /*
  创建tabbar头条快捷方式
  */
