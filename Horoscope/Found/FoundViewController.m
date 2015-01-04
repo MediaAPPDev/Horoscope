@@ -41,6 +41,7 @@
     myTabelView.delegate = self;
     myTabelView.dataSource = self;
     myTabelView.rowHeight = 90;
+    
     [self.view addSubview:myTabelView];
     infoArray =[NSMutableArray array];
     [self getInfoFromNet];
@@ -88,7 +89,6 @@
         if (!cell) {
             cell = [[FriendsCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         }
-    
     NSDictionary *dic = [infoArray objectAtIndex:indexPath.row];
     cell.headimgView.placeholderImage = KUIImage(@"placeholder.jpg");
     cell.headimgView.imageURL = [NSURL URLWithString:KISDictionaryHaveKey(dic, @"photo")];
@@ -105,6 +105,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
     NSDictionary *dic = infoArray[indexPath.row];
     
     MineViewController *mine = [[MineViewController alloc]init];

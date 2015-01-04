@@ -189,8 +189,8 @@
     
     
     
-    [[NSUserDefaults
-      standardUserDefaults]removeObjectForKey:@"FirstLoign"];
+//    [[NSUserDefaults
+//      standardUserDefaults]removeObjectForKey:@"FirstLoign"];
     if ([[NSUserDefaults
            standardUserDefaults]objectForKey:@"FirstLoign"]) {
         self.window.rootViewController = self.mainViewC;
