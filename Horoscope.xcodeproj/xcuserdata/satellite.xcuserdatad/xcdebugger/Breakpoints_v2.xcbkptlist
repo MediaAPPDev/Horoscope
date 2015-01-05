@@ -67,7 +67,7 @@
                   symbolName = "-[MineViewController imagePickerController:didFinishPickingMediaWithInfo:]"
                   moduleName = "Horoscope"
                   urlString = "file:///Users/satellite/Desktop/Horoscope/Horoscope/Mine/MineViewController.m"
-                  timestampString = "442036201.915795"
+                  timestampString = "442144433.932147"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "450"
@@ -81,7 +81,7 @@
                   symbolName = "__74-[MineViewController imagePickerController:didFinishPickingMediaWithInfo:]_block_invoke_2"
                   moduleName = "Horoscope"
                   urlString = "file:///Users/satellite/Desktop/Horoscope/Horoscope/Mine/MineViewController.m"
-                  timestampString = "442036201.91591"
+                  timestampString = "442144433.93229"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "450"
@@ -104,6 +104,22 @@
             startingLineNumber = "279"
             endingLineNumber = "279"
             landmarkName = "-didClickTap:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Horoscope/circleStar/CircleCell.m"
+            timestampString = "442134022.502431"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
+            landmarkName = "-buildCommentViewWithDic:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

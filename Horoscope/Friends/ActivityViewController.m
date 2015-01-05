@@ -105,6 +105,8 @@
     cell.datyView2.rightImgView.imageURL = [NSURL URLWithString:KISDictionaryHaveKey(dic, @"photo")];
     cell.datyView3.rightImgView.imageURL = [NSURL URLWithString:KISDictionaryHaveKey(dic, @"photo")];
     cell.datyView4.rightImgView.imageURL = [NSURL URLWithString:KISDictionaryHaveKey(dic, @"photo")];
+    
+    
     return cell;
 
     

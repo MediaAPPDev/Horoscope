@@ -40,7 +40,7 @@
 
 #import "NewMainViewController.h"
 
-
+#import "CircleStarViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -72,7 +72,7 @@
 //     UIViewController * FoundVC =[[FoundViewController alloc] init]    ;
 
     
-        NSArray *viewControllers = [NSArray arrayWithObjects:[[NewMainViewController alloc] init],[[FoundViewController alloc] init],[[FriendsViewController alloc] init],[[FriendLoopViewController alloc]  init],[[TodayLuckViewController alloc] init],[[BdViewController alloc] init],[[XWViewController alloc] init],[[SexttestViewController alloc] init], nil];
+        NSArray *viewControllers = [NSArray arrayWithObjects:[[NewMainViewController alloc] init],[[FoundViewController alloc] init],[[FriendsViewController alloc] init],[[CircleStarViewController alloc]  init],[[TodayLuckViewController alloc] init],[[BdViewController alloc] init],[[XWViewController alloc] init],[[SexttestViewController alloc] init], nil];
     
     
     

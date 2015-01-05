@@ -458,7 +458,6 @@
 		647607CD1A3FE24600B71469 /* dotted line@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 647607CB1A3FE24600B71469 /* dotted line@3x.png */; };
 		647607D01A3FE2BD00B71469 /* line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 647607CE1A3FE2BD00B71469 /* line@2x.png */; };
 		647607D11A3FE2BD00B71469 /* line@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 647607CF1A3FE2BD00B71469 /* line@3x.png */; };
-		647607D41A3FF68D00B71469 /* CircleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 647607D31A3FF68D00B71469 /* CircleCell.m */; };
 		647607D71A3FF69E00B71469 /* PersonInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 647607D61A3FF69E00B71469 /* PersonInfoCell.m */; };
 		647607DB1A4003BD00B71469 /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 647607DA1A4003BD00B71469 /* PhotoViewController.m */; };
 		647BEC641A3972100049B8C9 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 647BEC631A3972100049B8C9 /* MineViewController.m */; };
@@ -473,6 +472,21 @@
 		647DC32D1A529DE4009AD4DC /* star-4@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 647DC3221A529DE4009AD4DC /* star-4@3x.png */; };
 		647DC32E1A529DE4009AD4DC /* star-5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 647DC3231A529DE4009AD4DC /* star-5@2x.png */; };
 		647DC32F1A529DE4009AD4DC /* star-5@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 647DC3241A529DE4009AD4DC /* star-5@3x.png */; };
+		64914EB31A5A2BAB003DED2A /* CircleStarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64914EB21A5A2BAB003DED2A /* CircleStarViewController.m */; };
+		64914EB61A5A2BBF003DED2A /* CircleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 64914EB51A5A2BBF003DED2A /* CircleCell.m */; };
+		64914EB91A5A3656003DED2A /* More－Normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64914EB71A5A3656003DED2A /* More－Normal@2x.png */; };
+		64914EBA1A5A3656003DED2A /* More－Normal@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64914EB81A5A3656003DED2A /* More－Normal@3x.png */; };
+		64914EBD1A5A5626003DED2A /* zan-Normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64914EBB1A5A5626003DED2A /* zan-Normal@2x.png */; };
+		64914EBE1A5A5626003DED2A /* zan-Normal@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64914EBC1A5A5626003DED2A /* zan-Normal@3x.png */; };
+		64914EC11A5A5631003DED2A /* pinglun-Normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64914EBF1A5A5631003DED2A /* pinglun-Normal@2x.png */; };
+		64914EC21A5A5631003DED2A /* pinglun-Normal@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64914EC01A5A5631003DED2A /* pinglun-Normal@3x.png */; };
+		64914EC71A5A58ED003DED2A /* pingluntiao-shang@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64914EC31A5A58ED003DED2A /* pingluntiao-shang@2x.png */; };
+		64914EC81A5A58ED003DED2A /* pingluntiao-shang@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64914EC41A5A58ED003DED2A /* pingluntiao-shang@3x.png */; };
+		64914EC91A5A58ED003DED2A /* pingluntiao-xia@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64914EC51A5A58ED003DED2A /* pingluntiao-xia@2x.png */; };
+		64914ECA1A5A58ED003DED2A /* pingluntiao-xia@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64914EC61A5A58ED003DED2A /* pingluntiao-xia@3x.png */; };
+		64914ECD1A5A594F003DED2A /* pengyouquan-xingqing-zan@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64914ECB1A5A594F003DED2A /* pengyouquan-xingqing-zan@2x.png */; };
+		64914ECE1A5A594F003DED2A /* pengyouquan-xingqing-zan@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64914ECC1A5A594F003DED2A /* pengyouquan-xingqing-zan@3x.png */; };
+		64982B811A58F0FE005338AA /* screening.png in Resources */ = {isa = PBXBuildFile; fileRef = 64982B801A58F0FE005338AA /* screening.png */; };
 		649E9C751A4E5C250024B10C /* ActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649E9C741A4E5C250024B10C /* ActivityViewController.m */; };
 		649E9C781A4E619C0024B10C /* ActivityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 649E9C771A4E619C0024B10C /* ActivityCell.m */; };
 		649E9C7B1A4E65890024B10C /* DatyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 649E9C7A1A4E65890024B10C /* DatyView.m */; };
@@ -1065,8 +1079,6 @@
 		647607CB1A3FE24600B71469 /* dotted line@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dotted line@3x.png"; sourceTree = "<group>"; };
 		647607CE1A3FE2BD00B71469 /* line@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "line@2x.png"; sourceTree = "<group>"; };
 		647607CF1A3FE2BD00B71469 /* line@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "line@3x.png"; sourceTree = "<group>"; };
-		647607D21A3FF68D00B71469 /* CircleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleCell.h; sourceTree = "<group>"; };
-		647607D31A3FF68D00B71469 /* CircleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleCell.m; sourceTree = "<group>"; };
 		647607D51A3FF69E00B71469 /* PersonInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonInfoCell.h; sourceTree = "<group>"; };
 		647607D61A3FF69E00B71469 /* PersonInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonInfoCell.m; sourceTree = "<group>"; };
 		647607D91A4003BD00B71469 /* PhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewController.h; sourceTree = "<group>"; };
@@ -1084,6 +1096,23 @@
 		647DC3221A529DE4009AD4DC /* star-4@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-4@3x.png"; sourceTree = "<group>"; };
 		647DC3231A529DE4009AD4DC /* star-5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-5@2x.png"; sourceTree = "<group>"; };
 		647DC3241A529DE4009AD4DC /* star-5@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-5@3x.png"; sourceTree = "<group>"; };
+		64914EB11A5A2BAB003DED2A /* CircleStarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleStarViewController.h; sourceTree = "<group>"; };
+		64914EB21A5A2BAB003DED2A /* CircleStarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleStarViewController.m; sourceTree = "<group>"; };
+		64914EB41A5A2BBF003DED2A /* CircleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleCell.h; sourceTree = "<group>"; };
+		64914EB51A5A2BBF003DED2A /* CircleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleCell.m; sourceTree = "<group>"; };
+		64914EB71A5A3656003DED2A /* More－Normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "More－Normal@2x.png"; sourceTree = "<group>"; };
+		64914EB81A5A3656003DED2A /* More－Normal@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "More－Normal@3x.png"; sourceTree = "<group>"; };
+		64914EBB1A5A5626003DED2A /* zan-Normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zan-Normal@2x.png"; sourceTree = "<group>"; };
+		64914EBC1A5A5626003DED2A /* zan-Normal@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zan-Normal@3x.png"; sourceTree = "<group>"; };
+		64914EBF1A5A5631003DED2A /* pinglun-Normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pinglun-Normal@2x.png"; sourceTree = "<group>"; };
+		64914EC01A5A5631003DED2A /* pinglun-Normal@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pinglun-Normal@3x.png"; sourceTree = "<group>"; };
+		64914EC31A5A58ED003DED2A /* pingluntiao-shang@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pingluntiao-shang@2x.png"; sourceTree = "<group>"; };
+		64914EC41A5A58ED003DED2A /* pingluntiao-shang@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pingluntiao-shang@3x.png"; sourceTree = "<group>"; };
+		64914EC51A5A58ED003DED2A /* pingluntiao-xia@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pingluntiao-xia@2x.png"; sourceTree = "<group>"; };
+		64914EC61A5A58ED003DED2A /* pingluntiao-xia@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pingluntiao-xia@3x.png"; sourceTree = "<group>"; };
+		64914ECB1A5A594F003DED2A /* pengyouquan-xingqing-zan@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pengyouquan-xingqing-zan@2x.png"; sourceTree = "<group>"; };
+		64914ECC1A5A594F003DED2A /* pengyouquan-xingqing-zan@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pengyouquan-xingqing-zan@3x.png"; sourceTree = "<group>"; };
+		64982B801A58F0FE005338AA /* screening.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screening.png; sourceTree = "<group>"; };
 		649E9C731A4E5C250024B10C /* ActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityViewController.h; sourceTree = "<group>"; };
 		649E9C741A4E5C250024B10C /* ActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityViewController.m; sourceTree = "<group>"; };
 		649E9C761A4E619C0024B10C /* ActivityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityCell.h; sourceTree = "<group>"; };
@@ -1186,9 +1215,7 @@
 		2F21162A1A25B5A2009B21EB /* Horoscope */ = {
 			isa = PBXGroup;
 			children = (
-
 				5E2D73841A51330800FB8EBA /* SexTest */,
-
 				645F7B861A5140270023D9C1 /* GuidePage */,
 				5EF3521B1A4D461100AB2463 /* LoadingImage */,
 				5EF352131A4D445600AB2463 /* Default-568h@2x.png */,
@@ -1200,6 +1227,7 @@
 				647607D81A4003A700B71469 /* BIGimg */,
 				647406BB1A4917DE00CC6DB2 /* Fans */,
 				5EB87E951A39686600BE4A5D /* Login */,
+				64914EB01A5A2B9B003DED2A /* circleStar */,
 				647BEC611A3971F50049B8C9 /* Mine */,
 				64CD98211A303AE600040744 /* BD */,
 				64CD98231A303AE600040744 /* Found */,
@@ -1251,14 +1279,21 @@
 		2F2116511A25B64A009B21EB /* Image */ = {
 			isa = PBXGroup;
 			children = (
-
-
 				645F7B8A1A5142EF0023D9C1 /* GuidePage */,
-
-
-
 				5EF352261A4D4AE800AB2463 /* frendloop.png */,
 				5EF352241A4D494B00AB2463 /* 星友圈.png */,
+				64914EB71A5A3656003DED2A /* More－Normal@2x.png */,
+				64914EB81A5A3656003DED2A /* More－Normal@3x.png */,
+				64914EBB1A5A5626003DED2A /* zan-Normal@2x.png */,
+				64914EBC1A5A5626003DED2A /* zan-Normal@3x.png */,
+				64914EBF1A5A5631003DED2A /* pinglun-Normal@2x.png */,
+				64914EC01A5A5631003DED2A /* pinglun-Normal@3x.png */,
+				64914EC31A5A58ED003DED2A /* pingluntiao-shang@2x.png */,
+				64914EC41A5A58ED003DED2A /* pingluntiao-shang@3x.png */,
+				64914EC51A5A58ED003DED2A /* pingluntiao-xia@2x.png */,
+				64914EC61A5A58ED003DED2A /* pingluntiao-xia@3x.png */,
+				64914ECB1A5A594F003DED2A /* pengyouquan-xingqing-zan@2x.png */,
+				64914ECC1A5A594F003DED2A /* pengyouquan-xingqing-zan@3x.png */,
 				649E9C7F1A4E803F0024B10C /* 123.jpg */,
 				6441674B1A4960AB004277F8 /* placeholder.jpg */,
 				644167491A4957F1004277F8 /* blackView.png */,
@@ -1273,6 +1308,7 @@
 				645DEF031A41766E00E8C524 /* sexImg.png */,
 				645DEEC91A41712600E8C524 /* emnu.png */,
 				645DEEC71A416F1400E8C524 /* back.png */,
+				64982B801A58F0FE005338AA /* screening.png */,
 				645DEEAB1A414DCA00E8C524 /* QQ@2x.png */,
 				645DEEAC1A414DCA00E8C524 /* QQ@3x.png */,
 				645DEEAD1A414DCA00E8C524 /* shouji@2x.png */,
@@ -2027,8 +2063,6 @@
 			children = (
 				647BEC621A3972100049B8C9 /* MineViewController.h */,
 				647BEC631A3972100049B8C9 /* MineViewController.m */,
-				647607D21A3FF68D00B71469 /* CircleCell.h */,
-				647607D31A3FF68D00B71469 /* CircleCell.m */,
 				647607D51A3FF69E00B71469 /* PersonInfoCell.h */,
 				647607D61A3FF69E00B71469 /* PersonInfoCell.m */,
 				645DEE881A4137A200E8C524 /* PersonInfoChangeViewController.h */,
@@ -2055,6 +2089,17 @@
 				647DC3241A529DE4009AD4DC /* star-5@3x.png */,
 			);
 			path = xingxing;
+			sourceTree = "<group>";
+		};
+		64914EB01A5A2B9B003DED2A /* circleStar */ = {
+			isa = PBXGroup;
+			children = (
+				64914EB11A5A2BAB003DED2A /* CircleStarViewController.h */,
+				64914EB21A5A2BAB003DED2A /* CircleStarViewController.m */,
+				64914EB41A5A2BBF003DED2A /* CircleCell.h */,
+				64914EB51A5A2BBF003DED2A /* CircleCell.m */,
+			);
+			path = circleStar;
 			sourceTree = "<group>";
 		};
 		649E9C721A4E5BF30024B10C /* Activity */ = {
@@ -2347,12 +2392,9 @@
 				5EF352191A4D445600AB2463 /* Default-2208@3x.png in Resources */,
 				645DEEE51A41715200E8C524 /* news3.png in Resources */,
 				647607B01A3FD7C400B71469 /* 下一级@2x.png in Resources */,
-
 				5E9755B71A529E46003A4A31 /* weixuanzhong@2X.png in Resources */,
-
 				647DC32A1A529DE4009AD4DC /* star-3@2x.png in Resources */,
 				645F7BBC1A5142EF0023D9C1 /* 引导页3效果图.png in Resources */,
-
 				5ED3CFA61A418BA80083BCDE /* icon_1320_white60.png in Resources */,
 				5ED3CF651A416FCE0083BCDE /* touxiang1@2x.png in Resources */,
 				5E9755C61A529E46003A4A31 /* zonghe@2x.png in Resources */,
@@ -2363,11 +2405,13 @@
 				64C727161A3575B300DFE28E /* rank@2x.png in Resources */,
 				5ED3CFAB1A418BA80083BCDE /* topBar.jpg in Resources */,
 				5ED3CF511A416FCE0083BCDE /* darenxiu@2x.png in Resources */,
+				64914ECE1A5A594F003DED2A /* pengyouquan-xingqing-zan@3x.png in Resources */,
 				5ECC41C31A43D26200A5D3B4 /* shareP@2X.png in Resources */,
 				646C43AC1A37FB2400FB683D /* ys_c_shizi@3x.png in Resources */,
 				646C43AA1A37FB2400FB683D /* ys_c_sheshou@3x.png in Resources */,
 				645F7BB21A5142EF0023D9C1 /* dianhui@3X.png in Resources */,
 				5EB87ECD1A39713700BE4A5D /* regeback@3x.png in Resources */,
+				64914EC11A5A5631003DED2A /* pinglun-Normal@2x.png in Resources */,
 				646C43851A37F9F300FB683D /* 天蝎@2x.png in Resources */,
 				645DEEF51A41715200E8C524 /* 星资讯－选中.png in Resources */,
 				5EB87EBC1A396EBF00BE4A5D /* nextSelcted@2x.png in Resources */,
@@ -2376,18 +2420,17 @@
 				5E9755A01A529E46003A4A31 /* chongceP@3x.png in Resources */,
 				5ED3CF521A416FCE0083BCDE /* darenxiu@3x.png in Resources */,
 				646C43C61A381CDB00FB683D /* ys_c_downline@3x.png in Resources */,
-
 				5E9755981A529E46003A4A31 /* ceshidangqianye@3X.png in Resources */,
-
 				645F7BAD1A5142EF0023D9C1 /* 3-568h@2x.png in Resources */,
-
 				5EB87EC31A396EBF00BE4A5D /* selected@3x.png in Resources */,
 				645400231A42860200FA69C7 /* 微博绑定图标大@2x.png in Resources */,
 				646C43841A37F9F300FB683D /* 天秤@3x.png in Resources */,
+				64914EB91A5A3656003DED2A /* More－Normal@2x.png in Resources */,
 				64CD98D21A3042FD00040744 /* QQ图标@3x.png in Resources */,
 				5ECC41C51A43D26200A5D3B4 /* zan@2X.png in Resources */,
 				5E97558D1A529E46003A4A31 /* aiqingN@3x.png in Resources */,
 				646C43B51A37FB2400FB683D /* ys_c_tx@2x.png in Resources */,
+				64914ECA1A5A58ED003DED2A /* pingluntiao-xia@3x.png in Resources */,
 				645F7BA41A5142EF0023D9C1 /* 1-4@2x.png in Resources */,
 				645DEF081A41899100E8C524 /* 排名色块小.png in Resources */,
 				645DEECA1A41712600E8C524 /* emnu.png in Resources */,
@@ -2408,12 +2451,9 @@
 				645DEEE91A41715200E8C524 /* 发现－按下.png in Resources */,
 				5ECC41BF1A43D26200A5D3B4 /* pinglunP@2X.png in Resources */,
 				646C43801A37F9F300FB683D /* 双子@3x.png in Resources */,
-
 				5E2D738E1A51348200FB8EBA /* testTableViewCell.xib in Resources */,
-
 				645F7BB61A5142EF0023D9C1 /* start-click-6@2x.png in Resources */,
 				645F7BB41A5142EF0023D9C1 /* dianlan-@2x.png in Resources */,
-
 				646C43A41A37FB2400FB683D /* ys_c_jinniu@3x.png in Resources */,
 				5EB87EC21A396EBF00BE4A5D /* selected@2x.png in Resources */,
 				64C727251A3575B300DFE28E /* 弹窗@3x.png in Resources */,
@@ -2434,6 +2474,7 @@
 				5E9755C71A529E46003A4A31 /* zonghe@3x.png in Resources */,
 				5EB87EB61A396EBF00BE4A5D /* delSelected@2x.png in Resources */,
 				64CD98D51A3042FD00040744 /* 微博图标@3x.png in Resources */,
+				64914EC71A5A58ED003DED2A /* pingluntiao-shang@2x.png in Resources */,
 				5ED3CF741A416FCE0083BCDE /* xingyouquan@3x.png in Resources */,
 				646C43CE1A381CE800FB683D /* ys_c_star_gray@3x.png in Resources */,
 				647DC32C1A529DE4009AD4DC /* star-4@2x.png in Resources */,
@@ -2463,11 +2504,8 @@
 				5E97558C1A529E46003A4A31 /* aiqingN@2x.png in Resources */,
 				5E9755AF1A529E46003A4A31 /* tianjia@2X.png in Resources */,
 				5ED3CF951A418B0B0083BCDE /* side_menu@2x.png in Resources */,
-
 				5E97559C1A529E46003A4A31 /* ceshiqitaye@3X.png in Resources */,
-
 				647DC3281A529DE4009AD4DC /* star-2@2x.png in Resources */,
-
 				645DEE961A41484100E8C524 /* dianhualianxiren@2x.png in Resources */,
 				5ED3CF961A418B0B0083BCDE /* side_menu@3x.png in Resources */,
 				645DEEF81A41715200E8C524 /* news0.png in Resources */,
@@ -2481,12 +2519,14 @@
 				646C43BE1A38146E00FB683D /* 摩羯@3x.png in Resources */,
 				646C43A71A37FB2400FB683D /* ys_c_mojie@2x.png in Resources */,
 				5ED3CF911A418B0B0083BCDE /* back@2x.png in Resources */,
+				64914EBA1A5A3656003DED2A /* More－Normal@3x.png in Resources */,
 				5ED3CF581A416FCE0083BCDE /* faxianIanxia@3x.png in Resources */,
 				645DEEEF1A41715200E8C524 /* 星友圈－按下.png in Resources */,
 				5E9755A51A529E46003A4A31 /* hot-@2X.png in Resources */,
 				649E9C801A4E803F0024B10C /* 123.jpg in Resources */,
 				646C43C51A381CDB00FB683D /* ys_c_downline@2x.png in Resources */,
 				646C43AF1A37FB2400FB683D /* ys_c_sy@2x.png in Resources */,
+				64914EBE1A5A5626003DED2A /* zan-Normal@3x.png in Resources */,
 				5ED3CFA71A418BA80083BCDE /* icon_back_white.png in Resources */,
 				645DEEB71A414DCA00E8C524 /* weibo@2x.png in Resources */,
 				5E97559E1A529E46003A4A31 /* chongce@2X.png in Resources */,
@@ -2541,11 +2581,8 @@
 				5ED3CF861A41870A0083BCDE /* shezhi@2x.png in Resources */,
 				5EB87EB81A396EBF00BE4A5D /* fogetPass@2x.png in Resources */,
 				64C7271B1A3575B300DFE28E /* 弹窗@2x.png in Resources */,
-
 				5E9755B61A529E46003A4A31 /* wanchengP@3x.png in Resources */,
-
 				645F7BAF1A5142EF0023D9C1 /* 3@3x.png in Resources */,
-
 				5ED3CF6F1A416FCE0083BCDE /* xingyou@2x.png in Resources */,
 				5ECC41BE1A43D26200A5D3B4 /* pinglun@3X.png in Resources */,
 				5E9755B41A529E46003A4A31 /* wancheng@3x.png in Resources */,
@@ -2572,6 +2609,7 @@
 				5EF352171A4D445600AB2463 /* Default-568h@2x.png in Resources */,
 				645F7BB51A5142EF0023D9C1 /* dianlan@3X.png in Resources */,
 				5EB87EB91A396EBF00BE4A5D /* fogetPass@3x.png in Resources */,
+				64914EBD1A5A5626003DED2A /* zan-Normal@2x.png in Resources */,
 				645DEF041A41766E00E8C524 /* sexImg.png in Resources */,
 				646C43761A37F9F300FB683D /* 金牛@3x.png in Resources */,
 				5E9755AC1A529E46003A4A31 /* quceshi@3X.png in Resources */,
@@ -2615,6 +2653,7 @@
 				5EF352231A4D461100AB2463 /* icon@3x.png in Resources */,
 				6454001B1A4284DB00FA69C7 /* 弹窗正常状态.png in Resources */,
 				64C7271F1A3575B300DFE28E /* rank2@3x.png in Resources */,
+				64914EC21A5A5631003DED2A /* pinglun-Normal@3x.png in Resources */,
 				5ED3CF5F1A416FCE0083BCDE /* taluopai@2x.png in Resources */,
 				64CD98D81A3042FD00040744 /* 线条@2x.png in Resources */,
 				5ECC41C61A43D26200A5D3B4 /* zan@3X.png in Resources */,
@@ -2644,6 +2683,7 @@
 				5ED3CFA41A418BA80083BCDE /* BigIcon_exclamation.gif in Resources */,
 				64C7271E1A3575B300DFE28E /* imgbg@3x.png in Resources */,
 				5ED3CF721A416FCE0083BCDE /* xingyouIanxia@3x.png in Resources */,
+				64982B811A58F0FE005338AA /* screening.png in Resources */,
 				647607BA1A3FD7C400B71469 /* 密码图标@2x.png in Resources */,
 				645DEEFC1A4172D300E8C524 /* 1.png in Resources */,
 				646C43A51A37FB2400FB683D /* ys_c_juxie@2x.png in Resources */,
@@ -2673,12 +2713,10 @@
 				647607D01A3FE2BD00B71469 /* line@2x.png in Resources */,
 				5EF352271A4D4AE800AB2463 /* frendloop.png in Resources */,
 				645DEEF31A41715200E8C524 /* 星友说－正常.png in Resources */,
-
+				64914ECD1A5A594F003DED2A /* pengyouquan-xingqing-zan@2x.png in Resources */,
 				5E97559A1A529E46003A4A31 /* ceshilianjiexian@3X.png in Resources */,
-
 				647DC32D1A529DE4009AD4DC /* star-4@3x.png in Resources */,
 				645F7BA81A5142EF0023D9C1 /* 2-4@2x.png in Resources */,
-
 				645DEEF41A41715200E8C524 /* 星资讯－按下.png in Resources */,
 				646C43821A37F9F300FB683D /* 水瓶@3x.png in Resources */,
 				647607B51A3FD7C400B71469 /* 删除按钮正常状态@3x.png in Resources */,
@@ -2689,6 +2727,7 @@
 				5ED3CF751A416FCE0083BCDE /* xingyouquanIanxia@2x.png in Resources */,
 				5ED3CF641A416FCE0083BCDE /* tishi@3x.png in Resources */,
 				5ED3CFA81A418BA80083BCDE /* menu_icon (1).png in Resources */,
+				64914EC91A5A58ED003DED2A /* pingluntiao-xia@2x.png in Resources */,
 				6454001D1A4285A500FA69C7 /* 白羊座@2x.png in Resources */,
 				645DEEB41A414DCA00E8C524 /* QQ@3x.png in Resources */,
 				64C727141A3575B300DFE28E /* imgbg@2x.png in Resources */,
@@ -2698,14 +2737,12 @@
 				5ED3CF7A1A416FCE0083BCDE /* yunshi@2x.png in Resources */,
 				64CD98DD1A3042FD00040744 /* iphone5bg.png in Resources */,
 				5EB87EC61A396EBF00BE4A5D /* userDefalt@2x.png in Resources */,
-
 				5E9755A41A529E46003A4A31 /* fenxiangP@3x.png in Resources */,
-
 				647DC3291A529DE4009AD4DC /* star-2@3x.png in Resources */,
 				647DC3251A529DE4009AD4DC /* star-0@2x.png in Resources */,
 				645F7BB71A5142EF0023D9C1 /* start-click-6plus@3x.png in Resources */,
-
 				645DEEB81A414DCA00E8C524 /* weibo@3x.png in Resources */,
+				64914EC81A5A58ED003DED2A /* pingluntiao-shang@3x.png in Resources */,
 				647607D11A3FE2BD00B71469 /* line@3x.png in Resources */,
 				64C727131A3575B300DFE28E /* imgbg.png in Resources */,
 				5E97559B1A529E46003A4A31 /* ceshiqitaye@2X.png in Resources */,
@@ -2723,11 +2760,8 @@
 				5ED3CF591A416FCE0083BCDE /* fenxianlan@2x.png in Resources */,
 				5E9755AA1A529E46003A4A31 /* luoboHui@3X.png in Resources */,
 				5EF352221A4D461100AB2463 /* icon@2x.png in Resources */,
-
 				5E9755B81A529E46003A4A31 /* weixuanzhong@3X.png in Resources */,
-
 				645F7BB11A5142EF0023D9C1 /* dianhui-@2x.png in Resources */,
-
 				646C43B61A37FB2400FB683D /* ys_c_tx@3x.png in Resources */,
 				646C43B41A37FB2400FB683D /* ys_c_tc@3x.png in Resources */,
 				646C43CB1A381CE800FB683D /* ys_c_star_blue@2x.png in Resources */,
@@ -2796,6 +2830,7 @@
 				5ED3CF7F1A416FCE0083BCDE /* MenuItemEntity.m in Sources */,
 				64CD99521A30487E00040744 /* MainCollectionViewCell.m in Sources */,
 				649E9C7B1A4E65890024B10C /* DatyView.m in Sources */,
+				64914EB61A5A2BBF003DED2A /* CircleCell.m in Sources */,
 				2FC71FDE1A2721AC002BB2C5 /* TodayViewController.m in Sources */,
 				5ED3CF821A416FCE0083BCDE /* MJPopupBackgroundView.m in Sources */,
 				2F2116311A25B5A2009B21EB /* AppDelegate.m in Sources */,
@@ -2835,7 +2870,6 @@
 				5E6C7CDC1A42C875005C4554 /* UIProgressView+AFNetworking.m in Sources */,
 				5ED3CF461A416FCE0083BCDE /* MDTransitionAnimatorNone.m in Sources */,
 				5E2D738D1A51348200FB8EBA /* testTableViewCell.m in Sources */,
-				647607D41A3FF68D00B71469 /* CircleCell.m in Sources */,
 				2F21162E1A25B5A2009B21EB /* main.m in Sources */,
 				2FC71FDD1A2721AC002BB2C5 /* StarDicController.m in Sources */,
 				5EB87E9A1A39688700BE4A5D /* LoginViewController.m in Sources */,
@@ -2849,6 +2883,7 @@
 				645400171A4274A400FA69C7 /* SetUpCell.m in Sources */,
 				645400051A426E2900FA69C7 /* SetUpViewController.m in Sources */,
 				2FC71FDB1A2721AC002BB2C5 /* FindViewController.m in Sources */,
+				64914EB31A5A2BAB003DED2A /* CircleStarViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2972,6 +3007,7 @@
 				INFOPLIST_FILE = Horoscope/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"-ObjC",
@@ -2996,6 +3032,7 @@
 				INFOPLIST_FILE = Horoscope/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"-ObjC",
