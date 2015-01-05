@@ -486,6 +486,8 @@
 		64914ECA1A5A58ED003DED2A /* pingluntiao-xia@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64914EC61A5A58ED003DED2A /* pingluntiao-xia@3x.png */; };
 		64914ECD1A5A594F003DED2A /* pengyouquan-xingqing-zan@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64914ECB1A5A594F003DED2A /* pengyouquan-xingqing-zan@2x.png */; };
 		64914ECE1A5A594F003DED2A /* pengyouquan-xingqing-zan@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64914ECC1A5A594F003DED2A /* pengyouquan-xingqing-zan@3x.png */; };
+		64914ED11A5AA33B003DED2A /* CircleBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 64914ED01A5AA33B003DED2A /* CircleBtn.m */; };
+		64914ED41A5AAEB7003DED2A /* PersonInfo1Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 64914ED31A5AAEB7003DED2A /* PersonInfo1Cell.m */; };
 		64982B811A58F0FE005338AA /* screening.png in Resources */ = {isa = PBXBuildFile; fileRef = 64982B801A58F0FE005338AA /* screening.png */; };
 		649E9C751A4E5C250024B10C /* ActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649E9C741A4E5C250024B10C /* ActivityViewController.m */; };
 		649E9C781A4E619C0024B10C /* ActivityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 649E9C771A4E619C0024B10C /* ActivityCell.m */; };
@@ -1112,6 +1114,10 @@
 		64914EC61A5A58ED003DED2A /* pingluntiao-xia@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pingluntiao-xia@3x.png"; sourceTree = "<group>"; };
 		64914ECB1A5A594F003DED2A /* pengyouquan-xingqing-zan@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pengyouquan-xingqing-zan@2x.png"; sourceTree = "<group>"; };
 		64914ECC1A5A594F003DED2A /* pengyouquan-xingqing-zan@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pengyouquan-xingqing-zan@3x.png"; sourceTree = "<group>"; };
+		64914ECF1A5AA33B003DED2A /* CircleBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleBtn.h; sourceTree = "<group>"; };
+		64914ED01A5AA33B003DED2A /* CircleBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleBtn.m; sourceTree = "<group>"; };
+		64914ED21A5AAEB7003DED2A /* PersonInfo1Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonInfo1Cell.h; sourceTree = "<group>"; };
+		64914ED31A5AAEB7003DED2A /* PersonInfo1Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonInfo1Cell.m; sourceTree = "<group>"; };
 		64982B801A58F0FE005338AA /* screening.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screening.png; sourceTree = "<group>"; };
 		649E9C731A4E5C250024B10C /* ActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityViewController.h; sourceTree = "<group>"; };
 		649E9C741A4E5C250024B10C /* ActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityViewController.m; sourceTree = "<group>"; };
@@ -2061,6 +2067,8 @@
 		647BEC611A3971F50049B8C9 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				64914ED21A5AAEB7003DED2A /* PersonInfo1Cell.h */,
+				64914ED31A5AAEB7003DED2A /* PersonInfo1Cell.m */,
 				647BEC621A3972100049B8C9 /* MineViewController.h */,
 				647BEC631A3972100049B8C9 /* MineViewController.m */,
 				647607D51A3FF69E00B71469 /* PersonInfoCell.h */,
@@ -2098,6 +2106,8 @@
 				64914EB21A5A2BAB003DED2A /* CircleStarViewController.m */,
 				64914EB41A5A2BBF003DED2A /* CircleCell.h */,
 				64914EB51A5A2BBF003DED2A /* CircleCell.m */,
+				64914ECF1A5AA33B003DED2A /* CircleBtn.h */,
+				64914ED01A5AA33B003DED2A /* CircleBtn.m */,
 			);
 			path = circleStar;
 			sourceTree = "<group>";
@@ -2833,6 +2843,7 @@
 				64914EB61A5A2BBF003DED2A /* CircleCell.m in Sources */,
 				2FC71FDE1A2721AC002BB2C5 /* TodayViewController.m in Sources */,
 				5ED3CF821A416FCE0083BCDE /* MJPopupBackgroundView.m in Sources */,
+				64914ED11A5AA33B003DED2A /* CircleBtn.m in Sources */,
 				2F2116311A25B5A2009B21EB /* AppDelegate.m in Sources */,
 				64CD99571A304F2A00040744 /* AddButton.m in Sources */,
 				6454000E1A4271A100FA69C7 /* NotifiationViewController.m in Sources */,
@@ -2863,6 +2874,7 @@
 				5ECA51F91A491607006F0CC3 /* ModelData.m in Sources */,
 				649E9C781A4E619C0024B10C /* ActivityCell.m in Sources */,
 				645DEE401A4132C100E8C524 /* NSString+SBJSON.m in Sources */,
+				64914ED41A5AAEB7003DED2A /* PersonInfo1Cell.m in Sources */,
 				645DEE411A4132C100E8C524 /* SBJSON.m in Sources */,
 				5ED3CF801A416FCE0083BCDE /* MenuView.m in Sources */,
 				5E6C7CDE1A42C875005C4554 /* UIWebView+AFNetworking.m in Sources */,

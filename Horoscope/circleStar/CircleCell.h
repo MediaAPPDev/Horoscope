@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "EGOImageButton.h"
 #import "EGOImageView.h"
+#import "CircleBtn.h"
 @interface CircleCell : UITableViewCell
 @property(nonatomic,strong)EGOImageButton *headImageView;
 @property(nonatomic,strong)UILabel *titleLabel;
@@ -17,8 +18,8 @@
 @property (nonatomic,strong)EGOImageView * cImageView;
 @property (nonatomic,strong)UILabel  * timeLabel;
 @property (nonatomic,strong)UIButton * menuBtn;
-@property (nonatomic,strong)UIButton * zanBtn;
-@property (nonatomic,strong)UIButton *commBtn;
+@property (nonatomic,strong)CircleBtn * zanBtn;
+@property (nonatomic,strong)CircleBtn *commBtn;
 @property (nonatomic,strong)UIImageView *zanView;
 @property (nonatomic,strong)UIImageView * commentView;
 

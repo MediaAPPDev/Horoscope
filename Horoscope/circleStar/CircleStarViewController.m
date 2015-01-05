@@ -74,8 +74,12 @@
     cell.nameLabel.text = KISDictionaryHaveKey(dic, @"username");
     cell.cImageView.imageURL = [NSURL URLWithString:KISDictionaryHaveKey(dic, @"photo")];
     cell.timeLabel.text = KISDictionaryHaveKey(dic, @"crtime");
-    [cell.zanBtn setTitle:KISDictionaryHaveKey(dic, @"zcount") forState:UIControlStateNormal];
-    [cell.commBtn setTitle:@"1" forState:UIControlStateNormal];
+//    [cell.zanBtn setTitle:KISDictionaryHaveKey(dic, @"zcount") forState:UIControlStateNormal];
+//    [cell.commBtn setTitle:@"1" forState:UIControlStateNormal];
+    
+    cell.zanBtn.countLabel.text = KISDictionaryHaveKey(dic, @"zcount");
+    cell.commBtn.countLabel.text = @"1";
+    
     if ([KISDictionaryHaveKey(dic, @"zcount")intValue]>0) {
         [cell buildZanViewWithdic:nil];
     }

@@ -48,8 +48,8 @@
 //        [self.menuBtn setBackgroundImage:KUIImage(@"") forState:UIControlStateHighlighted];
         [self.contentView addSubview:self.menuBtn];
         
-        self.zanBtn = [[UIButton alloc]initWithFrame:CGRectMake(sx(self.menuBtn)-140-50, sy(self.cImageView)+5, 70, 30)];
-        self.commBtn =[[UIButton alloc]initWithFrame:CGRectMake(sx(self.zanBtn), sy(self.cImageView)+5, 70, 30)];
+        self.zanBtn = [[CircleBtn alloc]initWithFrame:CGRectMake(sx(self.menuBtn)-140-50, sy(self.cImageView)+5, 70, 30)];
+        self.commBtn =[[CircleBtn alloc]initWithFrame:CGRectMake(sx(self.zanBtn), sy(self.cImageView)+5, 70, 30)];
         
         [self.zanBtn setBackgroundImage:KUIImage(@"zan-Normal") forState:UIControlStateNormal];
         [self.commBtn setBackgroundImage:KUIImage(@"pinglun-Normal") forState:UIControlStateNormal];
@@ -74,7 +74,7 @@
 {
     UILabel *lb;
     if (!self.zanView) {
-        self.zanView = [[UIImageView alloc]initWithFrame:CGRectMake(sx(self.headImageView)+10, sy(self.timeLabel), KScreenWidth-sx(self.headImageView)-20, 30)];
+        self.zanView = [[UIImageView alloc]initWithFrame:CGRectMake(sx(self.headImageView)+10, sy(self.timeLabel)+10, KScreenWidth-sx(self.headImageView)-40, 30)];
         self.zanView.image = KUIImage(@"pingluntiao-shang");
         
         UIImageView *timg = [[UIImageView alloc]initWithFrame:CGRectMake(3, 7, 20, 20)];
@@ -82,6 +82,7 @@
         [self.zanView addSubview:timg];
         
         lb = [[UILabel alloc]initWithFrame:CGRectMake(sx(timg)+5, 7, width(self.zanView)-sx(timg)-5, 20)];
+        lb.font = [UIFont systemFontOfSize:12];
         lb.backgroundColor = [UIColor clearColor];
         lb.textColor = [UIColor blueColor];
         [self.zanView addSubview:lb];
@@ -96,7 +97,7 @@
     NSLog(@"---------%lu",(unsigned long)arr.count);
     for (int i = 0; i<arr.count; i++) {
         NSDictionary *dic  = arr[i];
-      UIImageView * commView= [[UIImageView alloc]initWithFrame:CGRectMake(sx(self.headImageView)+10, self.zanView?sy(self.zanView):sy(self.timeLabel)+20*i, KScreenWidth-sx(self.headImageView)-20, 20)];
+      UIImageView * commView= [[UIImageView alloc]initWithFrame:CGRectMake(sx(self.headImageView)+10, self.zanView?sy(self.zanView):sy(self.timeLabel)+20*i, KScreenWidth-sx(self.headImageView)-40, 20)];
         commView.image = KUIImage(@"pingluntiao-xia");
         UILabel *commentLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, commView.frame.size.width-30, 20)];
         commentLabel.font = [UIFont systemFontOfSize:12];

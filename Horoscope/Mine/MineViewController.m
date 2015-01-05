@@ -7,7 +7,7 @@
 //
 
 #import "MineViewController.h"
-#import "CircleCell.h"
+#import "PersonInfo1Cell.h"
 #import "PersonInfoCell.h"
 #import "PhotoViewController.h"
 #import "PersonInfoChangeViewController.h"
@@ -230,9 +230,9 @@
 {
     if (indexPath.section ==0) {
         static NSString * identifier1 = @"cell1";
-        CircleCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier1];
+        PersonInfo1Cell *cell = [tableView dequeueReusableCellWithIdentifier:identifier1];
         if (!cell) {
-            cell = [[CircleCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier1];
+            cell = [[PersonInfo1Cell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier1];
         }
         cell.accessoryType = YES;
         return cell;
