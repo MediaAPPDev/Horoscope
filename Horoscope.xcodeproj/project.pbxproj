@@ -55,6 +55,11 @@
 		5E6C7CDC1A42C875005C4554 /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6C7CC91A42C875005C4554 /* UIProgressView+AFNetworking.m */; };
 		5E6C7CDD1A42C875005C4554 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6C7CCB1A42C875005C4554 /* UIRefreshControl+AFNetworking.m */; };
 		5E6C7CDE1A42C875005C4554 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6C7CCD1A42C875005C4554 /* UIWebView+AFNetworking.m */; };
+		5E6E29A71A59167B004F3C89 /* CustHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6E29A61A59167B004F3C89 /* CustHeadView.m */; };
+		5E6E29A91A59169E004F3C89 /* CustHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E6E29A81A59169E004F3C89 /* CustHeadView.xib */; };
+		5E6E29AD1A594891004F3C89 /* ExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6E29AB1A594891004F3C89 /* ExampleViewController.m */; };
+		5E6E29AE1A594891004F3C89 /* ExampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E6E29AC1A594891004F3C89 /* ExampleViewController.xib */; };
+		5E6E29B21A5A7663004F3C89 /* RadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6E29B11A5A7663004F3C89 /* RadioButton.m */; };
 		5E97558B1A529E46003A4A31 /* aiqing@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E9754D31A529E46003A4A31 /* aiqing@2x.png */; };
 		5E97558C1A529E46003A4A31 /* aiqingN@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E9754D41A529E46003A4A31 /* aiqingN@2x.png */; };
 		5E97558D1A529E46003A4A31 /* aiqingN@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E9754D51A529E46003A4A31 /* aiqingN@3x.png */; };
@@ -612,6 +617,14 @@
 		5E6C7CCB1A42C875005C4554 /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
 		5E6C7CCC1A42C875005C4554 /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
 		5E6C7CCD1A42C875005C4554 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
+		5E6E29A51A59167A004F3C89 /* CustHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustHeadView.h; sourceTree = "<group>"; };
+		5E6E29A61A59167B004F3C89 /* CustHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustHeadView.m; sourceTree = "<group>"; };
+		5E6E29A81A59169E004F3C89 /* CustHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustHeadView.xib; sourceTree = "<group>"; };
+		5E6E29AA1A594891004F3C89 /* ExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExampleViewController.h; sourceTree = "<group>"; };
+		5E6E29AB1A594891004F3C89 /* ExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExampleViewController.m; sourceTree = "<group>"; };
+		5E6E29AC1A594891004F3C89 /* ExampleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExampleViewController.xib; sourceTree = "<group>"; };
+		5E6E29B01A5A7663004F3C89 /* RadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadioButton.h; sourceTree = "<group>"; };
+		5E6E29B11A5A7663004F3C89 /* RadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RadioButton.m; sourceTree = "<group>"; };
 		5E9754D31A529E46003A4A31 /* aiqing@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "aiqing@2x.png"; sourceTree = "<group>"; };
 		5E9754D41A529E46003A4A31 /* aiqingN@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "aiqingN@2x.png"; sourceTree = "<group>"; };
 		5E9754D51A529E46003A4A31 /* aiqingN@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "aiqingN@3x.png"; sourceTree = "<group>"; };
@@ -1186,9 +1199,7 @@
 		2F21162A1A25B5A2009B21EB /* Horoscope */ = {
 			isa = PBXGroup;
 			children = (
-
 				5E2D73841A51330800FB8EBA /* SexTest */,
-
 				645F7B861A5140270023D9C1 /* GuidePage */,
 				5EF3521B1A4D461100AB2463 /* LoadingImage */,
 				5EF352131A4D445600AB2463 /* Default-568h@2x.png */,
@@ -1251,12 +1262,7 @@
 		2F2116511A25B64A009B21EB /* Image */ = {
 			isa = PBXGroup;
 			children = (
-
-
 				645F7B8A1A5142EF0023D9C1 /* GuidePage */,
-
-
-
 				5EF352261A4D4AE800AB2463 /* frendloop.png */,
 				5EF352241A4D494B00AB2463 /* 星友圈.png */,
 				649E9C7F1A4E803F0024B10C /* 123.jpg */,
@@ -1302,6 +1308,7 @@
 		2F2116A31A25B64A009B21EB /* Third Class */ = {
 			isa = PBXGroup;
 			children = (
+				5E6E29AF1A5A7663004F3C89 /* ViewsOfCustom */,
 				5E6C7CA81A42C875005C4554 /* AFNetworking */,
 				5E6C7CBC1A42C875005C4554 /* UIKit+AFNetworking */,
 				5ED3CED91A416FCE0083BCDE /* MDMenuViewController classes */,
@@ -1362,6 +1369,12 @@
 				5E2D738F1A51387F00FB8EBA /* testDetailedViewController.h */,
 				5E2D73901A51387F00FB8EBA /* testDetailedViewController.m */,
 				5E2D73911A51387F00FB8EBA /* testDetailedViewController.xib */,
+				5E6E29A51A59167A004F3C89 /* CustHeadView.h */,
+				5E6E29A61A59167B004F3C89 /* CustHeadView.m */,
+				5E6E29A81A59169E004F3C89 /* CustHeadView.xib */,
+				5E6E29AA1A594891004F3C89 /* ExampleViewController.h */,
+				5E6E29AB1A594891004F3C89 /* ExampleViewController.m */,
+				5E6E29AC1A594891004F3C89 /* ExampleViewController.xib */,
 			);
 			path = SexTest;
 			sourceTree = "<group>";
@@ -1428,6 +1441,15 @@
 				5E6C7CCD1A42C875005C4554 /* UIWebView+AFNetworking.m */,
 			);
 			path = "UIKit+AFNetworking";
+			sourceTree = "<group>";
+		};
+		5E6E29AF1A5A7663004F3C89 /* ViewsOfCustom */ = {
+			isa = PBXGroup;
+			children = (
+				5E6E29B01A5A7663004F3C89 /* RadioButton.h */,
+				5E6E29B11A5A7663004F3C89 /* RadioButton.m */,
+			);
+			path = ViewsOfCustom;
 			sourceTree = "<group>";
 		};
 		5E9754D21A529E46003A4A31 /* images */ = {
@@ -2347,12 +2369,9 @@
 				5EF352191A4D445600AB2463 /* Default-2208@3x.png in Resources */,
 				645DEEE51A41715200E8C524 /* news3.png in Resources */,
 				647607B01A3FD7C400B71469 /* 下一级@2x.png in Resources */,
-
 				5E9755B71A529E46003A4A31 /* weixuanzhong@2X.png in Resources */,
-
 				647DC32A1A529DE4009AD4DC /* star-3@2x.png in Resources */,
 				645F7BBC1A5142EF0023D9C1 /* 引导页3效果图.png in Resources */,
-
 				5ED3CFA61A418BA80083BCDE /* icon_1320_white60.png in Resources */,
 				5ED3CF651A416FCE0083BCDE /* touxiang1@2x.png in Resources */,
 				5E9755C61A529E46003A4A31 /* zonghe@2x.png in Resources */,
@@ -2376,11 +2395,8 @@
 				5E9755A01A529E46003A4A31 /* chongceP@3x.png in Resources */,
 				5ED3CF521A416FCE0083BCDE /* darenxiu@3x.png in Resources */,
 				646C43C61A381CDB00FB683D /* ys_c_downline@3x.png in Resources */,
-
 				5E9755981A529E46003A4A31 /* ceshidangqianye@3X.png in Resources */,
-
 				645F7BAD1A5142EF0023D9C1 /* 3-568h@2x.png in Resources */,
-
 				5EB87EC31A396EBF00BE4A5D /* selected@3x.png in Resources */,
 				645400231A42860200FA69C7 /* 微博绑定图标大@2x.png in Resources */,
 				646C43841A37F9F300FB683D /* 天秤@3x.png in Resources */,
@@ -2408,12 +2424,9 @@
 				645DEEE91A41715200E8C524 /* 发现－按下.png in Resources */,
 				5ECC41BF1A43D26200A5D3B4 /* pinglunP@2X.png in Resources */,
 				646C43801A37F9F300FB683D /* 双子@3x.png in Resources */,
-
 				5E2D738E1A51348200FB8EBA /* testTableViewCell.xib in Resources */,
-
 				645F7BB61A5142EF0023D9C1 /* start-click-6@2x.png in Resources */,
 				645F7BB41A5142EF0023D9C1 /* dianlan-@2x.png in Resources */,
-
 				646C43A41A37FB2400FB683D /* ys_c_jinniu@3x.png in Resources */,
 				5EB87EC21A396EBF00BE4A5D /* selected@2x.png in Resources */,
 				64C727251A3575B300DFE28E /* 弹窗@3x.png in Resources */,
@@ -2463,11 +2476,8 @@
 				5E97558C1A529E46003A4A31 /* aiqingN@2x.png in Resources */,
 				5E9755AF1A529E46003A4A31 /* tianjia@2X.png in Resources */,
 				5ED3CF951A418B0B0083BCDE /* side_menu@2x.png in Resources */,
-
 				5E97559C1A529E46003A4A31 /* ceshiqitaye@3X.png in Resources */,
-
 				647DC3281A529DE4009AD4DC /* star-2@2x.png in Resources */,
-
 				645DEE961A41484100E8C524 /* dianhualianxiren@2x.png in Resources */,
 				5ED3CF961A418B0B0083BCDE /* side_menu@3x.png in Resources */,
 				645DEEF81A41715200E8C524 /* news0.png in Resources */,
@@ -2511,6 +2521,7 @@
 				645DEEF11A41715200E8C524 /* 星友说－按下.png in Resources */,
 				647607B61A3FD7C400B71469 /* 删除按钮选中状态@2x.png in Resources */,
 				646C43D21A381D0900FB683D /* ys_c_datebg@3x.png in Resources */,
+				5E6E29AE1A594891004F3C89 /* ExampleViewController.xib in Resources */,
 				647607C71A3FD7C400B71469 /* iphone6+底图.png in Resources */,
 				5ED3CF5E1A416FCE0083BCDE /* shezhiIanxia@3x.png in Resources */,
 				5ED3CF561A416FCE0083BCDE /* faxian@3x.png in Resources */,
@@ -2528,6 +2539,7 @@
 				5ED3CF4B1A416FCE0083BCDE /* baodianIanxia@2x.png in Resources */,
 				645F7BA61A5142EF0023D9C1 /* 1-6@2x.png in Resources */,
 				645DEEE21A41715200E8C524 /* 宝典－按下.png in Resources */,
+				5E6E29A91A59169E004F3C89 /* CustHeadView.xib in Resources */,
 				647607CD1A3FE24600B71469 /* dotted line@3x.png in Resources */,
 				646C43811A37F9F300FB683D /* 水瓶@2x.png in Resources */,
 				5E9755A91A529E46003A4A31 /* lunboLan@3X.png in Resources */,
@@ -2541,11 +2553,8 @@
 				5ED3CF861A41870A0083BCDE /* shezhi@2x.png in Resources */,
 				5EB87EB81A396EBF00BE4A5D /* fogetPass@2x.png in Resources */,
 				64C7271B1A3575B300DFE28E /* 弹窗@2x.png in Resources */,
-
 				5E9755B61A529E46003A4A31 /* wanchengP@3x.png in Resources */,
-
 				645F7BAF1A5142EF0023D9C1 /* 3@3x.png in Resources */,
-
 				5ED3CF6F1A416FCE0083BCDE /* xingyou@2x.png in Resources */,
 				5ECC41BE1A43D26200A5D3B4 /* pinglun@3X.png in Resources */,
 				5E9755B41A529E46003A4A31 /* wancheng@3x.png in Resources */,
@@ -2673,12 +2682,9 @@
 				647607D01A3FE2BD00B71469 /* line@2x.png in Resources */,
 				5EF352271A4D4AE800AB2463 /* frendloop.png in Resources */,
 				645DEEF31A41715200E8C524 /* 星友说－正常.png in Resources */,
-
 				5E97559A1A529E46003A4A31 /* ceshilianjiexian@3X.png in Resources */,
-
 				647DC32D1A529DE4009AD4DC /* star-4@3x.png in Resources */,
 				645F7BA81A5142EF0023D9C1 /* 2-4@2x.png in Resources */,
-
 				645DEEF41A41715200E8C524 /* 星资讯－按下.png in Resources */,
 				646C43821A37F9F300FB683D /* 水瓶@3x.png in Resources */,
 				647607B51A3FD7C400B71469 /* 删除按钮正常状态@3x.png in Resources */,
@@ -2698,13 +2704,10 @@
 				5ED3CF7A1A416FCE0083BCDE /* yunshi@2x.png in Resources */,
 				64CD98DD1A3042FD00040744 /* iphone5bg.png in Resources */,
 				5EB87EC61A396EBF00BE4A5D /* userDefalt@2x.png in Resources */,
-
 				5E9755A41A529E46003A4A31 /* fenxiangP@3x.png in Resources */,
-
 				647DC3291A529DE4009AD4DC /* star-2@3x.png in Resources */,
 				647DC3251A529DE4009AD4DC /* star-0@2x.png in Resources */,
 				645F7BB71A5142EF0023D9C1 /* start-click-6plus@3x.png in Resources */,
-
 				645DEEB81A414DCA00E8C524 /* weibo@3x.png in Resources */,
 				647607D11A3FE2BD00B71469 /* line@3x.png in Resources */,
 				64C727131A3575B300DFE28E /* imgbg.png in Resources */,
@@ -2723,11 +2726,8 @@
 				5ED3CF591A416FCE0083BCDE /* fenxianlan@2x.png in Resources */,
 				5E9755AA1A529E46003A4A31 /* luoboHui@3X.png in Resources */,
 				5EF352221A4D461100AB2463 /* icon@2x.png in Resources */,
-
 				5E9755B81A529E46003A4A31 /* weixuanzhong@3X.png in Resources */,
-
 				645F7BB11A5142EF0023D9C1 /* dianhui-@2x.png in Resources */,
-
 				646C43B61A37FB2400FB683D /* ys_c_tx@3x.png in Resources */,
 				646C43B41A37FB2400FB683D /* ys_c_tc@3x.png in Resources */,
 				646C43CB1A381CE800FB683D /* ys_c_star_blue@2x.png in Resources */,
@@ -2798,6 +2798,7 @@
 				649E9C7B1A4E65890024B10C /* DatyView.m in Sources */,
 				2FC71FDE1A2721AC002BB2C5 /* TodayViewController.m in Sources */,
 				5ED3CF821A416FCE0083BCDE /* MJPopupBackgroundView.m in Sources */,
+				5E6E29A71A59167B004F3C89 /* CustHeadView.m in Sources */,
 				2F2116311A25B5A2009B21EB /* AppDelegate.m in Sources */,
 				64CD99571A304F2A00040744 /* AddButton.m in Sources */,
 				6454000E1A4271A100FA69C7 /* NotifiationViewController.m in Sources */,
@@ -2807,9 +2808,11 @@
 				645F7B891A5140360023D9C1 /* GuidePageViewController.m in Sources */,
 				645DEE5E1A4132D900E8C524 /* EGOImageLoader.m in Sources */,
 				6454000B1A42711700FA69C7 /* BangdingViewController.m in Sources */,
+				5E6E29AD1A594891004F3C89 /* ExampleViewController.m in Sources */,
 				5E2D73921A51387F00FB8EBA /* testDetailedViewController.m in Sources */,
 				5ED3CF411A416FCE0083BCDE /* MDCellView.m in Sources */,
 				5E6C7CDB1A42C875005C4554 /* UIImageView+AFNetworking.m in Sources */,
+				5E6E29B21A5A7663004F3C89 /* RadioButton.m in Sources */,
 				5E6C7CD21A42C875005C4554 /* AFSecurityPolicy.m in Sources */,
 				645DEE3F1A4132C100E8C524 /* NSObject+SBJSON.m in Sources */,
 				5ECC41B01A42CB5200A5D3B4 /* AFAppDotNetAPIClient.m in Sources */,

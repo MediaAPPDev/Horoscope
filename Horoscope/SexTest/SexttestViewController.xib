@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SexttestViewController">
             <connections>
-                <outlet property="headView" destination="ZYk-Kh-kKw" id="yu6-uw-W5m"/>
+                <outlet property="headView" destination="ZYk-Kh-kKw" id="sgX-du-nk2"/>
                 <outlet property="testPageControler" destination="dH0-U3-EzT" id="IaD-Ma-Ffw"/>
                 <outlet property="testTableView" destination="Adc-6P-5a9" id="b35-NC-edN"/>
                 <outlet property="titleLable" destination="Yvj-Nq-7YS" id="8JU-mG-CwZ"/>
@@ -20,65 +20,60 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Adc-6P-5a9">
-                    <rect key="frame" x="0.0" y="247" width="600" height="396"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Adc-6P-5a9">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
-                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZYk-Kh-kKw">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="247"/>
-                    <subviews>
-                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ilE-fu-Sdy">
-                            <rect key="frame" x="0.0" y="0.0" width="600" height="247"/>
-                            <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EC8-o4-oZh">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="278"/>
-                                </imageView>
-                            </subviews>
-                            <constraints>
-                                <constraint firstItem="EC8-o4-oZh" firstAttribute="leading" secondItem="ilE-fu-Sdy" secondAttribute="leading" id="4w1-oW-FGh"/>
-                                <constraint firstAttribute="trailing" secondItem="EC8-o4-oZh" secondAttribute="trailing" id="e6J-fF-uDI"/>
-                                <constraint firstItem="EC8-o4-oZh" firstAttribute="top" secondItem="ilE-fu-Sdy" secondAttribute="top" id="vcs-kL-E5A"/>
-                            </constraints>
-                        </scrollView>
-                        <view alpha="0.80000000000000004" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rEN-NR-BD1">
-                            <rect key="frame" x="0.0" y="188" width="600" height="57"/>
-                            <subviews>
-                                <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="dH0-U3-EzT">
-                                    <rect key="frame" x="528" y="8" width="39" height="37"/>
-                                </pageControl>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="你的闺蜜是小三吗？" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yvj-Nq-7YS">
-                                    <rect key="frame" x="14" y="16" width="384" height="21"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                            </subviews>
-                            <color key="backgroundColor" red="0.29803922772407532" green="0.29803922772407532" blue="0.29803922772407532" alpha="1" colorSpace="calibratedRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="50" id="Tzf-u8-i0g"/>
-                            </constraints>
-                        </view>
-                    </subviews>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="bottom" secondItem="rEN-NR-BD1" secondAttribute="bottom" constant="2" id="7Lm-EX-QuN"/>
-                        <constraint firstAttribute="trailing" secondItem="ilE-fu-Sdy" secondAttribute="trailing" id="C1c-Rs-CGQ"/>
-                        <constraint firstItem="rEN-NR-BD1" firstAttribute="leading" secondItem="ZYk-Kh-kKw" secondAttribute="leading" id="KPP-ks-GUS"/>
-                        <constraint firstItem="ilE-fu-Sdy" firstAttribute="top" secondItem="ZYk-Kh-kKw" secondAttribute="top" id="OIQ-A2-G8L"/>
-                        <constraint firstItem="ilE-fu-Sdy" firstAttribute="leading" secondItem="ZYk-Kh-kKw" secondAttribute="leading" id="cpe-7U-pTE"/>
-                        <constraint firstAttribute="trailing" secondItem="rEN-NR-BD1" secondAttribute="trailing" id="ne1-5p-W4e"/>
-                    </constraints>
-                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="Adc-6P-5a9" firstAttribute="top" secondItem="ZYk-Kh-kKw" secondAttribute="bottom" id="6QO-zw-g6K"/>
-                <constraint firstItem="ZYk-Kh-kKw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="AiK-vr-lsW"/>
-                <constraint firstAttribute="trailing" secondItem="ZYk-Kh-kKw" secondAttribute="trailing" id="Cb9-Qu-Zy4"/>
-                <constraint firstItem="ZYk-Kh-kKw" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="MTt-Dr-pwB"/>
-                <constraint firstAttribute="bottom" secondItem="Adc-6P-5a9" secondAttribute="bottom" id="ZKi-aj-T93"/>
+                <constraint firstAttribute="bottom" secondItem="Adc-6P-5a9" secondAttribute="bottom" id="2wA-QE-OUh"/>
+                <constraint firstItem="Adc-6P-5a9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="VY8-KB-pvP"/>
+                <constraint firstItem="Adc-6P-5a9" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="60" id="atT-qg-jce"/>
+                <constraint firstAttribute="trailing" secondItem="Adc-6P-5a9" secondAttribute="trailing" id="wFf-sS-ye5"/>
             </constraints>
-            <point key="canvasLocation" x="369" y="197"/>
+            <point key="canvasLocation" x="387" y="-207"/>
+        </view>
+        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZYk-Kh-kKw">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ilE-fu-Sdy">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="541"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image=" 微博图标.png" translatesAutoresizingMaskIntoConstraints="NO" id="EC8-o4-oZh" userLabel="微博图标.png">
+                            <rect key="frame" x="0.0" y="0.0" width="48" height="49"/>
+                        </imageView>
+                    </subviews>
+                </scrollView>
+                <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rEN-NR-BD1">
+                    <rect key="frame" x="0.0" y="540" width="600" height="60"/>
+                    <subviews>
+                        <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="dH0-U3-EzT">
+                            <rect key="frame" x="537" y="8" width="39" height="37"/>
+                        </pageControl>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="你的闺蜜是小三吗？" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yvj-Nq-7YS">
+                            <rect key="frame" x="17" y="16" width="384" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.29803922772407532" green="0.29803922772407532" blue="0.29803922772407532" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="rEN-NR-BD1" firstAttribute="leading" secondItem="ilE-fu-Sdy" secondAttribute="leading" id="0JZ-GC-I0s"/>
+                <constraint firstItem="rEN-NR-BD1" firstAttribute="top" secondItem="ZYk-Kh-kKw" secondAttribute="top" constant="540" id="15s-BU-J4k"/>
+                <constraint firstAttribute="bottom" secondItem="rEN-NR-BD1" secondAttribute="bottom" id="jzO-qk-GL3"/>
+                <constraint firstAttribute="trailing" secondItem="rEN-NR-BD1" secondAttribute="trailing" id="qfD-Bf-Wkc"/>
+                <constraint firstItem="rEN-NR-BD1" firstAttribute="leading" secondItem="ZYk-Kh-kKw" secondAttribute="leading" id="rNP-uQ-Db8"/>
+                <constraint firstItem="rEN-NR-BD1" firstAttribute="trailing" secondItem="ilE-fu-Sdy" secondAttribute="trailing" id="zIj-e9-9sH"/>
+            </constraints>
+            <point key="canvasLocation" x="595" y="-318"/>
         </view>
     </objects>
+    <resources>
+        <image name=" 微博图标.png" width="48" height="49"/>
+    </resources>
 </document>

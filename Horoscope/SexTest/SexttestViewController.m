@@ -11,6 +11,12 @@
 #import "testTableViewCell.h"
 #import "UIImageView+AFNetworking.h"
 
+#import "testDetailedViewController.h"
+
+#import "ExampleViewController.h"
+
+#import "CustHeadView.h"
+
 @interface SexttestViewController ()
 
 @end
@@ -21,15 +27,26 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self buildTopviewWithBackButton:YES title:@"测试" rightImage:@"订阅－正常.png"];
+
     
-//    _tableView =[[UITableView alloc]init];
+     NSArray* nibView =  [[NSBundle mainBundle] loadNibNamed:@"CustHeadView" owner:nil options:nil];
+    
+
+    
+    CustHeadView * custHeadView =   [nibView objectAtIndex:0];
+    
+    
+    [custHeadView setFrame:CGRectMake(0, 0, KScreenWidth, KScreenHeight/3)];
     
     _testTableView.delegate =self;
     _testTableView.dataSource =self;
-//    _tableView.frame =CGRectMake(0,(KISHighVersion_7?64:44), KScreenWidth, KScreenHeight -(KISHighVersion_7?64:44));
-    //  sx(<#m#>)
-    //    tableView.frame =self.view.bo;
-    //解析
+    
+    
+    [_headView setBackgroundColor:[UIColor redColor]];
+
+    
+    _testTableView.tableHeaderView =custHeadView;
+
     [[AFAppDotNetAPIClient sharedClient] GET:@"testlist.php" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         
         
@@ -131,7 +148,10 @@
         cell.timeLable.text =@"1小时前";
     
    
-        //    [tableView reloadData];
+      
+        
+        
+        
         
         
         
@@ -173,8 +193,18 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+//    testDetailedViewController * testDetailed =[[testDetailedViewController alloc]init];
+//     [self.menuController pushViewController:testDetailed withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
     
+    ExampleViewController * exampleVC =[[ExampleViewController alloc]init];
     
+    NSArray * a =@[@"1",@"2",@"3",@"4"];
+    
+    exampleVC.exampleArray = [NSMutableArray arrayWithArray:a];
+    
+         [self.menuController pushViewController:exampleVC withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
+    
+
     
     
 }

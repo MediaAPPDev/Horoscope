@@ -16,10 +16,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self setTopViewWithTitle:@"去测试" withBackButton:YES];
+    
+    [_contentText setEditable:NO];
+    
+    
+    
+    
     // Do any additional setup after loading the view from its nib.
+    
 }
 
-- (IBAction)ceshiAction:(id)sender {
+- (IBAction)ceshiAction:(id)sender
+
+{
+    
+    
+    
+    
     
     
 }
