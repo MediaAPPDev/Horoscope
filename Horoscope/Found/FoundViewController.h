@@ -7,7 +7,7 @@
 //
 
 #import "BaseViewController.h"
-
-@interface FoundViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>
+#import "FriendsCell.h"
+@interface FoundViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,FriendsDelegate>
 
 @end

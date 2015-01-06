@@ -27,7 +27,21 @@
     // Do any additional setup after loading the view.
 //    [self.menuController.topBar setHidden:YES];
     
-    [self buildTopviewWithBackButton:NO title:@"发现" rightImage:@""];
+    [self buildTopviewWithBackButton:NO title:@"发现" rightImage:@"screening"];
+    
+    
+    /*
+     ***
+     * 筛选好友
+     */
+    
+    UIButton *rightButton = [[UIButton alloc]initWithFrame:CGRectMake(self.view.bounds.size.width-60, KISHighVersion_7?20:0, 60, 44)];
+    
+    [rightButton setImage:KUIImage(@"screening") forState:UIControlStateNormal];
+    [rightButton addTarget:self action:@selector(screenFriend:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:rightButton];
+
+
     
 //    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(self.view.bounds.size.width-60, KISHighVersion_7?20:0, 60, 44)];
 //    [button setImage:KUIImage(@"123123") forState:UIControlStateNormal];
@@ -41,6 +55,7 @@
     myTabelView.delegate = self;
     myTabelView.dataSource = self;
     myTabelView.rowHeight = 90;
+    
     [self.view addSubview:myTabelView];
     infoArray =[NSMutableArray array];
     [self getInfoFromNet];
@@ -66,6 +81,37 @@
 }
 
 
+#pragma mark  -----关注请求
+
+-(void)getFollowWithFid:(NSString *)fid
+{
+    
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    [dic setObject:@"6283429397" forKey:@"uid"];
+    [dic setObject:@"fid" forKey:@"fid"];
+    
+    [[AFAppDotNetAPIClient sharedClient]POST:@"follow" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"成功");
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"失败");
+    }];
+
+}
+
+-(void)didClickFollowWithCell:(FriendsCell *)cell
+{
+    NSDictionary *dic = [infoArray objectAtIndex:cell.tag];
+    [self getFollowWithFid:KISDictionaryHaveKey(dic, @"uid")];
+}
+
+
+
+#pragma mark  --- 筛选好友
+-(void)screenFriend:(id)sender
+{
+    
+}
+
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -88,7 +134,8 @@
         if (!cell) {
             cell = [[FriendsCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         }
-    
+    cell.tag = indexPath.row;
+    cell.delegate = self;
     NSDictionary *dic = [infoArray objectAtIndex:indexPath.row];
     cell.headimgView.placeholderImage = KUIImage(@"placeholder.jpg");
     cell.headimgView.imageURL = [NSURL URLWithString:KISDictionaryHaveKey(dic, @"photo")];
@@ -105,6 +152,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
     NSDictionary *dic = infoArray[indexPath.row];
     
     MineViewController *mine = [[MineViewController alloc]init];

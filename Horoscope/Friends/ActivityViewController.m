@@ -84,7 +84,8 @@
     if (!cell) {
         cell = [[ActivityCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
-    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
     NSDictionary *dic = [infoArray objectAtIndex:indexPath.row];
     cell.topImageView.imageURL = [NSURL URLWithString:KISDictionaryHaveKey(dic, @"photo")];
     cell.topImageView.layer.masksToBounds = YES;
@@ -104,6 +105,8 @@
     cell.datyView2.rightImgView.imageURL = [NSURL URLWithString:KISDictionaryHaveKey(dic, @"photo")];
     cell.datyView3.rightImgView.imageURL = [NSURL URLWithString:KISDictionaryHaveKey(dic, @"photo")];
     cell.datyView4.rightImgView.imageURL = [NSURL URLWithString:KISDictionaryHaveKey(dic, @"photo")];
+    
+    
     return cell;
 
     

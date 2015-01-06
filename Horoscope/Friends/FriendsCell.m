@@ -19,7 +19,7 @@
         [self addSubview:self.headimgView];
         
         
-        self.nameLb = [[UILabel alloc]initWithFrame:CGRectMake(sx(self.headimgView)+10, 15, 200, 20)];
+        self.nameLb = [[UILabel alloc]initWithFrame:CGRectMake(sx(self.headimgView)+10, 15, KScreenWidth-70-sx(self.headimgView), 20)];
         self.nameLb.textColor = [UIColor blackColor];
         self.nameLb.font = [UIFont boldSystemFontOfSize:17];
         [self addSubview:self.nameLb];
@@ -40,22 +40,25 @@
         self.starLb.font = [UIFont systemFontOfSize:15];
         [self addSubview:self.starLb];
         
-        self.signatureLb =[[UILabel alloc]initWithFrame:CGRectMake(sx(self.headimgView)+10, sy(self.starLb), 200, 20)];
+        self.signatureLb =[[UILabel alloc]initWithFrame:CGRectMake(sx(self.headimgView)+10, sy(self.starLb), KScreenWidth-65-sx(self.headimgView), 20)];
         self.signatureLb.textColor = [UIColor grayColor];
         self.signatureLb.font = [UIFont systemFontOfSize:15];
         [self addSubview:self.signatureLb];
 
-        self.timeLabel =[[UILabel alloc]initWithFrame:CGRectMake(KScreenWidth-70, 20, 70, 20)];
+        self.timeLabel =[[UILabel alloc]initWithFrame:CGRectMake(KScreenWidth-70, 15, 70, 20)];
         self.timeLabel.textColor = [UIColor grayColor];
         self.timeLabel.font = [UIFont systemFontOfSize:15];
         [self addSubview:self.timeLabel];
         
-        self.gzBtn = [[UIButton alloc]initWithFrame:CGRectMake(KScreenWidth-65, 44, 40, 20)];
+        self.gzBtn = [[UIButton alloc]initWithFrame:CGRectMake(KScreenWidth-65, sy(self.nameLb)+3, 40, 20)];
 //        self.gzBtn.backgroundColor = kColorWithRGB(220, 220, 220, 1);
         [self.gzBtn setTitle:@"关注" forState:UIControlStateNormal];
         self.gzBtn.layer.masksToBounds = YES;
         self.gzBtn.layer.cornerRadius = 6.0;
         self.gzBtn.layer.borderWidth = 1.0;
+        self.gzBtn.tag = self.tag;
+         self.gzBtn.titleLabel.font = [UIFont systemFontOfSize:12];
+        [self.gzBtn addTarget:self action:@selector(gzgzgz:) forControlEvents:UIControlEventTouchUpInside];
         self.gzBtn.layer.borderColor = [[UIColor grayColor] CGColor];
         [self.gzBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         [self addSubview:self.gzBtn];
@@ -66,6 +69,13 @@
     return self;
 }
 
+-(void)gzgzgz:(UIButton *)sender
+{
+        [self.gzBtn setTitle:@"已关注" forState:UIControlStateNormal];
+        if ([self.delegate respondsToSelector:@selector(didClickFollowWithCell:)]) {
+            [self.delegate didClickFollowWithCell:self];
+        }
+}
 - (void)awakeFromNib {
     // Initialization code
 }

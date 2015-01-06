@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "EGOImageView.h"
+
+@protocol FriendsDelegate ;
+
+
 @interface FriendsCell : UITableViewCell
 @property (nonatomic,strong)EGOImageView * headimgView;
 @property (nonatomic,strong)UILabel * nameLb;
@@ -17,4 +21,11 @@
 @property (nonatomic,strong)UILabel * timeLabel;
 @property (nonatomic,strong)UIImageView * sexImg;
 @property (nonatomic,strong)UIButton * gzBtn;
+@property (nonatomic,assign)id<FriendsDelegate>delegate;
+@end
+
+@protocol FriendsDelegate <NSObject>
+
+-(void)didClickFollowWithCell:(FriendsCell *)cell;
+
 @end

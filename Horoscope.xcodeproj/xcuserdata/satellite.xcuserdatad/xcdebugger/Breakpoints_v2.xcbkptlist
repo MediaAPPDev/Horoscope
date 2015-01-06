@@ -67,7 +67,7 @@
                   symbolName = "-[MineViewController imagePickerController:didFinishPickingMediaWithInfo:]"
                   moduleName = "Horoscope"
                   urlString = "file:///Users/satellite/Desktop/Horoscope/Horoscope/Mine/MineViewController.m"
-                  timestampString = "441706724.111827"
+                  timestampString = "442151069.524345"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "450"
@@ -81,7 +81,7 @@
                   symbolName = "__74-[MineViewController imagePickerController:didFinishPickingMediaWithInfo:]_block_invoke_2"
                   moduleName = "Horoscope"
                   urlString = "file:///Users/satellite/Desktop/Horoscope/Horoscope/Mine/MineViewController.m"
-                  timestampString = "441706724.112155"
+                  timestampString = "442151069.524544"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "450"
@@ -104,6 +104,38 @@
             startingLineNumber = "279"
             endingLineNumber = "279"
             landmarkName = "-didClickTap:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Horoscope/circleStar/CircleCell.m"
+            timestampString = "442147421.82648"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
+            landmarkName = "-buildCommentViewWithDic:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Horoscope/circleStar/CircleStarViewController.m"
+            timestampString = "442147351.330403"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "-getInfoFromNet"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

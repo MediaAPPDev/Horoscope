@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CircleCell : UITableViewCell
+@interface PersonInfo1Cell : UITableViewCell
 @property (nonatomic,strong)UIImageView * imgView;
 @property (nonatomic,strong)UILabel * xxLabel;
 @end

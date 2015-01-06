@@ -6,9 +6,9 @@
 //  Copyright (c) 2014年 施傲天. All rights reserved.
 //
 
-#import "CircleCell.h"
+#import "PersonInfo1Cell.h"
 
-@implementation CircleCell
+@implementation PersonInfo1Cell
 
 
 -(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier

@@ -23,6 +23,7 @@
     UIImageView * ysImgView;
     NSMutableArray * ysArr;
     UIButton * titleBtn;
+    
 }
 @end
 
@@ -59,7 +60,7 @@
     
     nameArr = [NSArray arrayWithObjects:@"新朋友",@"好友推荐",@"活动", nil];
     imgArr =[NSArray arrayWithObjects:@"xinpingyou",@"dianhualianxiren",@"dianhualianxiren", nil];
-    
+
     infoArr = [NSMutableArray array];
     infoDic = [NSMutableDictionary dictionary];
     [self getInfoFromNet];
@@ -100,6 +101,11 @@
         if ([responseObject isKindOfClass:[NSDictionary class]]) {
             infoDic = responseObject;
             [myTabelView reloadData];
+        }else if ([responseObject isKindOfClass:[NSArray class]])
+        {
+            [infoArr removeAllObjects];
+            [infoArr addObjectsFromArray:responseObject];
+            [myTabelView reloadData];
         }
         
         
@@ -115,20 +121,21 @@
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [infoDic allKeys].count+1;
+//    return [infoDic allKeys].count+1;
+    return 2;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section==0) {
         return 3;
-    }
+    }else
     
-    NSArray *keysArr = [infoDic allKeys];
-    keysArr = [keysArr sortedArrayUsingSelector:@selector(compare:)];
-    
-    NSArray *arr = [infoDic objectForKey:keysArr[section]];
-    return arr.count;
-    
+//    NSArray *keysArr = [infoDic allKeys];
+//    keysArr = [keysArr sortedArrayUsingSelector:@selector(compare:)];
+//    
+//    NSArray *arr = [infoDic objectForKey:keysArr[section]];
+//    return arr.count;
+    return infoArr.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -152,14 +159,14 @@
             cell = [[FriendsCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
             
         }
+        NSDictionary *dic =[infoArr objectAtIndex:indexPath.row];
         
-        
-        cell.headimgView.image = KUIImage(@"1.jpg");
-        cell.nameLb.text = @"用户未命名";
+        cell.headimgView.imageURL =[NSURL URLWithString:KISDictionaryHaveKey(dic, @"photo")] ;
+        cell.nameLb.text = KISDictionaryHaveKey(dic, @"nickname");
         cell.starImgView.image = KUIImage(@"ys_c_by");
-        cell.starLb.text = @"白羊座";
+        cell.starLb.text = KISDictionaryHaveKey(dic, @"xing");
         cell.sexImg.image = KUIImage(@"sexImg");
-        cell.signatureLb.text =@"所谓知之为知之不知为不知 莫装逼 ";
+        cell.signatureLb.text =KISDictionaryHaveKey(dic, @"phrase");
         cell.timeLabel.text = @"1分钟前";
         cell.gzBtn.hidden = YES;
         return cell;

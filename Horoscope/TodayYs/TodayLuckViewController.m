@@ -15,6 +15,7 @@
     
     NSMutableArray * cArray; //选择星座
     NSMutableArray * xArray; //星座
+    NSMutableArray * zArray; //星座期
     
     UIButton *starButton;
     UILabel *nameLabel;
@@ -24,7 +25,7 @@
     UIImageView * ysImgView;
     NSArray *ysArr;
     
-    NSString * dateStr;//日期
+    NSString * dateStr;//期
     NSString * StarStr;//星座
     
     UITextView *ysTextView;//正文介绍
@@ -51,15 +52,15 @@
     ysArr =[ NSArray arrayWithObjects:@"今日运势",@"明日运势",@"本周运势",@"本月运势", nil];
 
     cArray = [NSMutableArray array];
-    NSMutableArray *arr = [NSMutableArray arrayWithObjects:@"ys_c_by",@"ys_c_chunv",@"ys_c_jinniu",@"ys_c_juxie",@"ys_c_mojie",@"ys_c_sheshou",@"ys_c_shizi",@"ys_c_sp",@"ys_c_sy",@"ys_c_sz",@"ys_c_tc",@"ys_c_tx", nil];
+    NSMutableArray *arr = [NSMutableArray arrayWithObjects:@"ys_c_by",@"ys_c_jinniu",@"ys_c_sz",@"ys_c_juxie",@"ys_c_shizi",@"ys_c_chunv",@"ys_c_tc",@"ys_c_tx",@"ys_c_sheshou",@"ys_c_mojie",@"ys_c_sp",@"ys_c_sy", nil];
     [cArray addObjectsFromArray:arr];
     
     xArray = [NSMutableArray array];
     
-    NSMutableArray *arr1 = [NSMutableArray arrayWithObjects:@"白羊",@"处女",@"金牛",@"巨蟹",@"摩羯",@"射手",@"狮子",@"水瓶",@"双鱼",@"双子",@"天秤",@"天蝎",nil];
+    NSMutableArray *arr1 = [NSMutableArray arrayWithObjects:@"白羊",@"金牛",@"双子",@"巨蟹",@"狮子",@"处女",@"天秤",@"天蝎",@"射手",@"摩羯",@"水瓶",@"双鱼",nil];
     [xArray addObjectsFromArray:arr1];
 
-    
+    zArray = [NSMutableArray arrayWithObjects:@"3.21-4.20",@"4.21-5.20",@"5.21-6.20",@"6.21-7.20",@"7.21-8.20",@"8.21-9.20",@"9.21-10.20",@"10.21-11.20",@"11.21-12.20",@"12.21-1.20",@"1.21-2.20",@"2.21-3.20", nil];
     
     [self buildconstellationScroll];
 
@@ -350,6 +351,8 @@
              
              dateLabel.text = ;
              */
+            dateLabel.text = zArray[sender.tag-1000];
+            
             StarStr  =[NSString stringWithFormat:@"%@座",xArray[sender.tag-1000]];
             
             [self getInfoFromNetWithStar:StarStr date:dateStr];
