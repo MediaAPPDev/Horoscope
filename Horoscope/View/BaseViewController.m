@@ -225,6 +225,7 @@
 //    [self.navigationController popViewControllerAnimated:YES];
     
     [self.menuController popViewControllerAnimated:YES];
+    
 //    [[RequestTaskService singleton] clearRequest:[NSString stringWithUTF8String:object_getClassName(self)]];
     
 }
@@ -236,5 +237,31 @@
     view.backgroundColor = [UIColor clearColor];
     [tableView setTableFooterView:view];
 }
+
+//计算lable高度
+
+
+- (CGSize)labelAutoCalculateRectWith:(NSString*)text FontSize:(CGFloat)fontSize MaxSize:(CGSize)maxSize
+
+{
+    
+    NSMutableParagraphStyle* paragraphStyle = [[NSMutableParagraphStyle alloc]init];
+    
+    paragraphStyle.lineBreakMode=NSLineBreakByWordWrapping;
+    
+    NSDictionary* attributes =@{NSFontAttributeName:[UIFont systemFontOfSize:fontSize],NSParagraphStyleAttributeName:paragraphStyle.copy};
+    
+    CGSize labelSize = [text boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading|NSStringDrawingTruncatesLastVisibleLine attributes:attributes context:nil].size;
+    
+//    [paragraphStyle release];
+    
+    labelSize.height=ceil(labelSize.height);
+    
+    labelSize.width=ceil(labelSize.width);
+    
+    return labelSize;
+    
+}
+
 
 @end

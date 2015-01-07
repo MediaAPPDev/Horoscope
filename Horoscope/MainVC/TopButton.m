@@ -32,9 +32,9 @@
         //        self.backgroundColor = [UIColor darkGrayColor];
         
         
-        self.numLabel = [[UILabel alloc]initWithFrame:CGRectMake(5, 5, 20, 20)];
+        self.numLabel = [[UILabel alloc]initWithFrame:CGRectMake(3, 3, frame.size.width/6, frame.size.width/6)];
         self.numLabel.backgroundColor = [UIColor clearColor];
-        self.numLabel.textAlignment = NSTextAlignmentCenter    ;
+        self.numLabel.textAlignment = NSTextAlignmentCenter;
         self.numLabel.font = [UIFont systemFontOfSize:13];
         [self addSubview:self.numLabel];
         self.numLabel.textColor = [UIColor whiteColor];

@@ -42,10 +42,7 @@
 -(void)getInfoFromNet
 {
     NSString *urlStr  = @"eventslist";
-    
-    
    [[AFAppDotNetAPIClient sharedClient] GET:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-        
         if (![responseObject isKindOfClass:[NSArray class]]) {
             return ;
         }
@@ -71,9 +68,7 @@
 //    if (!cell) {
 //        cell = [[TastCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
 //    }
-//    
 //    NSDictionary *dic = [infoArray objectAtIndex:indexPath.row];
-//    
 //    cell.titleLabel.text = KISDictionaryHaveKey(dic, @"title");
 //    cell.imgView.imageURL = [NSURL URLWithString:KISDictionaryHaveKey(dic, @"photo")];
 //    return cell;
@@ -121,6 +116,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+- (void)dealloc
+{
+    myTableView  .delegate = nil;
+    myTableView.dataSource = nil;
+}
 /*
 #pragma mark - Navigation
 

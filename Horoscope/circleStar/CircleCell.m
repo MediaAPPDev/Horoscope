@@ -29,7 +29,7 @@
         self.titleLabel.numberOfLines = 0;
         self.titleLabel.textColor = [UIColor blackColor];
         self.titleLabel.backgroundColor = [UIColor clearColor];
-        self.titleLabel.font  = [UIFont systemFontOfSize:12];
+        self.titleLabel.font  = [UIFont systemFontOfSize:14];
         [self.contentView addSubview:self.titleLabel];
         
         self.cImageView = [[EGOImageView alloc]initWithFrame:CGRectMake(sx(self.headImageView)+10, sy(self.titleLabel), KScreenWidth-sx(self.headImageView)-40, 200)];
@@ -59,6 +59,9 @@
         self.zanBtn.titleLabel.font = [UIFont systemFontOfSize:12];
         self.commBtn.titleLabel.font = [UIFont systemFontOfSize:12];
         
+        
+        [self.zanBtn addTarget:self action:@selector(didClickZan:) forControlEvents:UIControlEventTouchUpInside];
+        [self.commBtn addTarget:self action:@selector(didClikcComm:) forControlEvents:UIControlEventTouchUpInside];
         self.zanBtn.hidden = YES;
         self.commBtn.hidden = YES;
         
@@ -127,6 +130,20 @@
         self.commBtn.hidden = YES;
 
     }
+}
+
+-(void)didClickZan:(UIButton *)sender
+{
+    if ([self.delegate respondsToSelector:@selector(didClickZanWithCell:)]) {
+        [self.delegate didClickZanWithCell:self];
+    }
+}
+-(void)didClikcComm:(UIButton *)sender
+{
+    if ([self.delegate respondsToSelector:@selector(didClickCommWithCell:)]) {
+        [self.delegate didClickCommWithCell:self];
+    }
+
 }
 
 

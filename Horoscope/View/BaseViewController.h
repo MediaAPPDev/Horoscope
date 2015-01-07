@@ -20,7 +20,7 @@
 - (void)setTopViewWithTitle:(NSString*)titleStr withBackButton:(BOOL)hasBacButton;
 -(void)showAlertViewWithtitle:(NSString *)title message:(NSString *)message;
 
-
+- (CGSize)labelAutoCalculateRectWith:(NSString*)text FontSize:(CGFloat)fontSize MaxSize:(CGSize)maxSize;
 @property (nonatomic,strong)MBProgressHUD *hud;
 
 

@@ -9,7 +9,9 @@
 #import "FeedbackViewController.h"
 
 @interface FeedbackViewController ()
-
+{
+    UITextView *FBtextView;
+}
 @end
 
 @implementation FeedbackViewController
@@ -29,19 +31,45 @@
     [self.view addSubview:button];
 
     
-    UITextView *textView = [[UITextView alloc]initWithFrame:CGRectMake(0, KISHighVersion_7?74:54, KScreenWidth, KScreenWidth/3*2)];
-    textView.text = @"请输入您要反馈的问题";
-    textView.font = [UIFont systemFontOfSize:14];
-    textView.layer.borderColor = [[UIColor grayColor]CGColor];
-    textView.layer.borderWidth = 1;
-    [self.view addSubview:textView];
+    FBtextView = [[UITextView alloc]initWithFrame:CGRectMake(0, KISHighVersion_7?74:54, KScreenWidth, KScreenWidth/3*2)];
+    FBtextView.text = @"请输入您要反馈的问题";
+    FBtextView.font = [UIFont systemFontOfSize:14];
+    FBtextView.layer.borderColor = [[UIColor grayColor]CGColor];
+    FBtextView.layer.borderWidth = 1;
+    FBtextView.delegate = self;
+    [self.view addSubview:FBtextView];
     
 }
+
+
 
 -(void)enterNextPage:(id)sender
 {
     
+    
+    if (FBtextView.text!=nil&&![FBtextView.text isEqualToString:@""]&&![FBtextView.text isEqualToString:@" "]  &&FBtextView.text.length>0) {
+        NSString *urlStr = [NSString stringWithFormat:@"feedback?nickname=%@&content=%@",@"车利军",FBtextView.text];
+        
+        urlStr = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        
+        [[AFAppDotNetAPIClient sharedClient]POST:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+            FBtextView.text  = @"";
+            [self showAlertViewWithtitle:@"提示" message:@"反馈成功，我们会及时处理您的意见"];
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            [self showAlertViewWithtitle:@"提示" message:@"反馈失败 请检查网络"];
+        }];
+
+    }else{
+        [self showAlertViewWithtitle:@"提示" message:@"请输入反馈内容"];
+    }
+    
 }
+
+-(void)textViewDidBeginEditing:(UITextView *)textView
+{
+    FBtextView.text = @"";
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

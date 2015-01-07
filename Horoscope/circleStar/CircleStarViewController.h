@@ -7,7 +7,8 @@
 //
 
 #import "BaseViewController.h"
+#import "CircleCell.h"
 
-@interface CircleStarViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>
+@interface CircleStarViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,CircleCellDelegate,UITextFieldDelegate>
 
 @end

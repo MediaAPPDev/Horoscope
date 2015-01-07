@@ -32,7 +32,7 @@
         
         _cell6.nameLabel.frame = CGRectMake(3, self.bounds.size.width/3*2, self.bounds.size.width/3*2, 30);
         _cell6.leftImageView.image = KUIImage(@"排名色块大");
-        _cell6.numLabel.frame = CGRectMake(20, 20, 20, 20);
+//        _cell6.numLabel.frame = CGRectMake(20, 20, 20, 20);
         _cell6.numLabel.font = [UIFont boldSystemFontOfSize:20];
         
         

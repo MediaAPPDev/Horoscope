@@ -7,12 +7,15 @@
 //
 
 #import "CircleStarViewController.h"
-#import "CircleCell.h"
 @interface CircleStarViewController ()
 {
     NSMutableArray * infoArray;
     UITableView * myTableView;
-    
+    UITextField * commentTF;
+    UIView * commentView;
+    UIView * commentBgView;
+    NSMutableDictionary * commentDict;
+    float keyboardhight;
 }
 @end
 
@@ -24,7 +27,8 @@
     
     [self buildTopviewWithBackButton:NO title:@"星友圈" rightImage:nil];
     infoArray = [NSMutableArray array];
-    
+    commentDict = [NSMutableDictionary dictionary];
+    keyboardhight = 0.0;
     myTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, KISHighVersion_7?64:44, width(self.view), height(self.view)-(KISHighVersion_7?64:44)) style:UITableViewStylePlain];
     
     myTableView.delegate = self;
@@ -32,8 +36,36 @@
     [self.view addSubview:myTableView];
     
     [self getInfoFromNet];
+    [self createCommentText];
+    [self registerForKeyboardNotifications];
+}
+
+#pragma mark---创建评论条
+-(void)createCommentText
+{
+    commentBgView = [[UIView alloc]initWithFrame:CGRectMake(0, KISHighVersion_7?64:44, KScreenWidth, KScreenHeight-(KISHighVersion_7?64:44))];
+    commentBgView.backgroundColor = [UIColor colorWithRed:0/225.0f green:0/225.0f blue:0/225.0f alpha:0.6];
+    commentBgView.hidden = YES;
+    [self.view addSubview:commentBgView];
+    
+    commentView = [[UIView alloc]initWithFrame:CGRectMake(0, KScreenHeight, KScreenWidth, 55)];
+    commentTF = [[UITextField alloc]initWithFrame:CGRectMake(10, 5, KScreenWidth-20, 45)];
+    commentView.backgroundColor = [UIColor whiteColor];
+    commentTF.backgroundColor = [UIColor whiteColor];
+    commentTF.borderStyle = UITextBorderStyleRoundedRect;
+    commentTF.font = [UIFont systemFontOfSize:14];
+    commentTF.adjustsFontSizeToFitWidth = YES;
+    commentTF.delegate = self;
+    commentTF.returnKeyType =UIReturnKeyGo;
+    commentTF.autocapitalizationType = UITextAutocapitalizationTypeNone;
+    commentTF.keyboardType = UIKeyboardTypeDefault;
+    [commentView addSubview:commentTF];
+    commentTF.autocorrectionType = UITextAutocorrectionTypeNo;
+    
+    [commentBgView addSubview:commentView];
     
 }
+
 
 #pragma mark ---网络请求
 
@@ -45,15 +77,16 @@
         if (![responseObject isKindOfClass:[NSArray class]]) {
             return ;
         }
+        [infoArray removeAllObjects];
         [infoArray addObjectsFromArray:responseObject];
         [myTableView reloadData];
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
+        [self showAlertViewWithtitle:@"提示" message:@"获取失败"];
     }];
 }
 
-
+#pragma mark ----tableview delgate  datasourse
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -67,9 +100,33 @@
     if (!cell) {
         cell = [[CircleCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
+    
+    cell.delegate = self;
+    
     NSDictionary *dic = [infoArray objectAtIndex:indexPath.row];
+    NSString *str = KISDictionaryHaveKey(dic, @"title");
+    
+    CGSize size = [self labelAutoCalculateRectWith:str FontSize:14 MaxSize:CGSizeMake(KScreenWidth-80, 300)];
+    
+    cell.titleLabel.frame = CGRectMake(70, 35, size.width, size.height);
+    
+    NSString *imgStr = KISDictionaryHaveKey(dic, @"photo");
+    
+    if (imgStr.length>0) {
+        cell.cImageView.frame = CGRectMake(70, sy(cell.titleLabel)+5,  KScreenWidth-sx(cell.headImageView)-40, 200);
+        cell.timeLabel.frame = CGRectMake(sx(cell.headImageView)+10, sy(cell.cImageView)+5,150, 20);
+        cell.menuBtn.frame = CGRectMake(KScreenWidth-60, sy(cell.cImageView)+5, 50, 30);
+
+    }else{
+        cell.cImageView.frame =CGRectMake(70, sy(cell.titleLabel)+5, 0, 200);
+        cell.timeLabel.frame = CGRectMake(sx(cell.headImageView)+10, sy(cell.titleLabel)+5,150, 20);
+        cell.menuBtn.frame = CGRectMake(KScreenWidth-60, sy(cell.titleLabel)+5, 50, 30);
+
+    }
+    
+    
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.headImageView.imageURL = nil;
+    cell.headImageView.imageURL = [NSURL URLWithString:KISDictionaryHaveKey(dic, @"photo")];
     cell.titleLabel.text =KISDictionaryHaveKey(dic, @"title");
     cell.nameLabel.text = KISDictionaryHaveKey(dic, @"username");
     cell.cImageView.imageURL = [NSURL URLWithString:KISDictionaryHaveKey(dic, @"photo")];
@@ -83,7 +140,9 @@
     if ([KISDictionaryHaveKey(dic, @"zcount")intValue]>0) {
         [cell buildZanViewWithdic:nil];
     }
-    if (KISDictionaryHaveKey(dic, @"comment")) {
+    
+    NSString *commentStr =KISDictionaryHaveKey(dic, @"comment");
+    if (commentStr.length>0) {
         [cell buildCommentViewWithDic:[NSArray arrayWithObjects:@{@"comment":KISDictionaryHaveKey(dic, @"comment")}, nil]];
     }
     
@@ -92,17 +151,143 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    float height = 300;
+    
+    
+    float height = 280;
     NSDictionary *dic = [infoArray objectAtIndex:indexPath.row];
+    
+    NSString *str = KISDictionaryHaveKey(dic, @"title");
+    
+    CGSize size = [self labelAutoCalculateRectWith:str FontSize:14 MaxSize:CGSizeMake(KScreenWidth-80, 300)];
+    
+    height+=size.height;
+    
+    NSString *imgStr = KISDictionaryHaveKey(dic, @"photo");
+    if (imgStr.length>0) {
+    }else{
+        height -= 200;
+    }
+    
     if ([KISDictionaryHaveKey(dic, @"zcount")intValue]>0) {
         height +=30;
+        NSLog(@"有赞");
     }
-    if (KISDictionaryHaveKey(dic, @"comment")) {
-        height+=30;
+    NSString *commStr =KISDictionaryHaveKey(dic, @"comment");
+    if (commStr.length>0) {
+        height+=20;
+        NSLog(@"有评论");
     }
+    
+    NSLog(@"height----%f---%f",height,size.height);
     return height;
 }
 
+
+#pragma mark-----CircleCell delegate ----did ZAN AND COMMENT
+
+-(void)didClickZanWithCell:(CircleCell *)cell
+{
+    NSLog(@"点赞");
+    cell.zanBtn.hidden = YES;
+    cell.commBtn. hidden = YES;
+
+    /*
+     http://star.allappropriate.com/addcount?cid=3&zcount=102&uid=2696868409
+     */
+    
+    NSDictionary *dic = [infoArray objectAtIndex:cell.tag];
+
+    
+    NSString *urlStr = [NSString stringWithFormat:@"addcount?cid=%@&zcount=%@&uid=%@",KISDictionaryHaveKey(dic, @"contentid"),KISDictionaryHaveKey(dic, @"zcount"),KISDictionaryHaveKey(dic, @"uid")];
+    
+    
+    [[AFAppDotNetAPIClient sharedClient]POST:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        NSLog(@"成功---%@",responseObject);
+        
+        NSString *zanCount = KISDictionaryHaveKey(dic, @"zcount");
+        cell.zanBtn.countLabel.text = [NSString stringWithFormat:@"%d",[zanCount intValue]+1];
+
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"失败");
+    }];
+}
+-(void)didClickCommWithCell:(CircleCell *)cell
+{
+    NSLog(@"点评论");
+    
+    cell.zanBtn.hidden = YES;
+    cell.commBtn. hidden = YES;
+    /*
+     http://star.allappropriate.com/addcomment?uid=2696868409&cid=3&comment=好好好&nickname=大个头
+     
+     */
+    
+    NSDictionary *dic = [infoArray objectAtIndex:cell.tag];
+    
+    [commentDict removeAllObjects];
+    commentDict  = [NSMutableDictionary dictionaryWithDictionary:dic];
+    [commentBgView addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(goBackKeyBoard:)]];
+    commentBgView.hidden = NO;
+    [commentTF becomeFirstResponder];
+   
+}
+
+#pragma mark ----textField DELEGATE
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    NSString *urlStr = [NSString stringWithFormat:@"addcomment?uid=%@&cid=%@&comment=%@&nickname=%@",KISDictionaryHaveKey(commentDict, @"uid"),KISDictionaryHaveKey(commentDict, @"contentid"),@"生活好帮手",@"风行天下"];
+    
+    urlStr = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    [[AFAppDotNetAPIClient sharedClient]POST:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        NSLog(@"成功---%@",responseObject);
+        
+        [self getInfoFromNet];
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"失败");
+    }];
+    [commentTF resignFirstResponder];
+    commentBgView.hidden = YES;
+    [commentBgView removeGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(goBackKeyBoard:)]];
+
+    
+    return YES;
+}
+
+- (void)registerForKeyboardNotifications
+{
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardadf:) name:UIKeyboardDidChangeFrameNotification object:nil];
+}
+
+
+
+-(void)keyboardadf:(NSNotification*)aNotification
+{
+    NSDictionary *info = [aNotification userInfo];
+    CGSize kbSize =[[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
+    
+    [self begainMoveUpAnimation:kbSize.height];
+}
+
+-(void)begainMoveUpAnimation:(float)heigth
+{
+    [UIView animateWithDuration:0.1 animations:^{
+        commentView.frame =CGRectMake(0, KScreenHeight-(KISHighVersion_7?64:44)-55- heigth, KScreenWidth, 55);
+    } completion:^(BOOL finished) {
+    }];
+}
+
+-(void)goBackKeyBoard:(UITapGestureRecognizer *)tap
+{
+    [commentTF resignFirstResponder];
+    commentView.frame = CGRectMake(0, KScreenHeight-(KISHighVersion_7?64:44), KScreenWidth, 55);
+    [commentBgView removeGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(goBackKeyBoard:)]];
+    commentBgView.hidden = YES;
+}
+
+#pragma mark-----MDMenuviewcontroller delegate
 
 -(NSString*)titleForChildControllerMDMenuViewController:(MDMenuViewController *)menuController
 {
@@ -112,6 +297,8 @@
 {
     return @"xingyouquan.png";
 }
+
+
 
 
 - (void)didReceiveMemoryWarning {

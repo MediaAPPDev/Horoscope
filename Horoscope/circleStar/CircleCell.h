@@ -10,6 +10,9 @@
 #import "EGOImageButton.h"
 #import "EGOImageView.h"
 #import "CircleBtn.h"
+
+@protocol CircleCellDelegate;
+
 @interface CircleCell : UITableViewCell
 @property(nonatomic,strong)EGOImageButton *headImageView;
 @property(nonatomic,strong)UILabel *titleLabel;
@@ -22,7 +25,15 @@
 @property (nonatomic,strong)CircleBtn *commBtn;
 @property (nonatomic,strong)UIImageView *zanView;
 @property (nonatomic,strong)UIImageView * commentView;
+@property (nonatomic,strong)id<CircleCellDelegate>delegate;
 
 -(void)buildZanViewWithdic:(NSDictionary *)dic;//有赞的时候 创建此view
 -(void)buildCommentViewWithDic:(NSArray *)arr;
+@end
+
+@protocol CircleCellDelegate <NSObject>
+
+-(void)didClickZanWithCell:(CircleCell *)cell;
+-(void)didClickCommWithCell:(CircleCell *)cell;
+
 @end
