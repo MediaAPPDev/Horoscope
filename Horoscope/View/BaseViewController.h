@@ -12,6 +12,9 @@
 #import "MDMenuChildViewController.h"
 //#import "JDSideMenu.h"
 @interface BaseViewController : MDMenuChildViewController
+{
+    float startX;//IOS 7或者以下 适配屏幕
+}
 -(void)buildTopviewWithBackButton:(BOOL)isHave title:(NSString *)title rightImage:(NSString *)rightImage;
 -(void)buildScrollViewWithFrame:(CGRect)frame contentSize:(CGSize)size Image:(NSString *)image;
 - (void) gotoViews;
@@ -23,7 +26,7 @@
 - (CGSize)labelAutoCalculateRectWith:(NSString*)text FontSize:(CGFloat)fontSize MaxSize:(CGSize)maxSize;
 @property (nonatomic,strong)MBProgressHUD *hud;
 
-
+- (void)showMessageWindowWithContent:(NSString*)content imageType:(NSInteger)imageType;
 
 // [self.menuController showMenu:self.menuController.topBar ];
 /*

@@ -29,9 +29,6 @@
         fromRect.origin.x = containerView.bounds.size.width;
         fromView.frame = fromRect;
         
-        
-        
-        
     } completion:^(BOOL finished){
         
         [fromView removeFromSuperview];

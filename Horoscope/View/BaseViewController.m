@@ -17,6 +17,8 @@
     UILabel * baseTitleLabel;
     UIActivityIndicatorView * m_loginActivity;
     float baseTopHeight;
+    UILabel * showLabel;
+    UIView * showWindowView;
 }
 -(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,12 +36,8 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-//    if (KISHighVersion_7) { // 判断是否是IOS7
-    
-
-        
-//    }
-
+    startX = KISHighVersion_7?64:44;
+    self.navigationController.navigationBarHidden = YES;
 }
 /*
  创建tabbar头条快捷方式
@@ -263,5 +261,117 @@
     
 }
 
+- (void)showMessageWithContent:(NSString*)content
+{
+    [self showMessageWithContent:content point:CGPointMake(KScreenWidth/2, KScreenHeight/2-20)];
+}
+
+#pragma mark 黑底白字提示
+- (void)showMessageWithContent:(NSString*)content point:(CGPoint)point
+{
+    if (showLabel != nil) {
+        [showLabel removeFromSuperview];
+    }
+    CGSize contentSize = [content sizeWithFont:[UIFont boldSystemFontOfSize:15.0] constrainedToSize:CGSizeMake(250, 100)];
+    
+    float width = MIN(contentSize.width + 10, 250);
+    showLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, width, contentSize.height + 15)];
+    showLabel.center = point;
+    showLabel.backgroundColor = [UIColor blackColor];
+    showLabel.alpha = 0.8;
+    showLabel.numberOfLines = 0;
+    showLabel.font = [UIFont boldSystemFontOfSize:15.0];
+    showLabel.textColor = [UIColor whiteColor];
+    showLabel.layer.cornerRadius = 3;
+    showLabel.layer.masksToBounds = YES;
+    showLabel.textAlignment = NSTextAlignmentCenter;
+    showLabel.text = content;
+    [self.view addSubview:showLabel];
+    [[self class] cancelPreviousPerformRequestsWithTarget:self selector:@selector(hideView) object:nil];//取消该方法的调用
+    [self performSelector:@selector(hideView) withObject:nil afterDelay:1.5f];
+}
+#pragma mark window提示
+- (void)showMessageWindowWithContent:(NSString*)content imageType:(NSInteger)imageType
+{
+    if (showWindowView != nil) {
+        [showWindowView removeFromSuperview];
+    }
+    //    CGSize contentSize = [content sizeWithFont:[UIFont boldSystemFontOfSize:18.0] constrainedToSize:CGSizeMake(300, 100)];
+    //
+    //    float width = MIN(contentSize.width + 10, 300);
+    //    float showstartX = MAX((320.0 - width)/2, 10.0);//取大者
+    showWindowView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 120, 100)];
+    showWindowView.center = self.view.center;
+    showWindowView.backgroundColor = [UIColor blackColor];
+    showWindowView.layer.cornerRadius = 5;
+    showWindowView.layer.masksToBounds = YES;
+    showWindowView.alpha = 0.7;
+    
+    UIImageView* warnImage = [[UIImageView alloc] initWithFrame:CGRectMake(95.0/2, 25, 25, 25)];
+    warnImage.backgroundColor = [UIColor clearColor];
+    [showWindowView addSubview:warnImage];
+    switch (imageType) {
+        case 0://成功
+            warnImage.image = KUIImage(@"show_success");
+            break;
+        case 1://加好友
+            warnImage.image = KUIImage(@"show_add");
+            break;
+        case 2:
+            warnImage.image = KUIImage(@"show_noadd");
+            break;
+        case 3://加关注
+            warnImage.image = KUIImage(@"show_attention");
+            break;
+        case 4:
+            warnImage.image = KUIImage(@"show_noattention");
+            break;
+        case 5://赞
+            warnImage.image = KUIImage(@"show_zan");
+            break;
+        case 6:
+            warnImage.image = KUIImage(@"show_nozan");
+            break;
+        default:
+            break;
+    }
+    
+    UILabel* showWindowLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 50, 120, 25)];
+    showWindowLabel.backgroundColor = [UIColor clearColor];
+    showWindowLabel.font = [UIFont boldSystemFontOfSize:15.0];
+    showWindowLabel.textColor = [UIColor whiteColor];
+    showWindowLabel.textAlignment = NSTextAlignmentCenter;
+    showWindowLabel.text = content;
+    [showWindowView addSubview:showWindowLabel];
+    
+    [[[[UIApplication sharedApplication] windows] objectAtIndex:0] makeKeyWindow];
+    
+    UIWindow* window = [UIApplication sharedApplication].keyWindow;
+    if (!window)
+    {
+        window = [[UIApplication sharedApplication].windows objectAtIndex:0];
+    }
+    [window addSubview:showWindowView];
+    
+    [[self class] cancelPreviousPerformRequestsWithTarget:self selector:@selector(hideView) object:nil];//取消该方法的调用
+    [self performSelector:@selector(hideWindowView) withObject:nil afterDelay:1.0f];
+}
+
+- (void)hideWindowView
+{
+    if (showWindowView != nil) {
+        [showWindowView removeFromSuperview];
+    }
+}
+
+- (void)hideView
+{
+    [UIView animateWithDuration:0.2 animations:^{
+        showLabel.alpha = 0.8;
+        showLabel.alpha = 0.0;
+    }completion:^(BOOL finished) {
+        showLabel.frame = CGRectZero;
+    }];
+}
 
 @end

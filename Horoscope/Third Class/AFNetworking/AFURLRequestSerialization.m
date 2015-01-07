@@ -473,6 +473,13 @@ forHTTPHeaderField:(NSString *)field
             if (![mutableRequest valueForHTTPHeaderField:@"Content-Type"]) {
                 [mutableRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
             }
+            NSString * postStr = [parameters JSONRepresentation];
+//            NSString * finalPostStr = [@"body=" stringByAppendingString:postStr];
+            NSString* a = [postStr stringByReplacingOccurrencesOfString:@"%" withString:@"%25"];
+            NSString* b = [a stringByReplacingOccurrencesOfString:@"&" withString:@"%26"];
+            NSData *data = [b dataUsingEncoding:NSUTF8StringEncoding];
+            NSLog(@"发送数据:%@",b);
+            
             [mutableRequest setHTTPBody:[query dataUsingEncoding:self.stringEncoding]];
         }
     }

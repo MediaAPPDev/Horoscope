@@ -7,6 +7,7 @@
 //
 
 #import "CircleStarViewController.h"
+#import "SendCircleViewController.h"
 @interface CircleStarViewController ()
 {
     NSMutableArray * infoArray;
@@ -26,6 +27,15 @@
     // Do any additional setup after loading the view.
     
     [self buildTopviewWithBackButton:NO title:@"星友圈" rightImage:nil];
+    
+    
+    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(self.view.bounds.size.width-60, KISHighVersion_7?20:0, 60, 44)];
+    [button setImage:KUIImage(@"123123") forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(enterNextPage:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
+
+    
+    
     infoArray = [NSMutableArray array];
     commentDict = [NSMutableDictionary dictionary];
     keyboardhight = 0.0;
@@ -104,7 +114,7 @@
     cell.delegate = self;
     
     NSDictionary *dic = [infoArray objectAtIndex:indexPath.row];
-    NSString *str = KISDictionaryHaveKey(dic, @"title");
+    NSString *str = KISDictionaryHaveKey(dic, @"content");
     
     CGSize size = [self labelAutoCalculateRectWith:str FontSize:14 MaxSize:CGSizeMake(KScreenWidth-80, 300)];
     
@@ -127,7 +137,7 @@
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.headImageView.imageURL = [NSURL URLWithString:KISDictionaryHaveKey(dic, @"photo")];
-    cell.titleLabel.text =KISDictionaryHaveKey(dic, @"title");
+    cell.titleLabel.text =KISDictionaryHaveKey(dic, @"content");
     cell.nameLabel.text = KISDictionaryHaveKey(dic, @"username");
     cell.cImageView.imageURL = [NSURL URLWithString:KISDictionaryHaveKey(dic, @"photo")];
     cell.timeLabel.text = KISDictionaryHaveKey(dic, @"crtime");
@@ -156,7 +166,7 @@
     float height = 280;
     NSDictionary *dic = [infoArray objectAtIndex:indexPath.row];
     
-    NSString *str = KISDictionaryHaveKey(dic, @"title");
+    NSString *str = KISDictionaryHaveKey(dic, @"content");
     
     CGSize size = [self labelAutoCalculateRectWith:str FontSize:14 MaxSize:CGSizeMake(KScreenWidth-80, 300)];
     
@@ -236,7 +246,7 @@
 #pragma mark ----textField DELEGATE
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    NSString *urlStr = [NSString stringWithFormat:@"addcomment?uid=%@&cid=%@&comment=%@&nickname=%@",KISDictionaryHaveKey(commentDict, @"uid"),KISDictionaryHaveKey(commentDict, @"contentid"),@"生活好帮手",@"风行天下"];
+    NSString *urlStr = [NSString stringWithFormat:@"addcomment?uid=%@&cid=%@&comment=%@&nickname=%@",KISDictionaryHaveKey(commentDict, @"uid"),KISDictionaryHaveKey(commentDict, @"contentid"),commentTF.text,@"风行天下"];
     
     urlStr = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
@@ -298,14 +308,18 @@
     return @"xingyouquan.png";
 }
 
-
+-(void)enterNextPage:(UIButton *)sender
+{
+    SendCircleViewController *senderVC = [[SendCircleViewController alloc]init];
+    [self.menuController pushViewController:senderVC withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
+//    [self.navigationController pushViewController:senderVC animated:YES];
+}
 
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 /*
 #pragma mark - Navigation
 

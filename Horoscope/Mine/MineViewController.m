@@ -416,55 +416,7 @@
     if (picker.sourceType ==UIImagePickerControllerSourceTypeCamera) {
         UIImageWriteToSavedPhotosAlbum(selectImage, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
     }
-//    [addGroup.m_photoButton setImage:selectImage forState:UIControlStateNormal];
     [headImgView setImage:selectImage forState:UIControlStateNormal];
-    
-
-    NSString *filePath = [self writeImageToFile:selectImage ImageName:@"headImage.png"];
-    
-//    [AFHTTPSessionManager manager]. requestSerializer = [ AFHTTPRequestSerializer serializer ];
-//    
-//    [AFHTTPSessionManager manager]. responseSerializer = [ AFHTTPResponseSerializer serializer ];
-    
-    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:@"uid",@"123123123",@"file",filePath, nil];
-    
-//    [[AFHTTPSessionManager manager]POST:@"http://120.131.70.218/uploader/uppoo" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
-//        NSLog(@"Success :%@ %@",task.response, responseObject);
-//    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-//        NSLog(@"Error---:%@",error);
-//    }];
-    
-//    [[AFHTTPSessionManager manager]POST:@"http://120.131.70.218/uploader/uppoo" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-//        [formData appendPartWithFileURL:[NSURL fileURLWithPath:filePath] name:@"file" fileName:@"headImage.png" mimeType:@"image/jpeg" error:nil];
-//        
-//    } success:^(NSURLSessionDataTask *task, id responseObject) {
-//        NSLog(@"Success :%@ %@",task.response, responseObject);
-//
-//    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-//        NSLog(@"Error---:%@",error);
-//
-//    }];
-//     [[AFAppDotNetAPIClient sharedClient] GET:@"userfriend.php?uid=6283429397" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-    
-         
-         [[AFAppDotNetAPIClient sharedClient]POST:@"uploader/uppoo" parameters:dic constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-             [formData appendPartWithFileURL:[NSURL URLWithString:filePath] name:@"file" fileName:@"headImage.png" mimeType:@"image/jpeg" error:nil];
-         } success:^(NSURLSessionDataTask *task, id responseObject) {
-             NSLog(@"responseObject %@",responseObject);
-         } failure:^(NSURLSessionDataTask *task, NSError *error) {
-             NSLog(@"%@",error);
-         }];
-         
-//    [[AFHTTPSessionManager manager]uploadTaskWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://120.131.70.218/uploader/uppoo"]] fromFile:[NSURL fileURLWithPath:filePath] progress:nil completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
-//        if (error) {
-//            NSLog(@"%@",error);
-//        }else{
-//            NSLog(@"%@ %@",response, responseObject);
-//        }
-//    }];
-    
-    
-    
 }
 
 //将图片保存到本地，返回保存的路径

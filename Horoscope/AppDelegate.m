@@ -71,6 +71,14 @@
 //    
 //     UIViewController * FoundVC =[[FoundViewController alloc] init]    ;
 
+ /*
+  
+  
+  这尼玛是逗比⬇️ ⬇️ ⬇️ ⬇️ 这尼玛真心是逗比
+  
+  
+  */
+    
     
         NSArray *viewControllers = [NSArray arrayWithObjects:[[NewMainViewController alloc] init],[[FoundViewController alloc] init],[[FriendsViewController alloc] init],[[CircleStarViewController alloc]  init],[[TodayLuckViewController alloc] init],[[BdViewController alloc] init],[[XWViewController alloc] init],[[SexttestViewController alloc] init], nil];
     
@@ -79,7 +87,25 @@
     self.mainViewC = [[MDMenuViewController alloc] initWithChildViewControllers:viewControllers];
     
     
-    
+//    UINavigationController *nav1 = [[UINavigationController alloc]initWithRootViewController:[[NewMainViewController alloc] init]];
+//    
+//    UINavigationController *nav2 = [[UINavigationController alloc]initWithRootViewController:[[FoundViewController alloc] init]];
+//    
+//    UINavigationController *nav3 = [[UINavigationController alloc]initWithRootViewController:[[FriendsViewController alloc] init]];
+//    
+//    UINavigationController *nav4 = [[UINavigationController alloc]initWithRootViewController:[[CircleStarViewController alloc]  init]];
+//    
+//    UINavigationController *nav5 = [[UINavigationController alloc]initWithRootViewController:[[TodayLuckViewController alloc] init]];
+//    
+//     UINavigationController *nav6 = [[UINavigationController alloc]initWithRootViewController:[[BdViewController alloc] init]];
+//    
+//     UINavigationController *nav7 = [[UINavigationController alloc]initWithRootViewController:[[XWViewController alloc] init]];
+//    
+//     UINavigationController *nav8 = [[UINavigationController alloc]initWithRootViewController:[[SexttestViewController alloc] init]];
+//    NSArray *viewControllerss = [NSArray arrayWithObjects:nav1,nav2,nav3,nav4,nav5,nav6,nav7,nav8, nil];
+//    
+//    self.mainViewC = [[MDMenuViewController alloc] initWithChildViewControllers:viewControllerss];
+
     
     //************************************************************************************************************
     
@@ -193,13 +219,19 @@
 //      standardUserDefaults]removeObjectForKey:@"FirstLoign"];
     if ([[NSUserDefaults
            standardUserDefaults]objectForKey:@"FirstLoign"]) {
-        self.window.rootViewController = self.mainViewC;
+        
+        /*
+         
+         这里改
+         self.window.rootViewController =self.mainViewC;
+         */
+        self.window.rootViewController = [[UINavigationController alloc]initWithRootViewController:self.mainViewC];
+        self.mainViewC.navigationController.navigationBarHidden = YES;
     }else{
         GuidePageViewController *guidePageVC = [[GuidePageViewController alloc]init];
         self.window.rootViewController =guidePageVC;
         [[NSUserDefaults standardUserDefaults]setObject:@"1" forKey:@"FirstLoign"];
     }
-    
     
     
     
