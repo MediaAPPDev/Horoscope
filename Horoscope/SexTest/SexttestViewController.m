@@ -36,17 +36,22 @@
     CustHeadView * custHeadView =   [nibView objectAtIndex:0];
     
     
-    [custHeadView setFrame:CGRectMake(0, 0, KScreenWidth, KScreenHeight/3)];
+    
+    
+    [custHeadView setFrame:CGRectMake(0, 0, KScreenWidth, 260)];
     
     _testTableView.delegate =self;
     _testTableView.dataSource =self;
     
-    
-    [_headView setBackgroundColor:[UIColor redColor]];
+    custHeadView.mailScorllView.backgroundColor =[UIColor yellowColor];
+//    [_headView setBackgroundColor:[UIColor redColor]];
 
+    
+//    _testTableView.tableHeaderView.bounds=CGRectMake(0, 0, KScreenWidth, 260)
     
     _testTableView.tableHeaderView =custHeadView;
-
+    
+    custHeadView.backgroundColor =[UIColor redColor];
     [[AFAppDotNetAPIClient sharedClient] GET:@"testlist.php" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         
         
@@ -198,9 +203,12 @@
     
     ExampleViewController * exampleVC =[[ExampleViewController alloc]init];
     
-    NSArray * a =@[@"1",@"2",@"3",@"4"];
+// NSArray * a=
     
-    exampleVC.exampleArray = [NSMutableArray arrayWithArray:a];
+    exampleVC.exampleDic = [NSMutableDictionary dictionary];
+    
+    exampleVC.exampleDic =[_allArray objectAtIndex:indexPath.row];
+
     
          [self.menuController pushViewController:exampleVC withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
     

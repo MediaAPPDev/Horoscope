@@ -146,8 +146,8 @@ static NSMutableDictionary *rb_observers=nil;
     _button.frame = CGRectMake(0, 0,kRadioButtonWidth, kRadioButtonHeight);
     _button.adjustsImageWhenHighlighted = NO; 
     
-    [_button setImage:[UIImage imageNamed:@"weixuanzhong"] forState:UIControlStateNormal];
-    [_button setImage:[UIImage imageNamed:@"xuanzhong"] forState:UIControlStateSelected];
+    [_button setImage:[UIImage imageNamed:@"weixuanzhong.png"] forState:UIControlStateNormal];
+    [_button setImage:[UIImage imageNamed:@"xuanzhong.png"] forState:UIControlStateSelected];
     
     [_button addTarget:self action:@selector(handleButtonTap:) forControlEvents:UIControlEventTouchUpInside];
     

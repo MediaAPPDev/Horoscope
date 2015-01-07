@@ -7,6 +7,7 @@
 //
 
 #import "ExampleViewController.h"
+#import "MBButtonShowView.h"
 
 @interface ExampleViewController ()
 
@@ -40,6 +41,31 @@
 - (void)reloadDatas
 {
     
+      _exampleArray =[NSMutableArray array];
+    
+    
+ [_exampleArray addObject:[_exampleDic objectForKey:@"contentA"]];
+  
+ [_exampleArray addObject:[_exampleDic objectForKey:@"contentB"]];
+    
+ [_exampleArray addObject:[_exampleDic objectForKey:@"contentC"]];
+    
+    [_exampleArray addObject:[_exampleDic objectForKey:@"contentD"]];
+    
+    
+    _answerArray =[NSMutableArray array];
+    
+    [_answerArray addObject:[_exampleDic objectForKey:@"answerA"]];
+    
+    [_answerArray addObject:[_exampleDic objectForKey:@"answerB"]];
+    
+    [_answerArray addObject:[_exampleDic objectForKey:@"answerC"]];
+    
+    [_answerArray addObject:[_exampleDic objectForKey:@"answerD"]];
+    
+    
+  
+    
     if (_exampleArray.count >0)
         
     {
@@ -47,11 +73,11 @@
 
 //        NSTextContainer * textCon=[NSTextContainer alloc]increaseSize:<#(id)#>
     
-        _exampleTitle =[[UITextView alloc]initWithFrame:CGRectMake(30, 5, KScreenWidth-60, 300)];
+        _exampleTitle =[[UITextView alloc]initWithFrame:CGRectMake(20, 5, KScreenWidth-40, 300)];
         
         _exampleTitle.userInteractionEnabled=NO;
         
-        _exampleTitle.text =@"我来个擦 dsdfdsfjdsajfoi";
+        _exampleTitle.text =[_exampleDic valueForKey:@"title"];
 //        [_exampleTitle sizeToFit];
         
         [_exampleTitle setFont:[UIFont fontWithName:@"AppleGothic" size:17]];
@@ -72,41 +98,61 @@
         }
         
         for (int i =0; i <_exampleArray.count; i++) {
-            RadioButton * button =[[RadioButton alloc ]initWithGroupId:@"example" index:i];
             
-            UIButton * buttons =[[UIButton alloc]initWithFrame:CGRectMake(_exampleTitle.frame.origin.x+25,height+50+35*i, 220, 25)];
             
-            [buttons setTitle:@"这个是问题1啊 和哈阿达撒" forState:UIControlStateNormal];
             
+            
+            QRadioButton *buttons = [[QRadioButton alloc] initWithDelegate:self groupId:@"example"];
+            buttons.frame = CGRectMake(_exampleTitle.frame.origin.x,height+20+35*i, 260, 30);
+            [buttons setTitle:[_exampleArray objectAtIndex:i] forState:UIControlStateNormal];
             [buttons setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-            
-//            #63B8FF
+            [buttons.titleLabel setFont:[UIFont boldSystemFontOfSize:18.0f]];
             [buttons setTitleColor:[UIColor colorWithRed:0/255.0f green:191/255.0f blue:255/255.0f alpha:1] forState:UIControlStateSelected];
             
-            [buttons addTarget:self action:@selector(selectExample:) forControlEvents:UIControlEventTouchUpInside];
-            [button setTag:2100+i];
             
-            [buttons setTag:2000+i];
-            [button setFrame:CGRectMake(_exampleTitle.frame.origin.x,height+50+35*i, 25, 25)];
+            [_contentSrollView addSubview:buttons];
         
+//            [_radio1 setChecked:YES];
+//
             
-             [RadioButton addObserverForGroupId:@"example" observer:self];
+            
+//            RadioButton * button =[[RadioButton alloc ]initWithGroupId:@"example" index:i];
+//            
+//            UIButton * buttons =[[UIButton alloc]initWithFrame:CGRectMake(_exampleTitle.frame.origin.x+25,height+50+35*i, 220, 25)];
+//            
+//            [buttons setTitle:@"这个是问题1啊 和哈阿达撒" forState:UIControlStateNormal];
+//            
+//            [buttons setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+//            
+////            #63B8FF
+//            [buttons setTitleColor:[UIColor colorWithRed:0/255.0f green:191/255.0f blue:255/255.0f alpha:1] forState:UIControlStateSelected];
+//            
+//            [buttons addTarget:self action:@selector(selectExample:) forControlEvents:UIControlEventTouchUpInside];
+//            [button setTag:2100+i];
+//            
+//            [buttons setTag:2000+i];
+//            [button setFrame:CGRectMake(_exampleTitle.frame.origin.x,height+50+35*i, 25, 25)];
+//            [button setBackgroundColor:[UIColor redColor]];
+//            
+//             [RadioButton addObserverForGroupId:@"example" observer:self];
             
 //            [button addTarget:self action:@selector(selectExample:) forControlEvents:UIControlEventTouchUpInside];
 //            [button setBackgroundColor:[UIColor redColor]];
-            [_contentSrollView addSubview:buttons];
-            [_contentSrollView addSubview:button];
+//            [_contentSrollView addSubview:buttons];
+//            [_contentSrollView addSubview:button];
             
             if (i ==_exampleArray.count -1) {
                 
             _submitButton =[UIButton buttonWithType:UIButtonTypeCustom];
                 [_submitButton addTarget:self action:@selector(submitExamle:) forControlEvents:UIControlEventTouchUpInside];
                 
-                [_submitButton setFrame:CGRectMake(KScreenWidth/2-50, button.frame.origin.y +50, 100, 50)];
+                [_submitButton setFrame:CGRectMake(KScreenWidth/2-50, buttons.frame.origin.y +50, 100, 50)];
                 [_submitButton setBackgroundImage:[UIImage imageNamed:@"button.png"] forState:UIControlStateNormal];
                 
 //                 _submitButton.enabled =NO;
                 [_submitButton setTitle:@"提交" forState:UIControlStateNormal];
+                
+                [_submitButton setEnabled:NO];
                 
                 [_contentSrollView addSubview:_submitButton];
                 
@@ -119,21 +165,137 @@
     }
     
 }
-//点击选择按钮
--(void)radioButtonSelectedAtIndex:(NSUInteger)index inGroup:(NSString *)groupId{
-    NSLog(@"changed to %d in %@",index,groupId);
+#pragma mark - QRadioButtonDelegate
+//选择试题后
+- (void)didSelectedRadioButton:(QRadioButton *)radio groupId:(NSString *)groupId {
+    NSLog(@"did selected radio:%@ groupId:%@", radio.titleLabel.text, groupId);
     
-//    [_dic setObject:[NSString stringWithFormat:@"%d",index+1] forKey:groupId];
+    [_submitButton setEnabled:YES];
+    if (_exampleArray.count >0)
+    {
+        _selectedNum =[_exampleArray indexOfObject:radio.titleLabel.text];
+        
+        
+    }
+    
+
 }
 
 -(void)submitExamle:(UIButton *)btn
 
 {
+    
+    [_contentSrollView setHidden:YES];
  
+//    _answerArray
+//    if (_answerArray.count>0) {
+           if (1) {
+        
+               _answerScrolllView =[[UIScrollView alloc]init];
+        
+        _answerScrolllView.frame =_contentSrollView.frame;
+               
+//        CGRect f =_answerScrolllView.frame;
+               
+//        [_answerScrolllView setBackgroundColor:[UIColor redColor]];
+        
+        _answerText =[[UITextView alloc]initWithFrame:CGRectMake(20, 5, KScreenWidth-40, 300)];
+//              [self.view bringSubviewToFront:_answerText]
+        
+               NSString * strsdfds=[_answerArray objectAtIndex:_selectedNum];
+        _answerText.text =[_answerArray objectAtIndex:_selectedNum];
+               
+               [_answerText setFont:[UIFont boldSystemFontOfSize:18.0f]];
+        
+//                [_answerText setFont:[UIFont fontWithName:@"AppleGothic" size:17]];
+//               [_answerText setBackgroundColor:[UIColor redColor]];
+               
+               _answerText.userInteractionEnabled=NO;
+               
+                  [_answerScrolllView addSubview:_answerText];
+//        _answerText *buttons = [[QRadioButton alloc] initWithDelegate:self groupId:@"example"];
+//        buttons.frame = CGRectMake(_exampleTitle.frame.origin.x,height+50+35*i, 260, 30);
+//        [buttons setTitle:@"A 我的第一个问题是SDFSDFSD" forState:UIControlStateNormal];
+//        [buttons setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+//        [buttons.titleLabel setFont:[UIFont boldSystemFontOfSize:18.0f]];
+//        [buttons setTitleColor:[UIColor colorWithRed:0/255.0f green:191/255.0f blue:255/255.0f alpha:1] forState:UIControlStateSelected];
+        
+        
+     
+        
+ 
+        
+
+//            [_showOtherButton addTarget:self action:@selector(showMoreView:) forControlEvents:UIControlEventTouchUpInside];
+               
+               
+               
+               
+               UITextView * anoterAnswer =[[UITextView alloc]initWithFrame:CGRectMake(20, 5, KScreenWidth-40, 300)];
+               //              [self.view bringSubviewToFront:_answerText]
+               
+//               NSString * strsdfds=[_answerArray objectAtIndex:_selectedNum];
+//               anoterAnswer.text =[_answerArray objectAtIndex:_selectedNum];
+               
+               [anoterAnswer setFont:[UIFont boldSystemFontOfSize:18.0f]];
+               
+               
+               NSMutableString * otherAnswerStr =[NSMutableString string];
+               
+               for (int i =0; i<_answerArray.count; i++) {
+                   
+                   if (i != _selectedNum) {
+                       
+                       
+                       NSString  * change =[NSString stringWithFormat:@"%@ \n",_answerArray[i]];
+                       [otherAnswerStr appendString:change];
+                       
+                       
+                       
+                       
+                   }
+                  
+
+               }
+                anoterAnswer.text =otherAnswerStr;
+            
+               //显示更过
+               CGFloat height =  [self getContenSizeAction:_answerText];
+               _showOtherButton =[[MBButtonShowView alloc]initWithFrame:CGRectMake(KScreenWidth/2-50, height+20, 100, 50) showTextView:anoterAnswer Title:nil WithTarget:self];
+            
+//            [_showOtherButton setFrame:CGRectMake(KScreenWidth/2-50, height+20, 100, 50)];
+            [_showOtherButton setBackgroundImage:[UIImage imageNamed:@"button.png"] forState:UIControlStateNormal];
+            
+            //                 _submitButton.enabled =NO;
+            [_showOtherButton setTitle:@"其他结果" forState:UIControlStateNormal];
+            
+            [_answerScrolllView addSubview:_showOtherButton];
+            
+            [_answerScrolllView setContentSize:CGSizeMake(KScreenWidth, _showOtherButton.bounds.origin.y+500)];
+        
+        
+        
+        
+        
+        
+        [self.view addSubview:_answerScrolllView];
+        
+    }
+    
+    
+    
+}
+//显示其他界面
+
+- (void)showMoreView:(UIButton *)btn
+{
+    
+
     
     
 }
 
+//选择提交按钮后
 -(void)selectExample:(UIButton * )btn
 {
     
@@ -158,6 +320,34 @@
    
     
     
+}
+//动态获取textView的高度
+- (CGFloat)getContenSizeAction:(UITextView *)textView
+{
+    
+    
+    CGFloat height;
+    
+    
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7) {
+        
+        
+        
+        CGRect textFrame=[[textView layoutManager]usedRectForTextContainer:[textView textContainer]];
+        
+        height = textFrame.size.height;
+        
+        
+        
+    }else {
+        
+        
+        
+        height = textView.contentSize.height;
+        
+    }
+    
+    return height;
 }
 
 /*
