@@ -110,7 +110,6 @@
     if (!cell) {
         cell = [[CircleCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
-    
     cell.delegate = self;
     
     NSDictionary *dic = [infoArray objectAtIndex:indexPath.row];

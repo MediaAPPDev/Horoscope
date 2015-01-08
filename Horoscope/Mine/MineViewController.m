@@ -129,7 +129,12 @@
     //头像
    headImgView =[[ EGOImageButton alloc]initWithFrame:CGRectMake(30, 15, (width(blackView)/2-30)/2, (width(blackView)/2-30)/2)];
     headImgView.placeholderImage = KUIImage(@"1.jpg");
-    [headImgView addTarget:self action:@selector(changeHeadImage:) forControlEvents:UIControlEventTouchUpInside];
+    
+    //如果是自己的信息 可以更改头像
+    
+    if (self.isRootView) {
+        [headImgView addTarget:self action:@selector(changeHeadImage:) forControlEvents:UIControlEventTouchUpInside];
+    }
     [blackView addSubview:headImgView];
     
     //星座图标

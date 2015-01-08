@@ -29,6 +29,8 @@
 //#import "RequestTaskService.h"
 #import "NetManager.h"
 #import "TempDate.h"
+#import "UMSocial.h"
+
 //#import "RequestTaskService.h"
 #endif
 

@@ -7,8 +7,9 @@
 //
 
 #import "BaseViewController.h"
+#import "XingWenTableViewCell.h"
 
-@interface XWViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource>
+@interface XWViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource,XingwenCelldelegate,UIActionSheetDelegate,UMSocialDataDelegate,UMSocialUIDelegate>
 
 
 @property (nonatomic,strong)NSArray * allArray;
