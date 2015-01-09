@@ -163,7 +163,7 @@
         
         cell.headimgView.imageURL =[NSURL URLWithString:KISDictionaryHaveKey(dic, @"photo")] ;
         cell.nameLb.text = KISDictionaryHaveKey(dic, @"nickname");
-        cell.starImgView.image = KUIImage(@"ys_c_by");
+        cell.starImgView.image = KUIImage([self GetNameReturnImageWithName:KISDictionaryHaveKey(dic, @"xing")]);
         cell.starLb.text = KISDictionaryHaveKey(dic, @"xing");
         cell.sexImg.image = KUIImage(@"sexImg");
         cell.signatureLb.text =KISDictionaryHaveKey(dic, @"phrase");
