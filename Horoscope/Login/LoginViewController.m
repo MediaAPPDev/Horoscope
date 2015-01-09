@@ -17,10 +17,33 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
- 
+    [self setTopViewWithTitle:@"登录" withBackButton:YES];
+    
+    
+    
+    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(self.view.bounds.size.width-60, KISHighVersion_7?20:0, 60, 44)];
+    [button setImage:KUIImage(@"wancheng.png") forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(enterNextPage:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:button];
+    
+    
+    
+    [_username setValue:[UIColor colorWithWhite:1 alpha:0.6] forKeyPath:@"_placeholderLabel.textColor"];
+    
+    [_password setValue:[UIColor colorWithWhite:1 alpha:0.6] forKeyPath:@"_placeholderLabel.textColor"];
     
     
     // Do any additional setup after loading the view from its nib.
+}
+
+-(NSString*)titleForChildControllerMDMenuViewController:(MDMenuViewController *)menuController
+{
+    return @"注册登录";
+}
+-(NSString*)iconForChildControllerMDMenuViewController:(MDMenuViewController *)menuController
+{
+    return @"xingwen.png";
 }
 
 - (void)didReceiveMemoryWarning {

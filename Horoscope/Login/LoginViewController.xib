@@ -18,76 +18,97 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wkb-m5-KvM">
-                    <rect key="frame" x="171" y="83" width="259" height="66"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="regeback.png" translatesAutoresizingMaskIntoConstraints="NO" id="cJK-gI-Nzh">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wkb-m5-KvM">
+                    <rect key="frame" x="171" y="80" width="259" height="66"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="textNormal.png" translatesAutoresizingMaskIntoConstraints="NO" id="mzC-BF-Dj1">
-                            <rect key="frame" x="0.0" y="0.0" width="259" height="66"/>
+                            <rect key="frame" x="0.0" y="7" width="259" height="50"/>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="userDefalt.png" translatesAutoresizingMaskIntoConstraints="NO" id="bd2-AY-etz">
-                            <rect key="frame" x="0.0" y="0.0" width="66" height="66"/>
+                            <rect key="frame" x="0.0" y="8" width="50" height="50"/>
                         </imageView>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入登陆账号" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FUW-nG-OMd">
                             <rect key="frame" x="66" y="0.0" width="193" height="66"/>
-                            <color key="textColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                         </textField>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <accessibility key="accessibilityConfiguration">
                         <bool key="isElement" value="YES"/>
                     </accessibility>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="66" id="cUk-qN-j7K"/>
+                        <constraint firstAttribute="width" constant="259" id="hhf-7F-Qi5"/>
+                    </constraints>
                 </view>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6KB-Cf-Dbt">
-                    <rect key="frame" x="171" y="172" width="259" height="66"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6KB-Cf-Dbt">
+                    <rect key="frame" x="171" y="151" width="259" height="66"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="textNormal.png" translatesAutoresizingMaskIntoConstraints="NO" id="Rfi-me-yff">
-                            <rect key="frame" x="0.0" y="0.0" width="259" height="66"/>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="regepass.png" translatesAutoresizingMaskIntoConstraints="NO" id="mPy-t0-BkL">
-                            <rect key="frame" x="0.0" y="0.0" width="66" height="66"/>
+                            <rect key="frame" x="0.0" y="0.0" width="259" height="50"/>
                         </imageView>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入登陆密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NwZ-Xh-m1k">
-                            <rect key="frame" x="66" y="0.0" width="193" height="66"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <rect key="frame" x="66" y="-6" width="193" height="66"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                         </textField>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="regepass.png" translatesAutoresizingMaskIntoConstraints="NO" id="mPy-t0-BkL">
+                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                        </imageView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="66" id="2tW-so-wpU"/>
+                        <constraint firstAttribute="width" constant="259" id="RbC-KM-P6E"/>
+                    </constraints>
                 </view>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zW7-iY-bZh">
-                    <rect key="frame" x="171" y="273" width="259" height="66"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zW7-iY-bZh">
+                    <rect key="frame" x="171" y="219" width="259" height="50"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="textNormal.png" translatesAutoresizingMaskIntoConstraints="NO" id="adK-wy-xfC">
-                            <rect key="frame" x="0.0" y="0.0" width="259" height="66"/>
+                            <rect key="frame" x="0.0" y="0.0" width="259" height="50"/>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fogetPass.png" translatesAutoresizingMaskIntoConstraints="NO" id="1Ud-3b-E5o">
-                            <rect key="frame" x="0.0" y="0.0" width="66" height="66"/>
+                            <rect key="frame" x="1" y="3" width="50" height="50"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="next.png" translatesAutoresizingMaskIntoConstraints="NO" id="f0d-TI-e7j">
+                            <rect key="frame" x="201" y="4" width="50" height="50"/>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cnl-SR-Ybb">
-                            <rect key="frame" x="4" y="8" width="251" height="58"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                            <rect key="frame" x="3" y="-1" width="251" height="58"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
                             <state key="normal" title="忘记密码">
-                                <color key="titleColor" red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
                                 <action selector="forgetPasswordAction:" destination="-1" eventType="touchUpInside" id="JNo-nR-Kem"/>
                             </connections>
                         </button>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="next.png" translatesAutoresizingMaskIntoConstraints="NO" id="f0d-TI-e7j">
-                            <rect key="frame" x="201" y="4" width="66" height="66"/>
-                        </imageView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="BUb-7N-XLp"/>
+                        <constraint firstAttribute="width" constant="259" id="nbP-66-zxj"/>
+                    </constraints>
                 </view>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="regeback.png" translatesAutoresizingMaskIntoConstraints="NO" id="cJK-gI-Nzh">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <point key="canvasLocation" x="403" y="287"/>
+            <constraints>
+                <constraint firstAttribute="centerX" secondItem="wkb-m5-KvM" secondAttribute="centerX" id="7Bj-VZ-gQ0"/>
+                <constraint firstItem="6KB-Cf-Dbt" firstAttribute="top" secondItem="wkb-m5-KvM" secondAttribute="bottom" constant="5" id="Jde-A9-mvf"/>
+                <constraint firstAttribute="centerX" secondItem="zW7-iY-bZh" secondAttribute="centerX" id="QpG-ml-uwN"/>
+                <constraint firstAttribute="centerX" secondItem="6KB-Cf-Dbt" secondAttribute="centerX" id="dT0-O8-yes"/>
+                <constraint firstItem="zW7-iY-bZh" firstAttribute="top" secondItem="6KB-Cf-Dbt" secondAttribute="bottom" constant="2" id="fTT-Sa-eLx"/>
+                <constraint firstItem="wkb-m5-KvM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="jG1-uU-5nM"/>
+            </constraints>
+            <point key="canvasLocation" x="376" y="285"/>
         </view>
     </objects>
     <resources>

@@ -48,12 +48,7 @@
         
     }];
     
-   
-    
-    
-    
-    
-    
+
     [self.view addSubview:_tableView];
     
 //    [self buildTopviewWithBackButton:YES title:@"星文" rightImage:nil];
@@ -63,7 +58,14 @@
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 400;
+    
+    
+    UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
+    
+    CGFloat sdfdsf=cell.frame.size.height;
+    return cell.frame.size.height;
+//    return 600;
+    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -130,9 +132,27 @@
         
         [cell.share setTitle:[_allArray[indexPath.row]valueForKey:@"count3"] forState:UIControlStateNormal];
         //    [tableView reloadData];
+        [cell.newsText sizeToFit];
+        CGRect f = cell.newsText.frame;
+        
+        CGFloat floadf=   [self getContenSizeAction:cell.newsText];
         
         
+//        [cell.newsText setFrame:CGRectMake(f.origin.x, f.origin.y, f.size.width, [self getContenSizeAction:cell.newsText]+500)];
         
+        [cell.newsText setFrame:CGRectMake(0 , 12, 12321321,500)];
+        
+        [cell.newsPic setFrame:CGRectMake(0 , 12, 12321321,500)];
+        
+        
+//      [cell.newsText setFrame:CGRectMake(f.origin.x, f.origin.y, f.size.width, 500)];
+//      cell.newsText.frame.size.height =[self getContenSizeAction:cell.newsText];
+       
+        CGRect c =cell.frame;
+        float  heightss =[self getContenSizeAction:cell.newsText] +c.size.height;
+        
+        
+        [cell setFrame:CGRectMake(c.origin.x, c.origin.y, c.size.width, c.size.height +heightss)];
         
         
         //    NSUInteger row = [indexPath row];

@@ -20,19 +20,18 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Adc-6P-5a9">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Adc-6P-5a9">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="Adc-6P-5a9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="1KP-ev-S4b"/>
-                <constraint firstAttribute="bottom" secondItem="Adc-6P-5a9" secondAttribute="bottom" id="Uvt-TQ-aBC"/>
-                <constraint firstAttribute="trailing" secondItem="Adc-6P-5a9" secondAttribute="trailing" id="WYk-9D-fJ4"/>
-                <constraint firstItem="Adc-6P-5a9" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="vDD-Kr-QK2"/>
+                <constraint firstAttribute="trailing" secondItem="Adc-6P-5a9" secondAttribute="trailing" id="AGU-cH-szq"/>
+                <constraint firstAttribute="bottom" secondItem="Adc-6P-5a9" secondAttribute="bottom" id="TJt-B3-Oqf"/>
+                <constraint firstItem="Adc-6P-5a9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="fAI-sP-png"/>
             </constraints>
-            <point key="canvasLocation" x="387" y="-207"/>
+            <point key="canvasLocation" x="367" y="-318"/>
         </view>
         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZYk-Kh-kKw">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>

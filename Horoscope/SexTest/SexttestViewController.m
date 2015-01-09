@@ -33,12 +33,18 @@
     
 
     
+    
+    
     CustHeadView * custHeadView =   [nibView objectAtIndex:0];
     
+//    _testTableView.frame =CGRectMake(0, 0, KScreenWidth, KScreenHeight);
+    
+//    CustHeadView * custHeadView =   [custHeadView ];
     
     
     
-    [custHeadView setFrame:CGRectMake(0, 0, KScreenWidth, 260)];
+    
+    [custHeadView setFrame:CGRectMake(0, 0, KScreenWidth,280)];
     
     _testTableView.delegate =self;
     _testTableView.dataSource =self;
