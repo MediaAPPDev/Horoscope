@@ -70,17 +70,17 @@
     
     
     //设置手机QQ的AppId，指定你的分享url，若传nil，将使用友盟的网址
-    [UMSocialQQHandler setQQWithAppId:@"1103841525" appKey:@"TarlNqE6S1bgBfxc" url:@"http://www.baidu.com"];
+    [UMSocialQQHandler setQQWithAppId:@"1103841525" appKey:@"TarlNqE6S1bgBfxc" url:@"https://www.mugeda.com/"];
     
-    [UMSocialWechatHandler setWXAppId:@"wxbccec73ac4a300c1" appSecret:@"56ad72bc5586aa55443ef50f62dd0299" url:@"http://www.umeng.com/social"];
+    [UMSocialWechatHandler setWXAppId:@"wxbccec73ac4a300c1" appSecret:@"56ad72bc5586aa55443ef50f62dd0299" url:@"https://www.mugeda.com/"];
 
     
-    [UMSocialSinaHandler openSSOWithRedirectURL:@"http://www.umeng.com/social"];
+    [UMSocialSinaHandler openSSOWithRedirectURL:nil];
     
     
-    [UMSocialData defaultData].extConfig.qqData.qqMessageType = UMSocialQQMessageTypeImage; //设置QQ分享纯图片，默认分享图文消息
-    [UMSocialData defaultData].extConfig.wechatSessionData.wxMessageType = UMSocialWXMessageTypeImage;  //设置微信好友分享纯图片
-    [UMSocialData defaultData].extConfig.wechatTimelineData.wxMessageType = UMSocialWXMessageTypeImage;  //设置微信朋友圈分享纯图片
+//    [UMSocialData defaultData].extConfig.qqData.qqMessageType = UMSocialQQMessageTypeImage; //设置QQ分享纯图片，默认分享图文消息
+//    [UMSocialData defaultData].extConfig.wechatSessionData.wxMessageType = UMSocialWXMessageTypeImage;  //设置微信好友分享纯图片
+//    [UMSocialData defaultData].extConfig.wechatTimelineData.wxMessageType = UMSocialWXMessageTypeImage;  //设置微信朋友圈分享纯图片
     
 
     

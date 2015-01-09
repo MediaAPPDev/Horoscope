@@ -30,6 +30,7 @@
     UILabel *useridLabel;
     
     UIActionSheet * photoSheet;
+    NSMutableDictionary * infoDict;
     
 }
 @end
@@ -61,7 +62,7 @@
     titleLabel.textColor = [UIColor whiteColor];
     [self.view addSubview:titleLabel];
     
-
+    infoDict = [NSMutableDictionary dictionary];
     
     mainScrl =[[ UIScrollView alloc]initWithFrame:CGRectMake(0, KISHighVersion_7?64:44, KScreenWidth, KScreenHeight-(KISHighVersion_7?64:44))];
     mainScrl.backgroundColor = [UIColor grayColor];
@@ -71,7 +72,7 @@
     [self.view addSubview:mainScrl];
     [self buildFirstView];
     
-    [self buildPhotosWall];
+//    [self buildPhotosWall];
 
     myTableView  = [[UITableView alloc]initWithFrame:CGRectMake(0, KScreenWidth/2+KScreenWidth*.52-30, KScreenWidth, 100+40*9+10) style:UITableViewStylePlain];
     myTableView.bounces = NO;
@@ -101,17 +102,19 @@
     
      [[AFAppDotNetAPIClient sharedClient] GET:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject isKindOfClass:[NSDictionary class]]) {
-            NSDictionary *dic = [NSDictionary dictionaryWithDictionary:responseObject];
+            infoDict = [NSMutableDictionary dictionaryWithDictionary:responseObject];
             
-            headImgView.imageURL = [NSURL URLWithString:KISDictionaryHaveKey(dic, @"photo")];
+            [self buildPhotosWallWithUrl:KISDictionaryHaveKey(infoDict, @"photo")];
+            
+            headImgView.imageURL = [NSURL URLWithString:KISDictionaryHaveKey(infoDict, @"photo")];
 //            xzImgViwe.image = KUIImage(@"");
-            xzLabel.text = KISDictionaryHaveKey(dic, @"xing");
-            qmLabel.text = KISDictionaryHaveKey(dic, @"phrase");
-            titleLabel.text = KISDictionaryHaveKey(dic, @"nickname");
-            ageLabel.text = KISDictionaryHaveKey(dic, @"userage");
-            useridLabel.text = [NSString stringWithFormat:@"ID:%@",KISDictionaryHaveKey(dic,@"id")];
-            [funsBtn setTitle:[NSString stringWithFormat:@"粉丝 %@",KISDictionaryHaveKey(dic,@"fans")] forState:UIControlStateNormal];
-            [gzBtn setTitle:[NSString stringWithFormat:@"关注 %@",KISDictionaryHaveKey(dic,@"follow")] forState:UIControlStateNormal];
+            xzLabel.text = KISDictionaryHaveKey(infoDict, @"xing");
+            qmLabel.text = KISDictionaryHaveKey(infoDict, @"phrase");
+            titleLabel.text = KISDictionaryHaveKey(infoDict, @"nickname");
+            ageLabel.text = KISDictionaryHaveKey(infoDict, @"userage");
+            useridLabel.text = [NSString stringWithFormat:@"ID:%@",KISDictionaryHaveKey(infoDict,@"id")];
+            [funsBtn setTitle:[NSString stringWithFormat:@"粉丝 %@",KISDictionaryHaveKey(infoDict,@"fans")] forState:UIControlStateNormal];
+            [gzBtn setTitle:[NSString stringWithFormat:@"关注 %@",KISDictionaryHaveKey(infoDict,@"follow")] forState:UIControlStateNormal];
         }
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -188,28 +191,26 @@
 }
 
 //坑爹的照片墙
--(void)buildPhotosWall
+-(void)buildPhotosWallWithUrl:(NSString *)url
 {
     
-    UIView *photoView =[[ UIView alloc]initWithFrame:CGRectMake(0,KScreenWidth/2-30, KScreenWidth, KScreenWidth*0.52)];
+    UIView *photoView;
+    [photoView removeFromSuperview];
+    photoView =[[ UIView alloc]initWithFrame:CGRectMake(0,KScreenWidth/2-30, KScreenWidth, KScreenWidth*0.52)];
     photoView.backgroundColor = [UIColor whiteColor];
     [mainScrl addSubview:photoView];
     
     for (int i = 0; i<8; i++) {
-        
         CGFloat imgWidth = (width(mainScrl)-30)/4;
-        
         CGFloat imgY = 10 +imgWidth*(i/4)+i/4*5;
         CGFloat imgX = 5 + imgWidth*(i%4)+(i%4)*5;
         NSLog(@"%d----%d--%d--%d",4%4,5%4,6%4,7%4);
-        
-        UIButton  *imgView =[[ UIButton alloc]initWithFrame:CGRectMake(imgX,imgY, imgWidth, imgWidth)];
-        [imgView setImage:KUIImage(@"1.jpg") forState:UIControlStateNormal] ;
+        EGOImageButton  *imgView =[[ EGOImageButton alloc]initWithFrame:CGRectMake(imgX,imgY, imgWidth, imgWidth)];
+        imgView.placeholderImage = KUIImage(@"1.jpg") ;
+        imgView.imageURL = [NSURL URLWithString:url];
         imgView.tag = i;
         [imgView addTarget:self action:@selector(seeBigImg:) forControlEvents:UIControlEventTouchUpInside];
         [photoView addSubview:imgView];
-//        NSLog(@"%@",imgView);
-        
     }
 }
 
@@ -334,7 +335,11 @@
 -(void)seeBigImg:(UIButton *)sender
 {
     PhotoViewController *photoVC = [[PhotoViewController alloc]init];
-    photoVC.photoArray = [NSMutableArray arrayWithObjects:@"1.jpg", @"1.jpg",@"1.jpg",@"1.jpg",@"1.jpg",@"1.jpg",@"1.jpg",@"1.jpg",nil];
+    photoVC.photoArray = [NSMutableArray array];
+    for (int i =0; i<8; i++) {
+        [photoVC.photoArray addObject:[infoDict objectForKey:@"photo"]];
+    }
+    
     photoVC.num = sender.tag;
     photoVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     

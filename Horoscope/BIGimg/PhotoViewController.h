@@ -7,7 +7,7 @@
 //
 
 #import "BaseViewController.h"
-
+#import "EGOImageView.h"
 @interface PhotoViewController : BaseViewController
 @property(nonatomic,strong)NSMutableArray *photoArray;
 @property(nonatomic,assign)int num;

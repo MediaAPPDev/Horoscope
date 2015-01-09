@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol xingwenCellDelegate;
 @interface XingWenTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIButton *zan;
@@ -22,9 +23,13 @@
 
 @property (weak, nonatomic) IBOutlet UITextView *newsText;
 @property (weak, nonatomic) IBOutlet UIImageView *newsPic;
-
-
-
+@property (nonatomic,assign)id<xingwenCellDelegate>delegate;
 
 
 @end
+@protocol xingwenCellDelegate <NSObject>
+
+-(void)didClickShareWithCell:(XingWenTableViewCell *)cell;
+
+@end
+

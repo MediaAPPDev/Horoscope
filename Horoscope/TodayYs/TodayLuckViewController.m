@@ -24,7 +24,7 @@
     UIView *ysView;
     UIImageView * ysImgView;
     NSArray *ysArr;
-    
+    UIButton *rightBtn;
     NSString * dateStr;//期
     NSString * StarStr;//星座
     
@@ -40,6 +40,10 @@
     UILabel     * spStarLabel;//速配星座
     
     UIView *customysView;
+    
+    NSMutableDictionary * infoDict;
+    NSMutableDictionary * childInfoDict;
+    
     
 }
 @end
@@ -62,6 +66,10 @@
 
     zArray = [NSMutableArray arrayWithObjects:@"3.21-4.20",@"4.21-5.20",@"5.21-6.20",@"6.21-7.20",@"7.21-8.20",@"8.21-9.20",@"9.21-10.20",@"10.21-11.20",@"11.21-12.20",@"12.21-1.20",@"1.21-2.20",@"2.21-3.20", nil];
     
+    
+    infoDict = [NSMutableDictionary dictionary];
+    childInfoDict = [NSMutableDictionary dictionary];
+    
     [self buildconstellationScroll];
 
     [self buildYsView];
@@ -69,10 +77,11 @@
     
     [self buildTopviewWithBackButton:YES title:@"" rightImage:@""];
     
-    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(self.view.bounds.size.width-60, KISHighVersion_7?20:0, 60, 44)];
-    [button setImage:KUIImage(@"shareOut") forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(shareOutInfo:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:button];
+    rightBtn = [[UIButton alloc]initWithFrame:CGRectMake(self.view.bounds.size.width-60, KISHighVersion_7?20:0, 60, 44)];
+    [rightBtn setImage:KUIImage(@"shareOut") forState:UIControlStateNormal];
+    [rightBtn addTarget:self action:@selector(shareOutInfo:) forControlEvents:UIControlEventTouchUpInside];
+    rightBtn.enabled = NO;
+    [self.view addSubview:rightBtn];
 
     
     titleBtn = [[UIButton alloc]initWithFrame:CGRectMake(50, KISHighVersion_7?20:0, KScreenWidth-100, 40)];
@@ -247,19 +256,20 @@
         if (![responseObject isKindOfClass:[NSDictionary class]]) {
             return ;
         }
-        NSDictionary *dic = [NSDictionary dictionaryWithDictionary:responseObject];
-        NSDictionary *dict =KISDictionaryHaveKey(dic, @"result");
+        rightBtn.enabled = YES;
+        infoDict = [NSMutableDictionary dictionaryWithDictionary:responseObject];
+        childInfoDict =KISDictionaryHaveKey(infoDict, @"result");
         
         
-        ysTextView.text = KISDictionaryHaveKey(dict, @"summary");
-        colorLabel.text = [NSString stringWithFormat:@"%@色",KISDictionaryHaveKey(dict, @"color")];
-        numLabel.text  = KISDictionaryHaveKey(dict, @"number");
-        spStarLabel.text = KISDictionaryHaveKey(dict, @"OFriend");
-        zhImgeView.image = KUIImage([self getImgWithString:KISDictionaryHaveKey(dict, @"all")]);
-        loveImgView.image = KUIImage([self getImgWithString:KISDictionaryHaveKey(dict, @"love")]);
-        workImgView.image = KUIImage([self getImgWithString:KISDictionaryHaveKey(dict, @"work")]);
-        moneyImgView.image = KUIImage([self getImgWithString:KISDictionaryHaveKey(dict, @"money")]);
-        healthLabel.image = KUIImage([self getImgWithString:KISDictionaryHaveKey(dict, @"health")]);
+        ysTextView.text = KISDictionaryHaveKey(childInfoDict, @"summary");
+        colorLabel.text = [NSString stringWithFormat:@"%@色",KISDictionaryHaveKey(childInfoDict, @"color")];
+        numLabel.text  = KISDictionaryHaveKey(childInfoDict, @"number");
+        spStarLabel.text = KISDictionaryHaveKey(childInfoDict, @"OFriend");
+        zhImgeView.image = KUIImage([self getImgWithString:KISDictionaryHaveKey(childInfoDict, @"all")]);
+        loveImgView.image = KUIImage([self getImgWithString:KISDictionaryHaveKey(childInfoDict, @"love")]);
+        workImgView.image = KUIImage([self getImgWithString:KISDictionaryHaveKey(childInfoDict, @"work")]);
+        moneyImgView.image = KUIImage([self getImgWithString:KISDictionaryHaveKey(childInfoDict, @"money")]);
+        healthLabel.image = KUIImage([self getImgWithString:KISDictionaryHaveKey(childInfoDict, @"health")]);
         
         
         
@@ -555,8 +565,9 @@
     //    UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:snsName];
     //    snsPlatform.snsClickHandler(self,[UMSocialControllerService defaultControllerService],YES);
     
+    NSString *titleStr = [NSString stringWithFormat:@"分享了%@的%@",KISDictionaryHaveKey(childInfoDict, @"name"),titleBtn.titleLabel.text];
     
-    [[UMSocialDataService defaultDataService] postSNSWithTypes:@[arr[buttonIndex]] content:@"星座show" image:nil location:nil urlResource:nil presentedController:self completion:^(UMSocialResponseEntity * response){
+    [[UMSocialDataService defaultDataService] postSNSWithTypes:@[arr[buttonIndex]] content:titleStr image:nil location:nil urlResource:nil presentedController:self completion:^(UMSocialResponseEntity * response){
         if (response.responseCode == UMSResponseCodeSuccess) {
             UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"成功" message:@"分享成功" delegate:nil cancelButtonTitle:@"好" otherButtonTitles:nil];
             [alertView show];
@@ -566,14 +577,7 @@
         }
     }];
     
-    
-    //    [UMSocialSnsService presentSnsIconSheetView:self
-    //appKey:@"507fcab25270157b37000010"
-    //shareText:@"你要分享的文字"
-    //shareImage:[UIImage imageNamed:@"icon.png"]
-    //shareToSnsNames:[NSArray arrayWithObjects:UMShareToSina,UMShareToTencent,UMShareToRenren,nil]
-    //    delegate:self];
-}
+ }
 
 
 - (void)didReceiveMemoryWarning {

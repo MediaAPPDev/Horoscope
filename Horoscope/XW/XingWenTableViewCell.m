@@ -25,6 +25,10 @@
 }
 
 - (IBAction)shareAction:(id)sender {
+    
+    if ([self.delegate respondsToSelector:@selector(didClickShareWithCell:)]) {
+        [self.delegate didClickShareWithCell:self];
+    }
 }
 
 

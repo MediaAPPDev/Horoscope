@@ -27,8 +27,11 @@
     
     
     for (int i = 0; i<self.photoArray.count; i++) {
-        UIImageView *imageView =[[UIImageView alloc]initWithFrame:CGRectMake(KScreenWidth*i, 0, KScreenWidth, KScreenHeight)];
-        imageView.image = KUIImage(self.photoArray[i]);
+        
+        UIScrollView *scr = [[UIScrollView alloc]initWithFrame:CGRectMake(width(self.view)*i, 0, width(self.view), height(self.view))];
+        
+        EGOImageView *imageView =[[EGOImageView alloc]initWithFrame:scr.frame];
+        imageView.imageURL = [NSURL URLWithString:self.photoArray[i]];
         
         CGFloat imgW = imageView.image.size.width;
         CGFloat imgH = imageView.image.size.height;
@@ -43,12 +46,14 @@
             imgViewWid = imgW;
             imgViewHie = imgH;
         }
-        
         imageView.frame = CGRectMake(0, 0, imgViewWid, imgViewHie);
         imageView.userInteractionEnabled = YES;
-        imageView.center = CGPointMake(KScreenWidth *i+KScreenWidth/2, KScreenHeight/2);
-        [imageView addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(backView)]];
-        [scrollView addSubview:imageView];
+        imageView.center = CGPointMake(KScreenWidth/2, KScreenHeight/2);
+        [scr addSubview:imageView];
+
+        [scr addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(backView)]];
+//        scr.backgroundColor = [UIColor greenColor];
+        [scrollView addSubview:scr];
     }
     
     
