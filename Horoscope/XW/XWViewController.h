@@ -8,7 +8,7 @@
 
 #import "BaseViewController.h"
 #import "XingWenTableViewCell.h"
-
+#import "EGOImageView.h"
 @interface XWViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate,UMSocialDataDelegate,UMSocialUIDelegate,xingwenCellDelegate>
 
 

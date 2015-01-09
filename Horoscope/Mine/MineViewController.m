@@ -42,7 +42,6 @@
     // Do any additional setup after loading the view.
     
     if (self.isRootView) {
-//        [self buildTopviewWithBackButton:NO title:@"" rightImage:@"123123"];
         
         [self setTopViewWithTitle:@"" withBackButton:YES];
         
@@ -95,9 +94,9 @@
 {
     NSString *urlStr ;
     if (self.isRootView) {
-        urlStr = @"userdetail.php?uid=6283429397";
+        urlStr = [NSString stringWithFormat:@"userdetail.php?uid=%@",userid];
     }else{
-        urlStr = [NSString stringWithFormat:@"%@%@",@"userdetail.php?uid=",userid];
+        urlStr = [NSString stringWithFormat:@"userdetail.php?uid=%@",userid];
     }
     
      [[AFAppDotNetAPIClient sharedClient] GET:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {

@@ -280,14 +280,10 @@
     NSLog(@"%ld",(long)ccButton.tag);
     MineViewController *mineView = [[MineViewController alloc]init];
     mineView.isRootView = NO;
-    
     NSDictionary *dic =[allArr objectAtIndex:sender.tag];
-    
     mineView.userid =KISDictionaryHaveKey(dic, @"uid");
     [self.menuController pushViewController:mineView withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
     [self didHiddenBlView:nil];
-    
-    
 }
 
 //点击隐藏遮罩层 显示主页面

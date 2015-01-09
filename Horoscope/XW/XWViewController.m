@@ -13,6 +13,8 @@
 
 #import "UIImageView+AFNetworking.h"
 
+#define KZFURL @"http://star.allappropriate.com/articlef"
+
 @interface XWViewController ()
 
 @end
@@ -199,12 +201,15 @@
     //    snsPlatform.snsClickHandler(self,[UMSocialControllerService defaultControllerService],YES);
     
     NSString *titleStr = KISDictionaryHaveKey(dic, @"content");
+    EGOImageView *imgView= [[ EGOImageView alloc]init];
+    imgView.imageURL = [NSURL URLWithString:KISDictionaryHaveKey(dic, @"photo")];
     
     if (titleStr.length>128) {
         titleStr = [titleStr substringToIndex:128];
     }
     
-    [[UMSocialDataService defaultDataService] postSNSWithTypes:@[arr[buttonIndex]] content:titleStr image:nil location:nil urlResource:nil presentedController:self completion:^(UMSocialResponseEntity * response){
+    
+    [[UMSocialDataService defaultDataService] postSNSWithTypes:@[arr[buttonIndex]] content:titleStr image:KUIImage(@"1.jpg") location:nil urlResource:nil presentedController:self completion:^(UMSocialResponseEntity * response){
         if (response.responseCode == UMSResponseCodeSuccess) {
             UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"成功" message:@"分享成功" delegate:nil cancelButtonTitle:@"好" otherButtonTitles:nil];
             [alertView show];
