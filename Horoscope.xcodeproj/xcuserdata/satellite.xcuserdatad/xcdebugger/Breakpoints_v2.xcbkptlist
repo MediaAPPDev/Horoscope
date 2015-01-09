@@ -19,14 +19,44 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Horoscope/Third Class/AFNetworking/AFURLRequestSerialization.m"
-            timestampString = "442305931.476847"
+            filePath = "Horoscope/XW/XWViewController.m"
+            timestampString = "442478855.749474"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "482"
-            endingLineNumber = "482"
-            landmarkName = "-requestBySerializingRequest:withParameters:error:"
+            startingLineNumber = "211"
+            endingLineNumber = "211"
+            landmarkName = "-actionSheet:clickedButtonAtIndex:"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[XWViewController actionSheet:clickedButtonAtIndex:]"
+                  moduleName = "Horoscope"
+                  urlString = "file:///Users/satellite/Desktop/Horoscope/Horoscope/XW/XWViewController.m"
+                  timestampString = "442486668.72382"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "212"
+                  endingLineNumber = "212"
+                  offsetFromSymbolStart = "1544">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__53-[XWViewController actionSheet:clickedButtonAtIndex:]_block_invoke"
+                  moduleName = "Horoscope"
+                  urlString = "file:///Users/satellite/Desktop/Horoscope/Horoscope/XW/XWViewController.m"
+                  timestampString = "442486668.723973"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "212"
+                  endingLineNumber = "212"
+                  offsetFromSymbolStart = "44">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

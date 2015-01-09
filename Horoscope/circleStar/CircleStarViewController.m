@@ -44,11 +44,35 @@
     myTableView.delegate = self;
     myTableView.dataSource = self;
     [self.view addSubview:myTableView];
-    
+    [self buildTableViewHeadView];
     [self getInfoFromNet];
     [self createCommentText];
     [self registerForKeyboardNotifications];
 }
+
+#pragma mark ---创建头
+-(void)buildTableViewHeadView
+{
+    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, width(self.view), width(self.view)/3*2)];
+    view.backgroundColor = [UIColor whiteColor];
+    
+    UIImageView *imgView =[[ UIImageView alloc]initWithFrame:CGRectMake(0, 0, width(self.view), width(self.view)/2)];
+    imgView.image = KUIImage(@"bg-Normal");
+    imgView.backgroundColor = [UIColor grayColor];
+    [view addSubview:imgView];
+    
+    EGOImageView *headImg = [[EGOImageView alloc]initWithFrame:CGRectMake(width(self.view)-80-50, width(self.view)/2-40, 80, 80)];
+    
+    headImg.placeholderImage = KUIImage(@"1.jpg");
+    headImg.imageURL = nil;
+    [view addSubview:headImg];
+    
+    myTableView.tableHeaderView = view;
+    
+    
+}
+
+
 
 #pragma mark---创建评论条
 -(void)createCommentText
@@ -110,7 +134,6 @@
     if (!cell) {
         cell = [[CircleCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
-    
     cell.delegate = self;
     
     NSDictionary *dic = [infoArray objectAtIndex:indexPath.row];

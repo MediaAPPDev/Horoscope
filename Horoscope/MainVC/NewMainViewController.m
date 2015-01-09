@@ -20,6 +20,10 @@
     NSMutableArray *arr1;
     TopView *topView;
     NSMutableArray *allArr;
+    
+    
+    MJRefreshHeaderView *m_header;
+
 }
 @end
 
@@ -61,7 +65,8 @@
     arr1 = [NSMutableArray array];
     allArr = [NSMutableArray array];
     [self getInfoFromNet];
-    
+    [self addHeader];
+
 }
 
 -(void)getInfoFromNet
@@ -83,9 +88,11 @@
                     [infoArray addObject:dic];
                 }
             }
+            [m_header endRefreshing];
             [m_CollView reloadData];
         }
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [m_header endRefreshing];
         [self showAlertViewWithtitle:@"提示" message:@"好友列表请求失败"];
     }];
 }
@@ -144,7 +151,7 @@
             titleView.cell2.MainImageView.imageURL = [NSURL URLWithString:[[arr1 objectAtIndex:2] objectForKey:@"photo"]];
             titleView.cell2.nameLabel.text = [[arr1 objectAtIndex:2] objectForKey:@"nickname"];
             
-            titleView.cell3.MainImageView.imageURL = [NSURL URLWithString:[[arr1 objectAtIndex:2] objectForKey:@"photo"]];
+            titleView.cell3.MainImageView.imageURL = [NSURL URLWithString:[[arr1 objectAtIndex:3] objectForKey:@"photo"]];
             titleView.cell3.nameLabel.text = [[arr1 objectAtIndex:3] objectForKey:@"nickname"];
             titleView.cell4.MainImageView.imageURL = [NSURL URLWithString:[[arr1 objectAtIndex:4] objectForKey:@"photo"]];
             titleView.cell4.nameLabel.text = [[arr1 objectAtIndex:4] objectForKey:@"nickname"];
@@ -273,14 +280,10 @@
     NSLog(@"%ld",(long)ccButton.tag);
     MineViewController *mineView = [[MineViewController alloc]init];
     mineView.isRootView = NO;
-    
     NSDictionary *dic =[allArr objectAtIndex:sender.tag];
-    
     mineView.userid =KISDictionaryHaveKey(dic, @"uid");
     [self.menuController pushViewController:mineView withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
     [self didHiddenBlView:nil];
-    
-    
 }
 
 //点击隐藏遮罩层 显示主页面
@@ -322,6 +325,23 @@
 {
     return @"darenxiu.png";
 }
+
+
+- (void)addHeader
+{
+    MJRefreshHeaderView *header = [MJRefreshHeaderView header];
+    CGRect headerRect = header.arrowImage.frame;
+    headerRect.size = CGSizeMake(30, 30);
+    header.arrowImage.frame = headerRect;
+    header.activityView.center = header.arrowImage.center;
+    header.scrollView = m_CollView;
+    header.beginRefreshingBlock = ^(MJRefreshBaseView *refreshView) {
+        [self getInfoFromNet];
+    };
+    m_header = header;
+}
+
+
 /*
 #pragma mark - Navigation
 

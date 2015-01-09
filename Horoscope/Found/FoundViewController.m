@@ -85,7 +85,7 @@
 
 -(void)getFollowWithFid:(NSString *)fid
 {
-    
+        
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     [dic setObject:@"6283429397" forKey:@"uid"];
     [dic setObject:@"fid" forKey:@"fid"];
@@ -140,7 +140,7 @@
     cell.headimgView.placeholderImage = KUIImage(@"placeholder.jpg");
     cell.headimgView.imageURL = [NSURL URLWithString:KISDictionaryHaveKey(dic, @"photo")];
         cell.nameLb.text = KISDictionaryHaveKey(dic, @"nickname");
-        cell.starImgView.image = KUIImage(@"ys_c_by");
+        cell.starImgView.image = KUIImage([self GetNameReturnImageWithName:KISDictionaryHaveKey(dic, @"xing")]);
         cell.starLb.text = KISDictionaryHaveKey(dic, @"xing");;
     cell.sexImg.image = KUIImage(@"sexImg");
 

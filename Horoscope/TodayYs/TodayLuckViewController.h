@@ -8,6 +8,6 @@
 
 #import "BaseViewController.h"
 
-@interface TodayLuckViewController : BaseViewController
+@interface TodayLuckViewController : BaseViewController<UIActionSheetDelegate>
 
 @end

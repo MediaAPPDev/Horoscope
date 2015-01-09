@@ -24,6 +24,18 @@
 -(void)showAlertViewWithtitle:(NSString *)title message:(NSString *)message;
 
 - (CGSize)labelAutoCalculateRectWith:(NSString*)text FontSize:(CGFloat)fontSize MaxSize:(CGSize)maxSize;
+
+/*
+ *** 
+ * 根据传入的星座名称 返回星座图片
+ *
+ *
+ */
+-(NSString *)GetNameReturnImageWithName:(NSString *)name;
+
+
+
+
 @property (nonatomic,strong)MBProgressHUD *hud;
 
 - (void)showMessageWindowWithContent:(NSString*)content imageType:(NSInteger)imageType;

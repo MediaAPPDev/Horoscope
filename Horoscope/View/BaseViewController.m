@@ -407,4 +407,59 @@
 
 
 
+-(NSString *)GetNameReturnImageWithName:(NSString *)name
+{
+    if ([name isEqualToString:@"白羊座"]) {
+        return @"";
+    }
+    else if ([name isEqualToString:@"处女座"])
+    {
+        return @"";
+    }
+    else if ([name isEqualToString:@"天蝎座"])
+    {
+        return @"";
+    }
+    else if ([name isEqualToString:@"天秤座"])
+    {
+        return @"";
+    }
+
+    else if ([name isEqualToString:@"双子座"])
+    {
+        return @"";
+    }
+    else if ([name isEqualToString:@"摩羯座"])
+    {
+        return @"";
+    }
+    else if ([name isEqualToString:@"双鱼座"])
+    {
+        return @"";
+    }
+    else if ([name isEqualToString:@"射手座"])
+    {
+        return @"";
+    }
+    else if ([name isEqualToString:@"巨蟹座"])
+    {
+        return @"";
+    }
+    else if ([name isEqualToString:@"狮子座"])
+    {
+        return @"";
+    }
+    else if ([name isEqualToString:@"金牛座"])
+    {
+        return @"";
+    }
+    else if ([name isEqualToString:@"水瓶座"])
+    {
+        return @"";
+    }
+    return nil;
+}
+
+
+
 @end

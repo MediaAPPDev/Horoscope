@@ -33,10 +33,10 @@
     [super viewDidLoad];
     
     [self buildTopviewWithBackButton:NO title:@"" rightImage:@""];
-    ysArr = [NSMutableArray arrayWithObjects:@"全部",@"我关注的",@"我的粉丝", nil];
+    ysArr = [NSMutableArray arrayWithObjects:@"我关注的",@"我的粉丝", nil];
     
     titleBtn = [[UIButton alloc]initWithFrame:CGRectMake(50, KISHighVersion_7?20:0, KScreenWidth-100, 40)];
-    [titleBtn setTitle:@"星友(全部)" forState:UIControlStateNormal];
+    [titleBtn setTitle:@"我关注的▼" forState:UIControlStateNormal];
     titleBtn.backgroundColor =[ UIColor clearColor];
     [titleBtn addTarget:self action:@selector(changeTitle:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:titleBtn];
@@ -63,7 +63,7 @@
 
     infoArr = [NSMutableArray array];
     infoDic = [NSMutableDictionary dictionary];
-    [self getInfoFromNet];
+    [self getInfoFromNetWithUrl:@"userfollow.php?uid=6283429397"];
     
     [self buildYsView];
     
@@ -75,13 +75,13 @@
     ysView.hidden = YES;
     [self.view addSubview:ysView];
     
-    ysImgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 100, 108)];
+    ysImgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 100, 73)];
     ysImgView.image = KUIImage(@"ys_c_down");
-    ysImgView.center = CGPointMake(KScreenWidth/2, -54);
+    ysImgView.center = CGPointMake(KScreenWidth/2, -37);
     ysImgView.userInteractionEnabled = YES;
     [ysView addSubview:ysImgView];
     
-    for (int i = 0; i<3; i++) {
+    for (int i = 0; i<2; i++) {
         UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(0, i*36, 100, 36)];
         [btn setTitle:ysArr[i] forState:UIControlStateNormal];
         [btn setTag: 1000+i];
@@ -91,9 +91,9 @@
 }
 
 #pragma  mark ---网络请求
--(void)getInfoFromNet
+-(void)getInfoFromNetWithUrl:(NSString *)url
 {
-      [[AFAppDotNetAPIClient sharedClient] GET:@"userfriend.php?uid=6283429397" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+      [[AFAppDotNetAPIClient sharedClient] GET:url parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
  
         NSLog(@"get----%@",responseObject);
         
@@ -163,7 +163,7 @@
         
         cell.headimgView.imageURL =[NSURL URLWithString:KISDictionaryHaveKey(dic, @"photo")] ;
         cell.nameLb.text = KISDictionaryHaveKey(dic, @"nickname");
-        cell.starImgView.image = KUIImage(@"ys_c_by");
+        cell.starImgView.image = KUIImage([self GetNameReturnImageWithName:KISDictionaryHaveKey(dic, @"xing")]);
         cell.starLb.text = KISDictionaryHaveKey(dic, @"xing");
         cell.sexImg.image = KUIImage(@"sexImg");
         cell.signatureLb.text =KISDictionaryHaveKey(dic, @"phrase");
@@ -183,11 +183,10 @@
     if (indexPath.section ==1) {
         MineViewController *mine = [[MineViewController alloc]init];
         mine.isRootView = NO;
-        
+        NSDictionary *dic =[infoArr objectAtIndex:indexPath.row];
+        mine.userid = KISDictionaryHaveKey(dic, @"uid");
         [self.menuController pushViewController:mine withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
     }
-
-
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
@@ -196,14 +195,11 @@
     return arr[section];
 }
 
-
 -(void)enterNextPage:(id)sender
 {
     AddFriendsViewController *add =[[AddFriendsViewController alloc]init];
     [self.menuController pushViewController:add withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
 }
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -214,7 +210,7 @@
 {
     ysView.hidden = NO;
     [UIView animateWithDuration:0.3 animations:^{
-        ysImgView.center = CGPointMake(KScreenWidth/2, 54);
+        ysImgView.center = CGPointMake(KScreenWidth/2, 37);
     } completion:^(BOOL finished) {
         [ysView addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hiddenYsView:)]];
     }];
@@ -223,9 +219,17 @@
 
 -(void)changeYsTitle:(UIButton *)sender
 {
-    [titleBtn setTitle:ysArr[sender.tag-1000] forState:UIControlStateNormal];
+    [titleBtn setTitle:[NSString stringWithFormat:@"%@▼", ysArr[sender.tag-1000]] forState:UIControlStateNormal];
+   if (sender.tag-1000==0){
+        [self getInfoFromNetWithUrl:@"userfollow.php?uid=6283429397"];
+    }
+    else{
+        [self getInfoFromNetWithUrl:@"userfans.php?uid=6283429397"];
+    }
+    
+    
     [UIView animateWithDuration:0.3 animations:^{
-        ysImgView.center = CGPointMake(KScreenWidth/2, -54);
+        ysImgView.center = CGPointMake(KScreenWidth/2, -37);
     } completion:^(BOOL finished) {
         ysView.hidden = YES;
         [ysView removeGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hiddenYsView:)]];
@@ -236,15 +240,13 @@
 -(void)hiddenYsView:(id)sender
 {
     [UIView animateWithDuration:0.3 animations:^{
-        ysImgView.center = CGPointMake(KScreenWidth/2, -54);
+        ysImgView.center = CGPointMake(KScreenWidth/2, -37);
     } completion:^(BOOL finished) {
         ysView.hidden = YES;
         [ysView removeGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hiddenYsView:)]];
         
     }];
 }
-
-
 
 -(NSString*)titleForChildControllerMDMenuViewController:(MDMenuViewController *)menuController
 {

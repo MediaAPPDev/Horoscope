@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "MDMenuChildViewController.h"
+
+#define UmengAppkey @"54ad130afd98c50521000eeb"
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;

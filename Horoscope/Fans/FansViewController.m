@@ -98,7 +98,7 @@
     NSDictionary *dic = [infoArr objectAtIndex:indexPath.row];
     MineViewController *mineVC = [[MineViewController alloc]init];
     mineVC.isRootView = NO;
-    mineVC.userid = KISDictionaryHaveKey(dic, @"id");
+    mineVC.userid = KISDictionaryHaveKey(dic, @"uid");
     [self.menuController pushViewController:mineVC withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
 }
 

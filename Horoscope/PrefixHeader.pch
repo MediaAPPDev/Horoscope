@@ -29,6 +29,8 @@
 //#import "RequestTaskService.h"
 #import "NetManager.h"
 #import "TempDate.h"
+#import "UMSocial.h"
+#import "MJRefresh.h"
 //#import "RequestTaskService.h"
 #endif
 
@@ -38,6 +40,9 @@
 
 
 #define YSKEY @"14898fc797ac4929b8d725965498c22c"
+
+
+#define KMYUSERID @"ThisIsMyUserid" //个人userid
 
 
 // view的 X,y , width , height

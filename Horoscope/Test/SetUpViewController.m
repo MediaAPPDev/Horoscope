@@ -44,7 +44,12 @@
     
     
 //    [self v]
-    titleArr = [NSArray arrayWithObjects:@"账号安全",@"账号绑定",@"消息提醒",@"隐私",@"黑名单",@"清理缓存",@"关于",@"反馈意见",@"给我评分",@"退出账号", nil];
+//    titleArr = [NSArray arrayWithObjects:@"账号安全",@"账号绑定",@"消息提醒",@"隐私",@"黑名单",@"清理缓存",@"关于",@"反馈意见",@"给我评分",@"退出账号", nil];
+    
+    titleArr = [NSArray arrayWithObjects:@"账号安全",@"关于",@"反馈意见",@"退出账号", nil];
+
+    
+    
 }
 
 -(void)backToLastPage:(id)sender
@@ -57,27 +62,40 @@
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 5;
+//    return 5;
+    return 3;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+//    switch (section) {
+//        case 0:
+//            return 2;
+//            break;
+//        case 1:
+//            return 2;
+//            break;
+//        case 2:
+//            return 2;
+//            break;
+//        case 3:
+//            return 3;
+//            break;
+//        default:
+//            return 1;
+//            break;
+//    }
     switch (section) {
         case 0:
-            return 2;
+            return 1;
             break;
         case 1:
             return 2;
-            break;
-        case 2:
-            return 2;
-            break;
-        case 3:
-            return 3;
             break;
         default:
             return 1;
             break;
     }
+
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -90,26 +108,46 @@
     }
 
     
-    NSArray *ar =[NSArray arrayWithObjects:@"qq绑定图标大",@"微信绑定图标大",@"微博绑定图标大",@"手机绑定图标大", nil];
-    
-    //        if (self.isHaveImg) {
-    for (int i = 0; i<4; i++) {
-        UIImageView *img = [[UIImageView alloc]initWithFrame:CGRectMake(KScreenWidth-180+30*i+5, 5, 30, 30)];
-        img.image = KUIImage(ar[i]);
-        //                img.backgroundColor = [UIColor redColor];
-        [cell addSubview:img];
-        if (indexPath.section==0&&indexPath.row==1) {
-            img.hidden = NO;
-        }else{
-            img.hidden = YES;
-        }
-    }
+//    NSArray *ar =[NSArray arrayWithObjects:@"qq绑定图标大",@"微信绑定图标大",@"微博绑定图标大",@"手机绑定图标大", nil];
+//    
+//    //        if (self.isHaveImg) {
+//    for (int i = 0; i<4; i++) {
+//        UIImageView *img = [[UIImageView alloc]initWithFrame:CGRectMake(KScreenWidth-180+30*i+5, 5, 30, 30)];
+//        img.image = KUIImage(ar[i]);
+//        //                img.backgroundColor = [UIColor redColor];
+//        [cell addSubview:img];
+//        if (indexPath.section==0&&indexPath.row==1) {
+//            img.hidden = NO;
+//        }else{
+//            img.hidden = YES;
+//        }
+//    }
 
-    cell.titleLabel.text = [titleArr objectAtIndex:(2*indexPath.section+indexPath.row)];
-    if (indexPath.section ==4) {
-        cell.titleLabel.text = @"退出账号";
+//    cell.titleLabel.text = @"1";//[titleArr objectAtIndex:(2*indexPath.section+indexPath.row)];
+    
+    switch (indexPath.section) {
+        case 0:
+         cell.titleLabel.text = @"账号安全";
+            cell.accessoryType = YES;
+            break;
+        case 1:
+            switch (indexPath.row) {
+                case 0:
+                    cell.titleLabel.text = @"关于";
+                    break;
+                default:
+                    cell.titleLabel.text = @"意见反馈";
+                    break;
+            }
+            cell.accessoryType = YES;
+            break;
+        default:
+            cell.titleLabel.text = @"退出登录";
+            cell.accessoryType = NO;
+            break;
+            
     }
-    cell.accessoryType = YES;
+    
     
     
     return cell;
@@ -120,32 +158,33 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     SafeViewController *safe = [[SafeViewController alloc]init];
-    BangdingViewController *bd = [[BangdingViewController alloc]init];
-    NotifiationViewController *not = [[NotifiationViewController alloc]init];
-    PrivacyViewController *priv = [[PrivacyViewController alloc]init];
+//    BangdingViewController *bd = [[BangdingViewController alloc]init];
+//    NotifiationViewController *not = [[NotifiationViewController alloc]init];
+//    PrivacyViewController *priv = [[PrivacyViewController alloc]init];
     FeedbackViewController *fee =[[FeedbackViewController alloc]init];
     
     
     switch (indexPath.section) {
         case 0:
-            switch (indexPath.row) {
-                case 0:
+//            switch (indexPath.row) {
+//                case 0:
                     [self.menuController pushViewController:safe withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
-                    break;
-                    case 1:
-                    [self.menuController pushViewController:bd withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
-                    break;
-                default:
-                    break;
-            }
+//                    break;
+//                    case 1:
+//                    [self.menuController pushViewController:bd withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
+//                    break;
+//                default:
+//                    break;
+//            }
             break;
         case 1:
             switch (indexPath.row) {
                 case 0:
-                    [self.menuController pushViewController:not withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
+//                    [self.menuController pushViewController:not withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
                     break;
                     case 1:
-                    [self.menuController pushViewController:priv withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
+                    [self.menuController pushViewController:fee withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
+//                    [self.menuController pushViewController:priv withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
                     break;
                 default:
                     break;
@@ -155,19 +194,19 @@
         case 2:
             break;
         case 3:
-            switch (indexPath.row) {
-                case 1:
-                    [self.menuController pushViewController:fee withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
-                    break;
-                    
-                default:
-                    break;
-            }
+//            switch (indexPath.row) {
+//                case 1:
+//                    [self.menuController pushViewController:fee withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
+//                    break;
+//                    
+//                default:
+//                    break;
+//            }
 
             break;
-        case 4:
-            
-            break;
+//        case 4:
+//            
+//            break;
             
         default:
             break;

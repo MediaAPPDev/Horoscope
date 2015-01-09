@@ -13,6 +13,8 @@
 
 #import "UIImageView+AFNetworking.h"
 
+#define KZFURL @"http://star.allappropriate.com/articlef"
+
 @interface XWViewController ()
 
 @end
@@ -94,7 +96,8 @@
     }
     
     XingWenTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CustomCellIdentifier];
-    
+    cell.delegate = self;
+    cell.tag = indexPath.row;
     
 //    @property (weak, nonatomic) IBOutlet UIButton *zan;
 //    @property (weak, nonatomic) IBOutlet UIButton *pinglun;
@@ -192,6 +195,57 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     
+}
+
+-(void)didClickShareWithCell:(XingWenTableViewCell*)cell
+{
+    
+    UIActionSheet *shareSheet= [[UIActionSheet alloc]initWithTitle:@"分享" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"新浪微博" otherButtonTitles:@"QQ",@"微信好友",@"微信朋友圈", nil];
+    shareSheet.tag = cell.tag;
+    [shareSheet showInView:self.view];
+
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSDictionary *dic = [_allArray objectAtIndex:actionSheet.tag];
+
+    if (buttonIndex + 1 >= actionSheet.numberOfButtons ) {
+        return;
+    }
+    NSArray *arr = [NSArray arrayWithObjects:@"sina",@"qq",@"wxsession",@"wxtimeline", nil];
+    
+    NSLog(@"%@",arr[buttonIndex]);
+    //    [[UMSocialControllerService defaultControllerService] setShareText:shareText shareImage:shareImage socialUIDelegate:self];
+    //    UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:snsName];
+    //    snsPlatform.snsClickHandler(self,[UMSocialControllerService defaultControllerService],YES);
+    
+    NSString *titleStr = KISDictionaryHaveKey(dic, @"content");
+    EGOImageView *imgView= [[ EGOImageView alloc]init];
+    imgView.imageURL = [NSURL URLWithString:KISDictionaryHaveKey(dic, @"photo")];
+    
+    if (titleStr.length>128) {
+        titleStr = [titleStr substringToIndex:128];
+    }
+    
+    
+    [[UMSocialDataService defaultDataService] postSNSWithTypes:@[arr[buttonIndex]] content:titleStr image:KUIImage(@"1.jpg") location:nil urlResource:nil presentedController:self completion:^(UMSocialResponseEntity * response){
+        if (response.responseCode == UMSResponseCodeSuccess) {
+            UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"成功" message:@"分享成功" delegate:nil cancelButtonTitle:@"好" otherButtonTitles:nil];
+            [alertView show];
+        } else if(response.responseCode != UMSResponseCodeCancel) {
+            UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"失败" message:@"分享失败" delegate:nil cancelButtonTitle:@"好" otherButtonTitles:nil];
+            [alertView show];
+        }
+    }];
+    
+    
+    //    [UMSocialSnsService presentSnsIconSheetView:self
+    //appKey:@"507fcab25270157b37000010"
+    //shareText:@"你要分享的文字"
+    //shareImage:[UIImage imageNamed:@"icon.png"]
+    //shareToSnsNames:[NSArray arrayWithObjects:UMShareToSina,UMShareToTencent,UMShareToRenren,nil]
+    //    delegate:self];
 }
 /*
 #pragma mark - Navigation
