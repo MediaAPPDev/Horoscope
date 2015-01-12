@@ -485,7 +485,7 @@
 //判断为空
 -(BOOL)isEmtity:(NSString*)str
 {
-    if (!str||str == NULL||[@"" isEqualToString:str]||[@" " isEqualToString:str]||[@"null" isEqualToString:str]) {
+    if (!str||str == NULL||[@"" isEqualToString:str]||[@" " isEqualToString:str]||[@"null" isEqualToString:str]||[@"null" isEqualToString:str]) {
         return YES;
     }return NO;
 }

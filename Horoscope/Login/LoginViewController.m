@@ -42,7 +42,7 @@
 -(void)enterNextPage:(UIButton *)btn
 {
     
-    if ([_username.text isEqual:@""]||[_password.text  isEqual:@""]) {
+    if ([self isEmtity:_username.text]||[_password.text  isEqual:@""]) {
         
 //        NSString * strafsdf =null;
         
