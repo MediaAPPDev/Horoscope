@@ -376,11 +376,8 @@
     }];
 }
 
-<<<<<<< HEAD
-/*
- 根据星座名称返回星座图片
- */
-=======
+
+
 //动态获取textView的高度
 - (CGFloat)getContenSizeAction:(UITextView *)textView
 {
@@ -411,7 +408,10 @@
 }
 
 
->>>>>>> FETCH_HEAD
+/*
+ 根据星座名称返回星座图片
+ */
+
 
 -(NSString *)GetNameReturnImageWithName:(NSString *)name
 {
