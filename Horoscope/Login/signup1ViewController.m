@@ -7,6 +7,7 @@
 //
 
 #import "signup1ViewController.h"
+#import "signup2ViewController.h"
 
 @interface signup1ViewController ()
 
@@ -16,7 +17,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(self.view.bounds.size.width-60, KISHighVersion_7?20:0, 60, 44)];
+    [button setImage:KUIImage(@"wancheng.png") forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(enterNextPage:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:button];
+    
+    
+    
+    [_telPhoneNumber setValue:[UIColor colorWithWhite:1 alpha:0.6] forKeyPath:@"_placeholderLabel.textColor"];
+    
+    
     // Do any additional setup after loading the view from its nib.
+}
+
+-(void)enterNextPage:(UIButton *)btn
+{
+    
+    signup2ViewController * signStep2 =[[signup2ViewController alloc]init];
+    [self.menuController pushViewController:signStep2 withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {

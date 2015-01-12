@@ -19,7 +19,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WBq-jx-NnD">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="regeback.png" translatesAutoresizingMaskIntoConstraints="NO" id="6Jx-OO-9G0">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="regeback.png" translatesAutoresizingMaskIntoConstraints="NO" id="6Jx-OO-9G0">
                             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jjJ-M5-ps9">
@@ -68,10 +68,14 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstAttribute="bottom" secondItem="6Jx-OO-9G0" secondAttribute="bottom" id="0UK-ty-YTq"/>
                         <constraint firstAttribute="centerX" secondItem="jjJ-M5-ps9" secondAttribute="centerX" id="4mh-I4-PdD"/>
+                        <constraint firstItem="6Jx-OO-9G0" firstAttribute="leading" secondItem="WBq-jx-NnD" secondAttribute="leading" id="Iiu-28-qFd"/>
                         <constraint firstAttribute="centerX" secondItem="aZh-wR-UkP" secondAttribute="centerX" id="KKb-GU-R3i"/>
                         <constraint firstItem="jjJ-M5-ps9" firstAttribute="top" secondItem="aZh-wR-UkP" secondAttribute="bottom" constant="-129" id="aqX-h0-uTA"/>
+                        <constraint firstAttribute="trailing" secondItem="6Jx-OO-9G0" secondAttribute="trailing" id="kD1-71-fKr"/>
                         <constraint firstItem="jjJ-M5-ps9" firstAttribute="top" secondItem="WBq-jx-NnD" secondAttribute="top" constant="88" id="p1G-xp-jlq"/>
+                        <constraint firstItem="6Jx-OO-9G0" firstAttribute="top" secondItem="WBq-jx-NnD" secondAttribute="top" id="phK-FK-lkn"/>
                     </constraints>
                 </view>
             </subviews>

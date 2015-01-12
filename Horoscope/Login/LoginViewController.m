@@ -7,6 +7,9 @@
 //
 
 #import "LoginViewController.h"
+#import "signup1ViewController.h"
+#import "NewMainViewController.h"
+#import "UserCache.h"
 
 @interface LoginViewController ()
 
@@ -36,6 +39,98 @@
     
     // Do any additional setup after loading the view from its nib.
 }
+-(void)enterNextPage:(UIButton *)btn
+{
+    
+    if ([_username.text isEqual:@""]||[_password.text  isEqual:@""]) {
+        
+//        NSString * strafsdf =null;
+        
+        if (_username.text.length <11)
+        {
+            UIAlertView * alert =[[UIAlertView alloc]initWithTitle:@"错误" message:@"用户名不能小于11位！" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            [alert show];
+          
+      
+        }else{
+            UIAlertView * alert =[[UIAlertView alloc]initWithTitle:@"错误" message:@"用户名和密码不能为空！" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            [alert show];
+       
+            
+        }
+        
+
+        
+    }else{
+        
+        
+        if (_username.text.length <11)
+        {
+            UIAlertView * alert =[[UIAlertView alloc]initWithTitle:@"错误" message:@"用户名不能小于11位！" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            [alert show];
+            
+            
+        }else{
+            NSString * loginStr =[NSString stringWithFormat:@"veruser?mobilenum=%@",_username];
+            
+            //        [NSString stringWithFormat:<#(NSString *), ...#>]
+            
+            [[AFAppDotNetAPIClient sharedClient] GET:loginStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+                
+                            [[UserCache sharedInstance] setValue:loginStr forKey:@"userCode"];
+                
+                            NSString * strsd =[[UserCache sharedInstance] objectForKey:@"userCode"];
+                
+                
+                
+                NSString * state =[NSString stringWithFormat:@"%@",responseObject];
+                
+                if (![state isEqualToString:@""]) {
+                    
+                    
+                    
+                    
+                    NewMainViewController * mainVC =[[NewMainViewController alloc]init];
+                    [self.menuController pushViewController:mainVC withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
+                    
+                    
+                    
+                    
+                }
+                else{
+                    
+                    UIAlertView * alert =[[UIAlertView alloc]initWithTitle:@"错误" message:@"用户不存在！" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                    [alert show];
+                    
+                }
+                
+                
+                
+            } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                
+                
+                
+            }];
+            
+            
+            
+        }
+        
+        
+
+        
+        
+        
+    }
+    
+
+    
+    
+
+    
+}
+
+
 
 -(NSString*)titleForChildControllerMDMenuViewController:(MDMenuViewController *)menuController
 {
@@ -53,6 +148,10 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)forgetPasswordAction:(id)sender {
+    
+    
+    
+
     
     
     

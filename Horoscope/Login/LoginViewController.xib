@@ -18,7 +18,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="regeback.png" translatesAutoresizingMaskIntoConstraints="NO" id="cJK-gI-Nzh">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="regeback.png" translatesAutoresizingMaskIntoConstraints="NO" id="cJK-gI-Nzh">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wkb-m5-KvM">
@@ -102,11 +102,15 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="centerX" secondItem="wkb-m5-KvM" secondAttribute="centerX" id="7Bj-VZ-gQ0"/>
+                <constraint firstItem="cJK-gI-Nzh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="BaV-zG-1a4"/>
                 <constraint firstItem="6KB-Cf-Dbt" firstAttribute="top" secondItem="wkb-m5-KvM" secondAttribute="bottom" constant="5" id="Jde-A9-mvf"/>
                 <constraint firstAttribute="centerX" secondItem="zW7-iY-bZh" secondAttribute="centerX" id="QpG-ml-uwN"/>
+                <constraint firstAttribute="trailing" secondItem="cJK-gI-Nzh" secondAttribute="trailing" id="VrU-7F-p4Z"/>
                 <constraint firstAttribute="centerX" secondItem="6KB-Cf-Dbt" secondAttribute="centerX" id="dT0-O8-yes"/>
                 <constraint firstItem="zW7-iY-bZh" firstAttribute="top" secondItem="6KB-Cf-Dbt" secondAttribute="bottom" constant="2" id="fTT-Sa-eLx"/>
+                <constraint firstAttribute="bottom" secondItem="cJK-gI-Nzh" secondAttribute="bottom" id="hkb-du-PWq"/>
                 <constraint firstItem="wkb-m5-KvM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="jG1-uU-5nM"/>
+                <constraint firstItem="cJK-gI-Nzh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="nlz-Bj-fvn"/>
             </constraints>
             <point key="canvasLocation" x="376" y="285"/>
         </view>

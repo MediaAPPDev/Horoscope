@@ -21,23 +21,23 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jqH-IY-Qa5">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="regeback.png" translatesAutoresizingMaskIntoConstraints="NO" id="Whx-Ti-ISY">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="regeback.png" translatesAutoresizingMaskIntoConstraints="NO" id="Whx-Ti-ISY">
                             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xQv-d9-P9V">
-                            <rect key="frame" x="257" y="88" width="259" height="50"/>
+                            <rect key="frame" x="150" y="88" width="259" height="50"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="textNormal.png" translatesAutoresizingMaskIntoConstraints="NO" id="L8X-hs-Mg9">
-                                    <rect key="frame" x="0.0" y="0.0" width="259" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="200" height="50"/>
                                 </imageView>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fogetPass.png" translatesAutoresizingMaskIntoConstraints="NO" id="EE3-bI-xay">
                                     <rect key="frame" x="1" y="3" width="50" height="50"/>
                                 </imageView>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="next.png" translatesAutoresizingMaskIntoConstraints="NO" id="JB5-WJ-RQd">
-                                    <rect key="frame" x="201" y="4" width="50" height="50"/>
+                                    <rect key="frame" x="151" y="4" width="50" height="50"/>
                                 </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q0q-58-2Ds">
-                                    <rect key="frame" x="3" y="-1" width="251" height="58"/>
+                                    <rect key="frame" x="3" y="-1" width="200" height="58"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                     <state key="normal" title="相册照片">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -55,19 +55,19 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tCS-IK-Srh">
-                            <rect key="frame" x="257" y="152" width="259" height="50"/>
+                            <rect key="frame" x="150" y="152" width="200" height="50"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="textNormal.png" translatesAutoresizingMaskIntoConstraints="NO" id="eJd-Lv-3f3">
-                                    <rect key="frame" x="0.0" y="0.0" width="259" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="200" height="50"/>
                                 </imageView>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fogetPass.png" translatesAutoresizingMaskIntoConstraints="NO" id="vZm-He-xM3">
                                     <rect key="frame" x="1" y="3" width="50" height="50"/>
                                 </imageView>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="next.png" translatesAutoresizingMaskIntoConstraints="NO" id="2mH-Yv-Us3">
-                                    <rect key="frame" x="201" y="4" width="50" height="50"/>
+                                    <rect key="frame" x="151" y="4" width="50" height="50"/>
                                 </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ya-fU-fqO">
-                                    <rect key="frame" x="3" y="-1" width="251" height="58"/>
+                                    <rect key="frame" x="3" y="-1" width="200" height="58"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                     <state key="normal" title="拍照">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -80,22 +80,12 @@
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="259" id="7Vl-6n-f4f"/>
+                                <constraint firstAttribute="width" constant="200" id="7Vl-6n-f4f"/>
                                 <constraint firstAttribute="height" constant="50" id="a1u-Ky-bx1"/>
                             </constraints>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="上传真实头像能让你获得更多的关注！头像会有专人审核，如果图片涉及色情等不良信息，小心遭到封号处理哦～" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0w0-uh-sJl">
-                            <rect key="frame" x="101" y="250" width="392" height="93"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="93" id="YC0-oI-iZ3"/>
-                                <constraint firstAttribute="width" constant="392" id="yew-I5-ggr"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jjz-An-QSp">
-                            <rect key="frame" x="101" y="88" width="120" height="120"/>
+                            <rect key="frame" x="20" y="88" width="120" height="120"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="120" id="jgL-9w-bkb"/>
                                 <constraint firstAttribute="height" constant="120" id="xwT-RT-Xn2"/>
@@ -104,17 +94,32 @@
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                         </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="上传真实头像能让你获得更多的关注！头像会有专人审核，如果图片涉及色情等不良信息，小心遭到封号处理哦～" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0w0-uh-sJl">
+                            <rect key="frame" x="0.0" y="245" width="600" height="109"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="109" id="8ta-tb-jF4"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="xQv-d9-P9V" firstAttribute="leading" secondItem="Jjz-An-QSp" secondAttribute="trailing" constant="36" id="Dcm-1N-msv"/>
-                        <constraint firstItem="Jjz-An-QSp" firstAttribute="leading" secondItem="jqH-IY-Qa5" secondAttribute="leading" constant="101" id="F5l-He-nGf"/>
-                        <constraint firstItem="tCS-IK-Srh" firstAttribute="leading" secondItem="Jjz-An-QSp" secondAttribute="trailing" constant="36" id="JTV-ot-Acm"/>
-                        <constraint firstItem="0w0-uh-sJl" firstAttribute="top" secondItem="Jjz-An-QSp" secondAttribute="bottom" constant="42" id="Sbz-6z-82A"/>
+                        <constraint firstItem="Whx-Ti-ISY" firstAttribute="top" secondItem="jqH-IY-Qa5" secondAttribute="top" id="22h-MO-PUU"/>
+                        <constraint firstAttribute="trailing" secondItem="xQv-d9-P9V" secondAttribute="trailing" constant="191" id="Axh-Q4-2cW"/>
+                        <constraint firstItem="xQv-d9-P9V" firstAttribute="leading" secondItem="Jjz-An-QSp" secondAttribute="trailing" constant="10" id="Dcm-1N-msv"/>
+                        <constraint firstItem="Jjz-An-QSp" firstAttribute="leading" secondItem="jqH-IY-Qa5" secondAttribute="leading" constant="20" id="F5l-He-nGf"/>
+                        <constraint firstItem="tCS-IK-Srh" firstAttribute="leading" secondItem="Jjz-An-QSp" secondAttribute="trailing" constant="10" id="JTV-ot-Acm"/>
+                        <constraint firstItem="0w0-uh-sJl" firstAttribute="leading" secondItem="jqH-IY-Qa5" secondAttribute="leading" constant="10" id="SML-Uq-wLd"/>
                         <constraint firstItem="xQv-d9-P9V" firstAttribute="top" secondItem="jqH-IY-Qa5" secondAttribute="top" constant="88" id="aNe-ff-uRb"/>
+                        <constraint firstAttribute="trailing" secondItem="Whx-Ti-ISY" secondAttribute="trailing" id="ct0-Pu-62B"/>
+                        <constraint firstItem="Whx-Ti-ISY" firstAttribute="leading" secondItem="jqH-IY-Qa5" secondAttribute="leading" id="diL-er-wrX"/>
                         <constraint firstItem="tCS-IK-Srh" firstAttribute="top" secondItem="xQv-d9-P9V" secondAttribute="bottom" constant="14" id="h7r-cI-AfK"/>
-                        <constraint firstItem="0w0-uh-sJl" firstAttribute="leading" secondItem="jqH-IY-Qa5" secondAttribute="leading" constant="101" id="msx-gY-Ju6"/>
+                        <constraint firstAttribute="trailing" secondItem="0w0-uh-sJl" secondAttribute="trailing" id="izj-60-wJr"/>
+                        <constraint firstAttribute="bottom" secondItem="Whx-Ti-ISY" secondAttribute="bottom" id="nik-gQ-wFt"/>
                         <constraint firstItem="Jjz-An-QSp" firstAttribute="top" secondItem="jqH-IY-Qa5" secondAttribute="top" constant="88" id="wID-dV-P7U"/>
+                        <constraint firstItem="0w0-uh-sJl" firstAttribute="top" secondItem="Jjz-An-QSp" secondAttribute="bottom" constant="37" id="wLa-b3-LuU"/>
                     </constraints>
                 </view>
             </subviews>

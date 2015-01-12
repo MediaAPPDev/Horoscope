@@ -73,13 +73,17 @@
             <constraints>
                 <constraint firstItem="Jif-Zh-nZO" firstAttribute="top" secondItem="aVX-0z-SXc" secondAttribute="bottom" constant="14" id="1Di-tl-waH"/>
                 <constraint firstItem="aVX-0z-SXc" firstAttribute="leading" secondItem="Jif-Zh-nZO" secondAttribute="leading" id="1jO-DV-lhQ"/>
+                <constraint firstItem="odB-K4-pof" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Cm4-GE-S3f"/>
                 <constraint firstItem="odB-K4-pof" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Oxm-gx-Nhd"/>
                 <constraint firstAttribute="bottom" secondItem="odB-K4-pof" secondAttribute="bottom" id="UA0-zj-bR3"/>
                 <constraint firstAttribute="centerX" secondItem="aVX-0z-SXc" secondAttribute="centerX" id="Udi-iM-cJu"/>
+                <constraint firstAttribute="bottom" secondItem="odB-K4-pof" secondAttribute="bottom" id="VQU-41-pJM"/>
                 <constraint firstItem="aVX-0z-SXc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="309" id="ajq-9B-IR7"/>
                 <constraint firstAttribute="centerX" secondItem="Jif-Zh-nZO" secondAttribute="centerX" id="hZK-BB-cxl"/>
+                <constraint firstItem="odB-K4-pof" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="khi-8m-g4P"/>
                 <constraint firstAttribute="trailing" secondItem="odB-K4-pof" secondAttribute="trailing" id="lUu-6K-Xb0"/>
                 <constraint firstItem="odB-K4-pof" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="tNc-lV-51p"/>
+                <constraint firstAttribute="trailing" secondItem="odB-K4-pof" secondAttribute="trailing" id="wjG-Pc-Z3X"/>
             </constraints>
         </view>
     </objects>

@@ -143,6 +143,7 @@
 		5E9755C61A529E46003A4A31 /* zonghe@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E97550E1A529E46003A4A31 /* zonghe@2x.png */; };
 		5E9755C71A529E46003A4A31 /* zonghe@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E97550F1A529E46003A4A31 /* zonghe@3x.png */; };
 		5E9755C81A529E46003A4A31 /* zongheP@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E9755101A529E46003A4A31 /* zongheP@2x.png */; };
+		5EB13F001A63B9D500B2ABDC /* UserCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EB13EFF1A63B9D500B2ABDC /* UserCache.m */; };
 		5EB5C9E41A5D089000BAE2B3 /* MBButtonShowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EB5C9E31A5D089000BAE2B3 /* MBButtonShowView.m */; };
 		5EB87E9A1A39688700BE4A5D /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EB87E981A39688700BE4A5D /* LoginViewController.m */; };
 		5EB87E9B1A39688700BE4A5D /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EB87E991A39688700BE4A5D /* LoginViewController.xib */; };
@@ -792,6 +793,8 @@
 		5E97550E1A529E46003A4A31 /* zonghe@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zonghe@2x.png"; sourceTree = "<group>"; };
 		5E97550F1A529E46003A4A31 /* zonghe@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zonghe@3x.png"; sourceTree = "<group>"; };
 		5E9755101A529E46003A4A31 /* zongheP@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zongheP@2x.png"; sourceTree = "<group>"; };
+		5EB13EFE1A63B9D500B2ABDC /* UserCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCache.h; sourceTree = "<group>"; };
+		5EB13EFF1A63B9D500B2ABDC /* UserCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCache.m; sourceTree = "<group>"; };
 		5EB5C9E21A5D089000BAE2B3 /* MBButtonShowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBButtonShowView.h; sourceTree = "<group>"; };
 		5EB5C9E31A5D089000BAE2B3 /* MBButtonShowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBButtonShowView.m; sourceTree = "<group>"; };
 		5EB87E971A39688700BE4A5D /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -1796,6 +1799,8 @@
 				5E484A921A5FA84500582DE7 /* signup4ViewController.h */,
 				5E484A931A5FA84500582DE7 /* signup4ViewController.m */,
 				5E484A941A5FA84500582DE7 /* signup4ViewController.xib */,
+				5EB13EFE1A63B9D500B2ABDC /* UserCache.h */,
+				5EB13EFF1A63B9D500B2ABDC /* UserCache.m */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -3264,6 +3269,7 @@
 				5E6E29AD1A594891004F3C89 /* ExampleViewController.m in Sources */,
 				5E2D73921A51387F00FB8EBA /* testDetailedViewController.m in Sources */,
 				5ED3CF411A416FCE0083BCDE /* MDCellView.m in Sources */,
+				5EB13F001A63B9D500B2ABDC /* UserCache.m in Sources */,
 				5E6C7CDB1A42C875005C4554 /* UIImageView+AFNetworking.m in Sources */,
 				5E6E29B21A5A7663004F3C89 /* RadioButton.m in Sources */,
 				5E6C7CD21A42C875005C4554 /* AFSecurityPolicy.m in Sources */,
