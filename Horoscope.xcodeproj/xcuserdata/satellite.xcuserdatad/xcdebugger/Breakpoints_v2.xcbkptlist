@@ -27,36 +27,6 @@
             endingLineNumber = "211"
             landmarkName = "-actionSheet:clickedButtonAtIndex:"
             landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[XWViewController actionSheet:clickedButtonAtIndex:]"
-                  moduleName = "Horoscope"
-                  urlString = "file:///Users/satellite/Desktop/Horoscope/Horoscope/XW/XWViewController.m"
-                  timestampString = "442743469.829872"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "212"
-                  endingLineNumber = "212"
-                  offsetFromSymbolStart = "1544">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__53-[XWViewController actionSheet:clickedButtonAtIndex:]_block_invoke"
-                  moduleName = "Horoscope"
-                  urlString = "file:///Users/satellite/Desktop/Horoscope/Horoscope/XW/XWViewController.m"
-                  timestampString = "442743469.830031"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "212"
-                  endingLineNumber = "212"
-                  offsetFromSymbolStart = "44">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

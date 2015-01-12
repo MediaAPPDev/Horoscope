@@ -69,7 +69,7 @@
     [UMSocialData setAppKey:UmengAppkey];
     
     //打开调试log的开关
-    [UMSocialData openLog:YES];
+    [UMSocialData openLog:NO];
     
     
     //设置手机QQ的AppId，指定你的分享url，若传nil，将使用友盟的网址

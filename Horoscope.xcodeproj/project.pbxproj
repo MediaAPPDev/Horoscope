@@ -1259,6 +1259,7 @@
 		647DC3221A529DE4009AD4DC /* star-4@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-4@3x.png"; sourceTree = "<group>"; };
 		647DC3231A529DE4009AD4DC /* star-5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-5@2x.png"; sourceTree = "<group>"; };
 		647DC3241A529DE4009AD4DC /* star-5@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-5@3x.png"; sourceTree = "<group>"; };
+		647F7B211A63D10B00696CA3 /* NSLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSLog.h; sourceTree = "<group>"; };
 		64914EB11A5A2BAB003DED2A /* CircleStarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleStarViewController.h; sourceTree = "<group>"; };
 		64914EB21A5A2BAB003DED2A /* CircleStarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleStarViewController.m; sourceTree = "<group>"; };
 		64914EB41A5A2BBF003DED2A /* CircleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleCell.h; sourceTree = "<group>"; };
@@ -1406,6 +1407,7 @@
 		2F21162A1A25B5A2009B21EB /* Horoscope */ = {
 			isa = PBXGroup;
 			children = (
+				647F7B211A63D10B00696CA3 /* NSLog.h */,
 				5E2D73841A51330800FB8EBA /* SexTest */,
 				645F7B861A5140270023D9C1 /* GuidePage */,
 				5EF3521B1A4D461100AB2463 /* LoadingImage */,

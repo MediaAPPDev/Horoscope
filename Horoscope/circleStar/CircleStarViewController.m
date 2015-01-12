@@ -277,7 +277,6 @@
     [commentBgView addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(goBackKeyBoard:)]];
     commentBgView.hidden = NO;
     [commentTF becomeFirstResponder];
-   
 }
 
 #pragma mark ----textField DELEGATE

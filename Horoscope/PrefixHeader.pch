@@ -31,6 +31,7 @@
 #import "TempDate.h"
 #import "UMSocial.h"
 #import "MJRefresh.h"
+#import "NSLog.h"
 //#import "RequestTaskService.h"
 #endif
 
