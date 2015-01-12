@@ -135,7 +135,7 @@
         cell = [[CircleCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
     cell.delegate = self;
-    
+    cell.tag = indexPath.row;
     NSDictionary *dic = [infoArray objectAtIndex:indexPath.row];
     NSString *str = KISDictionaryHaveKey(dic, @"content");
     
@@ -154,6 +154,8 @@
         cell.cImageView.frame =CGRectMake(70, sy(cell.titleLabel)+5, 0, 200);
         cell.timeLabel.frame = CGRectMake(sx(cell.headImageView)+10, sy(cell.titleLabel)+5,150, 20);
         cell.menuBtn.frame = CGRectMake(KScreenWidth-60, sy(cell.titleLabel)+5, 50, 30);
+        cell.zanBtn .frame=CGRectMake(sx(cell.menuBtn)-140-50, sy(cell.titleLabel)+5, 70, 30);
+        cell.commBtn.frame=CGRectMake(sx(cell.zanBtn), sy(cell.titleLabel)+5, 70, 30);
 
     }
     
@@ -176,7 +178,11 @@
     
     NSString *commentStr =KISDictionaryHaveKey(dic, @"comment");
     if (commentStr.length>0) {
-        [cell buildCommentViewWithDic:[NSArray arrayWithObjects:@{@"comment":KISDictionaryHaveKey(dic, @"comment")}, nil]];
+        NSArray *arr =[NSArray array];
+        arr = [self segmentationStrign:commentStr];
+        
+        
+        [cell buildCommentViewWithDic:arr];
     }
     
     return cell;
@@ -207,7 +213,12 @@
     }
     NSString *commStr =KISDictionaryHaveKey(dic, @"comment");
     if (commStr.length>0) {
-        height+=20;
+        
+        NSArray *arr = [NSArray array];
+        arr = [self segmentationStrign:commStr];
+        
+        
+        height+=20*arr.count;
         NSLog(@"有评论");
     }
     
@@ -238,9 +249,11 @@
         
         NSLog(@"成功---%@",responseObject);
         
-        NSString *zanCount = KISDictionaryHaveKey(dic, @"zcount");
-        cell.zanBtn.countLabel.text = [NSString stringWithFormat:@"%d",[zanCount intValue]+1];
+//        NSString *zanCount = KISDictionaryHaveKey(dic, @"zcount");
+//        cell.zanBtn.countLabel.text = [NSString stringWithFormat:@"%d",[zanCount intValue]+1];
 
+        [self getInfoFromNet];
+        
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"失败");
     }];
@@ -259,6 +272,7 @@
     NSDictionary *dic = [infoArray objectAtIndex:cell.tag];
     
     [commentDict removeAllObjects];
+    
     commentDict  = [NSMutableDictionary dictionaryWithDictionary:dic];
     [commentBgView addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(goBackKeyBoard:)]];
     commentBgView.hidden = NO;
@@ -269,7 +283,9 @@
 #pragma mark ----textField DELEGATE
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    NSString *urlStr = [NSString stringWithFormat:@"addcomment?uid=%@&cid=%@&comment=%@&nickname=%@",KISDictionaryHaveKey(commentDict, @"uid"),KISDictionaryHaveKey(commentDict, @"contentid"),commentTF.text,@"风行天下"];
+    NSString *urlStr = [NSString stringWithFormat:@"addcomment?uid=%@&cid=%@&comment=%@&nickname=%@",KISDictionaryHaveKey(commentDict, @"uid"),KISDictionaryHaveKey(commentDict, @"contentid"),commentTF.text,@"刘德华"];
+    
+    NSLog(@"评论列表-%@",commentDict);
     
     urlStr = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     

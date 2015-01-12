@@ -17,6 +17,7 @@
 @property (nonatomic,strong)UILabel * nameLb;
 @property (nonatomic,strong)UIImageView * starImgView;
 @property (nonatomic,strong)UILabel * starLb;
+@property (nonatomic,strong)UILabel * ageLb;
 @property (nonatomic,strong)UILabel * signatureLb;
 @property (nonatomic,strong)UILabel * timeLabel;
 @property (nonatomic,strong)UIImageView * sexImg;

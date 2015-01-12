@@ -166,12 +166,14 @@
         cell.starImgView.image = KUIImage([self GetNameReturnImageWithName:KISDictionaryHaveKey(dic, @"xing")]);
         cell.starLb.text = KISDictionaryHaveKey(dic, @"xing");
         cell.sexImg.image = KUIImage(@"sexImg");
+        
         cell.signatureLb.text =KISDictionaryHaveKey(dic, @"phrase");
         cell.timeLabel.text = @"1分钟前";
         cell.gzBtn.hidden = YES;
         return cell;
     }
 }
+
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -191,8 +193,10 @@
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    NSArray *arr = [NSArray arrayWithObjects:@"✨",@"A",@"B",@"C",@"D",@"E",@"F",@"G",@"H",@"I",@"J",@"K",@"L",@"M",@"N",@"O",@"P",@"Q",@"R",@"S",@"T",@"U",@"V",@"W",@"S",@"Y",@"Z", nil];
-    return arr[section];
+    if (section ==0) {
+        return @"✨";
+    }else
+    return @"";
 }
 
 -(void)enterNextPage:(id)sender

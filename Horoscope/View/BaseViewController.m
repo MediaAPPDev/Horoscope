@@ -374,6 +374,9 @@
     }];
 }
 
+/*
+ 根据星座名称返回星座图片
+ */
 
 -(NSString *)GetNameReturnImageWithName:(NSString *)name
 {
@@ -428,5 +431,28 @@
     return nil;
 }
 
+
+-(NSArray*)segmentationStrign:(NSString *)str
+{
+    if ([self isEmtity:str]) {
+        return nil;
+    }
+
+    NSMutableArray *array = [NSMutableArray array];
+    array = (NSMutableArray *)[str componentsSeparatedByString:@"#"];
+    
+    if ( [self isEmtity:[array lastObject]]) {
+        [array removeLastObject];
+    }
+    return array;
+}
+
+//判断为空
+-(BOOL)isEmtity:(NSString*)str
+{
+    if (!str||str == NULL||[@"" isEqualToString:str]||[@" " isEqualToString:str]||[@"null" isEqualToString:str]) {
+        return YES;
+    }return NO;
+}
 
 @end

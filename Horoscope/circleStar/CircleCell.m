@@ -48,8 +48,8 @@
 //        [self.menuBtn setBackgroundImage:KUIImage(@"") forState:UIControlStateHighlighted];
         [self.contentView addSubview:self.menuBtn];
         
-        self.zanBtn = [[CircleBtn alloc]initWithFrame:CGRectMake(sx(self.menuBtn)-140-50, sy(self.cImageView)+5, 70, 30)];
-        self.commBtn =[[CircleBtn alloc]initWithFrame:CGRectMake(sx(self.zanBtn), sy(self.cImageView)+5, 70, 30)];
+        self.zanBtn = [[CircleBtn alloc]initWithFrame:CGRectMake(sx(self.menuBtn)-140-50, height(self.menuBtn), 70, 30)];
+        self.commBtn =[[CircleBtn alloc]initWithFrame:CGRectMake(sx(self.zanBtn), height(self.menuBtn), 70, 30)];
         
         [self.zanBtn setBackgroundImage:KUIImage(@"zan-Normal") forState:UIControlStateNormal];
         [self.commBtn setBackgroundImage:KUIImage(@"pinglun-Normal") forState:UIControlStateNormal];
@@ -99,19 +99,33 @@
 {
     NSLog(@"---------%lu",(unsigned long)arr.count);
     for (int i = 0; i<arr.count; i++) {
-        NSDictionary *dic  = arr[i];
-      UIImageView * commView= [[UIImageView alloc]initWithFrame:CGRectMake(sx(self.headImageView)+10, self.zanView?sy(self.zanView):sy(self.timeLabel)+20*i, KScreenWidth-sx(self.headImageView)-40, 20)];
-        commView.image = KUIImage(@"pingluntiao-xia");
-        UILabel *commentLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, commView.frame.size.width-30, 20)];
-        commentLabel.font = [UIFont systemFontOfSize:12];
-        commentLabel.text = KISDictionaryHaveKey(dic, @"comment");
-        commentLabel.textColor = [UIColor blackColor];
-        [commView addSubview:commentLabel];
-        [self.contentView addSubview:commView];
+//        NSDictionary *dic  = arr[i];
+        float zanHeight = 0.0;
+        if (self.zanView) {
+            zanHeight = 40.0;
+        }else{
+            zanHeight = 10.0;
+        }
+        
+        [self buildCommentViewWithFrame:CGRectMake(sx(self.headImageView)+10,sy(self.timeLabel)+20*i+zanHeight, KScreenWidth-sx(self.headImageView)-40, 20) text:arr[i]];
     }
 }
 
+-(void)buildCommentViewWithFrame:(CGRect)frame text:(NSString *)text
+{
+    UIImageView * commView= [[UIImageView alloc]initWithFrame:frame];
+    commView.image = KUIImage(@"pingluntiao-xia");
+    commView.backgroundColor = [ UIColor clearColor];
+    UILabel *commentLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, commView.frame.size.width-30, 20)];
+    commentLabel.font = [UIFont systemFontOfSize:12];
+    commentLabel.backgroundColor = [UIColor clearColor];
+    commentLabel.text = text;
+    NSLog(@"%@,%@",commentLabel.text,commentLabel);
+    commentLabel.textColor = [UIColor blackColor];
+    [commView addSubview:commentLabel];
+    [self.contentView addSubview:commView];
 
+}
 
 
 #pragma mark----点击头像

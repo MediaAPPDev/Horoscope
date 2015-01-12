@@ -23,18 +23,24 @@
 - (void)setTopViewWithTitle:(NSString*)titleStr withBackButton:(BOOL)hasBacButton;
 -(void)showAlertViewWithtitle:(NSString *)title message:(NSString *)message;
 
+
+/*
+ *lable 高度自适应 传入数据 返回size
+ *1. text ：lable.text
+ *2. lable.font
+ *3. maxsize
+ *4. 返回CGSize
+ */
+
 - (CGSize)labelAutoCalculateRectWith:(NSString*)text FontSize:(CGFloat)fontSize MaxSize:(CGSize)maxSize;
 
 /*
  *** 
- * 根据传入的星座名称 返回星座图片
- *
- *
+ *1. 根据传入的星座名称 返回星座图片
+ *2. 传入名要带 “座” for example 白羊座
+ *3. 返回类型为NSString 为星座图片名称  非UIImage类型
  */
 -(NSString *)GetNameReturnImageWithName:(NSString *)name;
-
-
-
 
 @property (nonatomic,strong)MBProgressHUD *hud;
 
@@ -47,6 +53,19 @@
  */
 
 -(UILabel *)buildLabelWithFrame:(CGRect)frame backgroundColor:(UIColor *)backgroundColor textColor:(UIColor *)textClolr font:(UIFont *)font textAlignment:(NSTextAlignment)alignment text:(NSString*)text;
+
+/*
+ 分割字符串
+ */
+
+
+
+-(NSArray*)segmentationStrign:(NSString *)str;
+
+
+//判断字符串为空
+-(BOOL)isEmtity:(NSString*)str;
+
 - (void)setExtraCellLineHidden: (UITableView *)tableView;
 @property(nonatomic,strong) UIButton * leftButton;
 @end

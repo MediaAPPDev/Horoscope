@@ -92,7 +92,6 @@
         if (![responseObject isKindOfClass:[NSArray class]]) {
             return ;
         }
-        
         [infoArr addObjectsFromArray:responseObject];
         if (infoArr.count<1) {
             [self showAlertViewWithtitle:@"提示" message:@"查无此人,请输入精确信息"];
@@ -104,13 +103,11 @@
         
         [self.menuController pushViewController:searchVC withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
         
-        
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [self.hud hide:YES];
         [self showAlertViewWithtitle:@"提示" message:@"请求失败"];
     }];
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

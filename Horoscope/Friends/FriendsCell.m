@@ -31,6 +31,13 @@
 
         [self addSubview:self.sexImg];
         
+        self.ageLb = [[UILabel alloc]initWithFrame:CGRectMake(sx(self.headimgView)+10, sy(self.nameLb)+7, 35, 13)];
+        self.ageLb.font = [UIFont boldSystemFontOfSize:10];
+        self.ageLb.backgroundColor = [UIColor clearColor];
+        self.ageLb.textColor = [UIColor whiteColor];
+        self.ageLb.textAlignment = NSTextAlignmentRight;
+        [self addSubview:self.ageLb];
+        
         
         self.starImgView = [[UIImageView alloc]initWithFrame:CGRectMake(sx(self.sexImg)+10, sy(self.nameLb)+3, 20, 20)];
         [self addSubview:self.starImgView];
