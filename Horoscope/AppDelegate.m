@@ -29,6 +29,9 @@
 
 #import "XWViewController.h" //星文
 
+#import "LoginViewController.h"//注册登录
+#import "SingupViewController.h"//登录
+
 
 //#import "TestViewController.h" //测试
 #import "TestViewController.h"
@@ -107,7 +110,7 @@
   */
     
     
-        NSArray *viewControllers = [NSArray arrayWithObjects:[[NewMainViewController alloc] init],[[FoundViewController alloc] init],[[FriendsViewController alloc] init],[[CircleStarViewController alloc]  init],[[TodayLuckViewController alloc] init],[[BdViewController alloc] init],[[XWViewController alloc] init],[[SexttestViewController alloc] init], nil];
+        NSArray *viewControllers = [NSArray arrayWithObjects:[[NewMainViewController alloc] init],[[FoundViewController alloc] init],[[FriendsViewController alloc] init],[[CircleStarViewController alloc]  init],[[TodayLuckViewController alloc] init],[[BdViewController alloc] init],[[XWViewController alloc] init],[[SexttestViewController alloc] init],[[LoginViewController alloc]init],[[SingupViewController alloc]init],  nil];
     
     
     

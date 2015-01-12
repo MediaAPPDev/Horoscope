@@ -39,6 +39,8 @@
     startX = KISHighVersion_7?64:44;
     self.navigationController.navigationBarHidden = YES;
 }
+
+
 /*
  创建tabbar头条快捷方式
  */
@@ -374,9 +376,42 @@
     }];
 }
 
+<<<<<<< HEAD
 /*
  根据星座名称返回星座图片
  */
+=======
+//动态获取textView的高度
+- (CGFloat)getContenSizeAction:(UITextView *)textView
+{
+    
+    
+    CGFloat height;
+    
+    
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7) {
+        
+        
+        
+        CGRect textFrame=[[textView layoutManager]usedRectForTextContainer:[textView textContainer]];
+        
+        height = textFrame.size.height;
+        
+        
+        
+    }else {
+        
+        
+        
+        height = textView.contentSize.height;
+        
+    }
+    
+    return height;
+}
+
+
+>>>>>>> FETCH_HEAD
 
 -(NSString *)GetNameReturnImageWithName:(NSString *)name
 {

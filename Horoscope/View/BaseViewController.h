@@ -68,4 +68,9 @@
 
 - (void)setExtraCellLineHidden: (UITableView *)tableView;
 @property(nonatomic,strong) UIButton * leftButton;
+
+
+//动态获取textView的高度
+- (CGFloat)getContenSizeAction:(UITextView *)textView;
+
 @end

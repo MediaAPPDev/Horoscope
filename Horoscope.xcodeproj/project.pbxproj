@@ -31,6 +31,22 @@
 		5E2D73921A51387F00FB8EBA /* testDetailedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2D73901A51387F00FB8EBA /* testDetailedViewController.m */; };
 		5E2D73931A51387F00FB8EBA /* testDetailedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E2D73911A51387F00FB8EBA /* testDetailedViewController.xib */; };
 		5E2D73961A51464000FB8EBA /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2D73951A51464000FB8EBA /* TestViewController.m */; };
+		5E484A7D1A5F7C3800582DE7 /* SingupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E484A7B1A5F7C3800582DE7 /* SingupViewController.m */; };
+		5E484A7E1A5F7C3800582DE7 /* SingupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E484A7C1A5F7C3800582DE7 /* SingupViewController.xib */; };
+		5E484A811A5F7D3E00582DE7 /* sigup@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E484A7F1A5F7D3E00582DE7 /* sigup@2x.png */; };
+		5E484A821A5F7D3E00582DE7 /* sigup@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E484A801A5F7D3E00582DE7 /* sigup@3x.png */; };
+		5E484A861A5FA7F600582DE7 /* signup1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E484A841A5FA7F600582DE7 /* signup1ViewController.m */; };
+		5E484A871A5FA7F600582DE7 /* signup1ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E484A851A5FA7F600582DE7 /* signup1ViewController.xib */; };
+		5E484A8B1A5FA81000582DE7 /* signup2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E484A891A5FA81000582DE7 /* signup2ViewController.m */; };
+		5E484A8C1A5FA81000582DE7 /* signup2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E484A8A1A5FA81000582DE7 /* signup2ViewController.xib */; };
+		5E484A901A5FA83300582DE7 /* signup3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E484A8E1A5FA83300582DE7 /* signup3ViewController.m */; };
+		5E484A911A5FA83300582DE7 /* signup3ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E484A8F1A5FA83300582DE7 /* signup3ViewController.xib */; };
+		5E484A951A5FA84500582DE7 /* signup4ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E484A931A5FA84500582DE7 /* signup4ViewController.m */; };
+		5E484A961A5FA84500582DE7 /* signup4ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E484A941A5FA84500582DE7 /* signup4ViewController.xib */; };
+		5E484AA31A5FBDA900582DE7 /* lineBottom@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E484A9F1A5FBDA900582DE7 /* lineBottom@2x.png */; };
+		5E484AA41A5FBDA900582DE7 /* lineBottom@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E484AA01A5FBDA900582DE7 /* lineBottom@3x.png */; };
+		5E484AA51A5FBDA900582DE7 /* lineTop@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E484AA11A5FBDA900582DE7 /* lineTop@2x.png */; };
+		5E484AA61A5FBDA900582DE7 /* lineTop@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E484AA21A5FBDA900582DE7 /* lineTop@3x.png */; };
 		5E6C7C601A42C682005C4554 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E6C7C5F1A42C682005C4554 /* MobileCoreServices.framework */; };
 		5E6C7C621A42C68D005C4554 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E6C7C611A42C68D005C4554 /* SystemConfiguration.framework */; };
 		5E6C7C641A42C697005C4554 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E6C7C631A42C697005C4554 /* Security.framework */; };
@@ -293,7 +309,6 @@
 		64394D501A5E2A200034F89E /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 64394D4F1A5E2A200034F89E /* libsqlite3.dylib */; };
 		64394D521A5E2A300034F89E /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 64394D511A5E2A300034F89E /* libstdc++.dylib */; };
 		64394D541A5E2A490034F89E /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64394D531A5E2A490034F89E /* CoreTelephony.framework */; };
-		64394D561A5E4F730034F89E /* shareOut.png in Resources */ = {isa = PBXBuildFile; fileRef = 64394D551A5E4F730034F89E /* shareOut.png */; };
 		64394D621A5E6A540034F89E /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 64394D581A5E6A540034F89E /* MJRefresh.bundle */; };
 		64394D631A5E6A540034F89E /* MJRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 64394D5B1A5E6A540034F89E /* MJRefreshBaseView.m */; };
 		64394D641A5E6A540034F89E /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 64394D5D1A5E6A540034F89E /* MJRefreshConst.m */; };
@@ -637,6 +652,27 @@
 		5E2D73911A51387F00FB8EBA /* testDetailedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = testDetailedViewController.xib; sourceTree = "<group>"; };
 		5E2D73941A51464000FB8EBA /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		5E2D73951A51464000FB8EBA /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
+		5E484A7A1A5F7C3800582DE7 /* SingupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingupViewController.h; sourceTree = "<group>"; };
+		5E484A7B1A5F7C3800582DE7 /* SingupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingupViewController.m; sourceTree = "<group>"; };
+		5E484A7C1A5F7C3800582DE7 /* SingupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingupViewController.xib; sourceTree = "<group>"; };
+		5E484A7F1A5F7D3E00582DE7 /* sigup@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sigup@2x.png"; sourceTree = "<group>"; };
+		5E484A801A5F7D3E00582DE7 /* sigup@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sigup@3x.png"; sourceTree = "<group>"; };
+		5E484A831A5FA7F600582DE7 /* signup1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = signup1ViewController.h; sourceTree = "<group>"; };
+		5E484A841A5FA7F600582DE7 /* signup1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = signup1ViewController.m; sourceTree = "<group>"; };
+		5E484A851A5FA7F600582DE7 /* signup1ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = signup1ViewController.xib; sourceTree = "<group>"; };
+		5E484A881A5FA81000582DE7 /* signup2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = signup2ViewController.h; sourceTree = "<group>"; };
+		5E484A891A5FA81000582DE7 /* signup2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = signup2ViewController.m; sourceTree = "<group>"; };
+		5E484A8A1A5FA81000582DE7 /* signup2ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = signup2ViewController.xib; sourceTree = "<group>"; };
+		5E484A8D1A5FA83300582DE7 /* signup3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = signup3ViewController.h; sourceTree = "<group>"; };
+		5E484A8E1A5FA83300582DE7 /* signup3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = signup3ViewController.m; sourceTree = "<group>"; };
+		5E484A8F1A5FA83300582DE7 /* signup3ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = signup3ViewController.xib; sourceTree = "<group>"; };
+		5E484A921A5FA84500582DE7 /* signup4ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = signup4ViewController.h; sourceTree = "<group>"; };
+		5E484A931A5FA84500582DE7 /* signup4ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = signup4ViewController.m; sourceTree = "<group>"; };
+		5E484A941A5FA84500582DE7 /* signup4ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = signup4ViewController.xib; sourceTree = "<group>"; };
+		5E484A9F1A5FBDA900582DE7 /* lineBottom@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lineBottom@2x.png"; sourceTree = "<group>"; };
+		5E484AA01A5FBDA900582DE7 /* lineBottom@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lineBottom@3x.png"; sourceTree = "<group>"; };
+		5E484AA11A5FBDA900582DE7 /* lineTop@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lineTop@2x.png"; sourceTree = "<group>"; };
+		5E484AA21A5FBDA900582DE7 /* lineTop@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lineTop@3x.png"; sourceTree = "<group>"; };
 		5E6C7C5F1A42C682005C4554 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		5E6C7C611A42C68D005C4554 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		5E6C7C631A42C697005C4554 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -960,7 +996,6 @@
 		64394D4F1A5E2A200034F89E /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		64394D511A5E2A300034F89E /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
 		64394D531A5E2A490034F89E /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
-		64394D551A5E4F730034F89E /* shareOut.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shareOut.png; path = "../../../../Downloads/iphone 6/测试/shareOut.png"; sourceTree = "<group>"; };
 		64394D581A5E6A540034F89E /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJRefresh.bundle; sourceTree = "<group>"; };
 		64394D591A5E6A540034F89E /* MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefresh.h; sourceTree = "<group>"; };
 		64394D5A1A5E6A540034F89E /* MJRefreshBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBaseView.h; sourceTree = "<group>"; };
@@ -1434,7 +1469,6 @@
 			children = (
 				6469B6341A5FCF4E00724822 /* bg-Normal@2x.png */,
 				6469B6351A5FCF4E00724822 /* bg-Normal@3x.png */,
-				64394D551A5E4F730034F89E /* shareOut.png */,
 				64E348F91A5CE6D700DA6B74 /* tianjia-Normal@3x.png */,
 				645F7B8A1A5142EF0023D9C1 /* GuidePage */,
 				5EF352261A4D4AE800AB2463 /* frendloop.png */,
@@ -1747,6 +1781,21 @@
 				5EB87E971A39688700BE4A5D /* LoginViewController.h */,
 				5EB87E981A39688700BE4A5D /* LoginViewController.m */,
 				5EB87E991A39688700BE4A5D /* LoginViewController.xib */,
+				5E484A7A1A5F7C3800582DE7 /* SingupViewController.h */,
+				5E484A7B1A5F7C3800582DE7 /* SingupViewController.m */,
+				5E484A7C1A5F7C3800582DE7 /* SingupViewController.xib */,
+				5E484A831A5FA7F600582DE7 /* signup1ViewController.h */,
+				5E484A841A5FA7F600582DE7 /* signup1ViewController.m */,
+				5E484A851A5FA7F600582DE7 /* signup1ViewController.xib */,
+				5E484A881A5FA81000582DE7 /* signup2ViewController.h */,
+				5E484A891A5FA81000582DE7 /* signup2ViewController.m */,
+				5E484A8A1A5FA81000582DE7 /* signup2ViewController.xib */,
+				5E484A8D1A5FA83300582DE7 /* signup3ViewController.h */,
+				5E484A8E1A5FA83300582DE7 /* signup3ViewController.m */,
+				5E484A8F1A5FA83300582DE7 /* signup3ViewController.xib */,
+				5E484A921A5FA84500582DE7 /* signup4ViewController.h */,
+				5E484A931A5FA84500582DE7 /* signup4ViewController.m */,
+				5E484A941A5FA84500582DE7 /* signup4ViewController.xib */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -1754,6 +1803,12 @@
 		5EB87E961A39686600BE4A5D /* image */ = {
 			isa = PBXGroup;
 			children = (
+				5E484A9F1A5FBDA900582DE7 /* lineBottom@2x.png */,
+				5E484AA01A5FBDA900582DE7 /* lineBottom@3x.png */,
+				5E484AA11A5FBDA900582DE7 /* lineTop@2x.png */,
+				5E484AA21A5FBDA900582DE7 /* lineTop@3x.png */,
+				5E484A7F1A5F7D3E00582DE7 /* sigup@2x.png */,
+				5E484A801A5F7D3E00582DE7 /* sigup@3x.png */,
 				5EB87ECA1A39713700BE4A5D /* regeback@2x.png */,
 				5EB87ECB1A39713700BE4A5D /* regeback@3x.png */,
 				5EB87E9E1A396EBF00BE4A5D /* after60@2x.png */,
@@ -2687,6 +2742,7 @@
 				5ED3CF761A416FCE0083BCDE /* xingyouquanIanxia@3x.png in Resources */,
 				645F7BAC1A5142EF0023D9C1 /* 3-4@2x.png in Resources */,
 				64CD98E01A3042FD00040744 /* 登陆.jpg in Resources */,
+				5E484A911A5FA83300582DE7 /* signup3ViewController.xib in Resources */,
 				64394D281A5E20570034F89E /* UMSCommentDetailController.xib in Resources */,
 				64C727201A3575B300DFE28E /* rank@3x.png in Resources */,
 				5E97558B1A529E46003A4A31 /* aiqing@2x.png in Resources */,
@@ -2716,7 +2772,6 @@
 				647607B01A3FD7C400B71469 /* 下一级@2x.png in Resources */,
 				5E9755B71A529E46003A4A31 /* weixuanzhong@2X.png in Resources */,
 				647DC32A1A529DE4009AD4DC /* star-3@2x.png in Resources */,
-				64394D561A5E4F730034F89E /* shareOut.png in Resources */,
 				645F7BBC1A5142EF0023D9C1 /* 引导页3效果图.png in Resources */,
 				5ED3CFA61A418BA80083BCDE /* icon_1320_white60.png in Resources */,
 				5ED3CF651A416FCE0083BCDE /* touxiang1@2x.png in Resources */,
@@ -2763,6 +2818,7 @@
 				645DEEFE1A4172D300E8C524 /* 3.png in Resources */,
 				645DEEB31A414DCA00E8C524 /* QQ@2x.png in Resources */,
 				645F7BAA1A5142EF0023D9C1 /* 2-6@2x.png in Resources */,
+				5E484A8C1A5FA81000582DE7 /* signup2ViewController.xib in Resources */,
 				645F7BBA1A5142EF0023D9C1 /* start-normal-6plus@3x.png in Resources */,
 				645F7BB81A5142EF0023D9C1 /* start-click@2x.png in Resources */,
 				5ECC41C41A43D26200A5D3B4 /* shareP@3X.png in Resources */,
@@ -2793,6 +2849,7 @@
 				5E9755901A529E46003A4A31 /* button@3x.png in Resources */,
 				2F2116391A25B5A2009B21EB /* Images.xcassets in Resources */,
 				5E9755BB1A529E46003A4A31 /* xinggeP@2x.png in Resources */,
+				5E484A961A5FA84500582DE7 /* signup4ViewController.xib in Resources */,
 				5ED3CF701A416FCE0083BCDE /* xingyou@3x.png in Resources */,
 				5E9755961A529E46003A4A31 /* caip@3x.png in Resources */,
 				64394D2D1A5E20570034F89E /* UMSLoginViewController.xib in Resources */,
@@ -2804,6 +2861,7 @@
 				64914EC71A5A58ED003DED2A /* pingluntiao-shang@2x.png in Resources */,
 				5ED3CF741A416FCE0083BCDE /* xingyouquan@3x.png in Resources */,
 				646C43CE1A381CE800FB683D /* ys_c_star_gray@3x.png in Resources */,
+				5E484A821A5F7D3E00582DE7 /* sigup@3x.png in Resources */,
 				647DC32C1A529DE4009AD4DC /* star-4@2x.png in Resources */,
 				5EF352201A4D461100AB2463 /* icon-120@2x.png in Resources */,
 				5E9755B31A529E46003A4A31 /* wancheng@2X.png in Resources */,
@@ -2815,6 +2873,7 @@
 				645DEF001A4172FA00E8C524 /* 灰色底框.png in Resources */,
 				647DC32B1A529DE4009AD4DC /* star-3@3x.png in Resources */,
 				64CD98DC1A3042FD00040744 /* iPhone4底图.png in Resources */,
+				5E484AA41A5FBDA900582DE7 /* lineBottom@3x.png in Resources */,
 				5ED3CF7B1A416FCE0083BCDE /* yunshi@3x_10.png in Resources */,
 				5E6E29BC1A5B8CBB004F3C89 /* radio_checked@2x.png in Resources */,
 				5E9755AE1A529E46003A4A31 /* quceshiP@3X.png in Resources */,
@@ -2847,6 +2906,7 @@
 				646C43BE1A38146E00FB683D /* 摩羯@3x.png in Resources */,
 				646C43A71A37FB2400FB683D /* ys_c_mojie@2x.png in Resources */,
 				5ED3CF911A418B0B0083BCDE /* back@2x.png in Resources */,
+				5E484AA31A5FBDA900582DE7 /* lineBottom@2x.png in Resources */,
 				64914EBA1A5A3656003DED2A /* More－Normal@3x.png in Resources */,
 				5ED3CF581A416FCE0083BCDE /* faxianIanxia@3x.png in Resources */,
 				645DEEEF1A41715200E8C524 /* 星友圈－按下.png in Resources */,
@@ -2857,6 +2917,7 @@
 				646C43AF1A37FB2400FB683D /* ys_c_sy@2x.png in Resources */,
 				64914EBE1A5A5626003DED2A /* zan-Normal@3x.png in Resources */,
 				5ED3CFA71A418BA80083BCDE /* icon_back_white.png in Resources */,
+				5E484AA61A5FBDA900582DE7 /* lineTop@3x.png in Resources */,
 				645DEEB71A414DCA00E8C524 /* weibo@2x.png in Resources */,
 				5E97559E1A529E46003A4A31 /* chongce@2X.png in Resources */,
 				647607BB1A3FD7C400B71469 /* 密码图标@3x.png in Resources */,
@@ -2885,6 +2946,7 @@
 				647607C71A3FD7C400B71469 /* iphone6+底图.png in Resources */,
 				5ED3CF5E1A416FCE0083BCDE /* shezhiIanxia@3x.png in Resources */,
 				5ED3CF561A416FCE0083BCDE /* faxian@3x.png in Resources */,
+				5E484A811A5F7D3E00582DE7 /* sigup@2x.png in Resources */,
 				64394D2B1A5E20570034F89E /* UMShareEditViewController.xib in Resources */,
 				5E97559F1A529E46003A4A31 /* chongce@3X.png in Resources */,
 				646C43CD1A381CE800FB683D /* ys_c_star_gray@2x.png in Resources */,
@@ -2917,6 +2979,7 @@
 				64C7271B1A3575B300DFE28E /* 弹窗@2x.png in Resources */,
 				5E9755B61A529E46003A4A31 /* wanchengP@3x.png in Resources */,
 				645F7BAF1A5142EF0023D9C1 /* 3@3x.png in Resources */,
+				5E484A871A5FA7F600582DE7 /* signup1ViewController.xib in Resources */,
 				5ED3CF6F1A416FCE0083BCDE /* xingyou@2x.png in Resources */,
 				5ECC41BE1A43D26200A5D3B4 /* pinglun@3X.png in Resources */,
 				5E9755B41A529E46003A4A31 /* wancheng@3x.png in Resources */,
@@ -3007,6 +3070,7 @@
 				6441674A1A4957F1004277F8 /* blackView.png in Resources */,
 				645DEEED1A41715200E8C524 /* xingyou.png in Resources */,
 				645DEE871A41371400E8C524 /* 123123.png in Resources */,
+				5E484AA51A5FBDA900582DE7 /* lineTop@2x.png in Resources */,
 				5E9755931A529E46003A4A31 /* cai@2X.png in Resources */,
 				5E9755C41A529E46003A4A31 /* zhunP@2x.png in Resources */,
 				5EB87EB71A396EBF00BE4A5D /* delSelected@3x.png in Resources */,
@@ -3024,6 +3088,7 @@
 				5ED3CFA41A418BA80083BCDE /* BigIcon_exclamation.gif in Resources */,
 				64C7271E1A3575B300DFE28E /* imgbg@3x.png in Resources */,
 				5ED3CF721A416FCE0083BCDE /* xingyouIanxia@3x.png in Resources */,
+				5E484A7E1A5F7C3800582DE7 /* SingupViewController.xib in Resources */,
 				64982B811A58F0FE005338AA /* screening.png in Resources */,
 				647607BA1A3FD7C400B71469 /* 密码图标@2x.png in Resources */,
 				645DEEFC1A4172D300E8C524 /* 1.png in Resources */,
@@ -3154,8 +3219,10 @@
 				5E6C7CDD1A42C875005C4554 /* UIRefreshControl+AFNetworking.m in Sources */,
 				647607DB1A4003BD00B71469 /* PhotoViewController.m in Sources */,
 				645DEEC61A41675600E8C524 /* ChangeViewController.m in Sources */,
+				5E484A951A5FA84500582DE7 /* signup4ViewController.m in Sources */,
 				645859D41A42BD9F00E409FE /* NetManager.m in Sources */,
 				6476078F1A3FD21900B71469 /* TopButton.m in Sources */,
+				5E484A8B1A5FA81000582DE7 /* signup2ViewController.m in Sources */,
 				5ED3CF831A416FCE0083BCDE /* TopBarView.m in Sources */,
 				645DEE8A1A4137A200E8C524 /* PersonInfoChangeViewController.m in Sources */,
 				5E6C7CCF1A42C875005C4554 /* AFHTTPRequestOperationManager.m in Sources */,
@@ -3171,6 +3238,7 @@
 				5E2D73961A51464000FB8EBA /* TestViewController.m in Sources */,
 				2FC71FDF1A2721AC002BB2C5 /* ZoneViewController.m in Sources */,
 				2FC71FDC1A2721AC002BB2C5 /* FriendLoopViewController.m in Sources */,
+				5E484A901A5FA83300582DE7 /* signup3ViewController.m in Sources */,
 				5E6C7CCE1A42C875005C4554 /* AFHTTPRequestOperation.m in Sources */,
 				5E6C7CDA1A42C875005C4554 /* UIButton+AFNetworking.m in Sources */,
 				645DEE5D1A4132D900E8C524 /* EGOImageLoadConnection.m in Sources */,
@@ -3210,6 +3278,7 @@
 				649E9C751A4E5C250024B10C /* ActivityViewController.m in Sources */,
 				64BEC4FC1A2D6D5F00931E0F /* NewMainViewController.m in Sources */,
 				5ED3CF421A416FCE0083BCDE /* MDMenuChildViewController.m in Sources */,
+				5E484A7D1A5F7C3800582DE7 /* SingupViewController.m in Sources */,
 				645DEEBD1A41607500E8C524 /* FoundViewController.m in Sources */,
 				64CD98301A30403900040744 /* XWViewController.m in Sources */,
 				2FC71FDA1A2721AC002BB2C5 /* BaseViewController.m in Sources */,
@@ -3239,6 +3308,7 @@
 				5E6C7CD91A42C875005C4554 /* UIAlertView+AFNetworking.m in Sources */,
 				5ED3CF441A416FCE0083BCDE /* MDStack.m in Sources */,
 				645400171A4274A400FA69C7 /* SetUpCell.m in Sources */,
+				5E484A861A5FA7F600582DE7 /* signup1ViewController.m in Sources */,
 				645400051A426E2900FA69C7 /* SetUpViewController.m in Sources */,
 				2FC71FDB1A2721AC002BB2C5 /* FindViewController.m in Sources */,
 				64914EB31A5A2BAB003DED2A /* CircleStarViewController.m in Sources */,
