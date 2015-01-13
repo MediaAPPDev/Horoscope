@@ -36,9 +36,45 @@
 {
     
     
+    if ([self isEmtity:_telPhoneNumber.text]) {
+        
+        //        NSString * strafsdf =null;
+        
+        
+        UIAlertView * alert =[[UIAlertView alloc]initWithTitle:@"错误" message:@"用户名和密码不能为空！" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        
+        
+    }else{
+        
+   
+        
+        if (_telPhoneNumber.text.length <11)
+        {
+            UIAlertView * alert =[[UIAlertView alloc]initWithTitle:@"错误" message:@"用户名不能小于11位！" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            [alert show];
+            
+            
+        }else{
+            
+ 
+        
+            [[UserCache sharedInstance] setValue:_telPhoneNumber.text forKey:@"regTel"];
+            
+            
+            signup2ViewController * signStep2 =[[signup2ViewController alloc]init];
+            
+            signStep2.telNum =[NSMutableString stringWithString:_telPhoneNumber.text];
+            
+            [self.menuController pushViewController:signStep2 withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
+            
+            
+        }
+    }
+
+
     
-    signup2ViewController * signStep2 =[[signup2ViewController alloc]init];
-    [self.menuController pushViewController:signStep2 withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
+
     
     
 }

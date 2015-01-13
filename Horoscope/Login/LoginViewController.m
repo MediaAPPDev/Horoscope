@@ -23,10 +23,10 @@
     [self setTopViewWithTitle:@"登录" withBackButton:YES];
     
     
-    
     UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(self.view.bounds.size.width-60, KISHighVersion_7?20:0, 60, 44)];
     [button setImage:KUIImage(@"wancheng.png") forState:UIControlStateNormal];
     [button addTarget:self action:@selector(enterNextPage:) forControlEvents:UIControlEventTouchUpInside];
+    
     
     [self.view addSubview:button];
     
@@ -42,24 +42,14 @@
 -(void)enterNextPage:(UIButton *)btn
 {
     
-    if ([self isEmtity:_username.text]||[_password.text  isEqual:@""]) {
+    if ([self isEmtity:_username.text]||[ self isEmtity:_password.text]) {
         
 //        NSString * strafsdf =null;
         
-        if (_username.text.length <11)
-        {
-            UIAlertView * alert =[[UIAlertView alloc]initWithTitle:@"错误" message:@"用户名不能小于11位！" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-            [alert show];
-          
-      
-        }else{
+       
             UIAlertView * alert =[[UIAlertView alloc]initWithTitle:@"错误" message:@"用户名和密码不能为空！" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
             [alert show];
        
-            
-        }
-        
-
         
     }else{
         
@@ -71,19 +61,22 @@
             
             
         }else{
-            NSString * loginStr =[NSString stringWithFormat:@"veruser?mobilenum=%@",_username];
+            NSString * loginStr =[NSString stringWithFormat:@"veruser?mobilenum=%@",_username.text];
             
             //        [NSString stringWithFormat:<#(NSString *), ...#>]
             
             [[AFAppDotNetAPIClient sharedClient] GET:loginStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
                 
-                            [[UserCache sharedInstance] setValue:loginStr forKey:@"userCode"];
-                
-                            NSString * strsd =[[UserCache sharedInstance] objectForKey:@"userCode"];
-                
-                
-                
                 NSString * state =[NSString stringWithFormat:@"%@",responseObject];
+                
+                [[UserCache sharedInstance] setValue:state forKey:@"userCode"];
+                
+//                [[UserCache sharedInstance] setValue:_username forKey:<#(NSString *)#>]
+                
+//                UIButton * btn =[UIButton buttonWithType:UIButtonTypeContactAdd];
+//                btn setBackgroundImage:<#(UIImage *)#> forState:<#(UIControlState)#>
+            
+//                NSString * strsd =[[UserCache sharedInstance] objectForKey:@"userCode"];
                 
                 if (![state isEqualToString:@""]) {
                     

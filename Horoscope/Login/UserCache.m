@@ -18,7 +18,7 @@ static UserCache *sharedObj = nil;
     {
         if (sharedObj == nil)
         {
-           sharedObj= (UserCache *) [[NSUserDefaults standardUserDefaults] init];
+           sharedObj= (UserCache *) [NSUserDefaults standardUserDefaults];
         }
     }
     return sharedObj;
