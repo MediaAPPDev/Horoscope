@@ -300,7 +300,6 @@
     commentBgView.hidden = YES;
     [commentBgView removeGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(goBackKeyBoard:)]];
 
-    
     return YES;
 }
 
