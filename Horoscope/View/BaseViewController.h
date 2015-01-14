@@ -10,6 +10,7 @@
 #import "JDSideMenu.h"
 #import "UIViewController+JDSideMenu.h"
 #import "MDMenuChildViewController.h"
+#import "UserCache.h"
 //#import "JDSideMenu.h"
 @interface BaseViewController : MDMenuChildViewController
 {

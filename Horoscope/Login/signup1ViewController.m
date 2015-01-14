@@ -41,6 +41,7 @@
 -(void)enterNextPage:(UIButton *)btn
 {
     
+//<<<<<<< HEAD
     if ([self isEmtity:_telPhoneNumber.text] ) {
         [self showAlertViewWithtitle:@"提示" message:@ "手机号不能为空"];
     }else if (_telPhoneNumber.text.length !=11||![self isPureInt:_telPhoneNumber.text]||![_telPhoneNumber.text hasPrefix:@"1"])
@@ -48,9 +49,54 @@
         [self showAlertViewWithtitle:@"提示" message:@"请输入正确的手机号"];
     }
     else{
+        [[UserCache sharedInstance] setObject:_telPhoneNumber.text forKey:@"regTel"];
     signup2ViewController * signStep2 =[[signup2ViewController alloc]init];
-    [self.menuController pushViewController:signStep2 withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
+        signStep2.telNum =[NSMutableString stringWithString:_telPhoneNumber.text];
+
+            [self.menuController pushViewController:signStep2 withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
     }
+//=======
+    
+//    if ([self isEmtity:_telPhoneNumber.text]) {
+//        
+//        //        NSString * strafsdf =null;
+//        
+//        
+//        UIAlertView * alert =[[UIAlertView alloc]initWithTitle:@"错误" message:@"用户名和密码不能为空！" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+//        [alert show];
+//        
+//        
+//    }else{
+//        
+//   
+//        
+//        if (_telPhoneNumber.text.length <11)
+//        {
+//            UIAlertView * alert =[[UIAlertView alloc]initWithTitle:@"错误" message:@"用户名不能小于11位！" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+//            [alert show];
+//            
+//            
+//        }else{
+//            
+// 
+//        
+//  
+//
+//            
+//            signup2ViewController * signStep2 =[[signup2ViewController alloc]init];
+//            
+//            
+//            [self.menuController pushViewController:signStep2 withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
+//            
+//            
+//        }
+//    }
+
+
+    
+
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
