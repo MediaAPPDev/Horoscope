@@ -10,7 +10,7 @@
 #import "MineViewController.h"
 #import "MDMenuViewController.h"
 #import "SetUpViewController.h"
-
+#import "SingupViewController.h"
 @implementation DefaultMenuView
 -(id)initWithFrame:(CGRect)frame
 {
@@ -232,6 +232,18 @@
 -(void)tableView:(UITableView *)tableView1 didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"%ld",(long)indexPath.row);
+    
+    if (indexPath.row ==1||indexPath.row ==2||indexPath.row ==3) {
+        if (![[UserCache sharedInstance]objectForKey:KMYUSERID]) {
+            NSLog(@"你还没登陆！！！！");
+            SingupViewController * setUp =[[SingupViewController alloc]init];
+            setUp.isChildPage = YES;
+            [self.delegate pushViewController:setUp animated:YES];
+
+            return;
+        }
+    }
+    
     
     MenuItemEntity *entity = [MenuItems objectAtIndex:indexPath.row];
     if([self.delegate respondsToSelector:@selector(MenuViewDidSelectMenuItem:atIndex:)])

@@ -18,10 +18,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-   
-}
+    if (self.isChildPage==YES) {
+        [self buildTopviewWithBackButton:YES title:@"您尚未登陆,请先登录"];
+    }
 
+    // Do any additional setup after loading the view from its nib.
+}
+- (void)gotoMenu1:(UIButton  * )btn
+{
+     [self.menuController showMenu:self.menuController.topBar];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -33,9 +39,7 @@
 
     LoginViewController * logVC =[[LoginViewController alloc]init];
     
-            [self.menuController pushViewController:logVC withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
-
-    
+            [self.menuController pushViewController:logVC withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];    
 }
 - (IBAction)regeAction:(id)sender{
     
@@ -48,7 +52,41 @@
     
     
 }
+-(NSString*)titleForChildControllerMDMenuViewController:(MDMenuViewController *)menuController
+{
+    return @"注册";
+}
+-(NSString*)iconForChildControllerMDMenuViewController:(MDMenuViewController *)menuController
+{
+    return @"xingwen.png";
+}
+-(void)buildTopviewWithBackButton:(BOOL)isHave title:(NSString *)title
+{
+    UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, KISHighVersion_7?64:44)];
+    imageView.backgroundColor = [UIColor colorWithRed:0/225.0f green:0/225.0f blue:0/225.0f alpha:.5];
+    imageView.image =[UIImage imageNamed:@""];
+    imageView.userInteractionEnabled =  YES;
+    [self.view bringSubviewToFront:imageView];
+    [self.view addSubview:imageView];
+    
+    //    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(70, 20, self.view.bounds.size.width-140, 44)];
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(70, KISHighVersion_7?20:0, self.view.bounds.size.width-140, 44)];
+    label.text = title;
+    label.font = [UIFont boldSystemFontOfSize:22];
+    label.textAlignment =NSTextAlignmentCenter;
+    label.backgroundColor= [UIColor clearColor];
+    
+    label.textColor = [UIColor whiteColor];
+    
+    [imageView addSubview:label];
+    
+    UIButton *leftBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, KISHighVersion_7?20:0, 60, 44)];
+    [leftBtn setImage:[UIImage imageNamed:@"emnu.png"] forState:UIControlStateNormal];
+    [leftBtn addTarget:self action:@selector(gotoMenu1:) forControlEvents:UIControlEventTouchUpInside];
 
+    [imageView addSubview:leftBtn];
+    
+}
 /*
 #pragma mark - Navigation
 

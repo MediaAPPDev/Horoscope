@@ -90,6 +90,8 @@
             }
             [m_header endRefreshing];
             [m_CollView reloadData];
+        }else{
+            
         }
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [m_header endRefreshing];
@@ -145,6 +147,7 @@
     if (kind == UICollectionElementKindSectionHeader) {
         titleView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"headViewww" forIndexPath:indexPath];
         if (arr1.count==6) {
+            titleView.hidden = NO;
             titleView.cell1.MainImageView.imageURL = [NSURL URLWithString:[[arr1 objectAtIndex:1] objectForKey:@"photo"]];
             titleView.cell1.nameLabel.text = [[arr1 objectAtIndex:1] objectForKey:@"nickname"];
             
@@ -161,6 +164,8 @@
             
             titleView.cell6.MainImageView.imageURL = [NSURL URLWithString:[[arr1 objectAtIndex:0] objectForKey:@"photo"]];
             titleView.cell6.nameLabel.text = [[arr1 objectAtIndex:0] objectForKey:@"nickname"];
+        }else{
+            titleView.hidden = YES;
         }
 
         }

@@ -121,11 +121,7 @@
     }
     [photoBtn setImage:selectImage forState:UIControlStateNormal];
     
-    
     imgData = UIImageJPEGRepresentation(selectImage,1.0);
-   fielPath =  [self writeImageToFile:selectImage ImageName:@"senderImg"];
-    
-//    imgData = [[NSString alloc] initWithData:data encoding:NSUTF16StringEncoding];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
@@ -137,27 +133,6 @@
     
 }
 
-//将图片保存到本地，返回保存的路径
--(NSString*)writeImageToFile:(UIImage*)thumbimg ImageName:(NSString*)imageName
-{
-    NSString *path = [RootDocPath stringByAppendingPathComponent:@"GroupImage"];
-    NSFileManager *fm = [NSFileManager defaultManager];
-    if([fm fileExistsAtPath:path] == NO)
-    {
-        [fm createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:nil];
-    }
-    NSString  *openImgPath = [NSString stringWithFormat:@"%@/%@",path,imageName];
-    
-    NSData *data = UIImageJPEGRepresentation(thumbimg, 0.7);
-    
-    [self dismissViewControllerAnimated:YES completion:^{
-        
-    }];
-    if ([data writeToFile:openImgPath atomically:NO]) {
-        return openImgPath;
-    }
-    return nil;
-}
 
 
 #pragma mark----发送
@@ -167,7 +142,7 @@
         NSString *urlStr = [NSString stringWithFormat:@"addpiccontent"];
         NSMutableDictionary *dic = [NSMutableDictionary dictionary];
 //
-        [dic setObject:@"6283429397" forKey:@"uid"];
+        [dic setObject:[[UserCache sharedInstance]objectForKey:KMYUSERID] forKey:@"uid"];
         [dic setObject:senderTextView.text forKey:@"content"];
         
         NSString *uuid = [TempDate uuid];

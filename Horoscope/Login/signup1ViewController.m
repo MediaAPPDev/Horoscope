@@ -28,19 +28,29 @@
     
     [_telPhoneNumber setValue:[UIColor colorWithWhite:1 alpha:0.6] forKeyPath:@"_placeholderLabel.textColor"];
     
-    
+    _telPhoneNumber.keyboardType = UIKeyboardTypeNumberPad;
+
     // Do any additional setup after loading the view from its nib.
+}
+- (BOOL)isPureInt:(NSString*)string{
+    NSScanner* scan = [NSScanner scannerWithString:string];
+    int val;
+    return[scan scanInt:&val] && [scan isAtEnd];
 }
 
 -(void)enterNextPage:(UIButton *)btn
 {
     
-    
-    
+    if ([self isEmtity:_telPhoneNumber.text] ) {
+        [self showAlertViewWithtitle:@"提示" message:@ "手机号不能为空"];
+    }else if (_telPhoneNumber.text.length !=11||![self isPureInt:_telPhoneNumber.text]||![_telPhoneNumber.text hasPrefix:@"1"])
+    {
+        [self showAlertViewWithtitle:@"提示" message:@"请输入正确的手机号"];
+    }
+    else{
     signup2ViewController * signStep2 =[[signup2ViewController alloc]init];
     [self.menuController pushViewController:signStep2 withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
-    
-    
+    }
 }
 
 - (void)didReceiveMemoryWarning {

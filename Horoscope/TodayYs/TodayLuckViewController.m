@@ -329,7 +329,7 @@
    
     ysImgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 100, 150)];
     ysImgView.image = KUIImage(@"ys_c_down");
-    ysImgView.center = CGPointMake(KScreenWidth/2, -75);
+    ysImgView.center = CGPointMake(KScreenWidth/2, 75);
     ysImgView.userInteractionEnabled = YES;
     [ysView addSubview:ysImgView];
     
@@ -440,7 +440,7 @@
 {
     ysView.hidden = NO;
     [UIView animateWithDuration:0.3 animations:^{
-        ysImgView.center = CGPointMake(KScreenWidth/2, 75);
+//        ysImgView.center = CGPointMake(KScreenWidth/2, 75);
      } completion:^(BOOL finished) {
          [ysView addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hiddenYsView:)]];
     }];
@@ -451,7 +451,7 @@
 {
     [titleBtn setTitle:ysArr[sender.tag-1000] forState:UIControlStateNormal];
     [UIView animateWithDuration:0.3 animations:^{
-        ysImgView.center = CGPointMake(KScreenWidth/2, -75);
+//        ysImgView.center = CGPointMake(KScreenWidth/2, -75);
         
 //        StarStr = ysArr[sender.tag-1000];
         if (sender.tag-1000==0)
@@ -484,7 +484,7 @@
 -(void)hiddenYsView:(id)sender
 {
     [UIView animateWithDuration:0.3 animations:^{
-        ysImgView.center = CGPointMake(KScreenWidth/2, -75);
+//        ysImgView.center = CGPointMake(KScreenWidth/2, -75);
     } completion:^(BOOL finished) {
         ysView.hidden = YES;
         [ysView removeGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hiddenYsView:)]];

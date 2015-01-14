@@ -9,5 +9,5 @@
 #import "BaseViewController.h"
 
 @interface SingupViewController : BaseViewController
-
+@property (nonatomic,assign)BOOL isChildPage;
 @end

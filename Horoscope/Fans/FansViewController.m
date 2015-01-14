@@ -47,9 +47,9 @@
 {
     NSString *urlStr ;
     if (self.isFans) {
-        urlStr = @"userfans.php?uid=6283429397";
+        urlStr =[NSString stringWithFormat:@"userfans.php?uid=%@",[[UserCache sharedInstance]objectForKey:KMYUSERID]];
     }else{
-        urlStr =@"userfollow.php?uid=6283429397";
+        urlStr =[NSString stringWithFormat:@"userfollow.php?uid=%@",[[UserCache sharedInstance]objectForKey:KMYUSERID]];
     }
     
       [[AFAppDotNetAPIClient sharedClient] GET:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {

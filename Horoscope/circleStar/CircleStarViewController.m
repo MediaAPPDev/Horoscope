@@ -17,6 +17,8 @@
     UIView * commentBgView;
     NSMutableDictionary * commentDict;
     float keyboardhight;
+    
+    NSString * myUid;
 }
 @end
 
@@ -35,6 +37,7 @@
     [self.view addSubview:button];
 
     
+    myUid = [[UserCache sharedInstance]objectForKey:KMYUSERID];
     
     infoArray = [NSMutableArray array];
     commentDict = [NSMutableDictionary dictionary];
@@ -105,8 +108,8 @@
 
 -(void)getInfoFromNet
 {
-    
-    [[AFAppDotNetAPIClient sharedClient] GET:@"friendcontent.php?id=6283429397" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSString *urlStr = [NSString stringWithFormat:@"friendcontent.php?id=%@",myUid];
+    [[AFAppDotNetAPIClient sharedClient] GET:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         
         if (![responseObject isKindOfClass:[NSArray class]]) {
             return ;
@@ -234,11 +237,9 @@
     NSLog(@"点赞");
     cell.zanBtn.hidden = YES;
     cell.commBtn. hidden = YES;
-
     /*
      http://star.allappropriate.com/addcount?cid=3&zcount=102&uid=2696868409
      */
-    
     NSDictionary *dic = [infoArray objectAtIndex:cell.tag];
 
     

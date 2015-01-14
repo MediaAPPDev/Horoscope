@@ -10,7 +10,7 @@
 #import "signup1ViewController.h"
 #import "NewMainViewController.h"
 #import "UserCache.h"
-
+#import "signup2ViewController.h"
 @interface LoginViewController ()
 
 @end
@@ -33,12 +33,19 @@
     
     
     [_username setValue:[UIColor colorWithWhite:1 alpha:0.6] forKeyPath:@"_placeholderLabel.textColor"];
-    
+    _username.keyboardType = UIKeyboardTypeNumberPad;
     [_password setValue:[UIColor colorWithWhite:1 alpha:0.6] forKeyPath:@"_placeholderLabel.textColor"];
     
     
     // Do any additional setup after loading the view from its nib.
 }
+
+- (BOOL)isPureInt:(NSString*)string{
+    NSScanner* scan = [NSScanner scannerWithString:string];
+    int val;
+    return[scan scanInt:&val] && [scan isAtEnd];
+}
+
 -(void)enterNextPage:(UIButton *)btn
 {
     
@@ -59,8 +66,6 @@
             
         }
         
-
-        
     }else{
         
         
@@ -70,66 +75,56 @@
             [alert show];
             
             
-        }else{
-            NSString * loginStr =[NSString stringWithFormat:@"veruser?mobilenum=%@",_username];
+        }else if (![self isPureInt:_username.text]||![_username.text hasPrefix:@"1"])
+        {
+            UIAlertView * alert =[[UIAlertView alloc]initWithTitle:@"错误" message:@"请输入正确的手机号" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        
+        else{
+            NSString * loginStr =[NSString stringWithFormat:@"veruser?mobilenum=%@",_username.text];
             
             //        [NSString stringWithFormat:<#(NSString *), ...#>]
             
-            [[AFAppDotNetAPIClient sharedClient] GET:loginStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+            [[AFAppDotNetAPIClient sharedClient] GET:loginStr parameters:nil success:^ (NSURLSessionDataTask *task, id responseObject) {
                 
                             [[UserCache sharedInstance] setValue:loginStr forKey:@"userCode"];
                 
                             NSString * strsd =[[UserCache sharedInstance] objectForKey:@"userCode"];
+			
+                NSString * state   =[NSString stringWithFormat:@"%@",responseObject];
                 
                 
                 
-                NSString * state =[NSString stringWithFormat:@"%@",responseObject];
                 
                 if (![state isEqualToString:@""]) {
-                    
-                    
-                    
-                    
-                    NewMainViewController * mainVC =[[NewMainViewController alloc]init];
-                    [self.menuController pushViewController:mainVC withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
-                    
-                    
-                    
-                    
+                    if ([state  intValue]!=0) {
+                        [[UserCache sharedInstance]setObject:state forKey:KMYUSERID];
+                        
+                        NewMainViewController * mainVC =[[NewMainViewController alloc]init];
+                        [self.menuController pushViewController:mainVC withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
+                    }else{
+                        UIAlertView * alert =[[UIAlertView alloc]initWithTitle:@"错误" message:@"用户不存在，请选择注册或取消。" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"注册", nil];
+                        [alert show];
+                    }
                 }
                 else{
-                    
-                    UIAlertView * alert =[[UIAlertView alloc]initWithTitle:@"错误" message:@"用户不存在！" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                    UIAlertView * alert =[[UIAlertView alloc]initWithTitle:@"错误" message:@"用户不存在，请选择注册或取消。" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"注册", nil];
                     [alert show];
-                    
                 }
-                
-                
-                
             } failure:^(NSURLSessionDataTask *task, NSError *error) {
-                
-                
-                
             }];
-            
-            
-            
         }
-        
-        
-
-        
-        
-        
     }
-    
 
-    
-    
-
-    
 }
-
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex==1) {
+        signup2ViewController *signUp = [[signup2ViewController alloc]init];
+        [self.menuController pushViewController:signUp withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
+    }
+}
 
 
 -(NSString*)titleForChildControllerMDMenuViewController:(MDMenuViewController *)menuController

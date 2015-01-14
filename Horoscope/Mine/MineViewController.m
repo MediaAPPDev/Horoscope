@@ -94,7 +94,7 @@
 {
     NSString *urlStr ;
     if (self.isRootView) {
-        urlStr = [NSString stringWithFormat:@"userdetail.php?uid=%@",userid];
+        urlStr = [NSString stringWithFormat:@"userdetail.php?uid=%@",[[UserCache sharedInstance]objectForKey:KMYUSERID ]];
     }else{
         urlStr = [NSString stringWithFormat:@"userdetail.php?uid=%@",userid];
     }
@@ -426,29 +426,27 @@
         UIImageWriteToSavedPhotosAlbum(selectImage, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
     }
     [headImgView setImage:selectImage forState:UIControlStateNormal];
+   NSData * imgData = UIImageJPEGRepresentation(selectImage,1.0);
+    if (imgData) {
+        NSString *urlStr = [NSString stringWithFormat:@"uploader/uppoo"];
+        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+        //
+        [dic setObject:[[UserCache sharedInstance]objectForKey:KMYUSERID ] forKey:@"uid"];
+        
+        NSString *uuid = [TempDate uuid];
+        
+        [[AFAppDotNetAPIClient sharedClient]POST:urlStr parameters:dic constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+            [formData appendPartWithFileData:imgData name:uuid fileName:[NSString stringWithFormat:@"%@.jpg",uuid] mimeType:@"image/jpeg"];
+        } success:^(NSURLSessionDataTask *task, id responseObject) {
+            
+            [self showMessageWindowWithContent:@"修改成功"imageType:0];
+            
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        }];
+    }
 }
 
-//将图片保存到本地，返回保存的路径
--(NSString*)writeImageToFile:(UIImage*)thumbimg ImageName:(NSString*)imageName
-{
-    NSString *path = [RootDocPath stringByAppendingPathComponent:@"GroupImage"];
-    NSFileManager *fm = [NSFileManager defaultManager];
-    if([fm fileExistsAtPath:path] == NO)
-    {
-        [fm createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:nil];
-    }
-    NSString  *openImgPath = [NSString stringWithFormat:@"%@/%@",path,imageName];
-    
-    NSData *data = UIImageJPEGRepresentation(thumbimg, 0.7);
-    
-    [self dismissViewControllerAnimated:YES completion:^{
-        
-    }];
-    if ([data writeToFile:openImgPath atomically:NO]) {
-        return openImgPath;
-    }
-    return nil;
-}
+
 
 
 
