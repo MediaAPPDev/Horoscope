@@ -79,8 +79,8 @@
     myTableView.dataSource = self;
     
     [mainScrl addSubview:myTableView];
-    arr1 = [NSArray arrayWithObjects:@"情感状态",@"外貌",@"职业",@"爱好",@"语言",@"出生地",@"学校",@"公司", nil];
-    arr2 = [NSArray arrayWithObjects:@"单身",@"180cm 55kg 强壮",@"学生",@"泡妞 游戏 电影 读书",@"中 英 法 德 西班牙 日 韩 俄罗斯 意大利",@"China",@"英国剑桥",@"SF", nil];
+//    arr1 = [NSArray arrayWithObjects:@"情感状态",@"外貌",@"职业",@"爱好",@"语言",@"出生地",@"学校",@"公司", nil];
+//    arr2 = [NSArray arrayWithObjects:@"单身",@"180cm 55kg 强壮",@"学生",@"泡妞 游戏 电影 读书",@"中 英 法 德 西班牙 日 韩 俄罗斯 意大利",@"China",@"英国剑桥",@"SF", nil];
     
     
     [self setIsRootView:NO];
@@ -184,9 +184,7 @@
     [gzBtn addTarget:self action:@selector(didClickgz:) forControlEvents:UIControlEventTouchUpInside];
     [gzBtn setTitle:@"关注 250" forState:UIControlStateNormal];
     [blackView addSubview:gzBtn];
-    
-    
-    
+        
 }
 
 //坑爹的照片墙
@@ -211,6 +209,14 @@
         [imgView addTarget:self action:@selector(seeBigImg:) forControlEvents:UIControlEventTouchUpInside];
         [photoView addSubview:imgView];
     }
+    
+    if (self.isRootView) {
+        UIButton *addBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 30, 30)];
+        addBtn.backgroundColor = [UIColor greenColor];
+        addBtn.center = photoView.center;
+        [addBtn addTarget:self action:@selector(addImage:) forControlEvents:UIControlEventTouchUpInside];
+        [photoView addSubview:addBtn];
+    }
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -222,11 +228,10 @@
 {
     switch (section) {
         case 0:
-            return 1;
+            return 0;
             break;
-            
         default:
-            return 8;
+            return 0;
             break;
     }
 }
@@ -261,9 +266,7 @@
     if (indexPath.section ==0) {
         
     }
-    
-    
-    
+
 }
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
@@ -290,7 +293,6 @@
         case 0:
             return 0;
             break;
-            
         default:
             return 50;
             break;
@@ -304,8 +306,15 @@
     }else{
         return 40;
     }
+}
+
+#pragma mark---ADD image
+-(void)addImage:(UIButton *)sender
+{
     
 }
+
+
 
 //点击 粉丝
 -(void)didClickFuns:(UIButton *)sender

@@ -15,5 +15,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *nv;
 @property (weak, nonatomic) IBOutlet UIButton *pickViewButton;
 @property (weak, nonatomic) IBOutlet UIButton *xingzuoButton;
+@property (weak, nonatomic) IBOutlet UIDatePicker *dataPicker;
+- (IBAction)didClickMan:(UIButton *)sender;
+- (IBAction)didClickWoman:(UIButton *)sender;
+- (IBAction)didClickDataPicker:(UIButton *)sender;
 
 @end

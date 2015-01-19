@@ -35,13 +35,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Horoscope/Third Class/MDMenuViewController classes/DefaultMenuView.m"
-            timestampString = "442984300.041003"
+            filePath = "Horoscope/Mine/MineViewController.m"
+            timestampString = "443327115.936707"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
-            landmarkName = "-faceChangeAction:"
+            startingLineNumber = "213"
+            endingLineNumber = "213"
+            landmarkName = "-buildPhotosWallWithUrl:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -51,13 +51,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Horoscope/Login/signup2ViewController.m"
-            timestampString = "442984427.289696"
+            filePath = "Horoscope/Mine/MineViewController.m"
+            timestampString = "443327180.643019"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
-            landmarkName = "-viewWillAppear:"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "-getInfoFromNetWithUserId:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

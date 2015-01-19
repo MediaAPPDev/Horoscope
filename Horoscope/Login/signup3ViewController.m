@@ -57,4 +57,18 @@
 }
 */
 
+- (IBAction)didClickMan:(UIButton *)sender {
+    
+    
+}
+
+- (IBAction)didClickWoman:(UIButton *)sender {
+}
+
+- (IBAction)didClickDataPicker:(UIButton *)sender {
+    
+    
+    
+    
+}
 @end

@@ -89,13 +89,19 @@
 - (void) faceChangeAction:(UIButton *)btn
 {
     
-    MineViewController * mine =[[MineViewController alloc]init];
+    if ([[UserCache sharedInstance]objectForKey:KMYUSERID]) {
+        MineViewController * mine =[[MineViewController alloc]init];
+        
+        mine.isRootView =YES;
+        mine.userid =[NSString stringWithFormat:@"%@",[[UserCache sharedInstance]objectForKey:KMYUSERID]];
+        [self.delegate pushViewController:mine animated:YES];
+
+    }else{
+        SingupViewController *sing =[[ SingupViewController alloc]init];
+        sing.isChildPage = YES;
+        [self.delegate pushViewController:sing animated:YES];
+    }
     
-    mine.isRootView =YES;
-    
-    
-    
-     [self.delegate pushViewController:mine animated:YES];
     
 //    [self.delegate pushViewController:mine withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
     

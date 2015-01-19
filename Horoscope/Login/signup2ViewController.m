@@ -23,10 +23,6 @@
     [button addTarget:self action:@selector(enterNextPage:) forControlEvents:UIControlEventTouchUpInside];
     
     [self.view addSubview:button];
-    
-    
-    
-    
      [_telPhoneNumber setText:_telNum];
     
     [_sendCode setValue:[UIColor colorWithWhite:1 alpha:0.6] forKeyPath:@"_placeholderLabel.textColor"];
@@ -43,7 +39,6 @@
 
 {
     
-    
 //    [UserCache sharedInstance] valueForKey:@""
   
     NSString * parameterStr =[NSString stringWithFormat:@"mobilesms?mobnum=%@",_telNum];
@@ -53,15 +48,11 @@
         
         NSString * state =[NSString stringWithFormat:@"%@",responseObject];
         
-       
-      
-        
 
         if (![state isEqualToString:@""]) {
             
               [_sendCode setText:state ];
     
-            
         }
         else{
             
