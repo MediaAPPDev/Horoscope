@@ -33,6 +33,10 @@
 #import "MJRefresh.h"
 #import "NSLog.h"
 #import "UserCache.h"
+#import "UMSocialWechatHandler.h"
+#import "UMSocialQQHandler.h"
+#import "UMSocialSinaHandler.h"
+
 //#import "RequestTaskService.h"
 #endif
 
@@ -43,9 +47,12 @@
 
 #define YSKEY @"14898fc797ac4929b8d725965498c22c"
 
-
+#define SHAREQQID @"1103841525"
+#define SHAREWXID @"wxbccec73ac4a300c1"
+#define SHAREQQAPPKEY @"TarlNqE6S1bgBfxc"
+#define SHAREWXAPPKEY @"56ad72bc5586aa55443ef50f62dd0299"
 #define KMYUSERID @"ThisIsMyUserid" //个人userid
-
+#define MYINFODICT @"myinfoDictionaryIsMineNotYour---wx"
 
 // view的 X,y , width , height
 

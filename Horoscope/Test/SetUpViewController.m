@@ -8,13 +8,13 @@
 
 #import "SetUpViewController.h"
 #import "SetUpCell.h"
-
+#import "PassWordChangeViewController.h"
 #import "SafeViewController.h"
 #import "BangdingViewController.h"
 #import "NotifiationViewController.h"s
 #import "PrivacyViewController.h"
 #import "FeedbackViewController.h"
-
+#import "AboutMeViewController.h"
 @interface SetUpViewController ()
 {
     UITableView * myTableView;
@@ -163,28 +163,18 @@
 //    PrivacyViewController *priv = [[PrivacyViewController alloc]init];
     FeedbackViewController *fee =[[FeedbackViewController alloc]init];
     
-    
+    AboutMeViewController *aboutVC = [[AboutMeViewController alloc]init];
     switch (indexPath.section) {
         case 0:
-//            switch (indexPath.row) {
-//                case 0:
                     [self.menuController pushViewController:safe withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
-//                    break;
-//                    case 1:
-//                    [self.menuController pushViewController:bd withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
-//                    break;
-//                default:
-//                    break;
-//            }
             break;
         case 1:
             switch (indexPath.row) {
                 case 0:
-//                    [self.menuController pushViewController:not withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
+                    [self.menuController pushViewController:aboutVC withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
                     break;
                     case 1:
                     [self.menuController pushViewController:fee withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
-//                    [self.menuController pushViewController:priv withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
                     break;
                 default:
                     break;
@@ -192,8 +182,13 @@
             
             break;
         case 2:
+            [self offLine];
+            [self showMessageWindowWithContent:@"您已经登出" imageType:0];
+            [self.menuController popViewControllerAnimated:YES];
+            [[NSNotificationCenter defaultCenter]postNotificationName:@"GETOUTLOIGN" object:nil];
             break;
         case 3:
+
 //            switch (indexPath.row) {
 //                case 1:
 //                    [self.menuController pushViewController:fee withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
@@ -202,18 +197,21 @@
 //                default:
 //                    break;
 //            }
-
             break;
 //        case 4:
-//            
+//
 //            break;
-            
         default:
             break;
-    }
-    
-    
+    }    
 }
+-(void)offLine
+{
+    [[UserCache sharedInstance]removeObjectForKey:KMYUSERID];
+    [[UserCache sharedInstance]removeObjectForKey:MYINFODICT];
+ 
+}
+
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 20;

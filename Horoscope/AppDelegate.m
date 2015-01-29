@@ -45,9 +45,6 @@
 
 #import "CircleStarViewController.h"
 
-#import "UMSocialWechatHandler.h"
-#import "UMSocialQQHandler.h"
-#import "UMSocialSinaHandler.h"
 @interface AppDelegate ()
 
 @end
@@ -73,9 +70,9 @@
     
     
     //设置手机QQ的AppId，指定你的分享url，若传nil，将使用友盟的网址
-    [UMSocialQQHandler setQQWithAppId:@"1103841525" appKey:@"TarlNqE6S1bgBfxc" url:@"https://www.mugeda.com/"];
+    [UMSocialQQHandler setQQWithAppId:SHAREQQID appKey:SHAREQQAPPKEY url:@"https://www.mugeda.com/"];
     
-    [UMSocialWechatHandler setWXAppId:@"wxbccec73ac4a300c1" appSecret:@"56ad72bc5586aa55443ef50f62dd0299" url:@"https://www.mugeda.com/"];
+    [UMSocialWechatHandler setWXAppId:SHAREWXID appSecret:SHAREWXAPPKEY url:@"https://www.mugeda.com/"];
 
     
     [UMSocialSinaHandler openSSOWithRedirectURL:nil];

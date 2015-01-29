@@ -7,7 +7,6 @@
 //
 
 #import "SearchResultViewController.h"
-#import "FriendsCell.h"
 #import "MineViewController.h"
 @interface SearchResultViewController ()
 {
@@ -47,7 +46,7 @@
             cell = [[FriendsCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
       }
     NSDictionary *dic = [self.infoArray objectAtIndex:indexPath.row];
-    
+    cell.delegate = self;
     cell.headimgView.placeholderImage = KUIImage(@"1.jpg");
     cell.headimgView.imageURL = [NSURL URLWithString:KISDictionaryHaveKey(dic, @"photo")];
     cell.nameLb.text = KISDictionaryHaveKey(dic, @"nickname");
@@ -56,7 +55,7 @@
     cell.sexImg.image = KUIImage(@"sexImg");
     cell.signatureLb.text =KISDictionaryHaveKey(dic, @"phrase");
     cell.timeLabel.text = @"1分钟前";
-    cell.gzBtn.hidden = YES;
+    cell.gzBtn.hidden = NO;
 
     return cell;
 }
@@ -71,6 +70,33 @@
     mine.userid =KISDictionaryHaveKey(dic, @"uid");
         [self.menuController pushViewController:mine withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
 }
+
+-(void)didClickFollowWithCell:(FriendsCell *)cell
+{
+    NSDictionary *dic = [self.infoArray objectAtIndex:cell.tag];
+    [self getFollowWithFid:KISDictionaryHaveKey(dic, @"uid")];
+
+}
+#pragma mark  -----关注请求
+
+-(void)getFollowWithFid:(NSString *)fid
+{
+
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    [dic setObject:[[UserCache sharedInstance]objectForKey:KMYUSERID] forKey:@"uid"];
+    [dic setObject:fid forKey:@"fid"];
+    
+    [[AFAppDotNetAPIClient sharedClient]POST:@"follow" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"成功");
+        
+        [[NSNotificationCenter defaultCenter]postNotificationName:@"followSuccess--wx" object:nil];
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"失败");
+    }];
+    
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

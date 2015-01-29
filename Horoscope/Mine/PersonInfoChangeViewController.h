@@ -9,5 +9,5 @@
 #import "BaseViewController.h"
 
 @interface PersonInfoChangeViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource>
-
+@property (nonatomic,strong)NSMutableDictionary *infoDict;
 @end

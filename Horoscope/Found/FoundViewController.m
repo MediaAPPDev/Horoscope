@@ -11,7 +11,7 @@
 #import "DefaultMenuView.h"
 #import "MineViewController.h"
 
-#define kUrl @"finduser?uid=6283429397"
+#define kUrl @"finduser?uid="
 
 @interface FoundViewController ()
 {
@@ -27,27 +27,11 @@
     // Do any additional setup after loading the view.
 //    [self.menuController.topBar setHidden:YES];
     
+    if (self.isFriends) {
+        [self setTopViewWithTitle:@"发现" withBackButton:YES];
+    }else{
     [self buildTopviewWithBackButton:NO title:@"发现" rightImage:@"screening"];
-    
-    
-    /*
-     ***
-     * 筛选好友
-     */
-    
-    UIButton *rightButton = [[UIButton alloc]initWithFrame:CGRectMake(self.view.bounds.size.width-60, KISHighVersion_7?20:0, 60, 44)];
-    
-    [rightButton setImage:KUIImage(@"screening") forState:UIControlStateNormal];
-    [rightButton addTarget:self action:@selector(screenFriend:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:rightButton];
-
-
-    
-//    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(self.view.bounds.size.width-60, KISHighVersion_7?20:0, 60, 44)];
-//    [button setImage:KUIImage(@"123123") forState:UIControlStateNormal];
-//    [button addTarget:self action:@selector(enterNextPage:) forControlEvents:UIControlEventTouchUpInside];
-//    [self.view addSubview:button];
-    
+    }
     
     // Do any additional setup after loading the view.
     myTabelView = [[UITableView alloc]initWithFrame:CGRectMake(0, KISHighVersion_7?64:44, KScreenWidth, KScreenHeight-(KISHighVersion_7?64:44))];
@@ -58,18 +42,23 @@
     
     [self.view addSubview:myTabelView];
     infoArray =[NSMutableArray array];
+   }
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
     [self getInfoFromNet];
 }
-
 #pragma  mark ---网络请求
 -(void)getInfoFromNet
 {
-      [[AFAppDotNetAPIClient sharedClient] GET:kUrl parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+      [[AFAppDotNetAPIClient sharedClient] GET:[kUrl stringByAppendingString:[[UserCache sharedInstance]objectForKey:KMYUSERID]] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"get----%@",responseObject);
         
         if (![responseObject isKindOfClass:[NSArray class]]) {
             return ;
         }
+        [infoArray removeAllObjects];
         [infoArray addObjectsFromArray:responseObject];
         [myTabelView reloadData];
         
@@ -85,9 +74,15 @@
 
 -(void)getFollowWithFid:(NSString *)fid
 {
-        
+    
+    if (![[UserCache sharedInstance]objectForKey:KMYUSERID])
+    {
+        [self showAlertViewWithtitle:@"提示" message:@"您还未登录"];
+    }else{
+    
+    
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    [dic setObject:@"6283429397" forKey:@"uid"];
+    [dic setObject:[[UserCache sharedInstance]objectForKey:KMYUSERID] forKey:@"uid"];
     [dic setObject:@"fid" forKey:@"fid"];
     
     [[AFAppDotNetAPIClient sharedClient]POST:@"follow" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -95,21 +90,13 @@
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"失败");
     }];
-
+    }
 }
 
 -(void)didClickFollowWithCell:(FriendsCell *)cell
 {
     NSDictionary *dic = [infoArray objectAtIndex:cell.tag];
     [self getFollowWithFid:KISDictionaryHaveKey(dic, @"uid")];
-}
-
-
-
-#pragma mark  --- 筛选好友
--(void)screenFriend:(id)sender
-{
-    
 }
 
 
@@ -188,7 +175,11 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+-(void)dealloc
+{
+    myTabelView.delegate = nil;
+    myTabelView.dataSource = nil;
+}
 
 -(NSString*)titleForChildControllerMDMenuViewController:(MDMenuViewController *)menuController
 {

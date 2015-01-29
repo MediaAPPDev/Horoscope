@@ -9,5 +9,5 @@
 #import "BaseViewController.h"
 #import "FriendsCell.h"
 @interface FoundViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,FriendsDelegate>
-
+@property (nonatomic, assign)BOOL isFriends;
 @end

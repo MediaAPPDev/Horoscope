@@ -9,6 +9,7 @@
 #import "ActivityViewController.h"
 #import "ActivityCell.h"
 #import "TastCell.h"
+#import "ActivityContentViewController.h"
 @interface ActivityViewController ()
 {
     UITableView * myTableView;
@@ -62,53 +63,60 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    static NSString *identifier = @"cell";
-//    TastCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier ];
-//    
-//    if (!cell) {
-//        cell = [[TastCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-//    }
-//    NSDictionary *dic = [infoArray objectAtIndex:indexPath.row];
-//    cell.titleLabel.text = KISDictionaryHaveKey(dic, @"title");
-//    cell.imgView.imageURL = [NSURL URLWithString:KISDictionaryHaveKey(dic, @"photo")];
-//    return cell;
-    
     static NSString *identifier = @"cell";
-    ActivityCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier ];
+    TastCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier ];
     
     if (!cell) {
-        cell = [[ActivityCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        cell = [[TastCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-
     NSDictionary *dic = [infoArray objectAtIndex:indexPath.row];
-    cell.topImageView.imageURL = [NSURL URLWithString:KISDictionaryHaveKey(dic, @"photo")];
-    cell.topImageView.layer.masksToBounds = YES;
-    cell.topImageView.layer.cornerRadius = 6.0;
-
-    cell.bgImgView.frame = CGRectMake(10, 40, KScreenWidth-20, 530);
-    cell.bgImgView.layer.masksToBounds = YES;
-    cell.bgImgView.layer.cornerRadius = 6.0;
-    cell.titleLb.text = [NSString stringWithFormat:@"   %@",KISDictionaryHaveKey(dic, @"title")];
-    cell.datyView1.leftLb.text = @"这会还不秀，等什么呢";
-    cell.datyView2.leftLb.text = @"一年一度的圣诞节，你收到苹果了么";
-    cell.datyView3.leftLb.text = @"圣诞节桃花运排行榜";
-    cell.datyView4.leftLb.text = @"十二星座有啥不同";
-    cell.timeLabel.text = @"2014.12.29/10:27";
-    
-    cell.datyView1.rightImgView.imageURL = [NSURL URLWithString:KISDictionaryHaveKey(dic, @"photo")];
-    cell.datyView2.rightImgView.imageURL = [NSURL URLWithString:KISDictionaryHaveKey(dic, @"photo")];
-    cell.datyView3.rightImgView.imageURL = [NSURL URLWithString:KISDictionaryHaveKey(dic, @"photo")];
-    cell.datyView4.rightImgView.imageURL = [NSURL URLWithString:KISDictionaryHaveKey(dic, @"photo")];
-    
-    
+    cell.titleLabel.text = KISDictionaryHaveKey(dic, @"title");
+    cell.imgView.imageURL = [NSURL URLWithString:KISDictionaryHaveKey(dic, @"photo")];
     return cell;
+    
+//    static NSString *identifier = @"cell";
+//    ActivityCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier ];
+//    
+//    if (!cell) {
+//        cell = [[ActivityCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+//    }
+//    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//
+//    NSDictionary *dic = [infoArray objectAtIndex:indexPath.row];
+//    cell.topImageView.imageURL = [NSURL URLWithString:KISDictionaryHaveKey(dic, @"photo")];
+//    cell.topImageView.layer.masksToBounds = YES;
+//    cell.topImageView.layer.cornerRadius = 6.0;
+//
+//    cell.bgImgView.frame = CGRectMake(10, 40, KScreenWidth-20, 530);
+//    cell.bgImgView.layer.masksToBounds = YES;
+//    cell.bgImgView.layer.cornerRadius = 6.0;
+//    cell.titleLb.text = [NSString stringWithFormat:@"   %@",KISDictionaryHaveKey(dic, @"title")];
+//    cell.datyView1.leftLb.text = @"这会还不秀，等什么呢";
+//    cell.datyView2.leftLb.text = @"一年一度的圣诞节，你收到苹果了么";
+//    cell.datyView3.leftLb.text = @"圣诞节桃花运排行榜";
+//    cell.datyView4.leftLb.text = @"十二星座有啥不同";
+//    cell.timeLabel.text = @"2014.12.29/10:27";
+//    
+//    cell.datyView1.rightImgView.imageURL = [NSURL URLWithString:KISDictionaryHaveKey(dic, @"photo")];
+//    cell.datyView2.rightImgView.imageURL = [NSURL URLWithString:KISDictionaryHaveKey(dic, @"photo")];
+//    cell.datyView3.rightImgView.imageURL = [NSURL URLWithString:KISDictionaryHaveKey(dic, @"photo")];
+//    cell.datyView4.rightImgView.imageURL = [NSURL URLWithString:KISDictionaryHaveKey(dic, @"photo")];
+//    
+//    
+//    return cell;
 
     
 }
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ActivityContentViewController *act = [[ActivityContentViewController alloc]init];
+    act.mainDic = [NSMutableDictionary dictionaryWithDictionary:infoArray[indexPath.row]];
+    [self.menuController pushViewController:act animated:YES];
+}
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 580;
+    return 80;
 }
 
 - (void)didReceiveMemoryWarning {

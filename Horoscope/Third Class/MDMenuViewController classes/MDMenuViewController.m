@@ -257,9 +257,21 @@ static int TOP_BAR_HEIGHT = 50;
     
     
 }
+-(void)presentViewController:(UIViewController *)childContrller animated:(BOOL)flag
+{
+//    if (![childContrller conformsToProtocol:@protocol(MDMenuViewControllerDelegate)]) {
+//        [NSException raise:@"Invalid child view controller : child view controller must conform to protocol MDMenuViewControllerDelegate" format:@""];
+//    }
+    [self presentViewController:childContrller animated:flag completion:^{
+        
+    }];
+    
+}
 
-
-
+-(void)dismissViewControllerAnimated:(BOOL)flag completion:(void (^)(void))completion
+{
+    [self dismissViewControllerAnimated:flag completion:completion];
+}
 
 //************************************************ show view controller *************************
 //**************************************************************************************************

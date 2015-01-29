@@ -7,7 +7,9 @@
 //
 
 #import "BaseViewController.h"
+#import "FriendsCell.h"
 
 @interface SearchResultViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong)NSMutableArray * infoArray;
+
 @end

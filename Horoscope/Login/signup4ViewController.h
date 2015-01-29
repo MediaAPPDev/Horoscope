@@ -8,9 +8,8 @@
 
 #import "BaseViewController.h"
 
-@interface signup4ViewController : BaseViewController
+@interface signup4ViewController : BaseViewController<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *faceButton;
 @property (weak, nonatomic) IBOutlet UIButton *photoBooth;
 @property (weak, nonatomic) IBOutlet UIButton *takePhoto;
-
 @end

@@ -31,7 +31,7 @@
     [self.view addSubview:button];
 
     
-    FBtextView = [[UITextView alloc]initWithFrame:CGRectMake(0, KISHighVersion_7?74:54, KScreenWidth, KScreenWidth/3*2)];
+    FBtextView = [[UITextView alloc]initWithFrame:CGRectMake(5, KISHighVersion_7?74:54, KScreenWidth-10, KScreenWidth/2)];
     FBtextView.text = @"请输入您要反馈的问题";
     FBtextView.font = [UIFont systemFontOfSize:14];
     FBtextView.layer.borderColor = [[UIColor grayColor]CGColor];

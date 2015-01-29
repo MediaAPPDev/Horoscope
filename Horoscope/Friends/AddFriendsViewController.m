@@ -38,26 +38,26 @@
     [button setTitle:@"搜索" forState:UIControlStateNormal];
     [self.view addSubview:button];
     
-    NSArray *imgArr = [NSArray arrayWithObjects:@"shouji",@"weixin",@"QQ",@"weibo", nil];
-    NSArray *textArr = [NSArray arrayWithObjects:@"通讯录好友",@"微信好友",@"QQ好友",@"微博好友", nil];
-    for (int i = 0; i<4; i++) {
-        UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, sy(searchTf)+30+i*80, KScreenWidth, 80)];
-        view.backgroundColor = [UIColor whiteColor];
-        UIView *customView =[[ UIView alloc]initWithFrame:CGRectMake(0, 79, KScreenWidth, 1)];
-        customView.backgroundColor = [UIColor grayColor];
-        [view addSubview:customView];
-        
-        
-        UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(20, 10, 60, 60)];
-        imageView.image = KUIImage(imgArr[i]);
-        [view addSubview:imageView];
-        
-        UILabel *lb = [self buildLabelWithFrame:CGRectMake(sx(imageView)+10, 0, 200, 60) backgroundColor:[UIColor clearColor] textColor:[UIColor blackColor] font:[UIFont systemFontOfSize:16] textAlignment:NSTextAlignmentLeft text:nil];
-        [view addSubview:lb];
-        [self.view addSubview:view];
-        lb.text = textArr[i];
-        
-    }
+//    NSArray *imgArr = [NSArray arrayWithObjects:@"shouji",@"weixin",@"QQ",@"weibo", nil];
+//    NSArray *textArr = [NSArray arrayWithObjects:@"通讯录好友",@"微信好友",@"QQ好友",@"微博好友", nil];
+//    for (int i = 0; i<4; i++) {
+//        UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, sy(searchTf)+30+i*80, KScreenWidth, 80)];
+//        view.backgroundColor = [UIColor whiteColor];
+//        UIView *customView =[[ UIView alloc]initWithFrame:CGRectMake(0, 79, KScreenWidth, 1)];
+//        customView.backgroundColor = [UIColor grayColor];
+//        [view addSubview:customView];
+//        
+//        
+//        UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(20, 10, 60, 60)];
+//        imageView.image = KUIImage(imgArr[i]);
+//        [view addSubview:imageView];
+//        
+//        UILabel *lb = [self buildLabelWithFrame:CGRectMake(sx(imageView)+10, 0, 200, 60) backgroundColor:[UIColor clearColor] textColor:[UIColor blackColor] font:[UIFont systemFontOfSize:16] textAlignment:NSTextAlignmentLeft text:nil];
+//        [view addSubview:lb];
+//        [self.view addSubview:view];
+//        lb.text = textArr[i];
+//        
+//    }
     
     infoArr  = [NSMutableArray array] ;
     
@@ -73,9 +73,7 @@
 {
     UITextField *tf = (UITextField*)[self.view viewWithTag:10000111];
     [tf resignFirstResponder];
-    
     [self getInfoFromNetWithString:tf.text];
-    
 }
 
 #pragma mark ---获取网络数据
@@ -92,6 +90,7 @@
         if (![responseObject isKindOfClass:[NSArray class]]) {
             return ;
         }
+            [infoArr removeAllObjects];
         [infoArr addObjectsFromArray:responseObject];
         if (infoArr.count<1) {
             [self showAlertViewWithtitle:@"提示" message:@"查无此人,请输入精确信息"];
@@ -107,6 +106,10 @@
         [self.hud hide:YES];
         [self showAlertViewWithtitle:@"提示" message:@"请求失败"];
     }];
+}
+- (void)dealloc
+{
+    searchTf.delegate = nil; 
 }
 
 - (void)didReceiveMemoryWarning {

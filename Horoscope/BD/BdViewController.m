@@ -29,7 +29,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self buildTopviewWithBackButton:NO title:@"星座宝典" rightImage:@""];
-   
+    self.view.backgroundColor = [UIColor whiteColor];
     rightBtn = [[UIButton alloc]initWithFrame:CGRectMake(KScreenWidth-60, KISHighVersion_7?20:0, 60, 44)];
     
     [rightBtn setTitle:@"白羊座" forState:UIControlStateNormal];
@@ -108,7 +108,6 @@
     self.hud = [[MBProgressHUD alloc]initWithView:self.view];
     [self.view addSubview:self.hud];
     self.hud.labelText = @"加载中...";
-    [self getInfoFromNetWithStar:@"1"];
     
     ysArr = [NSMutableArray arrayWithObjects:@"白羊座",@"处女座",@"金牛座",@"巨蟹座",@"摩羯座",@"射手座",@"狮子座",@"水瓶座",@"双鱼座",@"双子座",@"天秤座",@"天蝎座", nil];
     [self buildconstellationScroll];
@@ -116,6 +115,13 @@
 //    [self buildYsView];
 //    [self.leftButton addTarget:self action:@selector(gotoMenu:) forControlEvents:UIControlEventTouchUpInside];
     
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self getInfoFromNetWithStar:@"1"];
+
 }
 
 -(void)buildconstellationScroll
@@ -206,11 +212,8 @@
             NSLog(@"----%@",xArray[sender.tag-1000]);
 //            [scr removeGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hiddenConstellScr:)]];
         }];
-        
-    }
-    
-    
-    
+    }    
+    [self getInfoFromNetWithStar:[NSString stringWithFormat:@"%ld",sender.tag-1000+1]];
     
     /*
      后续添加 选择星座方法 并且添加网络请求 更换星座数据

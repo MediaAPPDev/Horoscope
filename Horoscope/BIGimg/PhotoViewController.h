@@ -8,7 +8,7 @@
 
 #import "BaseViewController.h"
 #import "EGOImageView.h"
-@interface PhotoViewController : BaseViewController
+@interface PhotoViewController : BaseViewController<UIScrollViewDelegate>
 @property(nonatomic,strong)NSMutableArray *photoArray;
 @property(nonatomic,assign)int num;
 @end

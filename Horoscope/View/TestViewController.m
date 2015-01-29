@@ -25,7 +25,7 @@
 
     // Do any additional setup after loading the view, typically from a nib.
     NSLog(@"----%@",self.view);
-    UIScrollView *scrol = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height-64)];
+    UIScrollView *scrol = [[UIScrollView alloc]initWithFrame:CGRectMake(0, startX, KScreenWidth, KScreenHeight-startX)];
     scrol.contentSize  = CGSizeMake(0, 811+165);
     scrol.showsHorizontalScrollIndicator = NO;
     scrol.showsVerticalScrollIndicator = NO;

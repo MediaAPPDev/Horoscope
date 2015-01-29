@@ -39,7 +39,7 @@
                                     <rect key="frame" x="66" y="0.0" width="193" height="66"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                    <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                    <textInputTraits key="textInputTraits"/>
                                 </textField>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -71,7 +71,8 @@
                                 </imageView>
                                 <button opaque="NO" tag="1001" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XCU-HV-0Gr">
                                     <rect key="frame" x="63" y="12" width="26" height="26"/>
-                                    <state key="normal" backgroundImage="ceshiqitaye@2X.png">
+                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                    <state key="normal">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>
@@ -86,7 +87,8 @@
                                 </label>
                                 <button opaque="NO" tag="1002" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xTW-HU-uMl">
                                     <rect key="frame" x="143" y="12" width="26" height="26"/>
-                                    <state key="normal" backgroundImage="ceshiqitaye@2X.png">
+                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                    <state key="normal">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>
@@ -160,7 +162,7 @@
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="性别选定后将不能修改" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hGO-1t-Pdb">
-                            <rect key="frame" x="177.5" y="222" width="245" height="21"/>
+                            <rect key="frame" x="177" y="222" width="245" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="245" id="bkO-vp-0G1"/>
                                 <constraint firstAttribute="height" constant="21" id="p7I-YK-4Dx"/>
@@ -200,7 +202,6 @@
         </view>
     </objects>
     <resources>
-        <image name="ceshiqitaye@2X.png" width="46" height="46"/>
         <image name="lineBottom.png" width="277" height="38"/>
         <image name="lineTop.png" width="277" height="37"/>
         <image name="regeback.png" width="320" height="480"/>

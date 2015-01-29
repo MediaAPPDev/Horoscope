@@ -12,6 +12,8 @@
 #import "AddFriendsViewController.h"
 #import "MineViewController.h"
 #import "ActivityViewController.h"
+#import "AddressBookViewController.h"
+#import "FoundViewController.h"
 @interface FriendsViewController ()
 {
     UITableView *myTabelView;
@@ -34,6 +36,9 @@
     
     [self buildTopviewWithBackButton:NO title:@"" rightImage:@""];
     ysArr = [NSMutableArray arrayWithObjects:@"我关注的",@"我的粉丝", nil];
+    
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshList:) name:@"followSuccess--wx" object:nil];
     
     titleBtn = [[UIButton alloc]initWithFrame:CGRectMake(50, KISHighVersion_7?20:0, KScreenWidth-100, 40)];
     [titleBtn setTitle:@"我关注的▼" forState:UIControlStateNormal];
@@ -58,16 +63,24 @@
     myTabelView.rowHeight = 90;
     [self.view addSubview:myTabelView];
     
-    nameArr = [NSArray arrayWithObjects:@"新朋友",@"好友推荐",@"活动", nil];
+    nameArr = [NSArray arrayWithObjects:@"通讯录",@"新朋友",@"活动", nil];
     imgArr =[NSArray arrayWithObjects:@"xinpingyou",@"dianhualianxiren",@"dianhualianxiren", nil];
 
     infoArr = [NSMutableArray array];
     infoDic = [NSMutableDictionary dictionary];
-    [self getInfoFromNetWithUrl:@"userfollow.php?uid=6283429397"];
     
     [self buildYsView];
     
 }
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    NSString *str = [NSString stringWithFormat:@"userfollow.php?uid=%@",[[UserCache sharedInstance]objectForKey:KMYUSERID]];
+    [self getInfoFromNetWithUrl:str];
+    
+}
+
+
 -(void)buildYsView
 {
     ysView = [[UIView alloc]initWithFrame:CGRectMake(0, KISHighVersion_7?64:44, KScreenWidth, KScreenHeight-(KISHighVersion_7?64:44))];
@@ -116,7 +129,10 @@
  
 }
 
-
+-(void)refreshList:(NSNotification *)info
+{
+    [self getInfoFromNetWithUrl:[[UserCache sharedInstance]objectForKey:KMYUSERID]];
+}
 
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -157,7 +173,6 @@
         FriendsCell * cell = [tableView dequeueReusableCellWithIdentifier:identifier];
         if (!cell) {
             cell = [[FriendsCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-            
         }
         NSDictionary *dic =[infoArr objectAtIndex:indexPath.row];
         
@@ -178,11 +193,24 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (indexPath.section ==0&&indexPath.row ==2) {
-        ActivityViewController *activC =[[ActivityViewController alloc]init];
-        [self.menuController pushViewController:activC withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
+    if (indexPath.section ==0) {
+        if (indexPath.row ==0) {
+            AddressBookViewController *address = [[AddressBookViewController alloc]init];
+            [self.menuController pushViewController:address withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
+        }
+        else if (indexPath.row ==1)
+        {
+            FoundViewController *address = [[FoundViewController alloc]init];
+            
+            address.isFriends = YES;
+            [self.menuController pushViewController:address withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
+        }
+        if (indexPath.row ==2) {
+            ActivityViewController *activC =[[ActivityViewController alloc]init];
+            [self.menuController pushViewController:activC withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
+        }
     }
-    if (indexPath.section ==1) {
+    else  if (indexPath.section ==1) {
         MineViewController *mine = [[MineViewController alloc]init];
         mine.isRootView = NO;
         NSDictionary *dic =[infoArr objectAtIndex:indexPath.row];
@@ -224,11 +252,16 @@
 -(void)changeYsTitle:(UIButton *)sender
 {
     [titleBtn setTitle:[NSString stringWithFormat:@"%@▼", ysArr[sender.tag-1000]] forState:UIControlStateNormal];
+    NSString *userid = [[UserCache sharedInstance]objectForKey:KMYUSERID];
    if (sender.tag-1000==0){
-        [self getInfoFromNetWithUrl:@"userfollow.php?uid=6283429397"];
+       NSString *url = @"userfollow.php?uid=";
+
+        [self getInfoFromNetWithUrl:[url stringByAppendingString:userid]];
     }
     else{
-        [self getInfoFromNetWithUrl:@"userfans.php?uid=6283429397"];
+        NSString *url = @"userfans.php?uid=";
+
+        [self getInfoFromNetWithUrl:[url stringByAppendingString:userid]];
     }
     
     

@@ -48,11 +48,16 @@
     myTableView.dataSource = self;
     [self.view addSubview:myTableView];
     [self buildTableViewHeadView];
-    [self getInfoFromNet];
     [self createCommentText];
     [self registerForKeyboardNotifications];
 }
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [self getInfoFromNet];
 
+}
 #pragma mark ---创建头
 -(void)buildTableViewHeadView
 {
@@ -108,7 +113,7 @@
 
 -(void)getInfoFromNet
 {
-    NSString *urlStr = [NSString stringWithFormat:@"friendcontent.php?id=%@",myUid];
+    NSString *urlStr = [NSString stringWithFormat:@"friendcontent.php?id=%@",[[UserCache sharedInstance]objectForKey:KMYUSERID]];
     [[AFAppDotNetAPIClient sharedClient] GET:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         
         if (![responseObject isKindOfClass:[NSArray class]]) {
@@ -139,6 +144,8 @@
     }
     cell.delegate = self;
     cell.tag = indexPath.row;
+    
+    
     NSDictionary *dic = [infoArray objectAtIndex:indexPath.row];
     NSString *str = KISDictionaryHaveKey(dic, @"content");
     
@@ -162,7 +169,6 @@
 
     }
     
-    
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.headImageView.imageURL = [NSURL URLWithString:KISDictionaryHaveKey(dic, @"photo")];
     cell.titleLabel.text =KISDictionaryHaveKey(dic, @"content");
@@ -177,15 +183,20 @@
     
     if ([KISDictionaryHaveKey(dic, @"zcount")intValue]>0) {
         [cell buildZanViewWithdic:nil];
+    }else{
+        [cell.zanView removeFromSuperview];
+    }
+    if (cell.tag ==5) {
+        NSLog(@"%@",cell.subviews);
     }
     
     NSString *commentStr =KISDictionaryHaveKey(dic, @"comment");
     if (commentStr.length>0) {
         NSArray *arr =[NSArray array];
-        arr = [self segmentationStrign:commentStr];
-        
-        
+        arr = [self segmentationStrign:commentStr withStr:@"#"];
         [cell buildCommentViewWithDic:arr];
+    }else{
+        [cell buildCommentViewWithDic:nil];
     }
     
     return cell;
@@ -218,7 +229,7 @@
     if (commStr.length>0) {
         
         NSArray *arr = [NSArray array];
-        arr = [self segmentationStrign:commStr];
+        arr = [self segmentationStrign:commStr withStr:@"#"];
         
         
         height+=20*arr.count;
@@ -243,7 +254,7 @@
     NSDictionary *dic = [infoArray objectAtIndex:cell.tag];
 
     
-    NSString *urlStr = [NSString stringWithFormat:@"addcount?cid=%@&zcount=%@&uid=%@",KISDictionaryHaveKey(dic, @"contentid"),KISDictionaryHaveKey(dic, @"zcount"),KISDictionaryHaveKey(dic, @"uid")];
+    NSString *urlStr = [NSString stringWithFormat:@"addcount?cid=%@&zcount=%@&uid=%@",KISDictionaryHaveKey(dic, @"contentid"),KISDictionaryHaveKey(dic, @"zcount"),[[UserCache sharedInstance]objectForKey:KMYUSERID]];
     
     
     [[AFAppDotNetAPIClient sharedClient]POST:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -283,9 +294,9 @@
 #pragma mark ----textField DELEGATE
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    NSString *urlStr = [NSString stringWithFormat:@"addcomment?uid=%@&cid=%@&comment=%@&nickname=%@",KISDictionaryHaveKey(commentDict, @"uid"),KISDictionaryHaveKey(commentDict, @"contentid"),commentTF.text,@"刘德华"];
+    NSString *urlStr = [NSString stringWithFormat:@"addcomment?uid=%@&cid=%@&comment=%@&nickname=%@",KISDictionaryHaveKey(commentDict, @"uid"),KISDictionaryHaveKey(commentDict, @"contentid"),commentTF.text,KISDictionaryHaveKey([[UserCache sharedInstance]objectForKey:MYINFODICT], @"nickname")];
     
-    NSLog(@"评论列表-%@",commentDict);
+//    NSLog(@"评论列表-%@",commentDict);
     
     urlStr = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     

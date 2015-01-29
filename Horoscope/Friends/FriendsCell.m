@@ -62,17 +62,15 @@
         [self.gzBtn setTitle:@"关注" forState:UIControlStateNormal];
         self.gzBtn.layer.masksToBounds = YES;
         self.gzBtn.layer.cornerRadius = 6.0;
-        self.gzBtn.layer.borderWidth = 1.0;
+        self.gzBtn.layer.borderWidth = 0.5;
         self.gzBtn.tag = self.tag;
          self.gzBtn.titleLabel.font = [UIFont systemFontOfSize:12];
         [self.gzBtn addTarget:self action:@selector(gzgzgz:) forControlEvents:UIControlEventTouchUpInside];
         self.gzBtn.layer.borderColor = [[UIColor grayColor] CGColor];
-        [self.gzBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        [self.gzBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
         [self addSubview:self.gzBtn];
         
-        
-        
-    }
+        }
     return self;
 }
 

@@ -18,7 +18,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(self.view.bounds.size.width-60, KISHighVersion_7?20:0, 60, 44)];
+    [self setTopViewWithTitle:@"第二步" withBackButton:NO];
+    
+    UIButton* backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, KISHighVersion_7 ? 20 : 0, 65, 44)];
+    [backButton setImage:KUIImage(@"back") forState:UIControlStateNormal];
+    [backButton setImage:KUIImage(@"back") forState:UIControlStateHighlighted];
+    backButton.backgroundColor = [UIColor clearColor];
+    [backButton addTarget:self action:@selector(backButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:backButton];
+
+    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(KScreenWidth-60, KISHighVersion_7?20:0, 60, 44)];
     [button setImage:KUIImage(@"wancheng.png") forState:UIControlStateNormal];
     [button addTarget:self action:@selector(enterNextPage:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -31,12 +40,15 @@
     
     [self sendTelCode];
     
-    
-    // Do any additional setup after loading the view from its nib.
+    // Do any additional setup after loading the view from its nib.==00000
 }
 
-- (void)sendTelCode
 
+-(void)backButtonClick:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+- (void)sendTelCode
 {
     
 //    [UserCache sharedInstance] valueForKey:@""
@@ -46,14 +58,14 @@
     
     [[AFAppDotNetAPIClient sharedClient] GET:parameterStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         
-        NSString * state =[NSString stringWithFormat:@"%@",responseObject];
-        
-
-        if (![state isEqualToString:@""]) {
-            
-              [_sendCode setText:state ];
-    
+        if ([responseObject isKindOfClass:[NSDictionary class]]) {
+            NSString *state  =KISDictionaryHaveKey(responseObject, @"SMSCODE");
+            if (![state isEqualToString:@""]) {
+                [_sendCode setText:state ];
+            }
+//-------------------//-------13261649688--------//-----------//-------------//--------------//-------//
         }
+
         else{
             
             UIAlertView * alert =[[UIAlertView alloc]initWithTitle:@"错误" message:@"验证码返回失败！" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
@@ -61,27 +73,14 @@
             
         }
         
-        
-        
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         
-        
-        
     }];
-    
-    
- 
-    
-    
 }
 
 -(void)enterNextPage:(UIButton *)btn
 {
-    
-    
     if ([self isEmtity:_password.text] || [self isEmtity:_sendCode.text]) {
-        
-        
         if ([self isEmtity:_password.text]) {
             UIAlertView * alert =[[UIAlertView alloc]initWithTitle:@"错误" message:@"密码不能为空！" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
             [alert show];
@@ -102,8 +101,10 @@
     }else{
 
         signup3ViewController * signStep3 =[[signup3ViewController alloc]init];
-        [self.menuController pushViewController:signStep3 withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
-        
+        signStep3.telPhoneNumber = self.telPhoneNumber.text;
+        signStep3.passWordStr = self.password.text;
+//        [self.menuController pushViewController:signStep3 withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
+        [self.navigationController pushViewController:signStep3 animated:YES];
     }
    
     

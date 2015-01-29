@@ -16,18 +16,29 @@
 @end
 
 @implementation LoginViewController
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden=YES;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [self setTopViewWithTitle:@"登录" withBackButton:YES];
+    [self setTopViewWithTitle:@"登录" withBackButton:NO];
     
+    UIButton* backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, KISHighVersion_7 ? 20 : 0, 65, 44)];
+    [backButton setImage:KUIImage(@"back") forState:UIControlStateNormal];
+    [backButton setImage:KUIImage(@"back") forState:UIControlStateHighlighted];
+    backButton.backgroundColor = [UIColor clearColor];
+    [backButton addTarget:self action:@selector(backButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:backButton];
+
     
-    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(self.view.bounds.size.width-60, KISHighVersion_7?20:0, 60, 44)];
+    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(KScreenWidth-60, KISHighVersion_7 ? 20 : 0, 60, 44)];
     [button setImage:KUIImage(@"wancheng.png") forState:UIControlStateNormal];
     [button addTarget:self action:@selector(enterNextPage:) forControlEvents:UIControlEventTouchUpInside];
-    
-    
+//    button.backgroundColor = [UIColor greenColor];
+    [self.view bringSubviewToFront:button];
     [self.view addSubview:button];
     
     
@@ -39,7 +50,10 @@
     
     // Do any additional setup after loading the view from its nib.
 }
-
+-(void)backButtonClick:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 - (BOOL)isPureInt:(NSString*)string{
     NSScanner* scan = [NSScanner scannerWithString:string];
     int val;
@@ -73,7 +87,7 @@
             [alert show];
         
         }else{
-            NSString * loginStr =[NSString stringWithFormat:@"veruser?mobilenum=%@",_username.text];
+            NSString * loginStr =[NSString stringWithFormat:@"veruser?mobilenum=%@&password=%@",_username.text,_password.text];
             
             //        [NSString stringWithFormat:<#(NSString *), ...#>]
             
@@ -81,10 +95,11 @@
                 
                             [[UserCache sharedInstance] setValue:loginStr forKey:@"userCode"];
                 
-                            NSString * strsd =[[UserCache sharedInstance] objectForKey:@"userCode"];
+//                            NSString * strsd =[[UserCache sharedInstance] objectForKey:@"userCode"];
 			
-                NSString * state   =[NSString stringWithFormat:@"%@",responseObject];
-                
+//                NSString * state   =[NSString stringWithFormat:@"%@",responseObject];
+                NSString * state   =KISDictionaryHaveKey(responseObject, @"id");
+
                 [[UserCache sharedInstance] setValue:state forKey:@"userCode"];
                 
 //                [[UserCache sharedInstance] setValue:_username forKey:<#(NSString *)#>]
@@ -97,9 +112,16 @@
                 if (![state isEqualToString:@""]) {
                     if ([state  intValue]!=0) {
                         [[UserCache sharedInstance]setObject:state forKey:KMYUSERID];
+                        [self getInfoFromNetWithUserid];
+                        [self showMessageWindowWithContent:@"登录成功" imageType:0];
+//                        [self.menuController popViewControllerAnimated:YES];
                         
-                        NewMainViewController * mainVC =[[NewMainViewController alloc]init];
-                        [self.menuController pushViewController:mainVC withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
+                        [self dismissViewControllerAnimated:YES completion:^{
+                            
+                        }];
+                        
+                        
+                        
                     }else{
                         UIAlertView * alert =[[UIAlertView alloc]initWithTitle:@"错误" message:@"用户不存在，请选择注册或取消。" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"注册", nil];
                         [alert show];
@@ -119,7 +141,9 @@
 {
     if (buttonIndex==1) {
         signup2ViewController *signUp = [[signup2ViewController alloc]init];
-        [self.menuController pushViewController:signUp withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
+        signUp.telNum = [NSMutableString stringWithString:_username.text];
+//        [self.menuController pushViewController:signUp withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
+        [self.navigationController pushViewController:signUp animated:YES];
     }
 }
 
@@ -140,13 +164,23 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)forgetPasswordAction:(id)sender {
-    
-    
-    
+}
 
-    
-    
-    
+-(void)getInfoFromNetWithUserid
+{
+    NSString * urlStr = [NSString stringWithFormat:@"userdetail.php?uid=%@",[[UserCache sharedInstance]objectForKey:KMYUSERID ]];
+    [[AFAppDotNetAPIClient sharedClient] GET:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        if ([responseObject isKindOfClass:[NSDictionary class]]) {
+           NSDictionary * infoDict = [NSMutableDictionary dictionaryWithDictionary:responseObject];
+            [[UserCache sharedInstance]setObject:infoDict forKey:MYINFODICT];
+            
+            [[NSNotificationCenter defaultCenter]postNotificationName:@"LOIGNSUCCESS_WX_LIANGSHABI" object:nil];
+            
+        }
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [self showAlertViewWithtitle:@"提示" message:@"请求失败"];
+    }];
 }
 
 /*

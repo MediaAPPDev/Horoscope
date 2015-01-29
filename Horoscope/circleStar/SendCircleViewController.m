@@ -142,13 +142,13 @@
         NSString *urlStr = [NSString stringWithFormat:@"addpiccontent"];
         NSMutableDictionary *dic = [NSMutableDictionary dictionary];
 //
-        [dic setObject:[[UserCache sharedInstance]objectForKey:KMYUSERID] forKey:@"uid"];
+        [dic setObject:@"6686821908" forKey:@"uid"];
         [dic setObject:senderTextView.text forKey:@"content"];
         
         NSString *uuid = [TempDate uuid];
         
 [[AFAppDotNetAPIClient sharedClient]POST:urlStr parameters:dic constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-    [formData appendPartWithFileData:imgData name:uuid fileName:[NSString stringWithFormat:@"%@.jpg",uuid] mimeType:@"image/jpeg"];
+    [formData appendPartWithFileData:imgData name:@"file" fileName:[NSString stringWithFormat:@"%@.jpg",uuid] mimeType:@"image/jpeg"];
 } success:^(NSURLSessionDataTask *task, id responseObject) {
     
     [self showMessageWindowWithContent:@"发表成功"imageType:0];

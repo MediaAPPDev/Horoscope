@@ -9,7 +9,7 @@
 #import "SingupViewController.h"
 #import "LoginViewController.h"
 #import "signup1ViewController.h"
-
+#import "signup4ViewController.h"
 @interface SingupViewController ()
 
 @end
@@ -19,10 +19,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     if (self.isChildPage==YES) {
-        [self buildTopviewWithBackButton:YES title:@"您尚未登陆,请先登录"];
+//        [self setti:YES title:@"您尚未登陆,请先登录"];
+        [self setTopViewWithTitle:@"您尚未登录,请先登录" withBackButton:NO];
     }
+    UIButton* backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, KISHighVersion_7 ? 20 : 0, 65, 44)];
+    [backButton setImage:KUIImage(@"back") forState:UIControlStateNormal];
+    [backButton setImage:KUIImage(@"back") forState:UIControlStateHighlighted];
+    backButton.backgroundColor = [UIColor clearColor];
+    [backButton addTarget:self action:@selector(backButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:backButton];
 
     // Do any additional setup after loading the view from its nib.
+}
+-(void)backButtonClick:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
 }
 - (void)gotoMenu1:(UIButton  * )btn
 {
@@ -38,16 +51,17 @@
     //登录
 
     LoginViewController * logVC =[[LoginViewController alloc]init];
-    
-            [self.menuController pushViewController:logVC withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];    
+    [self.navigationController pushViewController:logVC animated:YES];
+//            [self.menuController pushViewController:logVC withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];    
 }
 - (IBAction)regeAction:(id)sender{
     
     
 //    注册
     signup1ViewController * signUp1VC =[[signup1ViewController alloc]init];
-    
-    [self.menuController pushViewController:signUp1VC withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
+//    signup4ViewController * signUp1VC =[[signup4ViewController alloc]init];
+    [self.navigationController pushViewController:signUp1VC animated:YES];
+//    [self.menuController pushViewController:signUp1VC withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
 
     
     

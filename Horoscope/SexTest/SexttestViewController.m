@@ -32,8 +32,7 @@
      NSArray* nibView =  [[NSBundle mainBundle] loadNibNamed:@"CustHeadView" owner:nil options:nil];
     
 
-    
-    
+    self.view.backgroundColor = [UIColor greenColor];
     
     CustHeadView * custHeadView =   [nibView objectAtIndex:0];
     
@@ -41,17 +40,12 @@
     
 //    CustHeadView * custHeadView =   [custHeadView ];
     
-    
-    
-    
     [custHeadView setFrame:CGRectMake(0, 0, KScreenWidth,280)];
-    
     _testTableView.delegate =self;
     _testTableView.dataSource =self;
     
     custHeadView.mailScorllView.backgroundColor =[UIColor yellowColor];
 //    [_headView setBackgroundColor:[UIColor redColor]];
-
     
 //    _testTableView.tableHeaderView.bounds=CGRectMake(0, 0, KScreenWidth, 260)
     

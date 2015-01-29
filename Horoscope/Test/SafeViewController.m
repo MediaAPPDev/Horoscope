@@ -7,7 +7,7 @@
 //
 
 #import "SafeViewController.h"
-
+#import "PassWordChangeViewController.h"
 @interface SafeViewController ()
 {
     UITableView * myTableView;
@@ -53,6 +53,16 @@
     cell.accessoryType = YES;
     return cell;
     
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row==0) {
+        
+    }else{
+        PassWordChangeViewController *ps = [[PassWordChangeViewController alloc]init];
+        [self.menuController pushViewController:ps animated:YES];
+    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -9,7 +9,9 @@
 #import "PhotoViewController.h"
 
 @interface PhotoViewController ()
-
+{
+    UILabel * numLb;
+}
 @end
 
 @implementation PhotoViewController
@@ -18,10 +20,12 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor redColor];
+    
     UIScrollView *scrollView =[[ UIScrollView alloc]initWithFrame:self.view.frame];
     scrollView.pagingEnabled = YES;
     scrollView.contentSize = CGSizeMake(KScreenWidth*self.photoArray.count, 0);
     scrollView.contentOffset = CGPointMake(KScreenWidth*self.num, 0);
+    scrollView.delegate = self;
     scrollView.backgroundColor = [UIColor blackColor];
     [self.view addSubview:scrollView];
     
@@ -56,7 +60,8 @@
         [scrollView addSubview:scr];
     }
     
-    
+    numLb = [self buildLabelWithFrame:CGRectMake(width(self.view)-140, height(self.view)-60, 120, 50) backgroundColor:[UIColor clearColor] textColor:[UIColor whiteColor] font:[UIFont boldSystemFontOfSize:40] textAlignment:NSTextAlignmentRight text:[NSString stringWithFormat:@"%d/%lu",self.num+1,(unsigned long)self.photoArray.count]];
+    [self.view addSubview:numLb];
     // Do any additional setup after loading the view.
 }
 -(void)backView
@@ -65,6 +70,15 @@
     
 //     [self.menuController pushViewController:nav withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
 }
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    int num = scrollView.contentOffset.x/width(self.view);
+    int allnum = scrollView.contentSize.width/width(self.view);
+    numLb.text = [NSString stringWithFormat:@"%d/%d",num+1,allnum];
+}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

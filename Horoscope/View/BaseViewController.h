@@ -15,6 +15,7 @@
 @interface BaseViewController : MDMenuChildViewController
 {
     float startX;//IOS 7或者以下 适配屏幕
+    MBProgressHUD * hud;
 }
 -(void)buildTopviewWithBackButton:(BOOL)isHave title:(NSString *)title rightImage:(NSString *)rightImage;
 -(void)buildScrollViewWithFrame:(CGRect)frame contentSize:(CGSize)size Image:(NSString *)image;
@@ -61,8 +62,7 @@
 
 
 
--(NSArray*)segmentationStrign:(NSString *)str;
-
+-(NSArray*)segmentationStrign:(NSString *)str withStr:(NSString *)str1;
 
 //判断字符串为空
 -(BOOL)isEmtity:(NSString*)str;

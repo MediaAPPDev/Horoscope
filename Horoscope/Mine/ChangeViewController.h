@@ -9,5 +9,5 @@
 #import "BaseViewController.h"
 
 @interface ChangeViewController : BaseViewController
-@property (nonatomic,strong)NSString * contentStr;
+@property (nonatomic,strong)NSMutableDictionary * contentDic;
 @end

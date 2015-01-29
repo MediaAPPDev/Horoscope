@@ -9,6 +9,10 @@
 #import "CircleCell.h"
 
 @implementation CircleCell
+{
+    UIView *customCommentView;
+    UIView * zanView;
+}
 -(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -17,36 +21,36 @@
         [self.headImageView addTarget:self action:@selector(enterPersonInfoPage:) forControlEvents:UIControlEventTouchUpInside];
         self.headImageView.placeholderImage = KUIImage(@"placeholder.jpg");
         self.headImageView.backgroundColor = [UIColor grayColor];
-        [self.contentView addSubview:self.headImageView];
+        [self addSubview:self.headImageView];
         
         self.nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(sx(self.headImageView)+10, 10, KScreenWidth-sx(self.headImageView), 20)];
         self.nameLabel.backgroundColor = [UIColor clearColor];
         self.nameLabel.font = [UIFont boldSystemFontOfSize:13];
         self.nameLabel.textColor = [UIColor blueColor];
-        [self.contentView addSubview:self.nameLabel];
+        [self addSubview:self.nameLabel];
         
         self.titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(sx(self.headImageView)+10, sy(self.nameLabel)+5, KScreenWidth-sx(self.headImageView)-20, 20)];
         self.titleLabel.numberOfLines = 0;
         self.titleLabel.textColor = [UIColor blackColor];
         self.titleLabel.backgroundColor = [UIColor clearColor];
         self.titleLabel.font  = [UIFont systemFontOfSize:14];
-        [self.contentView addSubview:self.titleLabel];
+        [self addSubview:self.titleLabel];
         
         self.cImageView = [[EGOImageView alloc]initWithFrame:CGRectMake(sx(self.headImageView)+10, sy(self.titleLabel), KScreenWidth-sx(self.headImageView)-40, 200)];
-        [self.contentView addSubview:self.cImageView];
+        [self addSubview:self.cImageView];
         
         self.timeLabel = [[UILabel alloc]initWithFrame:CGRectMake(sx(self.headImageView)+10, sy(self.cImageView)+5,150, 20)];
         self.timeLabel.numberOfLines = 0;
         self.timeLabel.textColor = [UIColor grayColor];
         self.timeLabel.backgroundColor = [UIColor clearColor];
         self.timeLabel.font  = [UIFont systemFontOfSize:12];
-        [self.contentView addSubview:self.timeLabel];
+        [self addSubview:self.timeLabel];
 
         self.menuBtn = [[UIButton alloc]initWithFrame:CGRectMake(KScreenWidth-60, sy(self.cImageView)+5, 50, 30)];
         [self.menuBtn addTarget:self action:@selector(showZanBtn:) forControlEvents:UIControlEventTouchUpInside];
         [self.menuBtn setBackgroundImage:KUIImage(@"More－Normal") forState:UIControlStateNormal];
 //        [self.menuBtn setBackgroundImage:KUIImage(@"") forState:UIControlStateHighlighted];
-        [self.contentView addSubview:self.menuBtn];
+        [self addSubview:self.menuBtn];
         
         self.zanBtn = [[CircleBtn alloc]initWithFrame:CGRectMake(sx(self.menuBtn)-140-50, height(self.menuBtn), 70, 30)];
         self.commBtn =[[CircleBtn alloc]initWithFrame:CGRectMake(sx(self.zanBtn), height(self.menuBtn), 70, 30)];
@@ -65,8 +69,8 @@
         self.zanBtn.hidden = YES;
         self.commBtn.hidden = YES;
         
-        [self.contentView addSubview:self.zanBtn];
-        [self.contentView addSubview:self.commBtn];
+        [self addSubview:self.zanBtn];
+        [self addSubview:self.commBtn];
         
     }
     
@@ -76,6 +80,7 @@
 -(void)buildZanViewWithdic:(NSDictionary *)dic
 {
     UILabel *lb;
+    
     if (!self.zanView) {
         self.zanView = [[UIImageView alloc]initWithFrame:CGRectMake(sx(self.headImageView)+10, sy(self.timeLabel)+10, KScreenWidth-sx(self.headImageView)-40, 30)];
         self.zanView.image = KUIImage(@"pingluntiao-shang");
@@ -89,7 +94,7 @@
         lb.backgroundColor = [UIColor clearColor];
         lb.textColor = [UIColor blueColor];
         [self.zanView addSubview:lb];
-        [self.contentView addSubview:self.zanView];
+        [self addSubview:self.zanView];
         
     }
     lb.text = @"1231231231";
@@ -98,6 +103,18 @@
 -(void)buildCommentViewWithDic:(NSArray *)arr
 {
     NSLog(@"---------%lu",(unsigned long)arr.count);
+    NSLog(@"self.tag==%ld",(long)self.tag);
+    if (customCommentView) {
+        [customCommentView removeFromSuperview];
+    }
+    
+    if (arr.count<1) {
+        return;
+    }
+    
+    customCommentView = [[UIView alloc]initWithFrame:CGRectMake(sx(self.headImageView)+10, sy(self.timeLabel), KScreenWidth-sx(self.headImageView)-40, 20*arr.count)];
+    [self addSubview:customCommentView];
+    
     for (int i = 0; i<arr.count; i++) {
 //        NSDictionary *dic  = arr[i];
         float zanHeight = 0.0;
@@ -107,11 +124,11 @@
             zanHeight = 10.0;
         }
         
-        [self buildCommentViewWithFrame:CGRectMake(sx(self.headImageView)+10,sy(self.timeLabel)+20*i+zanHeight, KScreenWidth-sx(self.headImageView)-40, 20) text:arr[i]];
+        [self buildCommentViewWithFrame:CGRectMake(0,20*i+zanHeight, KScreenWidth-sx(self.headImageView)-40, 20) text:arr[i]view:customCommentView];
     }
 }
 
--(void)buildCommentViewWithFrame:(CGRect)frame text:(NSString *)text
+-(void)buildCommentViewWithFrame:(CGRect)frame text:(NSString *)text view:(UIView *)view
 {
     UIImageView * commView= [[UIImageView alloc]initWithFrame:frame];
     commView.image = KUIImage(@"pingluntiao-xia");
@@ -123,8 +140,7 @@
     NSLog(@"%@,%@",commentLabel.text,commentLabel);
     commentLabel.textColor = [UIColor blackColor];
     [commView addSubview:commentLabel];
-    [self.contentView addSubview:commView];
-
+    [view addSubview:commView];
 }
 
 

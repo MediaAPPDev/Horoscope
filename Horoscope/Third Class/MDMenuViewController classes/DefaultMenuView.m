@@ -25,6 +25,9 @@
         
         self.backgroundColor = [UIColor colorWithWhite:0.5 alpha:0.8];
         
+        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshHeadImg:) name:@"GETOUTLOIGN" object:nil];
+        
+        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshHeadImgSuccess:) name:@"LOIGNSUCCESS_WX_LIANGSHABI" object:nil];
         
         
         tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 10, self.bounds.size.width, self.bounds.size.height-10) style:UITableViewStylePlain];
@@ -42,11 +45,15 @@
         _headView =[[UIView alloc]initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, self.bounds.size.height/3+60)];
         
         
-        _faceImageButton =[UIButton buttonWithType:UIButtonTypeCustom];
+        _faceImageButton =[EGOImageButton buttonWithType:UIButtonTypeCustom];
         _faceImageButton.frame = CGRectMake(_headView.frame.origin.x/2+50, _headView.frame.origin.y+20, 80, 85) ;
         
 //        _faceImageButton.backgroundColor =[UIColor redColor];
-        [_faceImageButton setBackgroundImage:[UIImage imageNamed:@"touxiang1.png"] forState:UIControlStateNormal];
+        _faceImageButton.placeholderImage = KUIImage(@"touxiang1.png");
+        
+        /*
+         setBackgroundImage:[UIImage imageNamed:@"touxiang1.png"] forState:UIControlStateNormal];
+         */
         
         [_faceImageButton addTarget:self action:@selector(faceChangeAction:) forControlEvents:UIControlEventTouchUpInside];
         
@@ -64,8 +71,13 @@
 //        [_settingButton addTarget:self action:@selector(settingChangeAction:) forControlEvents:UIControlEventTouchUpInside];
         
         
-        
-        _name.text =@"Triste anima";
+        if ([[UserCache sharedInstance]objectForKey:MYINFODICT]) {
+            _name.text =KISDictionaryHaveKey([[UserCache sharedInstance]objectForKey:MYINFODICT], @"nickname");
+            _faceImageButton.imageURL = [NSURL URLWithString:KISDictionaryHaveKey([[UserCache sharedInstance]objectForKey:MYINFODICT], @"photo")];
+        }else{
+            _name.text =@"未登录";
+            _faceImageButton.imageURL = nil;
+        }
         _name.textColor =[UIColor whiteColor];
         
 //        [_settingButton setBackgroundColor:[UIColor whiteColor]];
@@ -91,25 +103,20 @@
     
     if ([[UserCache sharedInstance]objectForKey:KMYUSERID]) {
         MineViewController * mine =[[MineViewController alloc]init];
-        
         mine.isRootView =YES;
         mine.userid =[NSString stringWithFormat:@"%@",[[UserCache sharedInstance]objectForKey:KMYUSERID]];
         [self.delegate pushViewController:mine animated:YES];
 
     }else{
         SingupViewController *sing =[[ SingupViewController alloc]init];
+        UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:sing];
         sing.isChildPage = YES;
-        [self.delegate pushViewController:sing animated:YES];
+//        [self.delegate pushViewController:sing animated:YES];
+        [self.delegate presentViewController:nav animated:YES];
     }
-    
-    
 //    [self.delegate pushViewController:mine withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
     
 //   [self.menuController pushViewController:mine withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
-    
-    
-    
-    
 }
 //添加方法 个人设置
 -(void)  settingChangeAction:(UIButton * )btn
@@ -244,12 +251,13 @@
             NSLog(@"你还没登陆！！！！");
             SingupViewController * setUp =[[SingupViewController alloc]init];
             setUp.isChildPage = YES;
-            [self.delegate pushViewController:setUp animated:YES];
+            UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:setUp];
 
+//            [self.delegate pushViewController:setUp animated:YES];
+            [self.delegate presentViewController:nav animated:YES];
             return;
         }
     }
-    
     
     MenuItemEntity *entity = [MenuItems objectAtIndex:indexPath.row];
     if([self.delegate respondsToSelector:@selector(MenuViewDidSelectMenuItem:atIndex:)])
@@ -304,14 +312,11 @@
         cell.layer.transform = CATransform3DConcat(CATransform3DMakeTranslation(-7, 0, 0), CATransform3DMakeScale(1.3, 1.3, 1.3));
         
     } completion:^(BOOL finished){
-        
         [UIView animateWithDuration:0.13 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
             
-            cell.layer.transform = CATransform3DConcat(CATransform3DMakeTranslation(5, 0, 0), CATransform3DMakeScale(0.9, 0.9, 0.9)) ;
-            
+             cell.layer.transform = CATransform3DConcat(CATransform3DMakeTranslation(5, 0, 0), CATransform3DMakeScale(0.9, 0.9, 0.9)) ;
             
         } completion:^(BOOL finished){
-            
             
             
             [UIView animateWithDuration:0.09 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
@@ -321,14 +326,9 @@
                 
             } completion:^(BOOL finished){
                 
-                
-                
-                
             }];
             
         }];
-        
-        
     }];
 }
 -(void)cellView:(MenuViewCellView *)cellView Selected:(BOOL)selected
@@ -387,6 +387,18 @@
         menuItemBackgroundImageHighlighted = backImage;
     }
 }
+
+-(void)refreshHeadImg:(NSNotification *)info
+{
+    _faceImageButton.imageURL = nil;
+    _name.text = @"未登录";
+}
+-(void)refreshHeadImgSuccess:(id)sender
+{
+    _faceImageButton.imageURL = [NSURL URLWithString:[[[UserCache sharedInstance]objectForKey:MYINFODICT]objectForKey:@"photo"]];
+    _name.text =[[[UserCache sharedInstance]objectForKey:MYINFODICT]objectForKey:@"nickname"];
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

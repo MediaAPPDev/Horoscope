@@ -10,7 +10,8 @@
 
 @interface signup3ViewController : BaseViewController
 @property (weak, nonatomic) IBOutlet UITextField *nicheng;
-
+@property (copy, nonatomic) NSString *telPhoneNumber;
+@property (copy, nonatomic) NSString *passWordStr;
 @property (weak, nonatomic) IBOutlet UIButton *nan;
 @property (weak, nonatomic) IBOutlet UIButton *nv;
 @property (weak, nonatomic) IBOutlet UIButton *pickViewButton;

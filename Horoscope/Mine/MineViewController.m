@@ -26,12 +26,14 @@
     UILabel * qmLabel;//签名
     UIButton * funsBtn;//粉丝BTN
     UIButton * gzBtn;//关注Btn
+    UIImageView * sexImageView;
     UILabel *titleLabel;
     UILabel *useridLabel;
     
     UIActionSheet * photoSheet;
     NSMutableDictionary * infoDict;
-    
+    NSMutableArray * photoWallArray;
+    UILabel * tisLb;
 }
 @end
 
@@ -62,9 +64,10 @@
     [self.view addSubview:titleLabel];
     
     infoDict = [NSMutableDictionary dictionary];
+    photoWallArray = [NSMutableArray new];
     
     mainScrl =[[ UIScrollView alloc]initWithFrame:CGRectMake(0, KISHighVersion_7?64:44, KScreenWidth, KScreenHeight-(KISHighVersion_7?64:44))];
-    mainScrl.backgroundColor = [UIColor grayColor];
+    mainScrl.backgroundColor = [UIColor whiteColor];
 
     mainScrl.contentSize  = CGSizeMake(0, KScreenWidth/2-30+KScreenWidth*0.52+100+40*9+10);
     
@@ -83,8 +86,8 @@
 //    arr2 = [NSArray arrayWithObjects:@"单身",@"180cm 55kg 强壮",@"学生",@"泡妞 游戏 电影 读书",@"中 英 法 德 西班牙 日 韩 俄罗斯 意大利",@"China",@"英国剑桥",@"SF", nil];
     
     
-    [self setIsRootView:NO];
-    
+//    [self setIsRootView:NO];
+    hud = [[MBProgressHUD alloc]initWithView:self.view];
     [self getInfoFromNetWithUserId:self.userid];
     
     
@@ -92,6 +95,8 @@
 
 -(void)getInfoFromNetWithUserId:(NSString *)userid
 {
+    hud.labelText = @"获取中...";
+    [hud show:YES];
     NSString *urlStr ;
     if (self.isRootView) {
         urlStr = [NSString stringWithFormat:@"userdetail.php?uid=%@",[[UserCache sharedInstance]objectForKey:KMYUSERID ]];
@@ -100,15 +105,32 @@
     }
     
      [[AFAppDotNetAPIClient sharedClient] GET:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+          [hud hide:YES];
         if ([responseObject isKindOfClass:[NSDictionary class]]) {
             infoDict = [NSMutableDictionary dictionaryWithDictionary:responseObject];
             
-            [self buildPhotosWallWithUrl:KISDictionaryHaveKey(infoDict, @"photo")];
+            [[UserCache sharedInstance]setObject:infoDict forKey:MYINFODICT];
             
             headImgView.imageURL = [NSURL URLWithString:KISDictionaryHaveKey(infoDict, @"photo")];
 //            xzImgViwe.image = KUIImage(@"");
+            [photoWallArray removeAllObjects];
+            photoWallArray = [NSMutableArray arrayWithArray:[self segmentationStrign:KISDictionaryHaveKey(responseObject, @"pics") withStr:@"#"]];
+            
+            [self buildPhotosWallWithUrl:photoWallArray];
+            [[NSNotificationCenter defaultCenter]postNotificationName:@"LOIGNSUCCESS_WX_LIANGSHABI" object:nil];
+            NSString *sexStr = KISDictionaryHaveKey(infoDict, @"sex");
+            if ([sexStr isEqualToString:@"男"]) {
+                sexImageView.image = KUIImage(@" Male");
+            }else{
+                 sexImageView.image = KUIImage(@"Female");
+            }
             xzLabel.text = KISDictionaryHaveKey(infoDict, @"xing");
             qmLabel.text = KISDictionaryHaveKey(infoDict, @"phrase");
+            CGSize size = [self labelAutoCalculateRectWith:KISDictionaryHaveKey(infoDict, @"phrase") FontSize:14 MaxSize:CGSizeMake(width(self.view)-sx(headImgView)-20, 40)];
+            qmLabel.frame = CGRectMake(sx(headImgView)+10, sy(xzImgViwe)+5, width(self.view)-sx(headImgView)-20, size.height);
+            qmLabel.numberOfLines = 0;
+            
+            
             titleLabel.text = KISDictionaryHaveKey(infoDict, @"nickname");
             ageLabel.text = KISDictionaryHaveKey(infoDict, @"userage");
             useridLabel.text = [NSString stringWithFormat:@"ID:%@",KISDictionaryHaveKey(infoDict,@"id")];
@@ -117,10 +139,10 @@
         }
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [hud hide:YES];
         [self showAlertViewWithtitle:@"提示" message:@"请求失败"];
     }];
 }
-
 //创建第一条
 -(void)buildFirstView
 {
@@ -145,16 +167,20 @@
     [blackView addSubview:xzImgViwe];
     
     //星座LB
-    xzLabel = [[UILabel alloc]initWithFrame:CGRectMake(sx(xzImgViwe)+10, 30, 70, 20)];
+    xzLabel = [[UILabel alloc]initWithFrame:CGRectMake(sx(xzImgViwe)+5, 30, 40, 20)];
     xzLabel.textColor = [UIColor whiteColor];
     xzLabel.font = [UIFont boldSystemFontOfSize:18];
     xzLabel.backgroundColor = [UIColor clearColor];
     xzLabel.text = @"水瓶座";
+    xzLabel.textAlignment = NSTextAlignmentLeft;
     [blackView addSubview:xzLabel];
     
     
+    sexImageView = [[UIImageView alloc]initWithFrame:CGRectMake(sx(xzLabel)+10, 30, 20, 20)];
+    [blackView addSubview:sexImageView];
+    
     //年龄LB
-    ageLabel = [self buildLabelWithFrame:CGRectMake(sx(xzLabel)+10, 30, 30, 20) backgroundColor:[UIColor clearColor] textColor:[UIColor whiteColor] font:[UIFont systemFontOfSize:18] textAlignment:NSTextAlignmentCenter text:@"22"];
+    ageLabel = [self buildLabelWithFrame:CGRectMake(sx(xzLabel)+40, 30, 70, 20) backgroundColor:[UIColor clearColor] textColor:[UIColor whiteColor] font:[UIFont systemFontOfSize:18] textAlignment:NSTextAlignmentLeft text:@"22"];
     [blackView addSubview:ageLabel];
     
     
@@ -188,35 +214,93 @@
 }
 
 //坑爹的照片墙
--(void)buildPhotosWallWithUrl:(NSString *)url
+-(void)buildPhotosWallWithUrl:(NSMutableArray *)url
 {
     
-    UIView *photoView;
-    [photoView removeFromSuperview];
-    photoView =[[ UIView alloc]initWithFrame:CGRectMake(0,KScreenWidth/2-30, KScreenWidth, KScreenWidth*0.52)];
-    photoView.backgroundColor = [UIColor whiteColor];
-    [mainScrl addSubview:photoView];
+    UIView *customView;
+    [customView removeFromSuperview];
+    customView = [[UIView alloc]initWithFrame:CGRectMake(0,KScreenWidth/2-30, KScreenWidth, KScreenWidth*0.52)];
+    [mainScrl addSubview:customView];
     
-    for (int i = 0; i<8; i++) {
-        CGFloat imgWidth = (width(mainScrl)-30)/4;
-        CGFloat imgY = 10 +imgWidth*(i/4)+i/4*5;
-        CGFloat imgX = 5 + imgWidth*(i%4)+(i%4)*5;
-        NSLog(@"%d----%d--%d--%d",4%4,5%4,6%4,7%4);
-        EGOImageButton  *imgView =[[ EGOImageButton alloc]initWithFrame:CGRectMake(imgX,imgY, imgWidth, imgWidth)];
-        imgView.placeholderImage = KUIImage(@"1.jpg") ;
-        imgView.imageURL = [NSURL URLWithString:url];
-        imgView.tag = i;
-        [imgView addTarget:self action:@selector(seeBigImg:) forControlEvents:UIControlEventTouchUpInside];
-        [photoView addSubview:imgView];
+    
+   UIScrollView * photoView =[[ UIScrollView alloc]initWithFrame:CGRectMake(0,0, KScreenWidth, KScreenWidth*0.52)];
+    photoView.backgroundColor = [UIColor whiteColor];
+    [customView addSubview:photoView];
+    NSLog(@"%lu",(unsigned long)url.count);
+    if (url.count<9) {
+        for (int i = 0; i<url.count; i++) {
+            
+            CGFloat imgWidth = (width(mainScrl)-30)/4;
+            CGFloat imgY = 10 +imgWidth*(i/4)+i/4*5;
+            CGFloat imgX = 7 + imgWidth*(i%4)+(i%4)*5;
+            NSLog(@"%d----%d--%d--%d",4%4,5%4,6%4,7%4);
+            EGOImageButton  *imgView =[[ EGOImageButton alloc]initWithFrame:CGRectMake(imgX,imgY, imgWidth, imgWidth)];
+            imgView.placeholderImage = KUIImage(@"1.jpg") ;
+            
+            if ([url[i]isKindOfClass:[UIImage class]]) {
+                [imgView setImage:url[i] forState:UIControlStateNormal] ;
+            }else
+                imgView.imageURL = [NSURL URLWithString:url[i]];
+            imgView.tag = i;
+            [imgView addTarget:self action:@selector(seeBigImg:) forControlEvents:UIControlEventTouchUpInside];
+            [photoView addSubview:imgView];
+        }
+    }else{
+        int count = url.count;
+        int num ;
+        if (count%2==1) {
+            num = count/2+1;
+        }
+        else{
+            num = count/2;
+        }
+        photoView.contentSize = CGSizeMake((width(mainScrl)-30)/4*num+num*5+10, 0);
+
+        for (int i = 0; i<url.count; i++) {
+            CGFloat imgWidth = (width(mainScrl)-30)/4;
+            CGFloat imgX = 7 + imgWidth*(i%num)+(i%num)*5;
+            CGFloat imgY = 10 +imgWidth*(i/num)+i/num*5;
+            
+            NSLog(@"%d----%d--%d--%d--%d",i/num,i%num,0,0,0);
+            
+            EGOImageButton  *imgView =[[ EGOImageButton alloc]initWithFrame:CGRectMake(imgX,imgY, imgWidth, imgWidth)];
+            imgView.placeholderImage = KUIImage(@"1.jpg") ;
+            
+            if ([url[i]isKindOfClass:[UIImage class]]) {
+                [imgView setImage:url[i] forState:UIControlStateNormal] ;
+            }else
+                imgView.imageURL = [NSURL URLWithString:url[i]];
+            imgView.tag = i;
+            [imgView addTarget:self action:@selector(seeBigImg:) forControlEvents:UIControlEventTouchUpInside];
+            [photoView addSubview:imgView];
+
+        }
     }
     
     if (self.isRootView) {
-        UIButton *addBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 30, 30)];
-        addBtn.backgroundColor = [UIColor greenColor];
-        addBtn.center = photoView.center;
-        [addBtn addTarget:self action:@selector(addImage:) forControlEvents:UIControlEventTouchUpInside];
-        [photoView addSubview:addBtn];
+        UIButton *addBtn;
+        if (!addBtn) {
+            addBtn=[[UIButton alloc]initWithFrame:CGRectMake(width(photoView)/2-15, height(photoView)/2-15, 30, 30)];
+            addBtn.backgroundColor = [UIColor clearColor];
+            [addBtn setBackgroundImage:KUIImage(@"m_addPhoto_normal") forState:UIControlStateNormal];
+            [addBtn addTarget:self action:@selector(addImage:) forControlEvents:UIControlEventTouchUpInside];
+            [customView bringSubviewToFront:addBtn];
+            [customView addSubview:addBtn];
+        }
+      
     }
+    
+    
+    tisLb = [self buildLabelWithFrame:CGRectMake(0, height(photoView)/2+20, width(photoView), 15) backgroundColor:[UIColor clearColor] textColor:[UIColor grayColor] font:[UIFont systemFontOfSize:13] textAlignment:NSTextAlignmentCenter text:@"主人尚未上传照片"];
+    tisLb.hidden = YES;
+    [customView addSubview:tisLb];
+    
+    if ([url isKindOfClass:[NSArray class]]&&url.count>0) {
+        tisLb.hidden = YES;
+    }else{
+        tisLb.hidden = NO;
+    }
+    
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -311,7 +395,18 @@
 #pragma mark---ADD image
 -(void)addImage:(UIButton *)sender
 {
+    NSUInteger i = [[NSString stringWithFormat:@"%lu",(unsigned long)[photoWallArray count]]intValue];
+    if (i>29) {
+        [self showAlertViewWithtitle:@"提示" message:@"您的照片已达到上限"];
+        return;
+    }
     
+    if (!photoSheet) {
+        photoSheet = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"相机",@"相册", nil];
+    }
+    self.isUpLoadHeadImg = NO;
+    [photoSheet showInView:self.view];
+
 }
 
 
@@ -344,9 +439,7 @@
 {
     PhotoViewController *photoVC = [[PhotoViewController alloc]init];
     photoVC.photoArray = [NSMutableArray array];
-    for (int i =0; i<8; i++) {
-        [photoVC.photoArray addObject:[infoDict objectForKey:@"photo"]];
-    }
+    [photoVC.photoArray addObjectsFromArray:[self segmentationStrign:[infoDict objectForKey:@"pics"] withStr:@"#"]];
     
     photoVC.num = sender.tag;
     photoVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
@@ -358,19 +451,21 @@
     
 }
 
-
 //进入设置界面
 -(void)enterNextPage:(id)sender
 {
     PersonInfoChangeViewController * p= [[PersonInfoChangeViewController alloc]init];
-    
+    p.infoDict = [NSMutableDictionary dictionaryWithDictionary:infoDict];
     [self.menuController pushViewController:p withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeNone]];
 
 }
 
 -(void)changeHeadImage:(id)sender
 {
-    photoSheet = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"相机",@"相册", nil];
+    if (!photoSheet) {
+        photoSheet = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"相机",@"相册", nil];
+    }
+    self.isUpLoadHeadImg = YES;
     [photoSheet showInView:self.view];
 }
 
@@ -387,7 +482,7 @@
             }
             if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
                 imagePicker.sourceType=UIImagePickerControllerSourceTypeCamera;
-                
+                imagePicker.delegate = self;
                 [self presentViewController:imagePicker animated:YES completion:^{
                     
                 }];
@@ -434,28 +529,94 @@
     if (picker.sourceType ==UIImagePickerControllerSourceTypeCamera) {
         UIImageWriteToSavedPhotosAlbum(selectImage, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
     }
-    [headImgView setImage:selectImage forState:UIControlStateNormal];
-   NSData * imgData = UIImageJPEGRepresentation(selectImage,1.0);
-    if (imgData) {
-        NSString *urlStr = [NSString stringWithFormat:@"uploader/uppoo"];
+    
+    if (self.isUpLoadHeadImg) {
+        hud.labelText = @"上传中...";
+        [hud show:YES];
+        [headImgView setImage:selectImage forState:UIControlStateNormal];
+        NSData * imgData = UIImageJPEGRepresentation(selectImage,1.0);
+        if (imgData) {
+            NSString *urlStr = [NSString stringWithFormat:@"uploader/uppoo"];
+            NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+            //
+            [dic setObject:[[UserCache sharedInstance]objectForKey:KMYUSERID ] forKey:@"uid"];
+            
+            NSString *uuid = [TempDate uuid];
+            
+            [[AFAppDotNetAPIClient sharedClient]POST:urlStr parameters:dic constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+                [formData appendPartWithFileData:imgData name:@"file" fileName:[NSString stringWithFormat:@"%@.jpg",uuid] mimeType:@"image/jpeg"];
+                
+            } success:^(NSURLSessionDataTask *task, id responseObject) {
+                [hud hide:YES];
+                [self getInfoFromNetWithUserId:[[UserCache sharedInstance]objectForKey:KMYUSERID]];
+                [self showMessageWindowWithContent:@"修改成功"imageType:0];
+            } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                hud.labelText = @"上传失败";
+                [hud hide: YES];
+                
+            }];
+    }
+    }else{
+        /*
+         
+         ********
+    ------添加照片墙
+         ********
+         */
+        hud.labelText = @"上传中...";
+        [hud show:YES];
+        [photoWallArray insertObject:selectImage atIndex:0];
+        [self buildPhotosWallWithUrl:photoWallArray];
+        
+        NSString *urlStr = [NSString stringWithFormat:@"addpics"];
         NSMutableDictionary *dic = [NSMutableDictionary dictionary];
         //
         [dic setObject:[[UserCache sharedInstance]objectForKey:KMYUSERID ] forKey:@"uid"];
-        
+        [dic setObject:@"1" forKey:@"uploadN"];
         NSString *uuid = [TempDate uuid];
         
+        float width  =0.0;
+        float height = 0.0;
+        if (selectImage.size.width>KScreenWidth) {
+            width = KScreenWidth;
+            height = selectImage.size.height *(KScreenWidth/selectImage.size.width);
+        }else{
+            width = selectImage.size.width;
+            height = selectImage.size.height;
+        }
+        
+        
+        UIImage *img = [self imageWithImageSimple:selectImage scaledToSize:CGSizeMake(width, height)];
+        
+        NSData * imgData = UIImageJPEGRepresentation(img,1.0);
+
         [[AFAppDotNetAPIClient sharedClient]POST:urlStr parameters:dic constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-            [formData appendPartWithFileData:imgData name:uuid fileName:[NSString stringWithFormat:@"%@.jpg",uuid] mimeType:@"image/jpeg"];
+            [formData appendPartWithFileData:imgData name:@"file" fileName:[NSString stringWithFormat:@"%@.jpg",uuid] mimeType:@"image/jpeg"];
         } success:^(NSURLSessionDataTask *task, id responseObject) {
-            
-            [self showMessageWindowWithContent:@"修改成功"imageType:0];
-            
+            [hud hide: YES];
+            [self showMessageWindowWithContent:@"上传成功"imageType:0];
+            [self getInfoFromNetWithUserId:[[UserCache sharedInstance]objectForKey:KMYUSERID]];
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            [hud hide: YES];
         }];
     }
 }
 
 
+- (UIImage*)imageWithImageSimple:(UIImage*)image scaledToSize:(CGSize)newSize
+{
+    // Create a graphics image context
+    UIGraphicsBeginImageContext(newSize);
+    // Tell the old image to draw in this new context, with the desired
+    // new size
+    [image drawInRect:CGRectMake(0,0,newSize.width,newSize.height)];
+    // Get the new image from the context
+    UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+    // End the context
+    UIGraphicsEndImageContext();
+    // Return the new image.
+    return newImage;
+}
 
 
 
@@ -469,6 +630,58 @@
     [picker dismissViewControllerAnimated:YES completion:^{}];
 }
 
+-(NSString *)getNameReturnStar:(NSString *)name
+{
+    if ([name isEqualToString:@"白羊座"]) {
+        return @"ys_c_by";
+    }
+    else if ([name isEqualToString:@"处女座"])
+    {
+        return @"ys_c_chunv";
+    }
+    else if ([name isEqualToString:@"天蝎座"])
+    {
+        return @"ys_c_tx";
+    }
+    else if ([name isEqualToString:@"天秤座"])
+    {
+        return @"ys_c_tc";
+    }
+    
+    else if ([name isEqualToString:@"双子座"])
+    {
+        return @"ys_c_sz";
+    }
+    else if ([name isEqualToString:@"摩羯座"])
+    {
+        return @"ys_c_mojie";
+    }
+    else if ([name isEqualToString:@"双鱼座"])
+    {
+        return @"ys_c_sy";
+    }
+    else if ([name isEqualToString:@"射手座"])
+    {
+        return @"ys_c_sheshou";
+    }
+    else if ([name isEqualToString:@"巨蟹座"])
+    {
+        return @"ys_c_juxie";
+    }
+    else if ([name isEqualToString:@"狮子座"])
+    {
+        return @"ys_c_shizi";
+    }
+    else if ([name isEqualToString:@"金牛座"])
+    {
+        return @"ys_c_jinniu";
+    }
+    else if ([name isEqualToString:@"水瓶座"])
+    {
+        return @"ys_c_sp";
+    }
+    return nil;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

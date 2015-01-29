@@ -168,10 +168,14 @@
     
     dateStr = @"today";
     StarStr = @"白羊座";
-    [self getInfoFromNetWithStar:StarStr date:dateStr];
     
 }
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self getInfoFromNetWithStar:StarStr date:dateStr];
 
+}
 /*
  **创建第二view
  综合 运势 健康 财运 爱情等

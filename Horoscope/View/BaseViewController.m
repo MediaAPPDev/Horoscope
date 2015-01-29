@@ -37,6 +37,8 @@
 {
     [super viewDidLoad];
     startX = KISHighVersion_7?64:44;
+    hud = [[MBProgressHUD alloc]initWithView:self.view];
+    [self.view addSubview:hud];
     self.navigationController.navigationBarHidden = YES;
 }
 
@@ -415,66 +417,66 @@
 
 -(NSString *)GetNameReturnImageWithName:(NSString *)name
 {
-    if ([name isEqualToString:@"白羊座"]) {
-        return @"";
+    if ([name isEqualToString:@"白羊座"]||[name isEqualToString:@"白羊"]) {
+        return @"xingyou_03";
     }
-    else if ([name isEqualToString:@"处女座"])
+    else if ([name isEqualToString:@"处女座"]||[name isEqualToString:@"处女"])
     {
-        return @"";
+        return @"xingyou_14";
     }
-    else if ([name isEqualToString:@"天蝎座"])
+    else if ([name isEqualToString:@"天蝎座"]||[name isEqualToString:@"天蝎"])
     {
-        return @"";
+        return @"xingyou_33";
     }
-    else if ([name isEqualToString:@"天秤座"])
+    else if ([name isEqualToString:@"天秤座"]||[name isEqualToString:@"天秤"])
     {
-        return @"";
+        return @"xingyou_31";
     }
 
-    else if ([name isEqualToString:@"双子座"])
+    else if ([name isEqualToString:@"双子座"]||[name isEqualToString:@"双子"])
     {
-        return @"";
+        return @"xingyou_07";
     }
-    else if ([name isEqualToString:@"摩羯座"])
+    else if ([name isEqualToString:@"摩羯座"]||[name isEqualToString:@"摩羯"])
     {
-        return @"";
+        return @"xingyou_23";
     }
-    else if ([name isEqualToString:@"双鱼座"])
+    else if ([name isEqualToString:@"双鱼座"]||[name isEqualToString:@"双鱼"])
     {
-        return @"";
+        return @"xingyou_27";
     }
-    else if ([name isEqualToString:@"射手座"])
+    else if ([name isEqualToString:@"射手座"]||[name isEqualToString:@"射手"])
     {
-        return @"";
+        return @"xingyou_29";
     }
-    else if ([name isEqualToString:@"巨蟹座"])
+    else if ([name isEqualToString:@"巨蟹座"]||[name isEqualToString:@"巨蟹"])
     {
-        return @"";
+        return @"xingyou_10";
     }
-    else if ([name isEqualToString:@"狮子座"])
+    else if ([name isEqualToString:@"狮子座"]||[name isEqualToString:@"狮子"])
     {
-        return @"";
+        return @"xingyou_12";
     }
-    else if ([name isEqualToString:@"金牛座"])
+    else if ([name isEqualToString:@"金牛座"]||[name isEqualToString:@"金牛"])
     {
-        return @"";
+        return @"xingyou_05";
     }
-    else if ([name isEqualToString:@"水瓶座"])
+    else if ([name isEqualToString:@"水瓶座"]||[name isEqualToString:@"水瓶"])
     {
-        return @"";
+        return @"xingyou_25";
     }
     return nil;
 }
 
 
--(NSArray*)segmentationStrign:(NSString *)str
+-(NSArray*)segmentationStrign:(NSString *)str withStr:(NSString *)str1
 {
     if ([self isEmtity:str]) {
         return nil;
     }
 
     NSMutableArray *array = [NSMutableArray array];
-    array = (NSMutableArray *)[str componentsSeparatedByString:@"#"];
+    array = (NSMutableArray *)[str componentsSeparatedByString:str1];
     
     if ( [self isEmtity:[array lastObject]]) {
         [array removeLastObject];

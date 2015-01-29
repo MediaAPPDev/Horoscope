@@ -13,6 +13,17 @@
 -(void)MenuViewDidSelectMenuItem:(MenuItem)item atIndex:(NSInteger)index;
 -(void)pushViewController:(UIViewController*)childController animated:(BOOL)animated;
 
+
+/*
+ 
+ */
+-(void)presentViewController:(UIViewController *)childContrller animated:(BOOL)flag;
+-(void)dismissViewControllerAnimated:(BOOL)flag completion:(void (^)(void))completion;
+
+/*
+ 
+ */
+
 -(void)pushViewController:(UIViewController *)childController withTransitionAnimator:(id<MDTransitionAnimatorProtocol>)animator;
 @end
 @protocol MDMenuViewProtocol <NSObject>
