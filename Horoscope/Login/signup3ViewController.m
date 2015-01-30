@@ -127,7 +127,10 @@
 
 -(void)enterNextPage:(UIButton *)btn
 {
-    
+    if (self.nicheng.text.length>10) {
+        [self showAlertViewWithtitle:@"提示" message:@"昵称必须小于10字符"];
+        return;
+    }
     
     if ([self isEmtity:sexStr]) {
         [self showAlertViewWithtitle:@"提示" message:@"请选择性别"];

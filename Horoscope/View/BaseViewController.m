@@ -37,8 +37,8 @@
 {
     [super viewDidLoad];
     startX = KISHighVersion_7?64:44;
-    hud = [[MBProgressHUD alloc]initWithView:self.view];
-    [self.view addSubview:hud];
+//    hud = [[MBProgressHUD alloc]initWithView:self.view];
+//    [self.view addSubview:hud];
     self.navigationController.navigationBarHidden = YES;
 }
 

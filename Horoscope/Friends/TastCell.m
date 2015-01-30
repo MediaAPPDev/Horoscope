@@ -20,7 +20,7 @@
         
         
         self.imgView = [[EGOImageView alloc]initWithFrame:CGRectMake(KScreenWidth-70, 5, 50, 50)];
-        self.imgView.placeholderImage = KUIImage(@"1.jpg");
+        self.imgView.placeholderImage = KUIImage(@"placeholder.jpg");
         [self addSubview:self.imgView];
 
     }

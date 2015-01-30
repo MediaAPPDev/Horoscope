@@ -47,6 +47,13 @@
     [hud show:YES];
     NSDictionary *dict = [[UserCache sharedInstance]objectForKey:MYINFODICT];
     
+    if ([KISDictionaryHaveKey(self.contentDic, @"key")isEqualToString:@"nickname"]&&tf.text.length>10) {
+        [self showAlertViewWithtitle:@"提示" message:@"昵称要小于10字符"];
+        return;
+    }
+
+    
+    
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     [dic setObject:[[UserCache sharedInstance]objectForKey:KMYUSERID] forKey:@"uid"];
     [dic setObject:KISDictionaryHaveKey(dict, @"username") forKey:@"mobilenum"];
@@ -67,6 +74,9 @@
         [dic removeObjectForKey:KISDictionaryHaveKey(self.contentDic, @"key")];
     }
     [dic setObject:tf.text forKey:KISDictionaryHaveKey(self.contentDic, @"key")];
+    
+    
+    
     
     
     [[AFAppDotNetAPIClient sharedClient]POST:@"usermodify" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {

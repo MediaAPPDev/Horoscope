@@ -25,7 +25,7 @@
         
         
         self.imgView = [[UIImageView alloc]initWithFrame:CGRectMake(100, 10, 60, 60)];
-        self.imgView.image = KUIImage(@"1.jpg");
+        self.imgView.image = KUIImage(@"placeholder.jpg");
         [self addSubview:self.imgView];
         
         

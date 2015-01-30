@@ -88,6 +88,7 @@
     
 //    [self setIsRootView:NO];
     hud = [[MBProgressHUD alloc]initWithView:self.view];
+    [self.view addSubview:hud];
     [self getInfoFromNetWithUserId:self.userid];
     
     
@@ -152,8 +153,10 @@
     
     //头像
    headImgView =[[ EGOImageButton alloc]initWithFrame:CGRectMake(30, 15, (width(blackView)/2-30)/2, (width(blackView)/2-30)/2)];
-    headImgView.placeholderImage = KUIImage(@"1.jpg");
-    
+    headImgView.placeholderImage = KUIImage(@"placeholder.jpg");
+    headImgView.layer.masksToBounds = YES;
+    headImgView.layer.cornerRadius = (width(blackView)/2-30)/4;
+
     //如果是自己的信息 可以更改头像
     
     if (self.isRootView) {
@@ -167,7 +170,7 @@
     [blackView addSubview:xzImgViwe];
     
     //星座LB
-    xzLabel = [[UILabel alloc]initWithFrame:CGRectMake(sx(xzImgViwe)+5, 30, 40, 20)];
+    xzLabel = [[UILabel alloc]initWithFrame:CGRectMake(sx(xzImgViwe)+5, 30, 60, 20)];
     xzLabel.textColor = [UIColor whiteColor];
     xzLabel.font = [UIFont boldSystemFontOfSize:18];
     xzLabel.backgroundColor = [UIColor clearColor];
@@ -235,7 +238,7 @@
             CGFloat imgX = 7 + imgWidth*(i%4)+(i%4)*5;
             NSLog(@"%d----%d--%d--%d",4%4,5%4,6%4,7%4);
             EGOImageButton  *imgView =[[ EGOImageButton alloc]initWithFrame:CGRectMake(imgX,imgY, imgWidth, imgWidth)];
-            imgView.placeholderImage = KUIImage(@"1.jpg") ;
+            imgView.placeholderImage = KUIImage(@"placeholder.jpg") ;
             
             if ([url[i]isKindOfClass:[UIImage class]]) {
                 [imgView setImage:url[i] forState:UIControlStateNormal] ;
@@ -264,7 +267,7 @@
             NSLog(@"%d----%d--%d--%d--%d",i/num,i%num,0,0,0);
             
             EGOImageButton  *imgView =[[ EGOImageButton alloc]initWithFrame:CGRectMake(imgX,imgY, imgWidth, imgWidth)];
-            imgView.placeholderImage = KUIImage(@"1.jpg") ;
+            imgView.placeholderImage = KUIImage(@"placeholder.jpg") ;
             
             if ([url[i]isKindOfClass:[UIImage class]]) {
                 [imgView setImage:url[i] forState:UIControlStateNormal] ;

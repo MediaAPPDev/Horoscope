@@ -48,10 +48,10 @@
         self.datyView2 = [[DatyView alloc]initWithFrame:CGRectMake(20, 10+width(self.bgImgView)/4*3+60, width(self.topImageView), 60)];
         self.datyView3 = [[DatyView alloc]initWithFrame:CGRectMake(20, 10+width(self.bgImgView)/4*3+120, width(self.topImageView), 60)];
         self.datyView4 = [[DatyView alloc]initWithFrame:CGRectMake(20, 10+width(self.bgImgView)/4*3+180, width(self.topImageView), 60)];
-        self.datyView1.rightImgView.placeholderImage = KUIImage(@"1.jpg");
-        self.datyView2.rightImgView.placeholderImage = KUIImage(@"1.jpg");
-        self.datyView3.rightImgView.placeholderImage = KUIImage(@"1.jpg");
-        self.datyView4.rightImgView.placeholderImage = KUIImage(@"1.jpg");
+        self.datyView1.rightImgView.placeholderImage = KUIImage(@"placeholder.jpg");
+        self.datyView2.rightImgView.placeholderImage = KUIImage(@"placeholder.jpg");
+        self.datyView3.rightImgView.placeholderImage = KUIImage(@"placeholder.jpg");
+        self.datyView4.rightImgView.placeholderImage = KUIImage(@"placeholder.jpg");
 
         [self.bgImgView addSubview:self.datyView1];
         [self.bgImgView addSubview:self.datyView2];

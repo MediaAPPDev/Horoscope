@@ -46,8 +46,11 @@
         
         
         _faceImageButton =[EGOImageButton buttonWithType:UIButtonTypeCustom];
-        _faceImageButton.frame = CGRectMake(_headView.frame.origin.x/2+50, _headView.frame.origin.y+20, 80, 85) ;
+        _faceImageButton.frame = CGRectMake(_headView.frame.origin.x/2+50, _headView.frame.origin.y+20, 85, 85) ;
         
+        _faceImageButton.layer.masksToBounds = YES;
+        _faceImageButton.layer.cornerRadius =85/2 ;
+
 //        _faceImageButton.backgroundColor =[UIColor redColor];
         _faceImageButton.placeholderImage = KUIImage(@"touxiang1.png");
         

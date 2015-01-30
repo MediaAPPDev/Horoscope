@@ -71,7 +71,7 @@
     
     EGOImageView *headImg = [[EGOImageView alloc]initWithFrame:CGRectMake(width(self.view)-80-50, width(self.view)/2-40, 80, 80)];
     
-    headImg.placeholderImage = KUIImage(@"1.jpg");
+    headImg.placeholderImage = KUIImage(@"placeholder.jpg");
     headImg.imageURL = nil;
     [view addSubview:headImg];
     

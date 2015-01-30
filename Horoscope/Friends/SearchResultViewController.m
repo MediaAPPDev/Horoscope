@@ -47,7 +47,7 @@
       }
     NSDictionary *dic = [self.infoArray objectAtIndex:indexPath.row];
     cell.delegate = self;
-    cell.headimgView.placeholderImage = KUIImage(@"1.jpg");
+    cell.headimgView.placeholderImage = KUIImage(@"placeholder.jpg");
     cell.headimgView.imageURL = [NSURL URLWithString:KISDictionaryHaveKey(dic, @"photo")];
     cell.nameLb.text = KISDictionaryHaveKey(dic, @"nickname");
     cell.starImgView.image = KUIImage(@"ys_c_by");

@@ -24,7 +24,7 @@
         [self addSubview:bgImageView];
         
         self.MainImageView =[[EGOImageView alloc]initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.width-15)];
-        self.MainImageView.placeholderImage = KUIImage(@"1.jpg");
+        self.MainImageView.placeholderImage = KUIImage(@"placeholder.jpg");
         self.MainImageView.backgroundColor = [UIColor clearColor];
         self.leftImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, frame.size.width/3, frame.size.width/3)];
         [self addSubview:self.MainImageView];

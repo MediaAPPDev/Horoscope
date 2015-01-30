@@ -65,6 +65,9 @@
     [xArray addObjectsFromArray:arr1];
 
     zArray = [NSMutableArray arrayWithObjects:@"3.21-4.20",@"4.21-5.20",@"5.21-6.20",@"6.21-7.20",@"7.21-8.20",@"8.21-9.20",@"9.21-10.20",@"10.21-11.20",@"11.21-12.20",@"12.21-1.20",@"1.21-2.20",@"2.21-3.20", nil];
+    hud = [[MBProgressHUD alloc]initWithView:self.view];
+    hud.labelText = @"获取中...";
+    [self.view addSubview:hud];
     
     
     infoDict = [NSMutableDictionary dictionary];
