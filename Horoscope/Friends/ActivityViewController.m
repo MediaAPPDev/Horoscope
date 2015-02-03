@@ -110,6 +110,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     ActivityContentViewController *act = [[ActivityContentViewController alloc]init];
     act.mainDic = [NSMutableDictionary dictionaryWithDictionary:infoArray[indexPath.row]];
     [self.menuController pushViewController:act animated:YES];

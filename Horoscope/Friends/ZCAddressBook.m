@@ -44,7 +44,9 @@ static ZCAddressBook *instance;
         dispatch_semaphore_t sema = dispatch_semaphore_create(0);        ABAddressBookRequestAccessWithCompletion(addressBook, ^(bool granted, CFErrorRef error)                                                 {                                                     dispatch_semaphore_signal(sema);                                                 });
         dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER);         dispatch_release(sema);
     }else{
-        addressBook = ABAddressBookCreate();     }
+        addressBook = ABAddressBookCreate();
+    
+    }
     // 将新建联系人记录添加如通讯录中
     BOOL success = ABAddressBookAddRecord(addressBook, record, &error);
     if (!success) {
@@ -72,7 +74,7 @@ static ZCAddressBook *instance;
         records = ABAddressBookCopyArrayOfAllPeople(addressBook);
     }else{
         
-#ifdef DEBUG        NSLog(@"can not connect to address book");
+#ifdef DEBUG        //NSLog(@"can not connect to address book");
 #endif
         return ABHelperCanNotConncetToAddressBook;
     }

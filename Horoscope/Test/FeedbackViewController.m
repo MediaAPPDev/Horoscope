@@ -48,7 +48,7 @@
     
     
     if (FBtextView.text!=nil&&![FBtextView.text isEqualToString:@""]&&![FBtextView.text isEqualToString:@" "]  &&FBtextView.text.length>0) {
-        NSString *urlStr = [NSString stringWithFormat:@"feedback?nickname=%@&content=%@",@"车利军",FBtextView.text];
+        NSString *urlStr = [NSString stringWithFormat:@"feedback?nickname=%@&content=%@",[FBtextView.text stringByAppendingString:@"李昂是傻逼"],[[[UserCache sharedInstance]objectForKey:MYINFODICT]objectForKey:@"nickname"]];
         
         urlStr = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         

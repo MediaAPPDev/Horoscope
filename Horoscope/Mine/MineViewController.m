@@ -110,7 +110,10 @@
         if ([responseObject isKindOfClass:[NSDictionary class]]) {
             infoDict = [NSMutableDictionary dictionaryWithDictionary:responseObject];
             
-            [[UserCache sharedInstance]setObject:infoDict forKey:MYINFODICT];
+            if ([userid isEqualToString:[[UserCache sharedInstance]objectForKey:KMYUSERID]]) {
+                [[UserCache sharedInstance]setObject:infoDict forKey:MYINFODICT];
+                [[NSNotificationCenter defaultCenter]postNotificationName:@"LOIGNSUCCESS_WX_LIANGSHABI" object:nil];
+            }
             
             headImgView.imageURL = [NSURL URLWithString:KISDictionaryHaveKey(infoDict, @"photo")];
 //            xzImgViwe.image = KUIImage(@"");
@@ -118,7 +121,6 @@
             photoWallArray = [NSMutableArray arrayWithArray:[self segmentationStrign:KISDictionaryHaveKey(responseObject, @"pics") withStr:@"#"]];
             
             [self buildPhotosWallWithUrl:photoWallArray];
-            [[NSNotificationCenter defaultCenter]postNotificationName:@"LOIGNSUCCESS_WX_LIANGSHABI" object:nil];
             NSString *sexStr = KISDictionaryHaveKey(infoDict, @"sex");
             if ([sexStr isEqualToString:@"男"]) {
                 sexImageView.image = KUIImage(@" Male");
