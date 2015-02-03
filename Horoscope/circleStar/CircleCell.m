@@ -36,7 +36,7 @@
         self.titleLabel.font  = [UIFont systemFontOfSize:14];
         [self addSubview:self.titleLabel];
         
-        self.cImageView = [[EGOImageView alloc]initWithFrame:CGRectMake(sx(self.headImageView)+10, sy(self.titleLabel), KScreenWidth-sx(self.headImageView)-40, 200)];
+        self.cImageView = [[EGOImageView alloc]initWithFrame:CGRectMake(sx(self.headImageView)+10, sy(self.titleLabel), KScreenWidth-sx(self.headImageView)-40, KScreenWidth-sx(self.headImageView)-40)];
         [self addSubview:self.cImageView];
         
         self.timeLabel = [[UILabel alloc]initWithFrame:CGRectMake(sx(self.headImageView)+10, sy(self.cImageView)+5,150, 20)];

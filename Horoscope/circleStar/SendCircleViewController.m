@@ -144,14 +144,17 @@
         [self showAlertViewWithtitle:@"提示" message:@"请输入文字"];
         return;
     }
-        NSString *urlStr = [NSString stringWithFormat:@"addpiccontent"];
-        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-//
-        [dic setObject:[[UserCache sharedInstance]objectForKey:KMYUSERID] forKey:@"uid"];
-        [dic setObject:senderTextView.text forKey:@"content"];
-        
-        NSString *uuid = [TempDate uuid];
+    NSString *urlStr = [NSString stringWithFormat:@"addpiccontent"];
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    //
+    [dic setObject:[[UserCache sharedInstance]objectForKey:KMYUSERID] forKey:@"uid"];
+    [dic setObject:senderTextView.text forKey:@"content"];
+    [dic setObject:[[[UserCache sharedInstance]objectForKey:MYINFODICT]objectForKey:@"nickname"] forKey:@"nickname"];
+    
+    NSString *uuid = [TempDate uuid];
     [hud show:YES];
+    
+    
 [[AFAppDotNetAPIClient sharedClient]POST:urlStr parameters:dic constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
     if (imgData) {
         [formData appendPartWithFileData:imgData name:@"file" fileName:[NSString stringWithFormat:@"%@.jpg",uuid] mimeType:@"image/jpeg"];

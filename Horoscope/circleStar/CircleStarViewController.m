@@ -72,11 +72,14 @@
     EGOImageView *headImg = [[EGOImageView alloc]initWithFrame:CGRectMake(width(self.view)-80-50, width(self.view)/2-40, 80, 80)];
     
     headImg.placeholderImage = KUIImage(@"placeholder.jpg");
-    headImg.imageURL = nil;
+    
+    
+    NSString *img = [[[UserCache sharedInstance]objectForKey:MYINFODICT]objectForKey:@"photo"];
+    headImg.imageURL = [NSURL URLWithString:img];
+//    headImg.imageURL = nil;
     [view addSubview:headImg];
     
     myTableView.tableHeaderView = view;
-    
     
 }
 
@@ -156,9 +159,11 @@
     NSString *imgStr = KISDictionaryHaveKey(dic, @"photo");
     
     if (imgStr.length>0) {
-        cell.cImageView.frame = CGRectMake(70, sy(cell.titleLabel)+5,  KScreenWidth-sx(cell.headImageView)-40, 200);
+        cell.cImageView.frame = CGRectMake(70, sy(cell.titleLabel)+5,  KScreenWidth-sx(cell.headImageView)-40, KScreenWidth-sx(cell.headImageView)-40);
         cell.timeLabel.frame = CGRectMake(sx(cell.headImageView)+10, sy(cell.cImageView)+5,150, 20);
         cell.menuBtn.frame = CGRectMake(KScreenWidth-60, sy(cell.cImageView)+5, 50, 30);
+        cell.zanBtn .frame=CGRectMake(sx(cell.menuBtn)-140-50, sy(cell.cImageView)+5, 70, 30);
+        cell.commBtn.frame=CGRectMake(sx(cell.zanBtn), sy(cell.cImageView)+5, 70, 30);
 
     }else{
         cell.cImageView.frame =CGRectMake(70, sy(cell.titleLabel)+5, 0, 200);
@@ -170,7 +175,7 @@
     }
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.headImageView.imageURL = [NSURL URLWithString:KISDictionaryHaveKey(dic, @"photo")];
+    cell.headImageView.imageURL = [NSURL URLWithString:KISDictionaryHaveKey(dic, @"userpic")];
     cell.titleLabel.text =KISDictionaryHaveKey(dic, @"content");
     cell.nameLabel.text = KISDictionaryHaveKey(dic, @"username");
     cell.cImageView.imageURL = [NSURL URLWithString:KISDictionaryHaveKey(dic, @"photo")];
@@ -206,7 +211,7 @@
 {
     
     
-    float height = 280;
+    float height = KScreenWidth;
     NSDictionary *dic = [infoArray objectAtIndex:indexPath.row];
     
     NSString *str = KISDictionaryHaveKey(dic, @"content");
@@ -218,7 +223,7 @@
     NSString *imgStr = KISDictionaryHaveKey(dic, @"photo");
     if (imgStr.length>0) {
     }else{
-        height -= 200;
+        height -= KScreenWidth-100;
     }
     
     if ([KISDictionaryHaveKey(dic, @"zcount")intValue]>0) {
