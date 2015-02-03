@@ -216,7 +216,7 @@
     blackImageView.hidden = NO;
     ccButton.hidden = NO;
     ccButton.constellationLab.text = KISDictionaryHaveKey(dic, @"xing");
-    ccButton.constellationImg.image = KUIImage(@"白羊座");
+    ccButton.constellationImg.image = KUIImage([self GetNameReturnImageWithName:KISDictionaryHaveKey(dic, @"xing")]);
     ccButton.nameLab.text = [NSString stringWithFormat:@"昵称:%@",KISDictionaryHaveKey(dic,@"nickname")];
     ccButton.lineLab.text = KISDictionaryHaveKey(dic, @"phrase");
     // 透明界面出现  添加点击手势
@@ -246,7 +246,7 @@
     ccButton.hidden = NO;
     ccButton.constellationLab.text = [NSString stringWithFormat:@"%@",KISDictionaryHaveKey(dic, @"xing")];
     ccButton.constellationImg.image = KUIImage([self GetNameReturnImageWithName:KISDictionaryHaveKey(dic, @"xing")]);
-    ccButton.nameLab.text = [NSString stringWithFormat:@"%@",KISDictionaryHaveKey(dic, @"nickname")];
+    ccButton.nameLab.text = [NSString stringWithFormat:@"昵称:%@",KISDictionaryHaveKey(dic,@"nickname")];
     ccButton.lineLab.text = [NSString stringWithFormat:@"%@",KISDictionaryHaveKey(dic, @"phrase")];
     // 透明界面出现  添加点击手势
     [blackImageView addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(didHiddenBlView:)]];

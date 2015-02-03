@@ -43,7 +43,13 @@
         imgv.image = KUIImage(@"弹窗正常状态");
         [self addSubview:imgv];
         
-        
+        UILabel *lb = [[UILabel alloc]initWithFrame:CGRectMake(frame.size.width-60, 15, 42, 42)];
+        lb.backgroundColor =[UIColor clearColor];
+        lb.textColor = [UIColor whiteColor];
+        lb.font = [UIFont boldSystemFontOfSize:20];
+        lb.text = @"MY";
+        lb.textAlignment = NSTextAlignmentCenter;
+        [self addSubview:lb];
         
     }
     return self;

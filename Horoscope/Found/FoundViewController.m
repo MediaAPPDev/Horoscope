@@ -83,7 +83,7 @@
     
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     [dic setObject:[[UserCache sharedInstance]objectForKey:KMYUSERID] forKey:@"uid"];
-    [dic setObject:@"fid" forKey:@"fid"];
+    [dic setObject:fid forKey:@"fid"];
     
     [[AFAppDotNetAPIClient sharedClient]POST:@"follow" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"成功");

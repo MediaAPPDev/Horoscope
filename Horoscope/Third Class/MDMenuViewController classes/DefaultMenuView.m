@@ -52,7 +52,7 @@
         _faceImageButton.layer.cornerRadius =85/2 ;
 
 //        _faceImageButton.backgroundColor =[UIColor redColor];
-        _faceImageButton.placeholderImage = KUIImage(@"touxiang1.png");
+        _faceImageButton.placeholderImage = KUIImage(@"placeholder.jpg");
         
         /*
          setBackgroundImage:[UIImage imageNamed:@"touxiang1.png"] forState:UIControlStateNormal];
@@ -66,7 +66,7 @@
         
         
         _name=[[UILabel alloc]initWithFrame:CGRectMake(_faceImageButton.frame.origin.x, _faceImageButton.frame.origin.y +80, 100, 60)];
-        
+        _name.textAlignment = NSTextAlignmentCenter;
         _settingButton =[UIButton buttonWithType:UIButtonTypeCustom];
         _settingButton.frame =CGRectMake(10, _headView.frame.origin.y+20, 25, 25);
         

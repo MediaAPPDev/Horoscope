@@ -79,22 +79,42 @@
 }
 #pragma mark  -----关注请求
 
+//-(void)getFollowWithFid:(NSString *)fid
+//{
+//
+//    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+//    [dic setObject:[[UserCache sharedInstance]objectForKey:KMYUSERID] forKey:@"uid"];
+//    [dic setObject:fid forKey:@"fid"];
+//    
+//    [[AFAppDotNetAPIClient sharedClient]POST:@"follow" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+//        NSLog(@"成功");
+//        
+//        [[NSNotificationCenter defaultCenter]postNotificationName:@"followSuccess--wx" object:nil];
+//        
+//    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+//        NSLog(@"失败");
+//    }];
+//    
+//}
 -(void)getFollowWithFid:(NSString *)fid
 {
-
-    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    [dic setObject:[[UserCache sharedInstance]objectForKey:KMYUSERID] forKey:@"uid"];
-    [dic setObject:fid forKey:@"fid"];
     
-    [[AFAppDotNetAPIClient sharedClient]POST:@"follow" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSLog(@"成功");
+    if (![[UserCache sharedInstance]objectForKey:KMYUSERID])
+    {
+        [self showAlertViewWithtitle:@"提示" message:@"您还未登录"];
+    }else{
         
-        [[NSNotificationCenter defaultCenter]postNotificationName:@"followSuccess--wx" object:nil];
         
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"失败");
-    }];
-    
+        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+        [dic setObject:[[UserCache sharedInstance]objectForKey:KMYUSERID] forKey:@"uid"];
+        [dic setObject:fid forKey:@"fid"];
+        
+        [[AFAppDotNetAPIClient sharedClient]POST:@"follow" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+            NSLog(@"成功");
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            NSLog(@"失败");
+        }];
+    }
 }
 
 

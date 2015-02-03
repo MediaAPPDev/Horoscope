@@ -46,7 +46,9 @@
     [photoBtn setBackgroundImage:KUIImage(@"tianjia-Normal") forState:UIControlStateNormal];
     [photoBtn addTarget:self action:@selector(addImg:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:photoBtn];
-    
+    hud = [[MBProgressHUD alloc]initWithView:self.view];
+    hud.labelText = @"发送中...";
+    [self.view addSubview:hud];
     // Do any additional setup after loading the view.
 }
 
@@ -138,26 +140,33 @@
 #pragma mark----发送
 -(void)senderNewCircle:(UIButton *)sender
 {
-    if (imgData&&senderTextView.text&&![senderTextView.text isEqualToString:@" "]) {
+    if ([self isEmtity:senderTextView.text]) {
+        [self showAlertViewWithtitle:@"提示" message:@"请输入文字"];
+        return;
+    }
         NSString *urlStr = [NSString stringWithFormat:@"addpiccontent"];
         NSMutableDictionary *dic = [NSMutableDictionary dictionary];
 //
-        [dic setObject:@"6686821908" forKey:@"uid"];
+        [dic setObject:[[UserCache sharedInstance]objectForKey:KMYUSERID] forKey:@"uid"];
         [dic setObject:senderTextView.text forKey:@"content"];
         
         NSString *uuid = [TempDate uuid];
-        
+    [hud show:YES];
 [[AFAppDotNetAPIClient sharedClient]POST:urlStr parameters:dic constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-    [formData appendPartWithFileData:imgData name:@"file" fileName:[NSString stringWithFormat:@"%@.jpg",uuid] mimeType:@"image/jpeg"];
+    if (imgData) {
+        [formData appendPartWithFileData:imgData name:@"file" fileName:[NSString stringWithFormat:@"%@.jpg",uuid] mimeType:@"image/jpeg"];
+    }
 } success:^(NSURLSessionDataTask *task, id responseObject) {
-    
+    [hud hide:YES];
     [self showMessageWindowWithContent:@"发表成功"imageType:0];
     
     [self.menuController popViewControllerAnimated:YES];
 } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    [hud hide:YES];
+    
+    [self showAlertViewWithtitle:@"提示" message:@"发送失败，请检查网络"];
 }];
         
-    }
 }
 
 - (void)didReceiveMemoryWarning {
