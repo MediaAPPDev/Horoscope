@@ -118,7 +118,6 @@
 {
     NSString *urlStr = [NSString stringWithFormat:@"friendcontent.php?id=%@",[[UserCache sharedInstance]objectForKey:KMYUSERID]];
     [[AFAppDotNetAPIClient sharedClient] GET:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-        
         if (![responseObject isKindOfClass:[NSArray class]]) {
             return ;
         }
@@ -148,7 +147,7 @@
     cell.delegate = self;
     cell.tag = indexPath.row;
     
-    
+    cell.cImageView.placeholderImage = KUIImage(@"place");
     NSDictionary *dic = [infoArray objectAtIndex:indexPath.row];
     NSString *str = KISDictionaryHaveKey(dic, @"content");
     

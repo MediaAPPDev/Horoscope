@@ -81,7 +81,7 @@
         titleStr = [titleStr substringToIndex:128];
     }
     
-    NSString *shareUrlStr =[@"http://star.allappropriate.com/articlef?eid="stringByAppendingString:KISDictionaryHaveKey(self.mainDic, @"eid")];
+    NSString *shareUrlStr =[@"http://star.allappropriate.com/shareevents?eid="stringByAppendingString:KISDictionaryHaveKey(self.mainDic, @"eid")];
     
     [UMSocialQQHandler setQQWithAppId:SHAREQQID appKey:SHAREQQAPPKEY url:shareUrlStr];
     [UMSocialWechatHandler setWXAppId:SHAREWXID appSecret:SHAREWXAPPKEY url:shareUrlStr];

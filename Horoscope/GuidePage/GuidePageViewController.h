@@ -8,6 +8,6 @@
 
 #import "BaseViewController.h"
 
-@interface GuidePageViewController : BaseViewController
+@interface GuidePageViewController : BaseViewController<UIScrollViewDelegate>
 
 @end

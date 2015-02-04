@@ -25,7 +25,7 @@
     UIScrollView *scr = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScreenHeight)];
     scr.pagingEnabled = YES;
     scr.delegate = self;
-    scr.contentSize = CGSizeMake(KScreenWidth*3, 0);
+    scr.contentSize = CGSizeMake(KScreenWidth*4, 0);
     scr.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:scr];
     
@@ -39,12 +39,14 @@
         [imgArr addObject:@"1-6"];
         [imgArr addObject:@"2-6"];
         [imgArr addObject:@"3-6"];
+        [imgArr addObject:@"4-6"];
     }else if (height ==736)
     {
         [imgArr removeAllObjects];
         [imgArr addObject:@"1"];
         [imgArr addObject:@"2"];
         [imgArr addObject:@"3"];
+        [imgArr addObject:@"4"];
         
     }else if (height ==568)
     {
@@ -52,6 +54,7 @@
         [imgArr addObject:@"1-568h"];
         [imgArr addObject:@"2-568h"];
         [imgArr addObject:@"3-568h"];
+        [imgArr addObject:@"4-568h"];
 
     }else if(height ==480)
     {
@@ -59,7 +62,7 @@
         [imgArr addObject:@"1-4"];
         [imgArr addObject:@"2-4"];
         [imgArr addObject:@"3-4"];
-
+        [imgArr addObject:@"4-4"];
     }
     
     /*
@@ -69,26 +72,35 @@
      4   480
      */
     
-    for (int i = 0; i<3; i++) {
+    for (int i = 0; i<4; i++) {
         UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(KScreenWidth*i, 0, KScreenWidth, KScreenHeight)];
         imageView.image = KUIImage(imgArr[i]);
         [scr addSubview:imageView];
     }
     
     
-    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth/5*2, KScreenWidth/5*2*0.26)];
-    button.center = CGPointMake(KScreenWidth*2.5, KScreenHeight*.7+30);
+    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth/5*3, KScreenWidth/5*2*0.26)];
+    button.center = CGPointMake(KScreenWidth*3.5, KScreenHeight*.7+30);
+    [button setTitle:@"立即体验" forState:UIControlStateNormal];
+    [button setTitle:@"立即体验" forState:UIControlStateSelected];
+    [button setTitle:@"立即体验" forState:UIControlStateHighlighted];
+    [button setTitleColor:UIColorFromRGBA(0xdf2f50, 1) forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+    
     [button setBackgroundImage:KUIImage(@"start-normal") forState:UIControlStateNormal];
+    [button setBackgroundImage:KUIImage(@"start-click") forState:UIControlStateHighlighted];
+    [button setBackgroundImage:KUIImage(@"start-click") forState:UIControlStateSelected];
     [button addTarget:self action:@selector(didChangeRootViewController:) forControlEvents:UIControlEventTouchUpInside];
     [scr addSubview:button];
     
     NSLog(@"%f",KScreenWidth);
     myPageControl = [[UIPageControl alloc]initWithFrame:CGRectMake(0, y(button)+50, self.view.bounds.size.width, 30)];
     myPageControl.backgroundColor = [UIColor clearColor];
-    myPageControl.numberOfPages = 3;
+    myPageControl.numberOfPages = 4;
     myPageControl.currentPage = 0;
-    myPageControl.pageIndicatorTintColor = [UIColor grayColor];
-    myPageControl.currentPageIndicatorTintColor = [UIColor blueColor];
+//    myPageControl.pageIndicatorTintColor = [UIColor grayColor];
+//    myPageControl.currentPageIndicatorTintColor = [UIColor blueColor];
     [self.view addSubview:myPageControl];
     
     

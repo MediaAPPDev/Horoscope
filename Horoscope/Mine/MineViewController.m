@@ -421,11 +421,12 @@
 {
 //    UIAlertView *ale = [[UIAlertView alloc]initWithTitle:@"提示" message:@"粉丝250" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
 //    [ale show];
-    
-    FansViewController *fans = [[FansViewController alloc]init];
-    fans.isFans = YES;
-    [self.menuController pushViewController:fans withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
+    if (self.isRootView) {
+        FansViewController *fans = [[FansViewController alloc]init];
+        fans.isFans = YES;
+        [self.menuController pushViewController:fans withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
 
+    }
 }
 
 //点击关注
@@ -433,10 +434,11 @@
 {
 //    UIAlertView *ale = [[UIAlertView alloc]initWithTitle:@"提示" message:@"关注250" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
 //    [ale show];
-    
-    FansViewController *fans = [[FansViewController alloc]init];
-    fans.isFans = NO;
-    [self.menuController pushViewController:fans withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
+    if (self.isRootView) {
+        FansViewController *fans = [[FansViewController alloc]init];
+        fans.isFans = NO;
+        [self.menuController pushViewController:fans withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
+    }
     
 }
 

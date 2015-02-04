@@ -241,8 +241,8 @@
     
     
     
-//    [[NSUserDefaults
-//      standardUserDefaults]removeObjectForKey:@"FirstLoign"];
+    [[NSUserDefaults
+      standardUserDefaults]removeObjectForKey:@"FirstLoign"];
     if ([[NSUserDefaults
            standardUserDefaults]objectForKey:@"FirstLoign"]) {
         
