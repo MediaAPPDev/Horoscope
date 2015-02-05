@@ -23,7 +23,6 @@
 
 #import <QuartzCore/QuartzCore.h>
 
-//#define imageHeight ImageHeight = 280;
 
 
 @interface SexttestViewController ()
