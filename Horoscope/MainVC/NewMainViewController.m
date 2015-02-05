@@ -205,7 +205,7 @@
 -(void)customViewDidClick:(int)sender
 {
     [UIView animateWithDuration:0.5 animations:^{
-        ccButton.frame =CGRectMake(0, 400, 307, 72);
+        ccButton.frame =CGRectMake(0, height(self.view)-startX-150, 307, 72);
         
     } completion:^(BOOL finished) {
     }];
@@ -232,7 +232,7 @@
 //    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
 //    cell.backgroundColor = [UIColor yellowColor];
     [UIView animateWithDuration:0.5 animations:^{
-        ccButton.frame =CGRectMake(0, 400, 307, 72);
+        ccButton.frame =CGRectMake(0, height(self.view)-startX-150, 307, 72);
         
     } completion:^(BOOL finished) {
     }];
@@ -268,7 +268,7 @@
     blackImageView.userInteractionEnabled = YES;
     [self.view addSubview:blackImageView];
     
-    ccButton = [[AddButton alloc]initWithFrame:CGRectMake(-307, 400, 307, 72)];
+    ccButton = [[AddButton alloc]initWithFrame:CGRectMake(-307, height(self.view)-startX-150, 307, 72)];
         
     //    ccButton.backgroundColor = [UIColor clearColor];
 //    [ccButton setImage:[UIImage imageNamed:@"btimg"] forState:UIControlStateNormal];
@@ -296,7 +296,7 @@
 {
     
     [UIView animateWithDuration:0.5 animations:^{
-        ccButton.frame =CGRectMake(-307, 400, 307, 72);
+        ccButton.frame =CGRectMake(-307, height(self.view)-startX-150, 307, 72);
         
     } completion:^(BOOL finished) {
     }];
