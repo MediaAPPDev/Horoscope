@@ -25,7 +25,6 @@
 		2FC71FE21A281569002BB2C5 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FC71FE11A281569002BB2C5 /* MainViewController.m */; };
 		2FC71FE81A281770002BB2C5 /* StarVcViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FC71FE71A281770002BB2C5 /* StarVcViewController.m */; };
 		5E2D73881A51333300FB8EBA /* SexttestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2D73861A51333300FB8EBA /* SexttestViewController.m */; };
-		5E2D73891A51333300FB8EBA /* SexttestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E2D73871A51333300FB8EBA /* SexttestViewController.xib */; };
 		5E2D738D1A51348200FB8EBA /* testTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2D738B1A51348200FB8EBA /* testTableViewCell.m */; };
 		5E2D738E1A51348200FB8EBA /* testTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E2D738C1A51348200FB8EBA /* testTableViewCell.xib */; };
 		5E2D73921A51387F00FB8EBA /* testDetailedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2D73901A51387F00FB8EBA /* testDetailedViewController.m */; };
@@ -642,6 +641,12 @@
 		64E349491A5D1F4100DA6B74 /* show_zan.png in Resources */ = {isa = PBXBuildFile; fileRef = 64E349421A5D1F4100DA6B74 /* show_zan.png */; };
 		64E6019F1A7632FA00C07F86 /* XWCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 64E6019E1A7632FA00C07F86 /* XWCell.m */; };
 		64FF05F41A4A92A4002D8EA3 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 64FF05F31A4A92A4002D8EA3 /* MBProgressHUD.m */; };
+		9A8F30371A836B0400907336 /* MyScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A8F30361A836B0300907336 /* MyScrollView.m */; };
+		9A8F303C1A836B5D00907336 /* lunbo1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9A8F30381A836B5D00907336 /* lunbo1.jpg */; };
+		9A8F303D1A836B5D00907336 /* lunbo2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9A8F30391A836B5D00907336 /* lunbo2.jpg */; };
+		9A8F303E1A836B5D00907336 /* lunbo3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9A8F303A1A836B5D00907336 /* lunbo3.jpg */; };
+		9A8F303F1A836B5D00907336 /* lunbo4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9A8F303B1A836B5D00907336 /* lunbo4.jpg */; };
+		9A8F30411A83725600907336 /* SexttestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A8F30401A83725600907336 /* SexttestViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -690,7 +695,6 @@
 		2FC71FE71A281770002BB2C5 /* StarVcViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarVcViewController.m; sourceTree = "<group>"; };
 		5E2D73851A51333300FB8EBA /* SexttestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SexttestViewController.h; sourceTree = "<group>"; };
 		5E2D73861A51333300FB8EBA /* SexttestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SexttestViewController.m; sourceTree = "<group>"; };
-		5E2D73871A51333300FB8EBA /* SexttestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SexttestViewController.xib; sourceTree = "<group>"; };
 		5E2D738A1A51348200FB8EBA /* testTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testTableViewCell.h; sourceTree = "<group>"; };
 		5E2D738B1A51348200FB8EBA /* testTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testTableViewCell.m; sourceTree = "<group>"; };
 		5E2D738C1A51348200FB8EBA /* testTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = testTableViewCell.xib; sourceTree = "<group>"; };
@@ -1443,6 +1447,13 @@
 		64E6019E1A7632FA00C07F86 /* XWCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWCell.m; sourceTree = "<group>"; };
 		64FF05F21A4A92A4002D8EA3 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		64FF05F31A4A92A4002D8EA3 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		9A8F30351A836B0300907336 /* MyScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyScrollView.h; sourceTree = "<group>"; };
+		9A8F30361A836B0300907336 /* MyScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyScrollView.m; sourceTree = "<group>"; };
+		9A8F30381A836B5D00907336 /* lunbo1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lunbo1.jpg; sourceTree = "<group>"; };
+		9A8F30391A836B5D00907336 /* lunbo2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lunbo2.jpg; sourceTree = "<group>"; };
+		9A8F303A1A836B5D00907336 /* lunbo3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lunbo3.jpg; sourceTree = "<group>"; };
+		9A8F303B1A836B5D00907336 /* lunbo4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lunbo4.jpg; sourceTree = "<group>"; };
+		9A8F30401A83725600907336 /* SexttestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SexttestViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1698,7 +1709,13 @@
 				5E9754D21A529E46003A4A31 /* images */,
 				5E2D73851A51333300FB8EBA /* SexttestViewController.h */,
 				5E2D73861A51333300FB8EBA /* SexttestViewController.m */,
-				5E2D73871A51333300FB8EBA /* SexttestViewController.xib */,
+				9A8F30381A836B5D00907336 /* lunbo1.jpg */,
+				9A8F30391A836B5D00907336 /* lunbo2.jpg */,
+				9A8F303A1A836B5D00907336 /* lunbo3.jpg */,
+				9A8F303B1A836B5D00907336 /* lunbo4.jpg */,
+				9A8F30351A836B0300907336 /* MyScrollView.h */,
+				9A8F30361A836B0300907336 /* MyScrollView.m */,
+				9A8F30401A83725600907336 /* SexttestViewController.xib */,
 				5E2D738A1A51348200FB8EBA /* testTableViewCell.h */,
 				5E2D738B1A51348200FB8EBA /* testTableViewCell.m */,
 				5E2D738C1A51348200FB8EBA /* testTableViewCell.xib */,
@@ -2900,7 +2917,6 @@
 				645DEF021A41732A00E8C524 /* neirong.png in Resources */,
 				645DEEA71A414B5500E8C524 /* button-click@3x.png in Resources */,
 				5E6E29BD1A5B8CBB004F3C89 /* radio_unchecked.png in Resources */,
-				5E2D73891A51333300FB8EBA /* SexttestViewController.xib in Resources */,
 				5E9755BA1A529E46003A4A31 /* xingge@3x.png in Resources */,
 				6486898B1A6F4EAA00F10EDA /* xingyou_07@3x.png in Resources */,
 				64394D301A5E20570034F89E /* UMSocialSDKResourcesNew.bundle in Resources */,
@@ -2935,6 +2951,7 @@
 				647607C21A3FD7C400B71469 /* 超过60秒文字框@2x.png in Resources */,
 				5E97558E1A529E46003A4A31 /* aiqingP@3x.png in Resources */,
 				5E9755A71A529E46003A4A31 /* lunboHui@2X.png in Resources */,
+				9A8F303D1A836B5D00907336 /* lunbo2.jpg in Resources */,
 				5ED3CF731A416FCE0083BCDE /* xingyouquan@2x.png in Resources */,
 				5EF352191A4D445600AB2463 /* Default-2208@3x.png in Resources */,
 				645DEEE51A41715200E8C524 /* news3.png in Resources */,
@@ -3053,6 +3070,7 @@
 				646C43781A37F9F300FB683D /* 巨蟹@3x.png in Resources */,
 				5E9755B21A529E46003A4A31 /* tianjiaP@3x.png in Resources */,
 				5EB87EB41A396EBF00BE4A5D /* after60@2x.png in Resources */,
+				9A8F303E1A836B5D00907336 /* lunbo3.jpg in Resources */,
 				645DEF001A4172FA00E8C524 /* 灰色底框.png in Resources */,
 				647DC32B1A529DE4009AD4DC /* star-3@3x.png in Resources */,
 				64CD98DC1A3042FD00040744 /* iPhone4底图.png in Resources */,
@@ -3091,6 +3109,7 @@
 				5ED3CF911A418B0B0083BCDE /* back@2x.png in Resources */,
 				648689941A6F4EAA00F10EDA /* xingyou_33@3x.png in Resources */,
 				5E484AA31A5FBDA900582DE7 /* lineBottom@2x.png in Resources */,
+				9A8F303C1A836B5D00907336 /* lunbo1.jpg in Resources */,
 				64914EBA1A5A3656003DED2A /* More－Normal@3x.png in Resources */,
 				5ED3CF581A416FCE0083BCDE /* faxianIanxia@3x.png in Resources */,
 				645DEEEF1A41715200E8C524 /* 星友圈－按下.png in Resources */,
@@ -3130,6 +3149,7 @@
 				64C3AAAE1A773D0900A4B9B2 /* about@2x.png in Resources */,
 				647607B61A3FD7C400B71469 /* 删除按钮选中状态@2x.png in Resources */,
 				646C43D21A381D0900FB683D /* ys_c_datebg@3x.png in Resources */,
+				9A8F303F1A836B5D00907336 /* lunbo4.jpg in Resources */,
 				5E6E29AE1A594891004F3C89 /* ExampleViewController.xib in Resources */,
 				647607C71A3FD7C400B71469 /* iphone6+底图.png in Resources */,
 				5ED3CF5E1A416FCE0083BCDE /* shezhiIanxia@3x.png in Resources */,
@@ -3259,6 +3279,7 @@
 				6486898D1A6F4EAA00F10EDA /* xingyou_12@3x.png in Resources */,
 				5ECC41C61A43D26200A5D3B4 /* zan@3X.png in Resources */,
 				5ED3CF6E1A416FCE0083BCDE /* xingwenIanxia@2x.png in Resources */,
+				9A8F30411A83725600907336 /* SexttestViewController.xib in Resources */,
 				647607B41A3FD7C400B71469 /* 删除按钮正常状态@2x.png in Resources */,
 				5ED3CFAA1A418BA80083BCDE /* phone-icon.png in Resources */,
 				647607BD1A3FD7C400B71469 /* 忘记密码@3x.png in Resources */,
@@ -3520,6 +3541,7 @@
 				5E6C7CD01A42C875005C4554 /* AFHTTPSessionManager.m in Sources */,
 				5E6C7CD91A42C875005C4554 /* UIAlertView+AFNetworking.m in Sources */,
 				5ED3CF441A416FCE0083BCDE /* MDStack.m in Sources */,
+				9A8F30371A836B0400907336 /* MyScrollView.m in Sources */,
 				645400171A4274A400FA69C7 /* SetUpCell.m in Sources */,
 				5E484A861A5FA7F600582DE7 /* signup1ViewController.m in Sources */,
 				645400051A426E2900FA69C7 /* SetUpViewController.m in Sources */,

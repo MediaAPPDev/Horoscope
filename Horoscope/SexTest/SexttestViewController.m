@@ -17,80 +17,81 @@
 
 #import "CustHeadView.h"
 
+#import "MyScrollView.h"
+
+
+
+#import <QuartzCore/QuartzCore.h>
+
+//#define imageHeight ImageHeight = 280;
+
+
 @interface SexttestViewController ()
 
 @end
 
 @implementation SexttestViewController
 
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self)
+    {
+        // Custom initialization
+        _imageNames = [NSMutableArray arrayWithObjects:@"lunbo1.jpg",
+                       @"lunbo2.jpg",
+                       @"lunbo3.jpg",
+                       @"lunbo4.jpg",
+                       
+                       nil] ;
+    }
+    return self;
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self buildTopviewWithBackButton:YES title:@"测试" rightImage:@"订阅－正常.png"];
-
     
-     NSArray* nibView =  [[NSBundle mainBundle] loadNibNamed:@"CustHeadView" owner:nil options:nil];
+    self.view.backgroundColor = [UIColor yellowColor];
     
-
-    self.view.backgroundColor = [UIColor greenColor];
+    MyScrollView *myScorollView = [[MyScrollView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, 280)] ;
+    [myScorollView setImagePathsInBundle:_imageNames];
+    [self.view addSubview:myScorollView];
+    [myScorollView setAutoRunEnableWithInterval:5];
+    myScorollView.playDirection = Right;
+    myScorollView.timerInterval = 2;
+    myScorollView.pageControlEnabled = YES;
     
-    CustHeadView * custHeadView =   [nibView objectAtIndex:0];
     
-//    _testTableView.frame =CGRectMake(0, 0, KScreenWidth, KScreenHeight);
+    UILabel *titleLable = [[UILabel alloc]initWithFrame:CGRectMake(0, 240, KScreenWidth, 40)];
     
-//    CustHeadView * custHeadView =   [custHeadView ];
     
-    [custHeadView setFrame:CGRectMake(0, 0, KScreenWidth,280)];
+    titleLable.backgroundColor = [UIColor blackColor];
+    titleLable.alpha = 0.6;
+    titleLable.text = @" 你的闺蜜是小三吗？";
+    titleLable.textColor = [UIColor whiteColor];
+    [myScorollView addSubview:titleLable];
+    
+    
+    
+    
     _testTableView.delegate =self;
     _testTableView.dataSource =self;
+    _testTableView.tableHeaderView =myScorollView;
     
-    custHeadView.mailScorllView.backgroundColor =[UIColor yellowColor];
-//    [_headView setBackgroundColor:[UIColor redColor]];
-    
-//    _testTableView.tableHeaderView.bounds=CGRectMake(0, 0, KScreenWidth, 260)
-    
-    _testTableView.tableHeaderView =custHeadView;
-    
-    custHeadView.backgroundColor =[UIColor redColor];
+    //请求数据
     [[AFAppDotNetAPIClient sharedClient] GET:@"testlist.php" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         
-        
-        
         _allArray = responseObject;
-        
-        
         [_testTableView reloadData];
-        
-        
-        [self custView];
-        
-        
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         
         
     }];
-    
-    
-    
-    
-//    [self.view addSubview:_tableView];
-    
-    //    [self buildTopviewWithBackButton:YES title:@"星文" rightImage:nil];
-}
-
-
-
--(void)custView
-{
-    
-    
-//    [_headView setFrame:CGRectMake(0, 0, 0, 0)];
-//    _testTableView.tableHeaderView =_headView;
-    
-    
-//    _testTableView.frame =self.view.bounds;
-    
     
 }
 
@@ -107,10 +108,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
     
-    
-    
     return _allArray.count;
-    
     
 }
 
@@ -127,61 +125,20 @@
     testTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CustomCellIdentifier];
     
     
-//    @property (weak, nonatomic) IBOutlet UIImageView *facePIc;
-//    @property (weak, nonatomic) IBOutlet UILabel *titleLable;
-//    @property (weak, nonatomic) IBOutlet UIButton *testButton;
-//    @property (weak, nonatomic) IBOutlet UILabel *howPolple;
-//    @property (weak, nonatomic) IBOutlet UILabel *timeLable;
-
     if (_allArray.count <1) {
         
     }else{
         
-//        [cell.titleLable setTitle:[_allArray[indexPath.row]valueForKey:@"title"] forState:UIControlStateNormal];
         [cell.titleLable setText:[_allArray[indexPath.row]valueForKey:@"title"]];
-//        [cell.facePIc setImage:[UIImage imageNamed:@"touxiang1.png"]];
-        
-        
         [cell.facePIc setImageWithURL:[NSURL URLWithString:[_allArray[indexPath.row]valueForKey:@"pics"]]placeholderImage:[UIImage imageNamed:@"touxiang1.png"]];
-        
-//        cell.howPolple.text=[_allArray[indexPath.row]valueForKey:@"content"];
-        
-         cell.howPolple.text=@"111人";
-//        cell.newsText.editable =NO;
-        
-//        cell.timeLable.text =[_allArray[indexPath.row]valueForKey:@"crtime"];
+        cell.facePIc.layer.cornerRadius = 6;
+        cell.facePIc.layer.masksToBounds = YES;
+        cell.howPolple.text=@"111人";
         cell.timeLable.text =@"1小时前";
-    
-   
-      
-        
-        
-        
-        
-        
-        
-        
-        
-        //    NSUInteger row = [indexPath row];
-        //    NSDictionary *rowData = [self.dataList objectAtIndex:row];
-        
-        //    cell.name = [rowData objectForKey:@"name"];
-        //    cell.dec = [rowData objectForKey:@"dec"];
-        //    cell.loc = [rowData objectForKey:@"loc"];
-        //    cell.image = [imageList objectAtIndex:row];
-        
         
     }
     
-    
-    
     return cell;
-}
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(NSString*)titleForChildControllerMDMenuViewController:(MDMenuViewController *)menuController
@@ -198,22 +155,22 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-//    testDetailedViewController * testDetailed =[[testDetailedViewController alloc]init];
-//     [self.menuController pushViewController:testDetailed withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
     
     ExampleViewController * exampleVC =[[ExampleViewController alloc]init];
     
-// NSArray * a=
     
     exampleVC.exampleDic = [NSMutableDictionary dictionary];
     
     exampleVC.exampleDic =[_allArray objectAtIndex:indexPath.row];
-
     
-         [self.menuController pushViewController:exampleVC withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
     
-
-    
+    [self.menuController pushViewController:exampleVC withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
     
 }
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 @end
+
