@@ -25,8 +25,10 @@
     UIScrollView *scr = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScreenHeight)];
     scr.pagingEnabled = YES;
     scr.delegate = self;
-    scr.contentSize = CGSizeMake(KScreenWidth*4, 0);
+    scr.contentSize = CGSizeMake(KScreenWidth*5, 0);
     scr.backgroundColor = [UIColor whiteColor];
+    scr.showsHorizontalScrollIndicator = NO;
+    scr.showsVerticalScrollIndicator = NO;
     [self.view addSubview:scr];
     
     
@@ -40,6 +42,7 @@
         [imgArr addObject:@"2-6"];
         [imgArr addObject:@"3-6"];
         [imgArr addObject:@"4-6"];
+        [imgArr addObject:@"5-6"];
     }else if (height ==736)
     {
         [imgArr removeAllObjects];
@@ -47,6 +50,7 @@
         [imgArr addObject:@"2"];
         [imgArr addObject:@"3"];
         [imgArr addObject:@"4"];
+        [imgArr addObject:@"5"];
         
     }else if (height ==568)
     {
@@ -55,7 +59,7 @@
         [imgArr addObject:@"2-568h"];
         [imgArr addObject:@"3-568h"];
         [imgArr addObject:@"4-568h"];
-
+        [imgArr addObject:@"5-568h"];
     }else if(height ==480)
     {
         [imgArr removeAllObjects];
@@ -63,6 +67,7 @@
         [imgArr addObject:@"2-4"];
         [imgArr addObject:@"3-4"];
         [imgArr addObject:@"4-4"];
+        [imgArr addObject:@"5-4"];
     }
     
     /*
@@ -72,7 +77,7 @@
      4   480
      */
     
-    for (int i = 0; i<4; i++) {
+    for (int i = 0; i<5; i++) {
         UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(KScreenWidth*i, 0, KScreenWidth, KScreenHeight)];
         imageView.image = KUIImage(imgArr[i]);
         [scr addSubview:imageView];
@@ -80,7 +85,7 @@
     
     
     UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth/5*3, KScreenWidth/5*2*0.26)];
-    button.center = CGPointMake(KScreenWidth*3.5, KScreenHeight*.7+30);
+    button.center = CGPointMake(KScreenWidth*4.5, KScreenHeight*.78+30);
     [button setTitle:@"立即体验" forState:UIControlStateNormal];
     [button setTitle:@"立即体验" forState:UIControlStateSelected];
     [button setTitle:@"立即体验" forState:UIControlStateHighlighted];
@@ -97,7 +102,7 @@
     NSLog(@"%f",KScreenWidth);
     myPageControl = [[UIPageControl alloc]initWithFrame:CGRectMake(0, y(button)+50, self.view.bounds.size.width, 30)];
     myPageControl.backgroundColor = [UIColor clearColor];
-    myPageControl.numberOfPages = 4;
+    myPageControl.numberOfPages = 5;
     myPageControl.currentPage = 0;
 //    myPageControl.pageIndicatorTintColor = [UIColor grayColor];
 //    myPageControl.currentPageIndicatorTintColor = [UIColor blueColor];
