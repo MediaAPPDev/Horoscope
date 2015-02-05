@@ -34,7 +34,6 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *topSrcollView;
 
 
-//@property (nonatomic,strong) CustHeadView *custHeadView;
 
 
 
