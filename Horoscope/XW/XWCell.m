@@ -22,7 +22,7 @@
         [self addSubview:self.facePic];
         
         self.titleName = [[UILabel alloc]initWithFrame:CGRectMake(70, 6, 200, 20)];
-        self.titleName.textColor  = [UIColor blueColor];
+        self.titleName.textColor  = UIColorFromRGBA(0x1bb5f5, 1);
         self.titleName.backgroundColor = [UIColor clearColor];
         self.titleName.font = [UIFont systemFontOfSize:15];
         [self addSubview:self.titleName];
