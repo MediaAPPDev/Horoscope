@@ -7,7 +7,7 @@
 //
 
 #import "XWCell.h"
-
+  
 @implementation XWCell
 
 //- (void)awakeFromNib {

@@ -10,7 +10,9 @@
 #import "signup3ViewController.h"
 
 @interface signup2ViewController ()
-
+{
+    NSString * sjyzmStr;
+}
 @end
 
 @implementation signup2ViewController
@@ -61,16 +63,15 @@
         if ([responseObject isKindOfClass:[NSDictionary class]]) {
             NSString *state  =KISDictionaryHaveKey(responseObject, @"SMSCODE");
             if (![state isEqualToString:@""]) {
-                [_sendCode setText:state ];
+//                [_sendCode setText:state ];
+                sjyzmStr = state;
             }
 //-------------------//-------13261649688--------//-----------//-------------//--------------//-------//
         }
 
         else{
-            
             UIAlertView * alert =[[UIAlertView alloc]initWithTitle:@"错误" message:@"验证码返回失败！" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
             [alert show];
-            
         }
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -80,32 +81,36 @@
 
 -(void)enterNextPage:(UIButton *)btn
 {
-    if ([self isEmtity:_password.text] || [self isEmtity:_sendCode.text]) {
+//    if ([self isEmtity:_password.text] || [self isEmtity:_sendCode.text]) {
+    
+        
         if ([self isEmtity:_password.text]) {
             UIAlertView * alert =[[UIAlertView alloc]initWithTitle:@"错误" message:@"密码不能为空！" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
             [alert show];
-        }else {
-            
-       
-            
+            return;
         }
-        
-        
         if ([self isEmtity:_sendCode.text]) {
             UIAlertView * alert =[[UIAlertView alloc]initWithTitle:@"错误" message:@"验证码不能为空！" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
             [alert show];
+            return;
         }
         
     
        
-    }else{
+//    }else{
 
+    if (![_sendCode.text isEqualToString:sjyzmStr]) {
+        [self  showAlertViewWithtitle:@"提示" message:@"验证码不正确"];
+        return;
+    }
+    
+    
         signup3ViewController * signStep3 =[[signup3ViewController alloc]init];
         signStep3.telPhoneNumber = self.telPhoneNumber.text;
         signStep3.passWordStr = self.password.text;
 //        [self.menuController pushViewController:signStep3 withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
         [self.navigationController pushViewController:signStep3 animated:YES];
-    }
+//    }
    
     
     
