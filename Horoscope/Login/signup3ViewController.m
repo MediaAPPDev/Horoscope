@@ -153,10 +153,13 @@
     [dic setObject:self.xingzuoButton.titleLabel.text forKey:@"xing"];
     [dic setObject:self.pickViewButton.titleLabel.text forKey:@"birthday"];
     
+    NSLog(@"0000000000        %@",dic);
+    
  [[AFAppDotNetAPIClient sharedClient]POST:@"userregistered" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
      if ([responseObject isKindOfClass:[NSDictionary class]]) {
          NSString *uid =[NSString stringWithFormat:@"%@",KISDictionaryHaveKey(responseObject, @"uid")];
          NSString *str= [@"123"stringByAppendingString:uid];
+         NSLog(@"😄－－－－－－－－%@",str);
          [[UserCache sharedInstance]setObject:uid forKey:KMYUSERID];
          [self showAlertViewWithtitle:@"注册成功" message:str];
          [self getInfoFromNetWithUserid];

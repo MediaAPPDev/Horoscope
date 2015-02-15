@@ -7,7 +7,6 @@
 //
 
 #import "BaseViewController.h"
-#import "CustHeadView.h"
 
 
 @interface SexttestViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate>

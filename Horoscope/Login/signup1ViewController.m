@@ -70,7 +70,8 @@
         
         [[AFAppDotNetAPIClient sharedClient] GET:loginStr parameters:nil success:^ (NSURLSessionDataTask *task, id responseObject) {
             NSString * state   =KISDictionaryHaveKey(responseObject, @"id");
-            if ([state isEqualToString:@"0"]) {
+            NSLog(@"😄－－－－－－－%@",state);
+            if ([state isEqualToString:@"7352763522"]) {
                 [[UserCache sharedInstance] setObject:_telPhoneNumber.text forKey:@"regTel"];
                 signup2ViewController * signStep2 =[[signup2ViewController alloc]init];
                 signStep2.telNum =[NSMutableString stringWithString:_telPhoneNumber.text];

@@ -11,7 +11,7 @@
 #import "PassWordChangeViewController.h"
 #import "SafeViewController.h"
 #import "BangdingViewController.h"
-#import "NotifiationViewController.h"s
+#import "NotifiationViewController.h"
 #import "PrivacyViewController.h"
 #import "FeedbackViewController.h"
 #import "AboutMeViewController.h"

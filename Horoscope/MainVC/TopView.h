@@ -21,7 +21,7 @@
 @property(nonatomic,strong)TopButton *cell6;
 @property (nonatomic,assign)id<TopViewDelegate>delegate;
 @property (nonatomic,assign)NSMutableArray *infoArray;
--(void)changeImgAndName:(NSMutableArray *)arr;
+//-(void)changeImgAndName:(NSMutableArray *)arr;
 
 @end
 

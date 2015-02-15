@@ -477,7 +477,7 @@ forHTTPHeaderField:(NSString *)field
 //            NSString * finalPostStr = [@"body=" stringByAppendingString:postStr];
             NSString* a = [postStr stringByReplacingOccurrencesOfString:@"%" withString:@"%25"];
             NSString* b = [a stringByReplacingOccurrencesOfString:@"&" withString:@"%26"];
-            NSData *data = [b dataUsingEncoding:NSUTF8StringEncoding];
+//            NSData *data = [b dataUsingEncoding:NSUTF8StringEncoding];
             NSLog(@"发送数据:%@",b);
             
             [mutableRequest setHTTPBody:[query dataUsingEncoding:self.stringEncoding]];

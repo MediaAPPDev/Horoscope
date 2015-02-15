@@ -70,8 +70,6 @@
 		5E6C7CDC1A42C875005C4554 /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6C7CC91A42C875005C4554 /* UIProgressView+AFNetworking.m */; };
 		5E6C7CDD1A42C875005C4554 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6C7CCB1A42C875005C4554 /* UIRefreshControl+AFNetworking.m */; };
 		5E6C7CDE1A42C875005C4554 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6C7CCD1A42C875005C4554 /* UIWebView+AFNetworking.m */; };
-		5E6E29A71A59167B004F3C89 /* CustHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6E29A61A59167B004F3C89 /* CustHeadView.m */; };
-		5E6E29A91A59169E004F3C89 /* CustHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E6E29A81A59169E004F3C89 /* CustHeadView.xib */; };
 		5E6E29AD1A594891004F3C89 /* ExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6E29AB1A594891004F3C89 /* ExampleViewController.m */; };
 		5E6E29AE1A594891004F3C89 /* ExampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E6E29AC1A594891004F3C89 /* ExampleViewController.xib */; };
 		5E6E29B21A5A7663004F3C89 /* RadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6E29B11A5A7663004F3C89 /* RadioButton.m */; };
@@ -771,9 +769,6 @@
 		5E6C7CCB1A42C875005C4554 /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
 		5E6C7CCC1A42C875005C4554 /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
 		5E6C7CCD1A42C875005C4554 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
-		5E6E29A51A59167A004F3C89 /* CustHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustHeadView.h; sourceTree = "<group>"; };
-		5E6E29A61A59167B004F3C89 /* CustHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustHeadView.m; sourceTree = "<group>"; };
-		5E6E29A81A59169E004F3C89 /* CustHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustHeadView.xib; sourceTree = "<group>"; };
 		5E6E29AA1A594891004F3C89 /* ExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExampleViewController.h; sourceTree = "<group>"; };
 		5E6E29AB1A594891004F3C89 /* ExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExampleViewController.m; sourceTree = "<group>"; };
 		5E6E29AC1A594891004F3C89 /* ExampleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExampleViewController.xib; sourceTree = "<group>"; };
@@ -1730,9 +1725,6 @@
 				5E2D738F1A51387F00FB8EBA /* testDetailedViewController.h */,
 				5E2D73901A51387F00FB8EBA /* testDetailedViewController.m */,
 				5E2D73911A51387F00FB8EBA /* testDetailedViewController.xib */,
-				5E6E29A51A59167A004F3C89 /* CustHeadView.h */,
-				5E6E29A61A59167B004F3C89 /* CustHeadView.m */,
-				5E6E29A81A59169E004F3C89 /* CustHeadView.xib */,
 				5E6E29AA1A594891004F3C89 /* ExampleViewController.h */,
 				5E6E29AB1A594891004F3C89 /* ExampleViewController.m */,
 				5E6E29AC1A594891004F3C89 /* ExampleViewController.xib */,
@@ -3186,7 +3178,6 @@
 				645DEEE21A41715200E8C524 /* 宝典－按下.png in Resources */,
 				64C3AAAF1A773D0900A4B9B2 /* about@3x.png in Resources */,
 				648689891A6F4EAA00F10EDA /* xingyou_03@3x.png in Resources */,
-				5E6E29A91A59169E004F3C89 /* CustHeadView.xib in Resources */,
 				647607CD1A3FE24600B71469 /* dotted line@3x.png in Resources */,
 				646C43811A37F9F300FB683D /* 水瓶@2x.png in Resources */,
 				5E9755A91A529E46003A4A31 /* lunboLan@3X.png in Resources */,
@@ -3493,7 +3484,6 @@
 				64394D651A5E6A540034F89E /* MJRefreshFooterView.m in Sources */,
 				2FC71FDE1A2721AC002BB2C5 /* TodayViewController.m in Sources */,
 				5ED3CF821A416FCE0083BCDE /* MJPopupBackgroundView.m in Sources */,
-				5E6E29A71A59167B004F3C89 /* CustHeadView.m in Sources */,
 				64914ED11A5AA33B003DED2A /* CircleBtn.m in Sources */,
 				2F2116311A25B5A2009B21EB /* AppDelegate.m in Sources */,
 				64CD99571A304F2A00040744 /* AddButton.m in Sources */,

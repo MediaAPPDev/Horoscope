@@ -95,6 +95,13 @@
         _scrollView.contentSize = CGSizeZero;
         [self addSubview:_scrollView];
         
+        //----------------1.初始化Label-------------------------
+        _label = [[UILabel alloc] initWithFrame:CGRectMake(0, frame.size.height-40, frame.size.width, 40)];
+        _label.backgroundColor = [UIColor blackColor];
+        _label.alpha = 0.6;
+        _label.text = @" 你的闺蜜是小三吗？";
+        _label.textColor = [UIColor whiteColor];
+//        [_scrollView addSubview:_label];
         //设置滚动视图的代理
         _scrollView.delegate = self;
         
@@ -280,6 +287,7 @@
         
         //把滚动视图追加到视图上
         [self addSubview:_scrollView];
+        [self addSubview:_label];
         //设置自己为代理
         [_scrollView setDelegate:self];
         //设置按页滚动
@@ -473,7 +481,7 @@
     if (pageNumber > scrollView.tag && pageNumber != ([_imagePaths count] + 1))//往右翻页
     {
         [scrollView setTag:pageNumber];
-        NSLog(@"%d",pageNumber);
+//        NSLog(@"%d",pageNumber);
         
         [self thePageNumberReuseabled:(pageNumber - 2) andThePageNumberWillBePlaced:(pageNumber + 1)];
     }

@@ -38,6 +38,7 @@
     
     [_password setValue:[UIColor colorWithWhite:1 alpha:0.6] forKeyPath:@"_placeholderLabel.textColor"];
     
+    NSLog(@"lallala========  %@",_password.text);
     [self sendTelCode];
     
     // Do any additional setup after loading the view from its nib.==00000
@@ -55,11 +56,13 @@
   
     NSString * parameterStr =[NSString stringWithFormat:@"mobilesms?mobnum=%@",_telNum];
     
-    
+    NSLog(@"😄－－－－－%@",parameterStr);
+    //😄－－－－－mobilesms?mobnum=18210453451
     [[AFAppDotNetAPIClient sharedClient] GET:parameterStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         
         if ([responseObject isKindOfClass:[NSDictionary class]]) {
             NSString *state  =KISDictionaryHaveKey(responseObject, @"SMSCODE");
+            NSLog(@"😄－－－－－%@",state);
             if (![state isEqualToString:@""]) {
                 [_sendCode setText:state ];
             }
@@ -103,6 +106,9 @@
         signup3ViewController * signStep3 =[[signup3ViewController alloc]init];
         signStep3.telPhoneNumber = self.telPhoneNumber.text;
         signStep3.passWordStr = self.password.text;
+        NSLog(@"lalalla========    %@",signStep3.telPhoneNumber);
+
+        NSLog(@"lalalla========    %@",signStep3.passWordStr);
 //        [self.menuController pushViewController:signStep3 withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
         [self.navigationController pushViewController:signStep3 animated:YES];
     }

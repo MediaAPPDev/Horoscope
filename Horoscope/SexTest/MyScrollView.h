@@ -21,6 +21,8 @@ typedef enum
     UIPageControl   *_pageControl;      //页面控制
     NSTimer         *_timer;            //自动播放定时器
     NSMutableSet    *_reusebledViews;   //可重用视图集合
+    UILabel         *_label;            //轮播的label描述
+    
 }
 
 /*-------------------------------------------------------

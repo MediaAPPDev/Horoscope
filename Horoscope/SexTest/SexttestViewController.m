@@ -15,7 +15,6 @@
 
 #import "ExampleViewController.h"
 
-#import "CustHeadView.h"
 
 #import "MyScrollView.h"
 
@@ -44,6 +43,7 @@
                        @"lunbo4.jpg",
                        
                        nil] ;
+
     }
     return self;
 }
@@ -61,20 +61,33 @@
     [self.view addSubview:myScorollView];
     [myScorollView setAutoRunEnableWithInterval:5];
     myScorollView.playDirection = Right;
-    myScorollView.timerInterval = 2;
-    myScorollView.pageControlEnabled = YES;
-    
-    
+    myScorollView.timerInterval = 3;
+    /*
     UILabel *titleLable = [[UILabel alloc]initWithFrame:CGRectMake(0, 240, KScreenWidth, 40)];
-    
-    
     titleLable.backgroundColor = [UIColor blackColor];
     titleLable.alpha = 0.6;
     titleLable.text = @" 你的闺蜜是小三吗？";
     titleLable.textColor = [UIColor whiteColor];
     [myScorollView addSubview:titleLable];
+     */
+    myScorollView.pageControlEnabled = YES;
+   
+   
+    /*
     
+    MyScrollView *myLabelScorollView = [[MyScrollView alloc] initWithFrame:CGRectMake(0, 240, KScreenWidth, 40)];
     
+    [myScorollView addSubview:myLabelScorollView];
+    [myLabelScorollView setAutoRunEnableWithInterval:5];
+    myLabelScorollView.playDirection = Right;
+    myLabelScorollView.timerInterval = 3;
+    myLabelScorollView.pageControlEnabled = NO;
+    [myLabelScorollView addSubview:titleLable];
+    
+//    [myScorollView addSubview:myLabelScorollView];
+
+    
+    */
     
     
     _testTableView.delegate =self;

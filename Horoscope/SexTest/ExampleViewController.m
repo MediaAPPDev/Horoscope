@@ -112,34 +112,7 @@
             
             [_contentSrollView addSubview:buttons];
             
-            //            [_radio1 setChecked:YES];
-            //
-            
-            
-            //            RadioButton * button =[[RadioButton alloc ]initWithGroupId:@"example" index:i];
-            //
-            //            UIButton * buttons =[[UIButton alloc]initWithFrame:CGRectMake(_exampleTitle.frame.origin.x+25,height+50+35*i, 220, 25)];
-            //
-            //            [buttons setTitle:@"这个是问题1啊 和哈阿达撒" forState:UIControlStateNormal];
-            //
-            //            [buttons setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-            //
-            ////            #63B8FF
-            //            [buttons setTitleColor:[UIColor colorWithRed:0/255.0f green:191/255.0f blue:255/255.0f alpha:1] forState:UIControlStateSelected];
-            //
-            //            [buttons addTarget:self action:@selector(selectExample:) forControlEvents:UIControlEventTouchUpInside];
-            //            [button setTag:2100+i];
-            //
-            //            [buttons setTag:2000+i];
-            //            [button setFrame:CGRectMake(_exampleTitle.frame.origin.x,height+50+35*i, 25, 25)];
-            //            [button setBackgroundColor:[UIColor redColor]];
-            //
-            //             [RadioButton addObserverForGroupId:@"example" observer:self];
-            
-            //            [button addTarget:self action:@selector(selectExample:) forControlEvents:UIControlEventTouchUpInside];
-            //            [button setBackgroundColor:[UIColor redColor]];
-            //            [_contentSrollView addSubview:buttons];
-            //            [_contentSrollView addSubview:button];
+
             
             if (i ==_exampleArray.count -1) {
                 
@@ -213,20 +186,7 @@
         _answerText.userInteractionEnabled=NO;
         
         [_answerScrolllView addSubview:_answerText];
-        //        _answerText *buttons = [[QRadioButton alloc] initWithDelegate:self groupId:@"example"];
-        //        buttons.frame = CGRectMake(_exampleTitle.frame.origin.x,height+50+35*i, 260, 30);
-        //        [buttons setTitle:@"A 我的第一个问题是SDFSDFSD" forState:UIControlStateNormal];
-        //        [buttons setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-        //        [buttons.titleLabel setFont:[UIFont boldSystemFontOfSize:18.0f]];
-        //        [buttons setTitleColor:[UIColor colorWithRed:0/255.0f green:191/255.0f blue:255/255.0f alpha:1] forState:UIControlStateSelected];
-        
-        
-        
-        
-        
-        
-        
-        //            [_showOtherButton addTarget:self action:@selector(showMoreView:) forControlEvents:UIControlEventTouchUpInside];
+
         
         
         
