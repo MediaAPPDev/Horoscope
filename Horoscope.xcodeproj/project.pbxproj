@@ -1306,7 +1306,7 @@
 		647607DA1A4003BD00B71469 /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
 		6477EBF91A6E33E000A6FC0C /* ZCAddressBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCAddressBook.h; sourceTree = "<group>"; };
 		6477EBFA1A6E33E000A6FC0C /* ZCAddressBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCAddressBook.m; sourceTree = "<group>"; };
-		6477EBFC1A6E354C00A6FC0C /* pinyin.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pinyin.c; sourceTree = "<group>"; };
+		6477EBFC1A6E354C00A6FC0C /* pinyin.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = pinyin.c; path = ../pinyin.c; sourceTree = "<group>"; };
 		6477EBFD1A6E354C00A6FC0C /* pinyin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pinyin.h; sourceTree = "<group>"; };
 		6477EBFF1A6E555B00A6FC0C /* m_addPhoto_normal@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "m_addPhoto_normal@3x.png"; sourceTree = "<group>"; };
 		6477EC001A6E555B00A6FC0C /* m_addPhoto_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "m_addPhoto_normal@2x.png"; sourceTree = "<group>"; };
@@ -1976,7 +1976,6 @@
 				64394D311A5E29120034F89E /* Sina */,
 				64394D341A5E29120034F89E /* TencentOpenAPI */,
 				64394D391A5E29120034F89E /* Wechat */,
-				6477EBFC1A6E354C00A6FC0C /* pinyin.c */,
 				6477EBFD1A6E354C00A6FC0C /* pinyin.h */,
 				64394D0B1A5E20570034F89E /* UMSocial_Sdk_4.2.1 */,
 				5ECA51F71A491607006F0CC3 /* ModelData.h */,
@@ -2218,6 +2217,7 @@
 		64394D341A5E29120034F89E /* TencentOpenAPI */ = {
 			isa = PBXGroup;
 			children = (
+				6477EBFC1A6E354C00A6FC0C /* pinyin.c */,
 				64394D351A5E29120034F89E /* libSocialQQ.a */,
 				64394D361A5E29120034F89E /* TencentOpenAPI.framework */,
 				64394D371A5E29120034F89E /* TencentOpenApi_IOS_Bundle.bundle */,
