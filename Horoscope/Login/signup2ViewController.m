@@ -30,7 +30,7 @@
     [self.view addSubview:backButton];
 
     UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(KScreenWidth-60, KISHighVersion_7?20:0, 60, 44)];
-    [button setImage:KUIImage(@"wancheng.png") forState:UIControlStateNormal];
+    [button setImage:KUIImage(@"wancheng@2x.png") forState:UIControlStateNormal];
     [button addTarget:self action:@selector(enterNextPage:) forControlEvents:UIControlEventTouchUpInside];
     
     [self.view addSubview:button];

@@ -91,6 +91,9 @@ static ZCAddressBook *instance;
     return ABHelperNotExistSpecificContact;
 }
 #pragma mark 获取通讯录内容
+
+
+
 -(NSMutableDictionary*)getPersonInfo{
     
     self.dataArray = [NSMutableArray arrayWithCapacity:0];
@@ -113,6 +116,11 @@ static ZCAddressBook *instance;
     CFArrayRef results = ABAddressBookCopyArrayOfAllPeople(addressBook);
     //    NSLog(@"-----%d",(int)CFArrayGetCount(results));
     //    NSLog(@"in %s %d",__func__,__LINE__);
+
+    if (!results) {
+        return nil;
+    }
+    
     for(int i = 0; i < CFArrayGetCount(results); i++)
     {
         NSMutableDictionary *dicInfoLocal = [NSMutableDictionary dictionaryWithCapacity:0];

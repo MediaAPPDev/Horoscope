@@ -42,7 +42,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshInfo:) name:@"REFRESHMINEPAGE" object:nil];
     if (self.isRootView) {
         
         [self setTopViewWithTitle:@"" withBackButton:YES];
@@ -93,7 +93,35 @@
     
     
 }
-
+-(void)refreshInfo:(id)sender
+{
+    infoDict = [[UserCache sharedInstance]objectForKey:MYINFODICT];
+    headImgView.imageURL = [NSURL URLWithString:KISDictionaryHaveKey(infoDict, @"photo")];
+    //            xzImgViwe.image = KUIImage(@"");
+    [photoWallArray removeAllObjects];
+    photoWallArray = [NSMutableArray arrayWithArray:[self segmentationStrign:KISDictionaryHaveKey(infoDict, @"pics") withStr:@"#"]];
+    
+    [self buildPhotosWallWithUrl:photoWallArray];
+    NSString *sexStr = KISDictionaryHaveKey(infoDict, @"sex");
+    if ([sexStr isEqualToString:@"男"]) {
+        sexImageView.image = KUIImage(@" Male");
+    }else{
+        sexImageView.image = KUIImage(@"Female");
+    }
+    xzLabel.text = KISDictionaryHaveKey(infoDict, @"xing");
+    qmLabel.text = KISDictionaryHaveKey(infoDict, @"phrase");
+    CGSize size = [self labelAutoCalculateRectWith:KISDictionaryHaveKey(infoDict, @"phrase") FontSize:14 MaxSize:CGSizeMake(width(self.view)-sx(headImgView)-20, 40)];
+    qmLabel.frame = CGRectMake(sx(headImgView)+10, sy(xzImgViwe)+5, width(self.view)-sx(headImgView)-20, size.height);
+    qmLabel.numberOfLines = 0;
+    
+    
+    titleLabel.text = KISDictionaryHaveKey(infoDict, @"nickname");
+    ageLabel.text = KISDictionaryHaveKey(infoDict, @"userage");
+    useridLabel.text = [NSString stringWithFormat:@"ID:%@",KISDictionaryHaveKey(infoDict,@"id")];
+    [funsBtn setTitle:[NSString stringWithFormat:@"粉丝 %@",KISDictionaryHaveKey(infoDict,@"fans")] forState:UIControlStateNormal];
+    [gzBtn setTitle:[NSString stringWithFormat:@"关注 %@",KISDictionaryHaveKey(infoDict,@"follow")] forState:UIControlStateNormal];
+    
+}
 -(void)getInfoFromNetWithUserId:(NSString *)userid
 {
     hud.labelText = @"获取中...";
@@ -146,6 +174,10 @@
         [self showAlertViewWithtitle:@"提示" message:@"请求失败"];
     }];
 }
+
+
+
+
 //创建第一条
 -(void)buildFirstView
 {
@@ -191,7 +223,7 @@
     
     
     //签名LB
-    qmLabel = [self buildLabelWithFrame:CGRectMake(sx(headImgView)+10, sy(xzImgViwe)+5, 200, 20) backgroundColor:[UIColor clearColor] textColor:[UIColor grayColor] font:[UIFont systemFontOfSize:14] textAlignment:NSTextAlignmentLeft text:@"no zuo no die why you try?"];
+    qmLabel = [self buildLabelWithFrame:CGRectMake(sx(headImgView)+10, sy(xzImgViwe)+5, 200, 20) backgroundColor:[UIColor clearColor] textColor:[UIColor grayColor] font:[UIFont systemFontOfSize:14] textAlignment:NSTextAlignmentLeft text:@"您还没有设置签名"];
     [blackView addSubview:qmLabel];
     
     UIImageView*lineView = [[UIImageView alloc]initWithFrame:CGRectMake(0, height(blackView)-42, width(blackView), 2)];

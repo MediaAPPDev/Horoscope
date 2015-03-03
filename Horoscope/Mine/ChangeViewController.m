@@ -61,7 +61,7 @@
     [dic setObject:KISDictionaryHaveKey(dict, @"nickname") forKey:@"nickname"];
     [dic setObject:KISDictionaryHaveKey(dict, @"phrase") forKey:@"phrase"];
     [dic setObject:KISDictionaryHaveKey(dict, @"xing") forKey:@"xing"];
-    
+    [dic setObject:[[UserCache sharedInstance]objectForKey:@"password-lasb"] forKey:@"password"];
     
 //    [dic setObject: @"15510106271" forKey:@"mobilenum"];
 //    [dic setObject: @"19890416" forKey:@"birthday"];
@@ -89,7 +89,6 @@
         [self showAlertViewWithtitle:@"提示" message:@"修改失败"];
     }];
     
-    
     [self.menuController popViewControllerAnimated:YES];
 //    [self.navigationController popViewControllerAnimated:YES];
 }
@@ -102,7 +101,7 @@
             [[UserCache sharedInstance]setObject:infoDict forKey:MYINFODICT];
             
             [[NSNotificationCenter defaultCenter]postNotificationName:@"LOIGNSUCCESS_WX_LIANGSHABI" object:nil];
-            
+            [[NSNotificationCenter defaultCenter]postNotificationName:@"REFRESHMINEPAGE" object:nil];
         }
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {

@@ -35,7 +35,7 @@
 
     
     UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(KScreenWidth-60, KISHighVersion_7 ? 20 : 0, 60, 44)];
-    [button setImage:KUIImage(@"wancheng.png") forState:UIControlStateNormal];
+    [button setImage:KUIImage(@"wancheng@2x.png") forState:UIControlStateNormal];
     [button addTarget:self action:@selector(enterNextPage:) forControlEvents:UIControlEventTouchUpInside];
 //    button.backgroundColor = [UIColor greenColor];
     [self.view bringSubviewToFront:button];
@@ -112,6 +112,7 @@
                 if (![state isEqualToString:@""]) {
                     if ([state  intValue]!=0) {
                         [[UserCache sharedInstance]setObject:state forKey:KMYUSERID];
+                        [[UserCache sharedInstance]setObject:_password.text forKey:@"password-lasb"];
                         [self getInfoFromNetWithUserid];
                         [self showMessageWindowWithContent:@"登录成功" imageType:0];
 //                        [self.menuController popViewControllerAnimated:YES];
