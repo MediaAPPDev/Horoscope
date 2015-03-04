@@ -24,6 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor= [UIColor blackColor];
     // Do any additional setup after loading the view.
 //    [self.menuController.topBar setHidden:YES];
     
@@ -133,6 +134,8 @@
 
         cell.signatureLb.text =KISDictionaryHaveKey(dic, @"phrase");;
 //        cell.timeLabel.text = @"1分钟前";
+//        cell.timeLabel.text = @"1分钟前";
+       cell.timeLabel.hidden = YES;
         return cell;
 }
 

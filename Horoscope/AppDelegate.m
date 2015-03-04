@@ -61,7 +61,6 @@
     //****************************** MDMenuViewController initialisation ******************************************
 
     
-    
     //设置友盟社会化组件appkey
     [UMSocialData setAppKey:UmengAppkey];
     
@@ -241,8 +240,8 @@
     
     
     
-    [[NSUserDefaults
-      standardUserDefaults]removeObjectForKey:@"FirstLoign"];
+//    [[NSUserDefaults
+//      standardUserDefaults]removeObjectForKey:@"FirstLoign"];
     if ([[NSUserDefaults
            standardUserDefaults]objectForKey:@"FirstLoign"]) {
         

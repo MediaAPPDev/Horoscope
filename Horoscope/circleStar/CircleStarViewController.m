@@ -29,7 +29,7 @@
     // Do any additional setup after loading the view.
     
     [self buildTopviewWithBackButton:NO title:@"星友圈" rightImage:nil];
-    
+    self.view.backgroundColor =[ UIColor blackColor];
     
     UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(self.view.bounds.size.width-60, KISHighVersion_7?20:0, 60, 44)];
     [button setImage:KUIImage(@"123123") forState:UIControlStateNormal];

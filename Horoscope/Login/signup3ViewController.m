@@ -32,7 +32,7 @@
 
     
     UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(KScreenWidth-60, KISHighVersion_7?20:0, 60, 44)];
-    [button setImage:KUIImage(@"wancheng.png") forState:UIControlStateNormal];
+    [button setImage:KUIImage(@"wancheng@2x.png") forState:UIControlStateNormal];
     [button addTarget:self action:@selector(enterNextPage:) forControlEvents:UIControlEventTouchUpInside];
     
     [self.view addSubview:button];
@@ -78,8 +78,8 @@
     [formatter setDateFormat:@"yyyy -MM -dd"];
     NSString * time = [formatter stringFromDate:datePicker.date];
     
-    
-    NSDateFormatter *formatter1= [[NSDateFormatter alloc]init] ;
+    NSDateFormatter *formatter1= [[NSDateFormatter
+                                   alloc]init] ;
     //获取UIDatepicker对象
     [formatter1 setDateFormat:@"MM"];
     NSString * time1 = [formatter1 stringFromDate:datePicker.date];
@@ -89,10 +89,8 @@
     [formatter2 setDateFormat:@"dd"];
     NSString * time2 = [formatter2 stringFromDate:datePicker.date];
 
-    
     [self.pickViewButton setTitle:time forState:UIControlStateNormal];
     NSString *starStr = [self getAstroWithMonth:[time1 intValue] day:[time2 intValue]];
-    
     
     [self.xingzuoButton setTitle:starStr forState:UIControlStateNormal];
     NSLog(@"%@",starStr);
@@ -148,7 +146,7 @@
     [dic setObject:self.passWordStr forKey:@"password"];
     [dic setObject:self.telPhoneNumber forKey:@"mobilenum"];
     [dic setObject:self.nicheng.text forKey:@"nickname"];
-    [dic setObject:@"111" forKey:@"phrase"];
+    [dic setObject:@"还没设置签名" forKey:@"phrase"];
     [dic setObject:sexStr forKey:@"sex"];
     [dic setObject:self.xingzuoButton.titleLabel.text forKey:@"xing"];
     [dic setObject:self.pickViewButton.titleLabel.text forKey:@"birthday"];
@@ -161,7 +159,12 @@
          NSString *str= [@"123"stringByAppendingString:uid];
          NSLog(@"😄－－－－－－－－%@",str);
          [[UserCache sharedInstance]setObject:uid forKey:KMYUSERID];
-         [self showAlertViewWithtitle:@"注册成功" message:str];
+         [[UserCache sharedInstance]setObject:self.passWordStr forKey:@"password-lasb"];
+         
+         
+//         NSString *str= [@"账号为："stringByAppendingString:uid];
+
+//         [self showAlertViewWithtitle:@"注册成功" message:str];
          [self getInfoFromNetWithUserid];
          [[NSNotificationCenter defaultCenter]postNotificationName:@"" object:nil];
          signup4ViewController * signStep4 =[[signup4ViewController alloc]init];
@@ -174,15 +177,6 @@
          
      }];
  }];
-    
-    
-    
-    
-    
-    
-
-    
-    
 }
 -(void)getInfoFromNetWithUserid
 {
@@ -193,7 +187,6 @@
             [[UserCache sharedInstance]setObject:infoDict forKey:MYINFODICT];
             
             [[NSNotificationCenter defaultCenter]postNotificationName:@"LOIGNSUCCESS_WX_LIANGSHABI" object:nil];
-            
         }
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {

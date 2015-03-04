@@ -67,7 +67,7 @@
          self.gzBtn.titleLabel.font = [UIFont systemFontOfSize:12];
         [self.gzBtn addTarget:self action:@selector(gzgzgz:) forControlEvents:UIControlEventTouchUpInside];
         self.gzBtn.layer.borderColor = [[UIColor grayColor] CGColor];
-        [self.gzBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+        [self.gzBtn setTitleColor:UIColorFromRGBA(0x1bb5f5, 1) forState:UIControlStateNormal];
         [self addSubview:self.gzBtn];
         
         }

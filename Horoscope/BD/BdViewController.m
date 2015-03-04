@@ -29,7 +29,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self buildTopviewWithBackButton:NO title:@"星座宝典" rightImage:@""];
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor blackColor];
     rightBtn = [[UIButton alloc]initWithFrame:CGRectMake(KScreenWidth-60, KISHighVersion_7?20:0, 60, 44)];
     
     [rightBtn setTitle:@"白羊座" forState:UIControlStateNormal];
@@ -72,7 +72,7 @@
         [button setTitle:titleArr[i] forState:UIControlStateNormal];
         switch (i) {
             case 0:
-                [button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+                [button setTitleColor:UIColorFromRGBA(0x1bb5f5, 1) forState:UIControlStateNormal];
                 break;
             case 1:
                 [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
@@ -91,7 +91,7 @@
         [self.view addSubview:button];
         
         if (button.tag ==100) {
-            [button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+            [button setTitleColor:UIColorFromRGBA(0x1bb5f5, 1) forState:UIControlStateNormal];
         }
         
 //        UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(self.view.bounds.size.width*i, 0, self.view.bounds.size.width, self.view.bounds.size.height-64-44)];
@@ -307,7 +307,7 @@
 {
     if (sender.tag ==100) {
         UIButton *button1 = (UIButton *)[self.view viewWithTag:100];
-        [button1 setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+        [button1 setTitleColor:UIColorFromRGBA(0x1bb5f5, 1) forState:UIControlStateNormal];
         UIButton *button2 = (UIButton *)[self.view viewWithTag:101];
         [button2 setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         UIButton *button3 = (UIButton *)[self.view viewWithTag:102];
@@ -325,7 +325,7 @@
         UIButton *button1 = (UIButton *)[self.view viewWithTag:100];
         [button1 setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         UIButton *button2 = (UIButton *)[self.view viewWithTag:101];
-        [button2 setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+        [button2 setTitleColor:UIColorFromRGBA(0x1bb5f5, 1) forState:UIControlStateNormal];
         UIButton *button3 = (UIButton *)[self.view viewWithTag:102];
         [button3 setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         
@@ -344,7 +344,7 @@
         UIButton *button2 = (UIButton *)[self.view viewWithTag:101];
         [button2 setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         UIButton *button3 = (UIButton *)[self.view viewWithTag:102];
-        [button3 setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+        [button3 setTitleColor:UIColorFromRGBA(0x1bb5f5, 1) forState:UIControlStateNormal];
         
         [UIView animateWithDuration:0.5 animations:^{
             blueImageView.frame = CGRectMake(self.view.bounds.size.width/3*2, 108, self.view.bounds.size.width/3, 2);

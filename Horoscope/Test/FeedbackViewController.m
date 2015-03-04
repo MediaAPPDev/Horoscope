@@ -20,8 +20,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self setTopViewWithTitle:@"反馈意见" withBackButton:YES];
-    
+    [self setTopViewWithTitle:@"反馈意见" withBackButton:NO];
+    UIButton* backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, KISHighVersion_7 ? 20 : 0, 65, 44)];
+    [backButton setImage:KUIImage(@"back") forState:UIControlStateNormal];
+    [backButton setImage:KUIImage(@"back") forState:UIControlStateHighlighted];
+    backButton.backgroundColor = [UIColor clearColor];
+    [backButton addTarget:self action:@selector(backButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:backButton];
+
     self.view.backgroundColor =[UIColor whiteColor];
 
     UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(self.view.bounds.size.width-60, KISHighVersion_7?20:0, 60, 44)];
@@ -38,10 +44,12 @@
     FBtextView.layer.borderWidth = 1;
     FBtextView.delegate = self;
     [self.view addSubview:FBtextView];
-    
 }
 
-
+-(void)backButtonClick:(id)sender
+{
+    [self.menuController popViewControllerAnimated:NO];
+}
 
 -(void)enterNextPage:(id)sender
 {

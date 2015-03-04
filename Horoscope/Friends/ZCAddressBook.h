@@ -95,6 +95,9 @@ enum {
 
 -(NSArray*)sortMethod;
 
+-(NSInteger)sq;
+
+
 - (NSString *) pinyinFromChiniseString:(NSString *)string;
 #pragma -------------使用系统方式发送短信，或者获得联系人 以下方法不能够使用单例进行，有UI操作
 

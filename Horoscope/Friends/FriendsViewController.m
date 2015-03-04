@@ -53,7 +53,9 @@
     [button setImage:KUIImage(@"123123") forState:UIControlStateNormal];
     [button addTarget:self action:@selector(enterNextPage:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
-
+    hud = [[MBProgressHUD alloc]initWithView:self.view];
+    [self.view addSubview:hud];
+    hud.labelText = @"加载中...";
     
     // Do any additional setup after loading the view.
     myTabelView = [[UITableView alloc]initWithFrame:CGRectMake(0, KISHighVersion_7?64:44, KScreenWidth, KScreenHeight-(KISHighVersion_7?64:44))];
@@ -106,11 +108,13 @@
 #pragma  mark ---网络请求
 -(void)getInfoFromNetWithUrl:(NSString *)url
 {
+    [hud show:YES];
+    
       [[AFAppDotNetAPIClient sharedClient] GET:url parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
  
         NSLog(@"get----%@",responseObject);
         
-        
+          [hud hide:YES];
         if ([responseObject isKindOfClass:[NSDictionary class]]) {
             infoDic = responseObject;
             [myTabelView reloadData];
@@ -124,9 +128,9 @@
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"error---%@",error);
+        [self showAlertViewWithtitle:@"请求失败" message:@"请检查网络"];
+        [hud hide: YES];
     }];
-    
- 
 }
 
 -(void)refreshList:(NSNotification *)info

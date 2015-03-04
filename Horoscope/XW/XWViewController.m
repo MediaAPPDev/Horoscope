@@ -25,13 +25,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self buildTopviewWithBackButton:YES title:@"星文" rightImage:@"订阅－正常"];
-    
+    self.view.backgroundColor = [UIColor blackColor];
     _tableView =[[UITableView alloc]init];
 
     _tableView.delegate =self;
     _tableView.dataSource =self;
     _tableView.frame =CGRectMake(0,startX, KScreenWidth, KScreenHeight -(KISHighVersion_7?64:44));
-//  sx(<#m#>)
+//  )
 //    tableView.frame =self.view.bo;
     //解析
     [[AFAppDotNetAPIClient sharedClient] GET:@"article.php" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {

@@ -35,7 +35,7 @@
 
     
     UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(KScreenWidth-60, KISHighVersion_7 ? 20 : 0, 60, 44)];
-    [button setImage:KUIImage(@"wancheng.png") forState:UIControlStateNormal];
+    [button setImage:KUIImage(@"wancheng@2x.png") forState:UIControlStateNormal];
     [button addTarget:self action:@selector(enterNextPage:) forControlEvents:UIControlEventTouchUpInside];
     [self.view bringSubviewToFront:button];
     [self.view addSubview:button];
@@ -101,6 +101,7 @@
                     NSLog(@"-----------%@",state);
                     if ([state  intValue]!=0) {
                         [[UserCache sharedInstance]setObject:state forKey:KMYUSERID];
+                        [[UserCache sharedInstance]setObject:_password.text forKey:@"password-lasb"];
                         [self getInfoFromNetWithUserid];
                         [self showMessageWindowWithContent:@"登录成功" imageType:0];
                         

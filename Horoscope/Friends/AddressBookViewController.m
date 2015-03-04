@@ -220,8 +220,15 @@
 //取消搜索或者改变搜索条件
 -(void)resetSearch
 {//重置搜索
+    
     addressBookDic = [[ZCAddressBook shareControl]getPersonInfo];
     keysArr = [NSMutableArray arrayWithArray:[[ZCAddressBook shareControl]sortMethod]];
+    
+    if (!addressBookDic) {
+        UIAlertView * al = [[UIAlertView alloc]initWithTitle:@"提示" message:@"您未授权使用通讯录，请在设置-隐私-通讯录中设置" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+                   [al show];
+    }
+    
 }
 -(void)handleSearchForTerm:(NSString *)searchTerm
 {//处理搜索

@@ -52,7 +52,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+     self.view.backgroundColor= [UIColor blackColor];
     ysArr =[ NSArray arrayWithObjects:@"今日运势",@"明日运势",@"本周运势",@"本月运势", nil];
 
     cArray = [NSMutableArray array];
@@ -81,7 +81,7 @@
     [self buildTopviewWithBackButton:YES title:@"" rightImage:@""];
     
     rightBtn = [[UIButton alloc]initWithFrame:CGRectMake(self.view.bounds.size.width-60, KISHighVersion_7?20:0, 60, 44)];
-    [rightBtn setImage:KUIImage(@"shareOut") forState:UIControlStateNormal];
+    [rightBtn setImage:KUIImage(@"share") forState:UIControlStateNormal];
     [rightBtn addTarget:self action:@selector(shareOutInfo:) forControlEvents:UIControlEventTouchUpInside];
     rightBtn.enabled = NO;
     [self.view addSubview:rightBtn];

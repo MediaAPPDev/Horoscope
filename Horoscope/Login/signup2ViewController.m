@@ -10,7 +10,9 @@
 #import "signup3ViewController.h"
 
 @interface signup2ViewController ()
-
+{
+    NSString * sjyzmStr;
+}
 @end
 
 @implementation signup2ViewController
@@ -28,7 +30,7 @@
     [self.view addSubview:backButton];
 
     UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(KScreenWidth-60, KISHighVersion_7?20:0, 60, 44)];
-    [button setImage:KUIImage(@"wancheng.png") forState:UIControlStateNormal];
+    [button setImage:KUIImage(@"wancheng@2x.png") forState:UIControlStateNormal];
     [button addTarget:self action:@selector(enterNextPage:) forControlEvents:UIControlEventTouchUpInside];
     
     [self.view addSubview:button];
@@ -64,16 +66,15 @@
             NSString *state  =KISDictionaryHaveKey(responseObject, @"SMSCODE");
             NSLog(@"😄－－－－－%@",state);
             if (![state isEqualToString:@""]) {
-                [_sendCode setText:state ];
+//                [_sendCode setText:state ];
+                sjyzmStr = state;
             }
 //-------------------//-------13261649688--------//-----------//-------------//--------------//-------//
         }
 
         else{
-            
             UIAlertView * alert =[[UIAlertView alloc]initWithTitle:@"错误" message:@"验证码返回失败！" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
             [alert show];
-            
         }
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -83,26 +84,31 @@
 
 -(void)enterNextPage:(UIButton *)btn
 {
-    if ([self isEmtity:_password.text] || [self isEmtity:_sendCode.text]) {
+//    if ([self isEmtity:_password.text] || [self isEmtity:_sendCode.text]) {
+    
+        
         if ([self isEmtity:_password.text]) {
             UIAlertView * alert =[[UIAlertView alloc]initWithTitle:@"错误" message:@"密码不能为空！" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
             [alert show];
-        }else {
-            
-       
-            
+            return;
         }
-        
-        
         if ([self isEmtity:_sendCode.text]) {
             UIAlertView * alert =[[UIAlertView alloc]initWithTitle:@"错误" message:@"验证码不能为空！" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
             [alert show];
+            return;
         }
         
     
        
-    }else if(_password.text.length >= 6 && _password.text.length <=18){
+    else if(_password.text.length >= 6 && _password.text.length <=18){
+//    }else{
 
+    if (![_sendCode.text isEqualToString:sjyzmStr]) {
+        [self  showAlertViewWithtitle:@"提示" message:@"验证码不正确"];
+        return;
+    }
+    
+    
         signup3ViewController * signStep3 =[[signup3ViewController alloc]init];
         signStep3.telPhoneNumber = self.telPhoneNumber.text;
         signStep3.passWordStr = self.password.text;
@@ -116,7 +122,8 @@
         [alertView show];
 
     }
-   
+//    }
+
     
     
 }

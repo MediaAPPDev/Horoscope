@@ -26,7 +26,7 @@
         self.nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(sx(self.headImageView)+10, 10, KScreenWidth-sx(self.headImageView), 20)];
         self.nameLabel.backgroundColor = [UIColor clearColor];
         self.nameLabel.font = [UIFont boldSystemFontOfSize:13];
-        self.nameLabel.textColor = [UIColor blueColor];
+        self.nameLabel.textColor = UIColorFromRGBA(0x1bb5f5, 1);
         [self addSubview:self.nameLabel];
         
         self.titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(sx(self.headImageView)+10, sy(self.nameLabel)+5, KScreenWidth-sx(self.headImageView)-20, 20)];
@@ -92,7 +92,7 @@
         lb = [[UILabel alloc]initWithFrame:CGRectMake(sx(timg)+5, 7, width(self.zanView)-sx(timg)-5, 20)];
         lb.font = [UIFont systemFontOfSize:12];
         lb.backgroundColor = [UIColor clearColor];
-        lb.textColor = [UIColor blueColor];
+        lb.textColor = UIColorFromRGBA(0x1bb5f5, 1);
         [self.zanView addSubview:lb];
         [self addSubview:self.zanView];
         
