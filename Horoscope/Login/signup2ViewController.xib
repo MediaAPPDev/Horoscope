@@ -55,7 +55,7 @@
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="textNormal.png" translatesAutoresizingMaskIntoConstraints="NO" id="QN4-FX-hbX">
                                     <rect key="frame" x="0.0" y="0.0" width="259" height="50"/>
                                 </imageView>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="设置登录密码不少于6位" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Txw-lu-KXK">
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="设置登录密码6~18" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Txw-lu-KXK">
                                     <rect key="frame" x="66" y="-6" width="193" height="66"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>

@@ -101,7 +101,7 @@
         
     
        
-    }else{
+    }else if(_password.text.length >= 6 && _password.text.length <=18){
 
         signup3ViewController * signStep3 =[[signup3ViewController alloc]init];
         signStep3.telPhoneNumber = self.telPhoneNumber.text;
@@ -111,6 +111,10 @@
         NSLog(@"lalalla========    %@",signStep3.passWordStr);
 //        [self.menuController pushViewController:signStep3 withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
         [self.navigationController pushViewController:signStep3 animated:YES];
+    }else{
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"密码不能少于6位或大于18位" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+        [alertView show];
+
     }
    
     

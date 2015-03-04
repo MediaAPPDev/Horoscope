@@ -156,6 +156,8 @@
 -(NSString*)titleForChildControllerMDMenuViewController:(MDMenuViewController *)menuController
 {
     return @"测试";
+    
+    
 }
 -(NSString*)iconForChildControllerMDMenuViewController:(MDMenuViewController *)menuController
 {

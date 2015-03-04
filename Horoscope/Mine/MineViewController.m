@@ -82,11 +82,11 @@
     myTableView.dataSource = self;
     
     [mainScrl addSubview:myTableView];
-//    arr1 = [NSArray arrayWithObjects:@"情感状态",@"外貌",@"职业",@"爱好",@"语言",@"出生地",@"学校",@"公司", nil];
-//    arr2 = [NSArray arrayWithObjects:@"单身",@"180cm 55kg 强壮",@"学生",@"泡妞 游戏 电影 读书",@"中 英 法 德 西班牙 日 韩 俄罗斯 意大利",@"China",@"英国剑桥",@"SF", nil];
+    arr1 = [NSArray arrayWithObjects:@"情感状态",@"外貌",@"职业",@"爱好",@"语言",@"出生地",@"学校",@"公司", nil];
+    arr2 = [NSArray arrayWithObjects:@"单身",@"180cm 55kg 强壮",@"学生",@"泡妞 游戏 电影 读书",@"中 英 法 德 西班牙 日 韩 俄罗斯 意大利",@"China",@"英国剑桥",@"SF", nil];
     
     
-//    [self setIsRootView:NO];
+    [self setIsRootView:NO];
     hud = [[MBProgressHUD alloc]initWithView:self.view];
     [self.view addSubview:hud];
     [self getInfoFromNetWithUserId:self.userid];

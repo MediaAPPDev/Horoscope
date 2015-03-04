@@ -42,7 +42,7 @@
     oldPSTF.borderStyle =UITextBorderStyleRoundedRect;
     oldPSTF.textColor =[UIColor blackColor ];
     oldPSTF.clearButtonMode = UITextFieldViewModeAlways;
-//    oldPSTF.secureTextEntry = YES;
+    oldPSTF.secureTextEntry = YES;
     oldPSTF.textAlignment = NSTextAlignmentCenter;
     oldPSTF.autocapitalizationType = UITextAutocapitalizationTypeNone;
     [self.view addSubview:oldPSTF];
@@ -51,7 +51,7 @@
     newPSTF.borderStyle =UITextBorderStyleRoundedRect;
     newPSTF.textColor =[UIColor blackColor ];
     newPSTF.clearButtonMode = UITextFieldViewModeAlways;
-//    newPSTF.secureTextEntry = YES;
+    newPSTF.secureTextEntry = YES;
     newPSTF.textAlignment = NSTextAlignmentCenter;
     newPSTF.autocapitalizationType = UITextAutocapitalizationTypeNone;
     [self.view addSubview:newPSTF];
@@ -61,7 +61,7 @@
     repeatPSTF.borderStyle =UITextBorderStyleRoundedRect;
     repeatPSTF.textColor =[UIColor blackColor ];
     repeatPSTF.clearButtonMode = UITextFieldViewModeAlways;
-//    repeatPSTF.secureTextEntry = YES;
+    repeatPSTF.secureTextEntry = YES;
     repeatPSTF.textAlignment = NSTextAlignmentCenter;
     repeatPSTF.autocapitalizationType = UITextAutocapitalizationTypeNone;
     [self.view addSubview:repeatPSTF];
