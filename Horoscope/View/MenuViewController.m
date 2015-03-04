@@ -302,7 +302,7 @@
     
     MineViewController *mineVC = [[MineViewController alloc]init];
     UINavigationController *navi = [[UINavigationController alloc]initWithRootViewController:mineVC];
-    mineVC.isRootView =YES;
+    mineVC.mytype =COME_MYSELF;
     navi.navigationBarHidden = YES;
     [self.sideMenuController setContentController:navi animated:YES];
     [_showView setHidden: YES];

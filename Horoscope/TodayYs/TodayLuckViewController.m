@@ -95,7 +95,7 @@
     
     
     scr = [[ UIScrollView alloc]initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height-64)];
-    scr.backgroundColor = [UIColor whiteColor];
+    scr.backgroundColor = [UIColor blackColor];
     scr.contentSize = CGSizeMake(0, 188+64+139+400);
     [self.view addSubview:scr];
     

@@ -216,7 +216,7 @@
     }
     else  if (indexPath.section ==1) {
         MineViewController *mine = [[MineViewController alloc]init];
-        mine.isRootView = NO;
+        mine.mytype = COME_OTHER;
         NSDictionary *dic =[infoArr objectAtIndex:indexPath.row];
         mine.userid = KISDictionaryHaveKey(dic, @"uid");
         [self.menuController pushViewController:mine withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];

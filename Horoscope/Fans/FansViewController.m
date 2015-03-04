@@ -51,7 +51,7 @@
     }else{
         urlStr =[NSString stringWithFormat:@"userfollow.php?uid=%@",[[UserCache sharedInstance]objectForKey:KMYUSERID]];
     }
-    
+    NSLog(@"------%@",urlStr);
       [[AFAppDotNetAPIClient sharedClient] GET:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         
         if (![responseObject isKindOfClass:[NSArray class]]) {
@@ -97,7 +97,7 @@
 {
     NSDictionary *dic = [infoArr objectAtIndex:indexPath.row];
     MineViewController *mineVC = [[MineViewController alloc]init];
-    mineVC.isRootView = NO;
+    mineVC.mytype = COME_OTHER;
     mineVC.userid = KISDictionaryHaveKey(dic, @"uid");
     [self.menuController pushViewController:mineVC withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
 }

@@ -31,14 +31,14 @@
     UILabel *titleLabel = [self buildLabelWithFrame:CGRectMake(20, startX+20, width(self.view)-40, 40) backgroundColor:[UIColor clearColor] textColor:[UIColor blackColor] font:[UIFont boldSystemFontOfSize:24] textAlignment:NSTextAlignmentLeft text:[NSString stringWithFormat:@"%@",KISDictionaryHaveKey(self.mainDic, @"title")]];
     [self.view addSubview:titleLabel];
     
-    EGOImageView *headImg = [[EGOImageView alloc]initWithFrame:CGRectMake(10, 80+startX,width(self.view)-20, width(self.view)/2)];;
+    EGOImageView *headImg = [[EGOImageView alloc]initWithFrame:CGRectMake(10, 80+startX,width(self.view)-20, width(self.view)-20)];;
     
     headImg.imageURL = [NSURL URLWithString:KISDictionaryHaveKey(self.mainDic, @"photo")];
     [self.view addSubview:headImg];
     
     
     
-    UITextView *textView = [[UITextView alloc]initWithFrame:CGRectMake(10, startX+90+width(self.view)/2, width(self.view)-20, 400)];
+    UITextView *textView = [[UITextView alloc]initWithFrame:CGRectMake(10, startX+90+width(self.view)-20, width(self.view)-20, 400)];
     textView.scrollEnabled = YES;
     textView.editable = NO;
     textView.font = [UIFont systemFontOfSize:16];

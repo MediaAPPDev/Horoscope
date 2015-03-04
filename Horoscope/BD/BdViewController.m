@@ -102,6 +102,8 @@
         txV.backgroundColor = [UIColor whiteColor];
         txV.textColor = [UIColor blackColor];
         txV.font = [UIFont systemFontOfSize:16];
+//        txV.bounces = YES;
+        txV.alwaysBounceVertical = YES;
         txV.tag = 1999+i;
         [scrollView addSubview:txV];
     }
@@ -366,7 +368,7 @@
 }
 -(NSString*)iconForChildControllerMDMenuViewController:(MDMenuViewController *)menuController
 {
-    return @"baodian.png";
+    return @"baodian";
 }
 
 /*

@@ -284,7 +284,7 @@
 {
     NSLog(@"%ld",(long)ccButton.tag);
     MineViewController *mineView = [[MineViewController alloc]init];
-    mineView.isRootView = NO;
+    mineView.mytype = COME_OTHER;
     NSDictionary *dic =[allArr objectAtIndex:sender.tag];
     mineView.userid =KISDictionaryHaveKey(dic, @"uid");
     [self.menuController pushViewController:mineView withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
@@ -310,7 +310,7 @@
 -(void)didClickButton:(NSInteger)n
 {
     MineViewController *mine = [[MineViewController alloc]init];
-    mine.isRootView = NO;
+    mine.mytype = COME_OTHER;
      [self.menuController pushViewController:mine withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
     
     [self didHiddenBlView:nil];

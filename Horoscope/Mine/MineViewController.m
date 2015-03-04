@@ -34,6 +34,8 @@
     NSMutableDictionary * infoDict;
     NSMutableArray * photoWallArray;
     UILabel * tisLb;
+    
+    UIActionSheet  * mYActionSheet;
 }
 @end
 
@@ -44,18 +46,23 @@
      self.view.backgroundColor= [UIColor blackColor];
     // Do any additional setup after loading the view.
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshInfo:) name:@"REFRESHMINEPAGE" object:nil];
-    if (self.isRootView) {
-        
-        [self setTopViewWithTitle:@"" withBackButton:YES];
-        
-        UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(self.view.bounds.size.width-60, KISHighVersion_7?20:0, 60, 44)];
+    
+    [self setTopViewWithTitle:@"" withBackButton:YES];
+    
+    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(self.view.bounds.size.width-60, KISHighVersion_7?20:0, 60, 44)];
+    [self.view addSubview:button];
+
+    if (self.mytype == COME_MYSELF) {
         [button setImage:KUIImage(@"editor") forState:UIControlStateNormal];
         [button addTarget:self action:@selector(enterNextPage:) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:button];
 
     }else{
-        [self setTopViewWithTitle:@"" withBackButton:YES];
+//        [self setTopViewWithTitle:@"" withBackButton:YES];
+        [button setImage:KUIImage(@"wancheng") forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(getOutList:) forControlEvents:UIControlEventTouchUpInside];
+
     }
+    
     titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(70, KISHighVersion_7?20:0, self.view.bounds.size.width-140, 44)];
     titleLabel.font = [UIFont boldSystemFontOfSize:22];
     titleLabel.textAlignment =NSTextAlignmentCenter;
@@ -89,7 +96,7 @@
 //    arr2 = [NSArray arrayWithObjects:@"单身",@"180cm 55kg 强壮",@"学生",@"泡妞 游戏 电影 读书",@"中 英 法 德 西班牙 日 韩 俄罗斯 意大利",@"China",@"英国剑桥",@"SF", nil];
     
     
-    [self setIsRootView:NO];
+//    [self setIsRootView:NO];
     hud = [[MBProgressHUD alloc]initWithView:self.view];
     [self.view addSubview:hud];
     [self getInfoFromNetWithUserId:self.userid];
@@ -130,7 +137,7 @@
     hud.labelText = @"获取中...";
     [hud show:YES];
     NSString *urlStr ;
-    if (self.isRootView) {
+    if (self.mytype == COME_MYSELF) {
         urlStr = [NSString stringWithFormat:@"userdetail.php?uid=%@",[[UserCache sharedInstance]objectForKey:KMYUSERID ]];
     }else{
         urlStr = [NSString stringWithFormat:@"userdetail.php?uid=%@",userid];
@@ -196,7 +203,7 @@
 
     //如果是自己的信息 可以更改头像
     
-    if (self.isRootView) {
+    if (self.mytype == COME_MYSELF) {
         [headImgView addTarget:self action:@selector(changeHeadImage:) forControlEvents:UIControlEventTouchUpInside];
     }
     [blackView addSubview:headImgView];
@@ -317,7 +324,7 @@
         }
     }
     
-    if (self.isRootView) {
+    if (self.mytype == COME_MYSELF) {
         UIButton *addBtn;
         if (!addBtn) {
             addBtn=[[UIButton alloc]initWithFrame:CGRectMake(width(photoView)/2-15, height(photoView)/2-15, 30, 30)];
@@ -470,7 +477,7 @@
 //    UIAlertView *ale = [[UIAlertView alloc]initWithTitle:@"提示" message:@"粉丝250" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
 //    [ale show];
     
-    if (self.isRootView) {
+    if (self.mytype == COME_MYSELF) {
         FansViewController *fans = [[FansViewController alloc]init];
         fans.isFans = YES;
         [self.menuController pushViewController:fans withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
@@ -483,13 +490,18 @@
 {
 //    UIAlertView *ale = [[UIAlertView alloc]initWithTitle:@"提示" message:@"关注250" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
 //    [ale show];
-    if (self.isRootView) {
+    if (self.mytype == COME_MYSELF) {
         FansViewController *fans = [[FansViewController alloc]init];
         fans.isFans = NO;
         [self.menuController pushViewController:fans withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
     }
     
 }
+
+
+
+
+
 
 -(void)seeBigImg:(UIButton *)sender
 {
@@ -515,7 +527,13 @@
     [self.menuController pushViewController:p withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeNone]];
 
 }
-
+#pragma mark ----修改接口之后继续改动
+-(void)getOutList:(id)sender
+{
+    mYActionSheet = [[UIActionSheet alloc]initWithTitle:@"操作" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"关注" otherButtonTitles:@"举报", nil];
+    mYActionSheet.tag =19999999999;
+    [mYActionSheet showInView:self.view];
+}
 -(void)changeHeadImage:(id)sender
 {
     if (!photoSheet) {
@@ -527,6 +545,31 @@
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
+    
+    if (actionSheet.tag ==19999999999) {
+        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+        switch (buttonIndex) {
+            case 0:
+                [dic setObject:[[UserCache sharedInstance]objectForKey:KMYUSERID] forKey:@"uid"];
+                [dic setObject:self.userid forKey:@"fid"];
+                
+                [[AFAppDotNetAPIClient sharedClient]POST:@"follow" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+                    NSLog(@"成功");
+                } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                    NSLog(@"失败");
+                }];
+
+                break;
+               case 1:
+                
+                [self showAlertViewWithtitle:@"提示" message:@"还没有举报"];
+                
+                break;
+            default:
+                break;
+        }
+    }else{
+    
     switch (buttonIndex) {
         case 0:
         {
@@ -573,7 +616,7 @@
             
             
     }
-
+    }
 }
 #pragma mark----imagepick delegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info

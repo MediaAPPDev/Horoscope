@@ -46,6 +46,7 @@
     
     myTableView.delegate = self;
     myTableView.dataSource = self;
+    
     [self.view addSubview:myTableView];
     [self buildTableViewHeadView];
     [self createCommentText];

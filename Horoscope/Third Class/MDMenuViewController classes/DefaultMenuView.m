@@ -106,7 +106,7 @@
     
     if ([[UserCache sharedInstance]objectForKey:KMYUSERID]) {
         MineViewController * mine =[[MineViewController alloc]init];
-        mine.isRootView =YES;
+        mine.mytype =COME_MYSELF;
         mine.userid =[NSString stringWithFormat:@"%@",[[UserCache sharedInstance]objectForKey:KMYUSERID]];
         [self.delegate pushViewController:mine animated:YES];
 

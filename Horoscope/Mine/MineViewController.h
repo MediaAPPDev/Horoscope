@@ -7,9 +7,15 @@
 //
 
 #import "BaseViewController.h"
+typedef enum
+{
+    COME_MYSELF=0,
+    COME_OTHER,
+}MYINFOTYPE;
 
 @interface MineViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,UIActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 @property (nonatomic,assign)BOOL isRootView;
 @property (nonatomic,copy) NSString * userid;
+@property (nonatomic,assign)MYINFOTYPE mytype;
 @property (nonatomic,assign)BOOL isUpLoadHeadImg;
 @end

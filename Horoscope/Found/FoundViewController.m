@@ -146,7 +146,7 @@
     NSDictionary *dic = infoArray[indexPath.row];
     
     MineViewController *mine = [[MineViewController alloc]init];
-    mine.isRootView = NO;
+    mine.mytype = COME_OTHER;
     mine.userid = KISDictionaryHaveKey(dic, @"uid");
 //    [self.menuController pushViewController:mine withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
     
