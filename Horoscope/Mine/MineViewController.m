@@ -421,6 +421,7 @@
 {
 //    UIAlertView *ale = [[UIAlertView alloc]initWithTitle:@"提示" message:@"粉丝250" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
 //    [ale show];
+    
     if (self.isRootView) {
         FansViewController *fans = [[FansViewController alloc]init];
         fans.isFans = YES;
