@@ -41,6 +41,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+     self.view.backgroundColor= [UIColor blackColor];
     // Do any additional setup after loading the view.
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshInfo:) name:@"REFRESHMINEPAGE" object:nil];
     if (self.isRootView) {
@@ -82,7 +83,7 @@
     myTableView.dataSource = self;
     
     [mainScrl addSubview:myTableView];
-//    arr1 = [NSArray arrayWithObjects:@"情感状态",@"外貌",@"职业",@"爱好",@"语言",@"出生地",@"学校",@"公司", nil];
+    arr1 = [NSArray arrayWithObjects:@"生日",@"注册时间", nil];
 //    arr2 = [NSArray arrayWithObjects:@"单身",@"180cm 55kg 强壮",@"学生",@"泡妞 游戏 电影 读书",@"中 英 法 德 西班牙 日 韩 俄罗斯 意大利",@"China",@"英国剑桥",@"SF", nil];
     
     
@@ -120,7 +121,7 @@
     useridLabel.text = [NSString stringWithFormat:@"ID:%@",KISDictionaryHaveKey(infoDict,@"id")];
     [funsBtn setTitle:[NSString stringWithFormat:@"粉丝 %@",KISDictionaryHaveKey(infoDict,@"fans")] forState:UIControlStateNormal];
     [gzBtn setTitle:[NSString stringWithFormat:@"关注 %@",KISDictionaryHaveKey(infoDict,@"follow")] forState:UIControlStateNormal];
-    
+    [myTableView reloadData];
 }
 -(void)getInfoFromNetWithUserId:(NSString *)userid
 {
@@ -164,9 +165,9 @@
             
             titleLabel.text = KISDictionaryHaveKey(infoDict, @"nickname");
             ageLabel.text = KISDictionaryHaveKey(infoDict, @"userage");
-            useridLabel.text = [NSString stringWithFormat:@"ID:%@",KISDictionaryHaveKey(infoDict,@"id")];
             [funsBtn setTitle:[NSString stringWithFormat:@"粉丝 %@",KISDictionaryHaveKey(infoDict,@"fans")] forState:UIControlStateNormal];
             [gzBtn setTitle:[NSString stringWithFormat:@"关注 %@",KISDictionaryHaveKey(infoDict,@"follow")] forState:UIControlStateNormal];
+            [myTableView reloadData];
         }
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -352,7 +353,7 @@
             return 0;
             break;
         default:
-            return 0;
+            return 2;
             break;
     }
 }
@@ -375,7 +376,16 @@
         cell = [[PersonInfoCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
     cell.titleLabel.text= arr1[indexPath.row];
-    cell.ctLabel.text = arr2[indexPath.row];
+        
+        if (indexPath.row==0) {
+            cell.ctLabel.text  = [infoDict objectForKey:@"birthday"];
+        }
+        else if (indexPath.row ==1)
+        {
+            cell.ctLabel.text = KISDictionaryHaveKey(infoDict, @"regtime");
+        }
+        
+//    cell.ctLabel.text = arr2[indexPath.row];
     return cell;
     }
 }
@@ -392,17 +402,21 @@
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     if (section==1) {
-        UIView *view = [[UIView alloc]init];
-        view.backgroundColor = [UIColor grayColor];
-        UIView *view1 = [[UIView alloc]initWithFrame:CGRectMake(0, 1, KScreenWidth, 50-2)];
-        view1.backgroundColor = [UIColor whiteColor];
-        [view addSubview:view1];
-        
-        UILabel *lb1 = [self buildLabelWithFrame:CGRectMake(0, 0, 80, 40) backgroundColor:[UIColor clearColor] textColor:[UIColor blackColor] font:[UIFont boldSystemFontOfSize:17] textAlignment:NSTextAlignmentRight text:@"基本资料"];
-        [view1 addSubview:lb1];
-        
-        useridLabel = [self buildLabelWithFrame:CGRectMake(KScreenWidth-200, 0, 180, 40) backgroundColor:[UIColor clearColor] textColor:[UIColor blackColor] font:[UIFont boldSystemFontOfSize:17] textAlignment:NSTextAlignmentRight text:@"星缘号:"];
-        [view1 addSubview:useridLabel];
+        UIView *view;
+        if (!view) {
+            view = [[UIView alloc]init];
+            view.backgroundColor = [UIColor grayColor];
+            UIView *view1 = [[UIView alloc]initWithFrame:CGRectMake(0, 1, KScreenWidth, 50-2)];
+            view1.backgroundColor = [UIColor whiteColor];
+            [view addSubview:view1];
+            
+            UILabel *lb1 = [self buildLabelWithFrame:CGRectMake(0, 0, 80, 40) backgroundColor:[UIColor clearColor] textColor:[UIColor blackColor] font:[UIFont boldSystemFontOfSize:17] textAlignment:NSTextAlignmentRight text:@"基本资料"];
+            [view1 addSubview:lb1];
+            
+            useridLabel = [self buildLabelWithFrame:CGRectMake(KScreenWidth-200, 0, 180, 40) backgroundColor:[UIColor clearColor] textColor:[UIColor blackColor] font:[UIFont boldSystemFontOfSize:17] textAlignment:NSTextAlignmentRight text:@"星缘号:"];
+            [view1 addSubview:useridLabel];
+        }
+        useridLabel.text = [NSString stringWithFormat:@"星缘号:%@",KISDictionaryHaveKey(infoDict,@"id")];
 
         return view;
     }

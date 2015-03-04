@@ -52,7 +52,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+     self.view.backgroundColor= [UIColor blackColor];
     ysArr =[ NSArray arrayWithObjects:@"今日运势",@"明日运势",@"本周运势",@"本月运势", nil];
 
     cArray = [NSMutableArray array];

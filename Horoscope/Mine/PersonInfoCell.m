@@ -23,7 +23,7 @@
         
         self.ctLabel = [[UILabel alloc]initWithFrame:CGRectMake(150, 0, KScreenWidth-180, 40)];
         self.ctLabel.font = [UIFont systemFontOfSize:14];
-        self.ctLabel.textAlignment   = NSTextAlignmentLeft;
+        self.ctLabel.textAlignment   = NSTextAlignmentRight;
         self.ctLabel.textColor = [UIColor blackColor];
         [self addSubview:self.ctLabel];
     }

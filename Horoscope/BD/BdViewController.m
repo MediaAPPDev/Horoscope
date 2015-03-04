@@ -29,7 +29,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self buildTopviewWithBackButton:NO title:@"星座宝典" rightImage:@""];
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor blackColor];
     rightBtn = [[UIButton alloc]initWithFrame:CGRectMake(KScreenWidth-60, KISHighVersion_7?20:0, 60, 44)];
     
     [rightBtn setTitle:@"白羊座" forState:UIControlStateNormal];
