@@ -58,7 +58,7 @@
         [scr addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(backView)]];
 //        scr.backgroundColor = [UIColor greenColor];
         [scrollView addSubview:scr];
-    }
+    } 
     
     numLb = [self buildLabelWithFrame:CGRectMake(width(self.view)-170, height(self.view)-60, 150, 50) backgroundColor:[UIColor clearColor] textColor:[UIColor whiteColor] font:[UIFont boldSystemFontOfSize:40] textAlignment:NSTextAlignmentRight text:[NSString stringWithFormat:@"%d/%lu",self.num+1,(unsigned long)self.photoArray.count]];
     [self.view addSubview:numLb];
