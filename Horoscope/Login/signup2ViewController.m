@@ -43,7 +43,85 @@
     NSLog(@"lallala========  %@",_password.text);
     [self sendTelCode];
     
+    
+    
+    [_resenVerificationCode addTarget:self action:@selector(startTime) forControlEvents:UIControlEventTouchUpInside];_resenVerificationCode.userInteractionEnabled = NO;
+    
+    
+    
+
+    UIImage *buttonImageNomal=[UIImage imageNamed:@"button-click@2x.png"];
+    UIImage *stretchableButtonImageNomal=[buttonImageNomal stretchableImageWithLeftCapWidth:12 topCapHeight:0];
+    [_resenVerificationCode setBackgroundImage:stretchableButtonImageNomal forState:UIControlStateNormal];
+    _resenVerificationCode.userInteractionEnabled = NO;
+    [self startTime];
+
+    
     // Do any additional setup after loading the view from its nib.==00000
+}
+
+
+//倒计时
+-(void)startTime{
+    _resenVerificationCode.userInteractionEnabled = NO;
+
+    
+    __block int timeout = 30; //倒计时时间
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_source_t _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0,queue);
+    dispatch_source_set_timer(_timer,dispatch_walltime(NULL, 0),1.0*NSEC_PER_SEC, 0); //每秒执行
+    dispatch_source_set_event_handler(_timer, ^{
+        if(timeout<=0){ //倒计时结束，关闭
+            dispatch_source_cancel(_timer);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                //设置界面的按钮显示 根据自己需求设置
+                [_resenVerificationCode setTitle:@"重新发送验证码" forState:UIControlStateNormal];
+                _resenVerificationCode.userInteractionEnabled = YES;
+                UIImage *buttonImageNomal=[UIImage imageNamed:@"after60.png"];
+                UIImage *stretchableButtonImageNomal=[buttonImageNomal stretchableImageWithLeftCapWidth:12 topCapHeight:0];
+                [_resenVerificationCode setBackgroundImage:stretchableButtonImageNomal forState:UIControlStateNormal];
+                [_resenVerificationCode addTarget:self action:@selector(VerifyButtonAction) forControlEvents:UIControlEventTouchUpInside];
+            });
+        }else{
+            //            int minutes = timeout / 60;
+            int seconds = timeout % 60;
+            NSString *strTime = [NSString stringWithFormat:@"%.2d", seconds];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                //设置界面的按钮显示 根据自己需求设置
+                //                NSLog(@"____%@",strTime);
+                [_resenVerificationCode setTitle:[NSString stringWithFormat:@"%@秒后可重新发送",strTime] forState:UIControlStateNormal];
+                _resenVerificationCode.userInteractionEnabled = NO;
+                
+            });
+            timeout--;
+            
+        }
+    });
+    dispatch_resume(_timer);
+
+
+}
+
+
+//重新发送验证码事件
+-(void) VerifyButtonAction{
+    NSString * loginStr =[NSString stringWithFormat:@"veruser?mobilenum=%@",_telPhoneNumber.text];
+    
+    [[AFAppDotNetAPIClient sharedClient] GET:loginStr parameters:nil success:^ (NSURLSessionDataTask *task, id responseObject) {
+        NSString * state   =KISDictionaryHaveKey(responseObject, @"id");
+        NSLog(@"😄－－－－－－－%@",state);
+        if ([state isEqualToString:@"0"]) {
+            [[UserCache sharedInstance] setObject:_telPhoneNumber.text forKey:@"regTel"];
+            signup2ViewController * signStep2 =[[signup2ViewController alloc]init];
+            signStep2.telNum =[NSMutableString stringWithString:_telPhoneNumber.text];
+//            [self.navigationController pushViewController:signStep2 animated:YES];
+            //                [self.menuController pushViewController:signStep2 withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
+        }else{
+            [self showAlertViewWithtitle:@"提示" message:@"此账号已被注册"];
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    }];
+
 }
 
 

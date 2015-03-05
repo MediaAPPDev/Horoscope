@@ -26,7 +26,7 @@
     
     
     UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(self.view.bounds.size.width-60, KISHighVersion_7?20:0, 60, 44)];
-    [button setImage:KUIImage(@"123123") forState:UIControlStateNormal];
+    [button setImage:KUIImage(@"wancheng@2x.png") forState:UIControlStateNormal];
     [button addTarget:self action:@selector(senderChange:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
 

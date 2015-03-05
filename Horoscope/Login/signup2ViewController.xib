@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="signup2ViewController">
             <connections>
                 <outlet property="password" destination="Txw-lu-KXK" id="wBi-US-s3D"/>
+                <outlet property="resenVerificationCode" destination="lye-RX-itl" id="Fm7-7i-Srr"/>
                 <outlet property="sendCode" destination="AOb-99-fVo" id="uOd-nu-rXE"/>
                 <outlet property="telPhoneNumber" destination="cCk-DS-AC1" id="7LZ-tS-GFv"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

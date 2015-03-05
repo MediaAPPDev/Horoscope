@@ -81,7 +81,10 @@
 -(void)getInfoFromNetWithString:(NSString *)str
 {
     [self.hud show:YES];
-    NSString *urlStr =[NSString stringWithFormat:@"finduserbyname?name=%@",str];
+//    NSString *urlStr =[NSString stringWithFormat:@"finduserbyname?name=%@",str];
+    NSString *urlStr =[NSString stringWithFormat:@"finduserbyid?uid=%@",str];
+
+//    finduserbyid?uid=47983609    63246619   03011026  76820055
 
     urlStr = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         [[AFAppDotNetAPIClient sharedClient] GET:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {

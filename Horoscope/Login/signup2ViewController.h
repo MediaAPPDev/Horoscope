@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *sendCode;
 @property (weak, nonatomic) IBOutlet UITextField *password;
 @property (nonatomic,strong)NSMutableString * telNum;
+@property (weak, nonatomic) IBOutlet UIButton *resenVerificationCode;
 
 
 

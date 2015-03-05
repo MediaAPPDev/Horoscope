@@ -29,7 +29,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self buildTopviewWithBackButton:NO title:@"星座宝典" rightImage:@""];
-    self.view.backgroundColor = [UIColor blackColor];
+//    self.view.backgroundColor = [UIColor blackColor];
     rightBtn = [[UIButton alloc]initWithFrame:CGRectMake(KScreenWidth-60, KISHighVersion_7?20:0, 60, 44)];
     
     [rightBtn setTitle:@"白羊座" forState:UIControlStateNormal];
@@ -52,6 +52,7 @@
     scrollView.contentSize = CGSizeMake(self.view.bounds.size.width*3, 0);
     scrollView.pagingEnabled = YES;
     scrollView.userInteractionEnabled = NO;
+//    scrollView.backgroundColor = [UIColor yellowColor];
     [self.view addSubview:scrollView];
     
     
@@ -105,6 +106,9 @@
 //        txV.bounces = YES;
         txV.alwaysBounceVertical = YES;
         txV.tag = 1999+i;
+        
+//        txV.backgroundColor = [UIColor yellowColor];
+        txV.scrollEnabled = YES;
         [scrollView addSubview:txV];
     }
     self.hud = [[MBProgressHUD alloc]initWithView:self.view];
@@ -131,6 +135,8 @@
     constellationScrl = [[UIScrollView alloc]initWithFrame:CGRectMake(0, -16, KScreenWidth, 80)];
     constellationScrl.contentSize = CGSizeMake(600, 0);
     constellationScrl.backgroundColor = UIColorFromRGBA(0x2f2f2f, 1);
+//    constellationScrl.backgroundColor = [UIColor yellowColor];
+
     [self.view addSubview:constellationScrl];
     
     for (int i = 0; i<12; i++) {
@@ -247,7 +253,14 @@
     text1.text = KISDictionaryHaveKey(dic, @"content1");
     text2.text = KISDictionaryHaveKey(dic, @"content2");
     text3.text = KISDictionaryHaveKey(dic, @"content3");
-    
+      text1.scrollEnabled = YES;
+      text2.scrollEnabled = YES;
+      text3.scrollEnabled = YES;
+      text1.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+      text2.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+      text3.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+
+      
     
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [self.hud hide:YES];
