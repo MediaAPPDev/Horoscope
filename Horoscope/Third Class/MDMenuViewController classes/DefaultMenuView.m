@@ -109,7 +109,6 @@
         mine.mytype =COME_MYSELF;
         mine.userid =[NSString stringWithFormat:@"%@",[[UserCache sharedInstance]objectForKey:KMYUSERID]];
         [self.delegate pushViewController:mine animated:YES];
-
     }else{
         SingupViewController *sing =[[ SingupViewController alloc]init];
         UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:sing];

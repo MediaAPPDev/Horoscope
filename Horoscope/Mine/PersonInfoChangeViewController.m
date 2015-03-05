@@ -22,12 +22,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationController.navigationBarHidden = YES;
     // Do any additional setup after loading the view.
     
 //    [self buildTopviewWithBackButton:NO title:@"修改个人信息" rightImage:@""];
     
-    [self setTopViewWithTitle:@"修改个人信息" withBackButton:YES];
-    
+    [self setTopViewWithTitle:@"修改个人信息" withBackButton:NO];
+    UIButton* backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, KISHighVersion_7 ? 20 : 0, 65, 44)];
+    [backButton setImage:KUIImage(@"back") forState:UIControlStateNormal];
+    [backButton setImage:KUIImage(@"back") forState:UIControlStateHighlighted];
+    backButton.backgroundColor = [UIColor clearColor];
+    [backButton addTarget:self action:@selector(backButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:backButton];
+
     
     myTableView  = [[UITableView alloc]initWithFrame:CGRectMake(0, KISHighVersion_7?64:44, KScreenWidth, KScreenHeight-(KISHighVersion_7?64:44)) style:UITableViewStylePlain];
 //    myTableView.bounces = NO;
@@ -44,26 +51,51 @@
      NSMutableDictionary *dic1 = [NSMutableDictionary dictionary];
      NSMutableDictionary *dic2 = [NSMutableDictionary dictionary];
      NSMutableDictionary *dic3 = [NSMutableDictionary dictionary];
+    NSMutableDictionary *dic4 = [NSMutableDictionary dictionary];
+    NSMutableDictionary *dic5 = [NSMutableDictionary dictionary];
+    NSMutableDictionary *dic6 = [NSMutableDictionary dictionary];
     
     [dic1 setObject:@"昵称" forKey:@"name"];
     [dic1 setObject:@"nickname" forKey:@"key"];
     [dic1 setObject:KISDictionaryHaveKey(self.infoDict, @"nickname") forKey:@"info"];
     
-    [dic2 setObject:@"生日" forKey:@"name"];
-    [dic2 setObject:@"birthday" forKey:@"key"];
-    [dic2 setObject:KISDictionaryHaveKey(self.infoDict, @"birthday") forKey:@"info"];
+    [dic2 setObject:@"年龄" forKey:@"name"];
+    [dic2 setObject:@"age" forKey:@"key"];
+    [dic2 setObject:KISDictionaryHaveKey(self.infoDict, @"userage") forKey:@"info"];
 
     [dic3 setObject:@"签名" forKey:@"name"];
     [dic3 setObject:@"phrase" forKey:@"key"];
     [dic3 setObject:KISDictionaryHaveKey(self.infoDict, @"phrase") forKey:@"info"];
+    
+    [dic4 setObject:@"外貌" forKey:@"name"];
+    [dic4 setObject:@"face" forKey:@"key"];
+    [dic4 setObject:KISDictionaryHaveKey(self.infoDict, @"face") forKey:@"info"];
+
+    [dic5 setObject:@"职业" forKey:@"name"];
+    [dic5 setObject:@"jobs" forKey:@"key"];
+    [dic5 setObject:KISDictionaryHaveKey(self.infoDict, @"jobs") forKey:@"info"];
+
+    [dic6 setObject:@"情感状态" forKey:@"name"];
+    [dic6 setObject:@"personal" forKey:@"key"];
+    [dic6 setObject:KISDictionaryHaveKey(self.infoDict, @"personal") forKey:@"info"];
+
+    
     arr1 = [NSMutableArray array];
     [arr1 addObject:dic1];
     [arr1 addObject:dic2];
     [arr1 addObject:dic3];
-    
+    [arr1 addObject:dic4];
+    [arr1 addObject:dic5];
+    [arr1 addObject:dic6];
+ 
     
 }
-
+-(void)backButtonClick:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+}
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -72,17 +104,21 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-        static NSString *identifier = @"cell";
-        PersonInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier ];
-        
-        if (!cell) {
-            cell = [[PersonInfoCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-        }
+    static NSString *identifier = @"cell";
+    PersonInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier ];
+    
+    if (!cell) {
+        cell = [[PersonInfoCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    }
     NSDictionary *dic = arr1[indexPath.row];
-        cell.titleLabel.text= KISDictionaryHaveKey(dic, @"name");
-        cell.ctLabel.text = KISDictionaryHaveKey(dic, @"info");
+    cell.titleLabel.text= KISDictionaryHaveKey(dic, @"name");
+    if ([self isEmtity:KISDictionaryHaveKey(dic, @"info")]) {
+        cell.ctLabel.text =@"还未设置";
+    }else{
+    cell.ctLabel.text = KISDictionaryHaveKey(dic, @"info");
+}
     cell.accessoryType = YES;
-        return cell;
+    return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -91,7 +127,8 @@
     
     ChangeViewController *change = [[ChangeViewController alloc]init];
     change.contentDic = [NSMutableDictionary dictionaryWithDictionary:arr1[indexPath.row]];
-    [self.menuController pushViewController:change withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
+//    [self.menuController pushViewController:change withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
+    [self.navigationController pushViewController:change animated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -90,9 +90,9 @@
     myTableView.dataSource = self;
     
     [mainScrl addSubview:myTableView];
-    arr1 = [NSArray arrayWithObjects:@"情感状态",@"外貌",@"职业",@"爱好",@"语言",@"出生地",@"学校",@"公司", nil];
+    arr1 = [NSArray arrayWithObjects:@"情感状态",@"外貌",@"职业",@"注册时间", nil];
     arr2 = [NSArray arrayWithObjects:@"单身",@"180cm 55kg 强壮",@"学生",@"泡妞 游戏 电影 读书",@"中 英 法 德 西班牙 日 韩 俄罗斯 意大利",@"China",@"英国剑桥",@"SF", nil];
-    arr1 = [NSArray arrayWithObjects:@"生日",@"注册时间", nil];
+//    arr1 = [NSArray arrayWithObjects:@"生日",@"注册时间", nil];
 //    arr2 = [NSArray arrayWithObjects:@"单身",@"180cm 55kg 强壮",@"学生",@"泡妞 游戏 电影 读书",@"中 英 法 德 西班牙 日 韩 俄罗斯 意大利",@"China",@"英国剑桥",@"SF", nil];
     
     
@@ -142,7 +142,7 @@
     }else{
         urlStr = [NSString stringWithFormat:@"userdetail.php?uid=%@",userid];
     }
-    
+    NSLog(@"http://star.allappropriate.com/%@",urlStr);
      [[AFAppDotNetAPIClient sharedClient] GET:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
           [hud hide:YES];
         if ([responseObject isKindOfClass:[NSDictionary class]]) {
@@ -290,6 +290,11 @@
                 imgView.imageURL = [NSURL URLWithString:url[i]];
             imgView.tag = i;
             [imgView addTarget:self action:@selector(seeBigImg:) forControlEvents:UIControlEventTouchUpInside];
+            UILongPressGestureRecognizer *longPressGR =
+            [[UILongPressGestureRecognizer alloc] initWithTarget:self
+                                                          action:@selector(deleteImg:)];
+            longPressGR.minimumPressDuration = 0.5;
+            [imgView addGestureRecognizer:longPressGR];
             [photoView addSubview:imgView];
         }
     }else{
@@ -350,6 +355,48 @@
     
 }
 
+
+-(void)deleteImg:(UIGestureRecognizer*)sender
+{
+    if (sender.state == UIGestureRecognizerStateBegan) {
+
+    UIAlertView *ale = [[UIAlertView alloc]initWithTitle:@"提示" message:@"确认删除此图片吗？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    
+    
+    ale.tag = sender.view.tag;
+    [ale show];
+    }
+}
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex ==1) {
+        if (!photoWallArray||photoWallArray.count==0) {
+            return;
+        }
+        [photoWallArray removeObjectAtIndex:alertView.tag];
+        
+        NSString *imgStr=@"";
+//        for (NSString *value in photoWallArray) {
+//            imgStr = [NSString stringWithFormat:@"%@%@", lastString, value];
+//        }
+        
+        for (int i = 0; i<photoWallArray.count; i++) {
+            imgStr = [NSString stringWithFormat:@"%@%@",imgStr,[NSString stringWithFormat:@"%@%@",photoWallArray[i],@"#"]];
+        }
+        
+        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+        [dic setObject:imgStr forKey:@"path"];
+        [dic setObject:[[UserCache sharedInstance]objectForKey:KMYUSERID] forKey:@"uid"];
+        
+        [[AFAppDotNetAPIClient sharedClient]POST:@"updatepics" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+            [self buildPhotosWallWithUrl:photoWallArray];
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            
+        }];
+    }
+}
+
+
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 2;
@@ -362,7 +409,7 @@
             return 0;
             break;
         default:
-            return 2;
+            return 4;
             break;
     }
 }
@@ -387,12 +434,21 @@
     cell.titleLabel.text= arr1[indexPath.row];
         
         if (indexPath.row==0) {
-            cell.ctLabel.text  = [infoDict objectForKey:@"birthday"];
+            cell.ctLabel.text  = [infoDict objectForKey:@"personal"];
         }
         else if (indexPath.row ==1)
         {
+            cell.ctLabel.text = KISDictionaryHaveKey(infoDict, @"face");
+        }
+        else if (indexPath.row ==2)
+        {
+            cell.ctLabel.text = KISDictionaryHaveKey(infoDict, @"jobs");
+        }
+        else if (indexPath.row ==3)
+        {
             cell.ctLabel.text = KISDictionaryHaveKey(infoDict, @"regtime");
         }
+
         
 //    cell.ctLabel.text = arr2[indexPath.row];
     return cell;
@@ -523,9 +579,12 @@
 -(void)enterNextPage:(id)sender
 {
     PersonInfoChangeViewController * p= [[PersonInfoChangeViewController alloc]init];
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:p];
     p.infoDict = [NSMutableDictionary dictionaryWithDictionary:infoDict];
-    [self.menuController pushViewController:p withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeNone]];
-
+//    [self.menuController pushViewController:p withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeNone]];
+    [self presentViewController:nav animated:YES completion:^{
+        
+    }];
 }
 #pragma mark ----修改接口之后继续改动
 -(void)getOutList:(id)sender
@@ -667,7 +726,7 @@
         [photoWallArray insertObject:selectImage atIndex:0];
         [self buildPhotosWallWithUrl:photoWallArray];
         
-        NSString *urlStr = [NSString stringWithFormat:@"addpics"];
+        NSString *urlStr = [NSString stringWithFormat:@"uploadpics"];
         NSMutableDictionary *dic = [NSMutableDictionary dictionary];
         //
         [dic setObject:[[UserCache sharedInstance]objectForKey:KMYUSERID ] forKey:@"uid"];
@@ -693,8 +752,34 @@
             [formData appendPartWithFileData:imgData name:@"file" fileName:[NSString stringWithFormat:@"%@.jpg",uuid] mimeType:@"image/jpeg"];
         } success:^(NSURLSessionDataTask *task, id responseObject) {
             [hud hide: YES];
-            [self showMessageWindowWithContent:@"上传成功"imageType:0];
-            [self getInfoFromNetWithUserId:[[UserCache sharedInstance]objectForKey:KMYUSERID]];
+            
+            NSString *imgStr = [NSString stringWithFormat:@"%@",[[[UserCache sharedInstance]objectForKey:MYINFODICT]objectForKey:@"pics"]];
+            
+            if (![responseObject isKindOfClass:[NSDictionary class]]) {
+                return ;
+            }
+         
+            NSDictionary *dic = [NSDictionary dictionaryWithDictionary:responseObject];
+            
+            NSString *str = [NSString stringWithFormat:@"%@",[dic objectForKey:@"path"]];
+            [photoWallArray removeObjectAtIndex:0];
+            
+            
+            [photoWallArray insertObject:str atIndex:0];
+            
+            NSString *imgStr2 = [NSString stringWithFormat:@"%@%@",str,imgStr];
+            
+            NSMutableDictionary *dict =[NSMutableDictionary dictionary];
+            
+            [dict setObject:imgStr2 forKey:@"path"];
+            [dict setObject:[[UserCache sharedInstance]objectForKey:KMYUSERID] forKey:@"uid"];
+            [[AFAppDotNetAPIClient sharedClient]POST:@"updatepics" parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+                [self showMessageWindowWithContent:@"上传成功"imageType:0];
+                [self getInfoFromNetWithUserId:[[UserCache sharedInstance]objectForKey:KMYUSERID]];
+
+            } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                
+            }];
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
             [hud hide: YES];
         }];

@@ -265,6 +265,7 @@ static id AFJSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJSONReadingO
                     responseObject = [receiveStr JSONValue];
                     
                     NSLog(@"获得数据---%@",receiveStr);
+                    
                     NSLog(@"获取数据JSON--%@",responseObject);
                     
                     

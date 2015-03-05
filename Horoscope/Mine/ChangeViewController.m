@@ -19,16 +19,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    [self buildTopviewWithBackButton:NO title:@"修改" rightImage:@""];
-    
-    [self setTopViewWithTitle:@"修改" withBackButton:YES];
+    self.navigationController.navigationBarHidden = YES;
+    [self setTopViewWithTitle:@"修改" withBackButton:NO];
     
     self.view.backgroundColor = [UIColor whiteColor];
-    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(self.view.bounds.size.width-60, KISHighVersion_7?20:0, 60, 44)];
+    
+    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(KScreenWidth-60, KISHighVersion_7?20:0, 60, 44)];
 //    [button setImage:KUIImage(@"123123") forState:UIControlStateNormal];
     [button setTitle:@"保存" forState:UIControlStateNormal];
     [button addTarget:self action:@selector(backToLastPage:) forControlEvents:UIControlEventTouchUpInside];
+//    button.backgroundColor = [UIColor greenColor];
     [self.view addSubview:button];
 
+    
+    UIButton* backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, KISHighVersion_7 ? 20 : 0, 65, 44)];
+    [backButton setImage:KUIImage(@"back") forState:UIControlStateNormal];
+    [backButton setImage:KUIImage(@"back") forState:UIControlStateHighlighted];
+    backButton.backgroundColor = [UIColor clearColor];
+    [backButton addTarget:self action:@selector(backButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:backButton];
+
+    
+    
     tf =[[UITextField alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth-40, 40)];
     tf.center = CGPointMake(KScreenWidth/2, (KISHighVersion_7?64:44)+40);
     tf.borderStyle = UITextBorderStyleRoundedRect;
@@ -39,7 +51,10 @@
     
     // Do any additional setup after loading the view.
 }
-
+-(void)backButtonClick:(id)sender
+{
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
 
 -(void)backToLastPage:(id)sender
 {
@@ -56,12 +71,14 @@
     
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     [dic setObject:[[UserCache sharedInstance]objectForKey:KMYUSERID] forKey:@"uid"];
+    [dic setObject:[[UserCache sharedInstance]objectForKey:@"password-lasb"] forKey:@"password"];
     [dic setObject:KISDictionaryHaveKey(dict, @"username") forKey:@"mobilenum"];
-    [dic setObject:KISDictionaryHaveKey(dict, @"birthday") forKey:@"birthday"];
+    [dic setObject:KISDictionaryHaveKey(dict, @"userage") forKey:@"age"];
     [dic setObject:KISDictionaryHaveKey(dict, @"nickname") forKey:@"nickname"];
     [dic setObject:KISDictionaryHaveKey(dict, @"phrase") forKey:@"phrase"];
-    [dic setObject:KISDictionaryHaveKey(dict, @"xing") forKey:@"xing"];
-    [dic setObject:[[UserCache sharedInstance]objectForKey:@"password-lasb"] forKey:@"password"];
+    [dic setObject:KISDictionaryHaveKey(dict, @"face") forKey:@"face"];
+    [dic setObject:KISDictionaryHaveKey(dict, @"jobs") forKey:@"jobs"];
+    [dic setObject:KISDictionaryHaveKey(dict, @"personal") forKey:@"personal"];
     
 //    [dic setObject: @"15510106271" forKey:@"mobilenum"];
 //    [dic setObject: @"19890416" forKey:@"birthday"];
@@ -83,7 +100,10 @@
         [hud hide:YES];
         [self showMessageWindowWithContent:@"修改成功" imageType:0];
         [self getInfoFromNetWithUserid];
-        [self.menuController popViewControllerAnimated:YES];
+//        [self.menuController popViewControllerAnimated:YES];
+        [self dismissViewControllerAnimated:YES completion:^{
+            
+        }];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [hud hide:YES];
         [self showAlertViewWithtitle:@"提示" message:@"修改失败"];

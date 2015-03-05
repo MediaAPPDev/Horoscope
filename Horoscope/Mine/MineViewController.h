@@ -13,7 +13,7 @@ typedef enum
     COME_OTHER,
 }MYINFOTYPE;
 
-@interface MineViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,UIActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
+@interface MineViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,UIActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,UIAlertViewDelegate>
 @property (nonatomic,assign)BOOL isRootView;
 @property (nonatomic,copy) NSString * userid;
 @property (nonatomic,assign)MYINFOTYPE mytype;

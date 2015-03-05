@@ -27,7 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    super.view.backgroundColor = [UIColor blackColor];
+//    super.view.backgroundColor = [UIColor blackColor];
     [self buildTopviewWithBackButton:NO title:@"星友圈" rightImage:nil];
     self.view.backgroundColor =[ UIColor blackColor];
     

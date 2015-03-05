@@ -52,7 +52,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-     self.view.backgroundColor= [UIColor blackColor];
+     self.view.backgroundColor= [UIColor whiteColor];
     ysArr =[ NSArray arrayWithObjects:@"今日运势",@"明日运势",@"本周运势",@"本月运势", nil];
 
     cArray = [NSMutableArray array];
@@ -95,7 +95,7 @@
     
     
     scr = [[ UIScrollView alloc]initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height-64)];
-    scr.backgroundColor = [UIColor blackColor];
+    scr.backgroundColor = [UIColor whiteColor];
     scr.contentSize = CGSizeMake(0, 188+64+139+400);
     [self.view addSubview:scr];
     
