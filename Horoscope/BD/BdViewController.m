@@ -48,10 +48,10 @@
     [xArray addObjectsFromArray:arr1];
 
     
-    scrollView  = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 110, self.view.bounds.size.width, self.view.bounds.size.height-110)];
+    scrollView  = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 110, self.view.bounds.size.width, self.view.bounds.size.height*100)];
     scrollView.contentSize = CGSizeMake(self.view.bounds.size.width*3, 0);
     scrollView.pagingEnabled = YES;
-    scrollView.userInteractionEnabled = NO;
+//    scrollView.userInteractionEnabled = NO;
 //    scrollView.backgroundColor = [UIColor yellowColor];
     [self.view addSubview:scrollView];
     
@@ -103,12 +103,13 @@
         txV.backgroundColor = [UIColor whiteColor];
         txV.textColor = [UIColor blackColor];
         txV.font = [UIFont systemFontOfSize:16];
-//        txV.bounces = YES;
+        txV.bounces = YES;
         txV.alwaysBounceVertical = YES;
         txV.tag = 1999+i;
         
 //        txV.backgroundColor = [UIColor yellowColor];
         txV.scrollEnabled = YES;
+        
         [scrollView addSubview:txV];
     }
     self.hud = [[MBProgressHUD alloc]initWithView:self.view];
@@ -250,15 +251,16 @@
     UITextView *text1 = (UITextView *)[self.view viewWithTag:1999+0];
     UITextView *text2 = (UITextView *)[self.view viewWithTag:1999+1];
     UITextView *text3 = (UITextView *)[self.view viewWithTag:1999+2];
-    text1.text = KISDictionaryHaveKey(dic, @"content1");
-    text2.text = KISDictionaryHaveKey(dic, @"content2");
-    text3.text = KISDictionaryHaveKey(dic, @"content3");
       text1.scrollEnabled = YES;
       text2.scrollEnabled = YES;
       text3.scrollEnabled = YES;
       text1.autoresizingMask = UIViewAutoresizingFlexibleHeight;
       text2.autoresizingMask = UIViewAutoresizingFlexibleHeight;
       text3.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+    text1.text = KISDictionaryHaveKey(dic, @"content1");
+    text2.text = KISDictionaryHaveKey(dic, @"content2");
+    text3.text = KISDictionaryHaveKey(dic, @"content3");
+
 
       
     

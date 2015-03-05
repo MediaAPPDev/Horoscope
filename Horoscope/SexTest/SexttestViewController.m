@@ -29,7 +29,12 @@
 @end
 
 @implementation SexttestViewController
+{
+    UICollectionView * m_CollView;
+    UICollectionViewFlowLayout * m_layout;
+    MJRefreshHeaderView *m_header;
 
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -94,6 +99,10 @@
     _testTableView.dataSource =self;
     _testTableView.tableHeaderView =myScorollView;
     
+    
+    
+    [self addHeader];
+    
     //请求数据
     [[AFAppDotNetAPIClient sharedClient] GET:@"testlist.php" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         
@@ -104,6 +113,8 @@
         
         
     }];
+    
+    
     
 }
 
@@ -181,6 +192,22 @@
     [self.menuController pushViewController:exampleVC withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
     
 }
+
+
+- (void)addHeader
+{
+    MJRefreshHeaderView *header = [MJRefreshHeaderView header];
+    CGRect headerRect = header.arrowImage.frame;
+    headerRect.size = CGSizeMake(30, 30);
+    header.arrowImage.frame = headerRect;
+    header.activityView.center = header.arrowImage.center;
+    header.scrollView = m_CollView;
+    header.beginRefreshingBlock = ^(MJRefreshBaseView *refreshView) {
+//        [self getInfoFromNet];
+    };
+    m_header = header;
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
