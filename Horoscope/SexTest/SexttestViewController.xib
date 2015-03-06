@@ -72,7 +72,7 @@
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ilE-fu-Sdy">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="540"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image=" 微博图标.png" translatesAutoresizingMaskIntoConstraints="NO" id="EC8-o4-oZh" userLabel="微博图标.png">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image=" 微博图标.png" translatesAutoresizingMaskIntoConstraints="NO" id="EC8-o4-oZh" userLabel="微博图标.png">
                             <rect key="frame" x="0.0" y="-7" width="48" height="49"/>
                         </imageView>
                     </subviews>

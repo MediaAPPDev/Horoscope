@@ -101,21 +101,32 @@
     
     
     
-    [self addHeader];
     
+
+    [self getInfoFromNet];
+
+    [self addHeader];
+
+    
+}
+
+
+-(void)getInfoFromNet
+{
     //请求数据
     [[AFAppDotNetAPIClient sharedClient] GET:@"testlist.php" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         
         _allArray = responseObject;
+        [m_header endRefreshing];
+//        [m_CollView reloadData];
+
         [_testTableView reloadData];
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         
-        
+        [m_header endRefreshing];
+
     }];
-    
-    
-    
 }
 
 

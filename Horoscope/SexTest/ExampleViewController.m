@@ -75,7 +75,7 @@
         
         _exampleTitle =[[UITextView alloc]initWithFrame:CGRectMake(20, 5, KScreenWidth-40, 300)];
         
-        _exampleTitle.userInteractionEnabled=NO;
+//        _exampleTitle.userInteractionEnabled=NO;
         
         _exampleTitle.text =[_exampleDic valueForKey:@"title"];
         //        [_exampleTitle sizeToFit];
@@ -183,7 +183,7 @@
         //                [_answerText setFont:[UIFont fontWithName:@"AppleGothic" size:17]];
         //               [_answerText setBackgroundColor:[UIColor redColor]];
         
-        _answerText.userInteractionEnabled=NO;
+//        _answerText.userInteractionEnabled=NO;
         
         [_answerScrolllView addSubview:_answerText];
 
