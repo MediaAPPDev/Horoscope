@@ -96,7 +96,7 @@
         [self addSubview:_scrollView];
         
         //----------------1.初始化Label-------------------------
-        _label = [[UILabel alloc] initWithFrame:CGRectMake(0, frame.size.height-40, frame.size.width, 40)];
+        _label = [[UILabel alloc] initWithFrame:CGRectMake(0, frame.size.height-40, frame.size.width*4, 40)];
         _label.backgroundColor = [UIColor blackColor];
         _label.alpha = 0.6;
         _label.text = @" 你的闺蜜是小三吗？";

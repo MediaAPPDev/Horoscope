@@ -18,13 +18,16 @@
 
 #import "MyScrollView.h"
 
-
+#import "BMAdScrollView.h"
+#import "testDetailedViewController.h"
 
 #import <QuartzCore/QuartzCore.h>
 
+//输出frame(frame是结构体，没法%@)
 
+#define LOGRECT(f) NSLog(@"\nx:%f\ny:%f\nwidth:%f\nheight:%f\n",f.origin.x,f.origin.y,f.size.width,f.size.height)
 
-@interface SexttestViewController ()
+@interface SexttestViewController ()<ValueClickDelegate>
 
 @end
 
@@ -33,6 +36,8 @@
     UICollectionView * m_CollView;
     UICollectionViewFlowLayout * m_layout;
     MJRefreshHeaderView *m_header;
+    BMAdScrollView *adView;
+    NSMutableArray *strArr;
 
 }
 
@@ -45,14 +50,39 @@
         _imageNames = [NSMutableArray arrayWithObjects:@"lunbo1.jpg",
                        @"lunbo2.jpg",
                        @"lunbo3.jpg",
-                       @"lunbo4.jpg",
+                       /*@"lunbo4.jpg",*/
                        
                        nil] ;
+        
+        //设置标题数组
+        strArr = [[NSMutableArray alloc]initWithObjects:@"1:我们是一支可以撼动世界的力量",@"2:向前冲吧，小伙伴们", @"3:再不会为任何理由停下脚步",nil];
+//        adView = [[BMAdScrollView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, 280)] ;
+
+
+//        LOGRECT(self.view.frame);
+
+        adView = [[BMAdScrollView alloc] initWithNameArr:_imageNames  titleArr:strArr height:280.0f offsetY:100];
+        //        adView = [[BMAdScrollView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, 280)] ;
+        
+        adView.vDelegate = self;
+        adView.pageCenter = CGPointMake(280, 165);
+//        [self.view addSubview:adView];
 
     }
     return self;
 }
 
+
+-(void)serdsfd
+{
+    return ;
+}
+- (void)buttonClick:(int)vid
+{
+    NSLog(@"Click--OK");
+    testDetailedViewController *testDetailVC = [testDetailedViewController alloc] ;
+    [self.menuController pushViewController:testDetailVC withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -61,12 +91,19 @@
     
     self.view.backgroundColor = [UIColor yellowColor];
     
-    MyScrollView *myScorollView = [[MyScrollView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, 280)] ;
-    [myScorollView setImagePathsInBundle:_imageNames];
-    [self.view addSubview:myScorollView];
-    [myScorollView setAutoRunEnableWithInterval:5];
-    myScorollView.playDirection = Right;
-    myScorollView.timerInterval = 3;
+    
+
+    
+//    MyScrollView *myScorollView = [[MyScrollView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, 280)] ;
+//    [myScorollView setImagePathsInBundle:_imageNames];
+//    [self.view addSubview:myScorollView];
+//    [myScorollView setAutoRunEnableWithInterval:5];
+//    myScorollView.playDirection = Right;
+//    myScorollView.timerInterval = 3;
+    
+    
+    
+    
     /*
     UILabel *titleLable = [[UILabel alloc]initWithFrame:CGRectMake(0, 240, KScreenWidth, 40)];
     titleLable.backgroundColor = [UIColor blackColor];
@@ -75,7 +112,11 @@
     titleLable.textColor = [UIColor whiteColor];
     [myScorollView addSubview:titleLable];
      */
-    myScorollView.pageControlEnabled = YES;
+    
+    
+    
+    
+//    myScorollView.pageControlEnabled = YES;
    
    
     /*
@@ -97,7 +138,7 @@
     
     _testTableView.delegate =self;
     _testTableView.dataSource =self;
-    _testTableView.tableHeaderView =myScorollView;
+    _testTableView.tableHeaderView =adView;
     
     
     
@@ -105,7 +146,7 @@
 
     [self getInfoFromNet];
 
-    [self addHeader];
+//    [self addHeader];
 
     
 }

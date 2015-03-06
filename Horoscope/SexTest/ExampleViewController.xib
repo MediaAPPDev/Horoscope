@@ -69,8 +69,8 @@
                         <constraint firstAttribute="bottom" secondItem="NzP-oW-V36" secondAttribute="bottom" id="jHK-Xa-Dg7"/>
                     </constraints>
                 </view>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3eD-O5-IXy">
-                    <rect key="frame" x="0.0" y="268" width="600" height="332"/>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3eD-O5-IXy">
+                    <rect key="frame" x="0.0" y="268" width="600" height="1000"/>
                     <subviews>
                         <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="在没有危险的情况下你会和狼群生活吗？" translatesAutoresizingMaskIntoConstraints="NO" id="se6-Il-zJ9">
                             <rect key="frame" x="29" y="17" width="542" height="43"/>

@@ -15,7 +15,7 @@
     
     NSMutableArray *_imageNames;
     
-    
+//    BMAdScrollView *adView;
     
     BOOL isFromStart;
     NSInteger ImageHeight;

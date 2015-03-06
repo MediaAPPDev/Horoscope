@@ -652,6 +652,7 @@
 		9A8F303E1A836B5D00907336 /* lunbo3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9A8F303A1A836B5D00907336 /* lunbo3.jpg */; };
 		9A8F303F1A836B5D00907336 /* lunbo4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9A8F303B1A836B5D00907336 /* lunbo4.jpg */; };
 		9A8F30411A83725600907336 /* SexttestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A8F30401A83725600907336 /* SexttestViewController.xib */; };
+		9A9A46501AA9998500489D25 /* BMAdScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A9A464F1AA9998500489D25 /* BMAdScrollView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1463,6 +1464,9 @@
 		9A8F303A1A836B5D00907336 /* lunbo3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lunbo3.jpg; sourceTree = "<group>"; };
 		9A8F303B1A836B5D00907336 /* lunbo4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lunbo4.jpg; sourceTree = "<group>"; };
 		9A8F30401A83725600907336 /* SexttestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SexttestViewController.xib; sourceTree = "<group>"; };
+		9A9A464E1AA9998500489D25 /* BMAdScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMAdScrollView.h; sourceTree = "<group>"; };
+		9A9A464F1AA9998500489D25 /* BMAdScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMAdScrollView.m; sourceTree = "<group>"; };
+		9A9A46511AA999EC00489D25 /* BMDefineUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMDefineUtils.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1725,8 +1729,11 @@
 				9A8F30391A836B5D00907336 /* lunbo2.jpg */,
 				9A8F303A1A836B5D00907336 /* lunbo3.jpg */,
 				9A8F303B1A836B5D00907336 /* lunbo4.jpg */,
+				9A9A46511AA999EC00489D25 /* BMDefineUtils.h */,
 				9A8F30351A836B0300907336 /* MyScrollView.h */,
 				9A8F30361A836B0300907336 /* MyScrollView.m */,
+				9A9A464E1AA9998500489D25 /* BMAdScrollView.h */,
+				9A9A464F1AA9998500489D25 /* BMAdScrollView.m */,
 				9A8F30401A83725600907336 /* SexttestViewController.xib */,
 				5E2D738A1A51348200FB8EBA /* testTableViewCell.h */,
 				5E2D738B1A51348200FB8EBA /* testTableViewCell.m */,
@@ -3479,6 +3486,7 @@
 				5E2D73881A51333300FB8EBA /* SexttestViewController.m in Sources */,
 				647BEC641A3972100049B8C9 /* MineViewController.m in Sources */,
 				5ED3CF431A416FCE0083BCDE /* MDMenuViewController.m in Sources */,
+				9A9A46501AA9998500489D25 /* BMAdScrollView.m in Sources */,
 				2FC71FE81A281770002BB2C5 /* StarVcViewController.m in Sources */,
 				5E6C7CD31A42C875005C4554 /* AFURLConnectionOperation.m in Sources */,
 				645DEE441A4132C100E8C524 /* SBJsonWriter.m in Sources */,
