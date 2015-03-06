@@ -159,7 +159,7 @@
          NSString *str= [@"123"stringByAppendingString:uid];
          NSLog(@"😄－－－－－－－－%@",str);
          [[UserCache sharedInstance]setObject:uid forKey:KMYUSERID];
-         [[UserCache sharedInstance]setObject:self.passWordStr forKey:@"password-lasb"];
+         [[UserCache sharedInstance]setObject:self.passWordStr forKey:KPASSWORD];
          
          
 //         NSString *str= [@"账号为："stringByAppendingString:uid];

@@ -11,6 +11,7 @@
 #import "NewMainViewController.h"
 #import "UserCache.h"
 #import "signup2ViewController.h"
+#import "ForgetPassWordViewController.h"
 @interface LoginViewController ()
 
 @end
@@ -101,7 +102,7 @@
                     NSLog(@"-----------%@",state);
                     if ([state  intValue]!=0) {
                         [[UserCache sharedInstance]setObject:state forKey:KMYUSERID];
-                        [[UserCache sharedInstance]setObject:_password.text forKey:@"password-lasb"];
+                        [[UserCache sharedInstance]setObject:_password.text forKey:KPASSWORD];
                         [self getInfoFromNetWithUserid];
                         [self showMessageWindowWithContent:@"登录成功" imageType:0];
                         
@@ -153,6 +154,11 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)forgetPasswordAction:(id)sender {
+    
+    ForgetPassWordViewController *forget= [[ ForgetPassWordViewController alloc]init];
+    [self.navigationController pushViewController:forget animated:YES];
+    
+    
 }
 
 -(void)getInfoFromNetWithUserid

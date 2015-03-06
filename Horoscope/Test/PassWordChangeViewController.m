@@ -70,6 +70,41 @@
 
 -(void)senderChange:(id)sender
 {
+    
+    if (![newPSTF.text isEqualToString:repeatPSTF.text]) {
+        [self showAlertViewWithtitle:@"提示" message:@"两次输入不一致"];
+        return;
+    }
+    if (newPSTF.text.length>15||newPSTF.text.length<6) {
+        [self showAlertViewWithtitle:@"提示" message:@"密码为数为6-15位"];
+        return;
+    }
+    if ([self isEmtity:oldPSTF.text]||[self isEmtity:newPSTF.text]||[self isEmtity:repeatPSTF.text]) {
+        [self showAlertViewWithtitle:@"提示" message:@"密码不能为空"];
+        return;
+    }
+    
+    NSString * urlStr = [NSString stringWithFormat:@"modifymp?uid=%@&password=%@&newpwd=%@",[[UserCache sharedInstance]objectForKey:KMYUSERID],oldPSTF.text,newPSTF.text];
+    NSLog(@"http://star.allappropriate.com/%@",urlStr);
+    [[AFAppDotNetAPIClient sharedClient]GET:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        if ([responseObject isKindOfClass:[NSDictionary class]]) {
+            NSString *str =[responseObject objectForKey:@"id"];
+            if ([str isEqualToString:@"0"]) {
+                [self showAlertViewWithtitle:@"提示" message:@"原始密码错误"];
+            }else if([str isEqualToString:@"1"]){
+                [self showAlertViewWithtitle:@"提示" message:@"修改成功"];
+                
+                [[UserCache sharedInstance]setObject:newPSTF.text forKey:KPASSWORD];
+            }
+        }
+        
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
+    
+    
     [self.menuController popViewControllerAnimated:YES];
 }
 

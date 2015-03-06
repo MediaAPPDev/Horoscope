@@ -53,7 +53,7 @@
 #define SHAREWXAPPKEY @"56ad72bc5586aa55443ef50f62dd0299"
 #define KMYUSERID @"ThisIsMyUserid" //个人userid
 #define MYINFODICT @"myinfoDictionaryIsMineNotYour---wx"
-
+#define KPASSWORD @"password-lasb"
 // view的 X,y , width , height
 
 #define width(m) m.bounds.size.width

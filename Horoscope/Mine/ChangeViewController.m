@@ -71,7 +71,7 @@
     
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     [dic setObject:[[UserCache sharedInstance]objectForKey:KMYUSERID] forKey:@"uid"];
-    [dic setObject:[[UserCache sharedInstance]objectForKey:@"password-lasb"] forKey:@"password"];
+    [dic setObject:[[UserCache sharedInstance]objectForKey:KPASSWORD] forKey:@"password"];
     [dic setObject:KISDictionaryHaveKey(dict, @"username") forKey:@"mobilenum"];
     [dic setObject:KISDictionaryHaveKey(dict, @"userage") forKey:@"age"];
     [dic setObject:KISDictionaryHaveKey(dict, @"nickname") forKey:@"nickname"];

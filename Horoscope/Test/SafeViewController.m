@@ -8,6 +8,7 @@
 
 #import "SafeViewController.h"
 #import "PassWordChangeViewController.h"
+#import "ChangemboilViewController.h"
 @interface SafeViewController ()
 {
     UITableView * myTableView;
@@ -58,7 +59,8 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row==0) {
-        
+        ChangemboilViewController *chmb = [[ChangemboilViewController alloc]init];
+        [self.menuController pushViewController:chmb animated:YES];
     }else{
         PassWordChangeViewController *ps = [[PassWordChangeViewController alloc]init];
         [self.menuController pushViewController:ps animated:YES];

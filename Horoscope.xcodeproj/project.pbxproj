@@ -634,6 +634,8 @@
 		64CD99541A304CD500040744 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 64CD99531A304CD500040744 /* 1.jpg */; };
 		64CD99571A304F2A00040744 /* AddButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 64CD99561A304F2A00040744 /* AddButton.m */; };
 		64D2F5DF1A4BB828005C6368 /* SearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64D2F5DE1A4BB828005C6368 /* SearchResultViewController.m */; };
+		64DFEBAE1AA98D1400548B39 /* ChangemboilViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFEBAD1AA98D1400548B39 /* ChangemboilViewController.m */; };
+		64DFEBB11AA9A15200548B39 /* ForgetPassWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFEBB01AA9A15200548B39 /* ForgetPassWordViewController.m */; };
 		64E348F81A5CE35900DA6B74 /* SendCircleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64E348F71A5CE35900DA6B74 /* SendCircleViewController.m */; };
 		64E348FA1A5CE6D700DA6B74 /* tianjia-Normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 64E348F91A5CE6D700DA6B74 /* tianjia-Normal.png */; };
 		64E3493B1A5D18ED00DA6B74 /* TempDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 64E3493A1A5D18ED00DA6B74 /* TempDate.m */; };
@@ -1441,6 +1443,10 @@
 		64CD99561A304F2A00040744 /* AddButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddButton.m; sourceTree = "<group>"; };
 		64D2F5DD1A4BB828005C6368 /* SearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultViewController.h; sourceTree = "<group>"; };
 		64D2F5DE1A4BB828005C6368 /* SearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultViewController.m; sourceTree = "<group>"; };
+		64DFEBAC1AA98D1400548B39 /* ChangemboilViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangemboilViewController.h; sourceTree = "<group>"; };
+		64DFEBAD1AA98D1400548B39 /* ChangemboilViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangemboilViewController.m; sourceTree = "<group>"; };
+		64DFEBAF1AA9A15200548B39 /* ForgetPassWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPassWordViewController.h; sourceTree = "<group>"; };
+		64DFEBB01AA9A15200548B39 /* ForgetPassWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPassWordViewController.m; sourceTree = "<group>"; };
 		64E348F61A5CE35900DA6B74 /* SendCircleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendCircleViewController.h; sourceTree = "<group>"; };
 		64E348F71A5CE35900DA6B74 /* SendCircleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendCircleViewController.m; sourceTree = "<group>"; };
 		64E348F91A5CE6D700DA6B74 /* tianjia-Normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tianjia-Normal.png"; sourceTree = "<group>"; };
@@ -1927,6 +1933,8 @@
 				5EB87E971A39688700BE4A5D /* LoginViewController.h */,
 				5EB87E981A39688700BE4A5D /* LoginViewController.m */,
 				5EB87E991A39688700BE4A5D /* LoginViewController.xib */,
+				64DFEBAF1AA9A15200548B39 /* ForgetPassWordViewController.h */,
+				64DFEBB01AA9A15200548B39 /* ForgetPassWordViewController.m */,
 				5E484A7A1A5F7C3800582DE7 /* SingupViewController.h */,
 				5E484A7B1A5F7C3800582DE7 /* SingupViewController.m */,
 				5E484A7C1A5F7C3800582DE7 /* SingupViewController.xib */,
@@ -2772,6 +2780,8 @@
 				645400041A426E2900FA69C7 /* SetUpViewController.m */,
 				645400061A42708500FA69C7 /* SafeViewController.h */,
 				645400071A42708500FA69C7 /* SafeViewController.m */,
+				64DFEBAC1AA98D1400548B39 /* ChangemboilViewController.h */,
+				64DFEBAD1AA98D1400548B39 /* ChangemboilViewController.m */,
 				645400091A42711700FA69C7 /* BangdingViewController.h */,
 				6454000A1A42711700FA69C7 /* BangdingViewController.m */,
 				6454000C1A4271A100FA69C7 /* NotifiationViewController.h */,
@@ -3528,6 +3538,7 @@
 				5E6C7CD21A42C875005C4554 /* AFSecurityPolicy.m in Sources */,
 				64E3493B1A5D18ED00DA6B74 /* TempDate.m in Sources */,
 				645DEE3F1A4132C100E8C524 /* NSObject+SBJSON.m in Sources */,
+				64DFEBAE1AA98D1400548B39 /* ChangemboilViewController.m in Sources */,
 				5ECC41B01A42CB5200A5D3B4 /* AFAppDotNetAPIClient.m in Sources */,
 				2FC71FE21A281569002BB2C5 /* MainViewController.m in Sources */,
 				645DEE931A41474900E8C524 /* TopTableViewCell.m in Sources */,
@@ -3544,6 +3555,7 @@
 				2FC71FDA1A2721AC002BB2C5 /* BaseViewController.m in Sources */,
 				64E348F81A5CE35900DA6B74 /* SendCircleViewController.m in Sources */,
 				64394D631A5E6A540034F89E /* MJRefreshBaseView.m in Sources */,
+				64DFEBB11AA9A15200548B39 /* ForgetPassWordViewController.m in Sources */,
 				5ED3CF471A416FCE0083BCDE /* MDTransitionAnimatorSlideFromLeft.m in Sources */,
 				5E6C7CD61A42C875005C4554 /* AFURLSessionManager.m in Sources */,
 				5ECA51F91A491607006F0CC3 /* ModelData.m in Sources */,

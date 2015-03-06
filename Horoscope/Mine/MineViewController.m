@@ -775,7 +775,7 @@
             [dict setObject:[[UserCache sharedInstance]objectForKey:KMYUSERID] forKey:@"uid"];
             [[AFAppDotNetAPIClient sharedClient]POST:@"updatepics" parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
                 [self showMessageWindowWithContent:@"上传成功"imageType:0];
-                [self getInfoFromNetWithUserId:[[UserCache sharedInstance]objectForKey:KMYUSERID]];
+//                [self getInfoFromNetWithUserId:[[UserCache sharedInstance]objectForKey:KMYUSERID]];
 
             } failure:^(NSURLSessionDataTask *task, NSError *error) {
                 
