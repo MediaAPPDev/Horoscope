@@ -146,10 +146,18 @@
         return;
     }
     
-    NSString *urlStr =[NSString stringWithFormat:@"modifymp?uid=%@&password=%@",uidStr,yzmTf.text];
+    NSString *urlStr =[NSString stringWithFormat:@"modifypp?uid=%@&newpwd=%@",uidStr,passwordTf.text];
     [[AFAppDotNetAPIClient sharedClient]GET:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-        [self showMessageWindowWithContent:@"修改成功" imageType:0];
-        [self.navigationController popViewControllerAnimated:YES];
+        
+        if ([responseObject isKindOfClass:[NSDictionary class]]) {
+            NSString *str = [responseObject objectForKey:@"id"];
+            if ([str intValue] ==1) {
+                [self showMessageWindowWithContent:@"修改成功" imageType:0];
+                [self.navigationController popViewControllerAnimated:YES];
+            }else{
+                [self showAlertViewWithtitle:@"提示" message:@"修改失败"];
+            }
+        }
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         
     }];

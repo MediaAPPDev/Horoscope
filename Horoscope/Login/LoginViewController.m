@@ -64,15 +64,9 @@
 {
     
     if ([self isEmtity:_username.text]||[ self isEmtity:_password.text]) {
-        
-       
-            UIAlertView * alert =[[UIAlertView alloc]initWithTitle:@"错误" message:@"用户名和密码不能为空！" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-            [alert show];
-       
-    
+        UIAlertView * alert =[[UIAlertView alloc]initWithTitle:@"错误" message:@"用户名和密码不能为空！" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
     }else{
-        
-        
         if (_username.text.length <11)
         {
             UIAlertView * alert =[[UIAlertView alloc]initWithTitle:@"错误" message:@"用户名不能小于11位！" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
@@ -83,43 +77,57 @@
         {
             UIAlertView * alert =[[UIAlertView alloc]initWithTitle:@"错误" message:@"请输入正确的手机号" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
             [alert show];
-        
+            
         }else{
-            NSString * loginStr =[NSString stringWithFormat:@"veruser?mobilenum=%@&password=%@",_username.text,_password.text];
-            NSLog(@"😄loginStr----%@",loginStr);
-
-            [[AFAppDotNetAPIClient sharedClient] GET:loginStr parameters:nil success:^ (NSURLSessionDataTask *task, id responseObject) {
+            NSString * yzStr =[NSString stringWithFormat:@"veruser?mobilenum=%@",_username.text];
+            [[AFAppDotNetAPIClient sharedClient] GET:yzStr parameters:nil success:^ (NSURLSessionDataTask *task, id responseObject) {
                 
-                            [[UserCache sharedInstance] setValue:loginStr forKey:@"userCode"];
-                
-
-                NSString * state   =KISDictionaryHaveKey(responseObject, @"id");
-
-                [[UserCache sharedInstance] setValue:state forKey:@"userCode"];
-                
-                if (![state isEqualToString:@""]) {
-                    
-                    NSLog(@"-----------%@",state);
-                    if ([state  intValue]!=0) {
-                        [[UserCache sharedInstance]setObject:state forKey:KMYUSERID];
-                        [[UserCache sharedInstance]setObject:_password.text forKey:KPASSWORD];
-                        [self getInfoFromNetWithUserid];
-                        [self showMessageWindowWithContent:@"登录成功" imageType:0];
-                        
-                        [self dismissViewControllerAnimated:YES completion:^{
-                            
-                        }];
-                        
-                        
-                        
-                    }else{
+                if ([responseObject isKindOfClass:[NSDictionary class]]) {
+                    NSString * idStr = [responseObject objectForKey:@"id"];
+                    if ([idStr intValue] == 0) {
                         UIAlertView * alert =[[UIAlertView alloc]initWithTitle:@"错误" message:@"用户不存在，请选择注册或取消。" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"注册", nil];
                         [alert show];
+                    }else{
+                        
+                        NSString * loginStr =[NSString stringWithFormat:@"veruser?mobilenum=%@&password=%@",_username.text,_password.text];
+                        NSLog(@"😄loginStr----%@",loginStr);
+                        
+                        [[AFAppDotNetAPIClient sharedClient] GET:loginStr parameters:nil success:^ (NSURLSessionDataTask *task, id responseObject) {
+                            
+                            [[UserCache sharedInstance] setValue:loginStr forKey:@"userCode"];
+                            
+                            
+                            NSString * state   =KISDictionaryHaveKey(responseObject, @"id");
+                            
+                            [[UserCache sharedInstance] setValue:state forKey:@"userCode"];
+                            
+                            if (![state isEqualToString:@""]) {
+                                
+                                NSLog(@"-----------%@",state);
+                                if ([state  intValue]!=0) {
+                                    [[UserCache sharedInstance]setObject:state forKey:KMYUSERID];
+                                    [[UserCache sharedInstance]setObject:_password.text forKey:KPASSWORD];
+                                    [self getInfoFromNetWithUserid];
+                                    [self showMessageWindowWithContent:@"登录成功" imageType:0];
+                                    
+                                    [self dismissViewControllerAnimated:YES completion:^{
+                                        
+                                    }];
+                                    
+                                    
+                                    
+                                }else{
+                                    UIAlertView * alert =[[UIAlertView alloc]initWithTitle:@"错误" message:@"密码错误。" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+                                    [alert show];
+                                }
+                            }
+                            else{
+                                UIAlertView * alert =[[UIAlertView alloc]initWithTitle:@"错误" message:@"请重新登录" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+                                [alert show];
+                            }
+                        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                        }];
                     }
-                }
-                else{
-                    UIAlertView * alert =[[UIAlertView alloc]initWithTitle:@"错误" message:@"用户不存在，请选择注册或取消。" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"注册", nil];
-                    [alert show];
                 }
             } failure:^(NSURLSessionDataTask *task, NSError *error) {
             }];
