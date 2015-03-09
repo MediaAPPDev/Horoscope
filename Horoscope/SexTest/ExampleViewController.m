@@ -30,7 +30,7 @@
 
 -(void) viewDidAppear:(BOOL)animated{
     
-    self.contentSrollView.frame = CGRectMake(0, 260, KScreenHeight, 480);
+    self.contentSrollView.frame = CGRectMake(0, 260, KScreenHeight, 300);
     self.contentSrollView.scrollEnabled = YES;
     [self.contentSrollView setContentSize:CGSizeMake(320, 1000)];
     

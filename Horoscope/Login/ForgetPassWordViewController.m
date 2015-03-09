@@ -26,12 +26,12 @@
     [self setTopViewWithTitle:@"忘记密码" withBackButton:NO];
     
     
-//    self.view.backgroundColor = [UIColor blackColor];
-//    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(KScreenWidth-60, KISHighVersion_7?20:0, 60, 44)];
-//    [button setImage:KUIImage(@"wancheng@2x.png") forState:UIControlStateNormal];
-//    [button addTarget:self action:@selector(enterNextPage:) forControlEvents:UIControlEventTouchUpInside];
-//    
-//    [self.view addSubview:button];
+    self.view.backgroundColor = [UIColor blackColor];
+    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(KScreenWidth-60, KISHighVersion_7?20:0, 60, 44)];
+    [button setImage:KUIImage(@"wancheng@2x.png") forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(enterNextPage:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:button];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"regeback.png"]];
     
     UIButton* backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, KISHighVersion_7 ? 20 : 0, 65, 44)];
@@ -102,10 +102,34 @@
     
 }
 
-//-(void)enterNextPage:(UIButton *)btn
-//{
-//    
-//}
+-(void)enterNextPage:(UIButton *)btn
+{
+    if ([self isEmtity:mobTf.text]) {
+        [self showAlertViewWithtitle:@"提示" message:@"手机号不能为空"];
+        return;
+    }
+    if ([self isEmtity:passwordTf.text]) {
+        [self showAlertViewWithtitle:@"提示" message:@"密码不能为空"];
+        return;
+    }
+    if ([self isEmtity:yzmTf.text]) {
+        [self showAlertViewWithtitle:@"提示" message:@"验证码不能为空"];
+        return;
+    }
+    if (![yzmTf.text isEqualToString:smscodesStr]) {
+        [self showAlertViewWithtitle:@"提示" message:@"验证码不正确"];
+        return;
+    }
+    
+    NSString *urlStr =[NSString stringWithFormat:@"modifymp?uid=%@&password=%@",uidStr,yzmTf.text];
+    [[AFAppDotNetAPIClient sharedClient]GET:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        [self showMessageWindowWithContent:@"修改成功" imageType:0];
+        [self.navigationController popViewControllerAnimated:YES];
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
+
+}
 
 
 -(void)backButtonClick:(id)sender
