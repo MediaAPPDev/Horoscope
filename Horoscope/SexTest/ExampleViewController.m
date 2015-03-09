@@ -30,8 +30,9 @@
 
 -(void) viewDidAppear:(BOOL)animated{
     
-    //    self.scrollView.frame = CGRectMake(0, 0, 320, 480);
-    
+    self.contentSrollView.frame = CGRectMake(0, 260, KScreenHeight, 480);
+    self.contentSrollView.scrollEnabled = YES;
+    [self.contentSrollView setContentSize:CGSizeMake(320, 1000)];
     
     
 }
@@ -78,7 +79,7 @@
         
         _exampleTitle =[[UITextView alloc]initWithFrame:CGRectMake(20, 5, KScreenWidth-40, 200)];
 //        
-        _exampleTitle.userInteractionEnabled=NO;
+//        _exampleTitle.userInteractionEnabled=NO;
         
         _exampleTitle.scrollEnabled = YES;
         
@@ -181,7 +182,7 @@
         
         //        [_answerScrolllView setBackgroundColor:[UIColor redColor]];
         
-        _answerText =[[UITextView alloc]initWithFrame:CGRectMake(20, 5, KScreenWidth-40, 400)];
+        _answerText =[[UITextView alloc]initWithFrame:CGRectMake(20, 5, KScreenWidth-40, 600)];
         //              [self.view bringSubviewToFront:_answerText]
         
         //               NSString * strsdfds=[_answerArray objectAtIndex:_selectedNum];
@@ -192,7 +193,7 @@
         //                [_answerText setFont:[UIFont fontWithName:@"AppleGothic" size:17]];
         //               [_answerText setBackgroundColor:[UIColor redColor]];
         
-        _answerText.userInteractionEnabled=NO;
+//        _answerText.userInteractionEnabled=NO;
         
         [_answerScrolllView addSubview:_answerText];
 
