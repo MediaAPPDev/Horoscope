@@ -49,7 +49,7 @@
 
     
     scrollView  = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 110, self.view.bounds.size.width, self.view.bounds.size.height*100)];
-    scrollView.contentSize = CGSizeMake(self.view.bounds.size.width*3, 0);
+    scrollView.contentSize = CGSizeMake(self.view.bounds.size.width, 0);
     scrollView.pagingEnabled = YES;
 //    scrollView.userInteractionEnabled = NO;
 

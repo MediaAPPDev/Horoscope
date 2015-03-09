@@ -29,10 +29,12 @@
 }
 
 -(void) viewDidAppear:(BOOL)animated{
-    
-    self.contentSrollView.frame = CGRectMake(0, 260, KScreenHeight, 300);
+    [self.headImage setImage:[UIImage imageNamed:@"lunbo1.jpg"]];
+    self.labelView.frame = CGRectMake(0, 160, KScreenWidth, 40);
+    self.headImage.frame = CGRectMake(0 , 0, KScreenWidth, 200);
+    self.contentSrollView.frame = CGRectMake(0, 260, KScreenWidth, 300);
     self.contentSrollView.scrollEnabled = YES;
-    [self.contentSrollView setContentSize:CGSizeMake(320, 1000)];
+    [self.contentSrollView setContentSize:CGSizeMake(KScreenWidth, 1000)];
     
     
 }

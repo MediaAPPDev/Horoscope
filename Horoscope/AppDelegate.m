@@ -61,6 +61,9 @@
     //****************************** MDMenuViewController initialisation ******************************************
 
     
+    
+    
+    
     //设置友盟社会化组件appkey
     [UMSocialData setAppKey:UmengAppkey];
     

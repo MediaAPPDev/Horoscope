@@ -23,6 +23,8 @@
 @property(nonatomic,strong)NSMutableArray * answerArray;
 
 
+@property (weak, nonatomic) IBOutlet UIImageView *headImage;
+@property (weak, nonatomic) IBOutlet UIView *labelView;
 
 
 

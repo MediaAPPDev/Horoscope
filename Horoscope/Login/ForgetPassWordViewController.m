@@ -25,14 +25,27 @@
     // Do any additional setup after loading the view.
     [self setTopViewWithTitle:@"忘记密码" withBackButton:NO];
     
+    [self.view setFrame:CGRectMake(0, 0, KScreenWidth, KScreenHeight)];
+//    self.view.frame
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"regeback.png"]];
     
-    self.view.backgroundColor = [UIColor blackColor];
+//    UIImageView *aa = [[UIImageView alloc]initWithFrame:self.view.frame];
+//    aa.image = [UIImage imageNamed:@"regeback.png"];
+    
+//    UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+//    imageView.contentMode = UIViewContentModeScaleToFill;
+//    [imageView setImage:[UIImage imageNamed:@"regeback.png"]];
+//     self.view.backgroundColor = [UIColor colorWithPatternImage:imageView.image];
+    
+//    [self.view addSubview:imageView];
+    
+//    self.view.backgroundColor = [UIColor blackColor];
     UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(KScreenWidth-60, KISHighVersion_7?20:0, 60, 44)];
     [button setImage:KUIImage(@"wancheng@2x.png") forState:UIControlStateNormal];
     [button addTarget:self action:@selector(enterNextPage:) forControlEvents:UIControlEventTouchUpInside];
     
     [self.view addSubview:button];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"regeback.png"]];
+    
     
     UIButton* backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, KISHighVersion_7 ? 20 : 0, 65, 44)];
     [backButton setImage:KUIImage(@"back") forState:UIControlStateNormal];

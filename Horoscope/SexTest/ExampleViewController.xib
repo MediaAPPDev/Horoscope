@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="contentSrollView" destination="3eD-O5-IXy" id="B6G-II-am2"/>
                 <outlet property="headViews" destination="p1w-Ud-IGy" id="QS1-U4-zbG"/>
+                <outlet property="labelView" destination="NzP-oW-V36" id="A6M-zo-GT3"/>
                 <outlet property="testCount" destination="704-LV-4tq" id="cES-PK-tSZ"/>
                 <outlet property="textTitle" destination="se6-Il-zJ9" id="GuS-Yk-7sS"/>
                 <outlet property="timeLable" destination="HjX-RI-hYx" id="cu7-xt-jIW"/>
