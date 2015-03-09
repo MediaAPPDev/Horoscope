@@ -9,6 +9,9 @@
 #import "ExampleViewController.h"
 #import "MBButtonShowView.h"
 
+#define LOGRECT(f) NSLog(@"\nx:%f\ny:%f\nwidth:%f\nheight:%f\n",f.origin.x,f.origin.y,f.size.width,f.size.height)
+
+
 @interface ExampleViewController ()
 
 @end
@@ -18,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setTopViewWithTitle:@"爱情测试" withBackButton:YES];
-    
+//    [_contentSrollView setFrame:CGRectMake(0,0 ,320 ,500 )];
     
     [self reloadDatas];
     
@@ -73,9 +76,11 @@
         
         //        NSTextContainer * textCon=[NSTextContainer alloc]increaseSize:<#(id)#>
         
-        _exampleTitle =[[UITextView alloc]initWithFrame:CGRectMake(20, 5, KScreenWidth-40, 300)];
+        _exampleTitle =[[UITextView alloc]initWithFrame:CGRectMake(20, 5, KScreenWidth-40, 200)];
 //        
         _exampleTitle.userInteractionEnabled=NO;
+        
+        _exampleTitle.scrollEnabled = YES;
         
         _exampleTitle.text =[_exampleDic valueForKey:@"title"];
         //        [_exampleTitle sizeToFit];
@@ -90,11 +95,11 @@
         if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7) {
             
             CGRect textFrame=[[_exampleTitle layoutManager]usedRectForTextContainer:[_exampleTitle textContainer]];
-            height = textFrame.size.height;
+            height = textFrame.size.height+10;
             
         }else {
             
-            height = _exampleTitle.contentSize.height;
+            height = _exampleTitle.contentSize.height+10;
         }
         
         for (int i =0; i <_exampleArray.count; i++) {
@@ -103,7 +108,7 @@
             
             
             QRadioButton *buttons = [[QRadioButton alloc] initWithDelegate:self groupId:@"example"];
-            buttons.frame = CGRectMake(_exampleTitle.frame.origin.x,height+20+60*i, KScreenWidth, 30);
+            buttons.frame = CGRectMake(_exampleTitle.frame.origin.x,height+30*i, KScreenWidth, 30);
             [buttons setTitle:[_exampleArray objectAtIndex:i] forState:UIControlStateNormal];
             [buttons setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
             [buttons.titleLabel setFont:[UIFont boldSystemFontOfSize:16.0f]];
@@ -168,13 +173,15 @@
         
         _answerScrolllView.frame =_contentSrollView.frame;
         
+//        NSLog(@"--------------%@",_contentSrollView.frame);
+//        LOGRECT(_contentSrollView.frame);
         _answerScrolllView.scrollEnabled = YES;
         
         //        CGRect f =_answerScrolllView.frame;
         
         //        [_answerScrolllView setBackgroundColor:[UIColor redColor]];
         
-        _answerText =[[UITextView alloc]initWithFrame:CGRectMake(20, 5, KScreenWidth-40, 300)];
+        _answerText =[[UITextView alloc]initWithFrame:CGRectMake(20, 5, KScreenWidth-40, 400)];
         //              [self.view bringSubviewToFront:_answerText]
         
         //               NSString * strsdfds=[_answerArray objectAtIndex:_selectedNum];

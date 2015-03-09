@@ -11,7 +11,10 @@
 #import "QRadioButton.h"
 @class MBButtonShowView;
 @interface ExampleViewController : BaseViewController<QRadioButtonDelegate>
-
+{
+    NSMutableArray *_imageNames;
+    NSInteger ImageHeight;
+}
 @property (nonatomic,strong)NSMutableArray * exampleArray;
 //@property (nonatomic,strong)NSMutableArray * answerArray;
 @property (nonatomic,strong)NSMutableDictionary  * exampleDic;

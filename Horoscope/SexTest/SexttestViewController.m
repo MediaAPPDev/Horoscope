@@ -55,7 +55,7 @@
                        nil] ;
         
         //设置标题数组
-        strArr = [[NSMutableArray alloc]initWithObjects:@"1:我们是一支可以撼动世界的力量",@"2:向前冲吧，小伙伴们", @"3:再不会为任何理由停下脚步",nil];
+        strArr = [[NSMutableArray alloc]initWithObjects:@"1:啦啦啦！",@"2:离梦想只有一步之遥", @"3:带你装逼带你飞～",nil];
 //        adView = [[BMAdScrollView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, 280)] ;
 
 
@@ -80,8 +80,8 @@
 - (void)buttonClick:(int)vid
 {
     NSLog(@"Click--OK");
-    testDetailedViewController *testDetailVC = [testDetailedViewController alloc] ;
-    [self.menuController pushViewController:testDetailVC withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
+//    testDetailedViewController *testDetailVC = [testDetailedViewController alloc] ;
+//    [self.menuController pushViewController:testDetailVC withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
 }
 
 - (void)viewDidLoad {
@@ -208,8 +208,8 @@
         [cell.facePIc setImageWithURL:[NSURL URLWithString:[_allArray[indexPath.row]valueForKey:@"pics"]]placeholderImage:[UIImage imageNamed:@"touxiang1.png"]];
         cell.facePIc.layer.cornerRadius = 6;
         cell.facePIc.layer.masksToBounds = YES;
-        cell.howPolple.text=@"111人";
-        cell.timeLable.text =@"1小时前";
+//        cell.howPolple.text=@"111人";
+//        cell.timeLable.text =@"1小时前";
         
     }
     
@@ -248,16 +248,16 @@
 
 - (void)addHeader
 {
-    MJRefreshHeaderView *header = [MJRefreshHeaderView header];
-    CGRect headerRect = header.arrowImage.frame;
-    headerRect.size = CGSizeMake(30, 30);
-    header.arrowImage.frame = headerRect;
-    header.activityView.center = header.arrowImage.center;
-    header.scrollView = m_CollView;
-    header.beginRefreshingBlock = ^(MJRefreshBaseView *refreshView) {
-//        [self getInfoFromNet];
-    };
-    m_header = header;
+//    MJRefreshHeaderView *header = [MJRefreshHeaderView header];
+//    CGRect headerRect = header.arrowImage.frame;
+//    headerRect.size = CGSizeMake(30, 30);
+//    header.arrowImage.frame = headerRect;
+//    header.activityView.center = header.arrowImage.center;
+//    header.scrollView = m_CollView;
+//    header.beginRefreshingBlock = ^(MJRefreshBaseView *refreshView) {
+////        [self getInfoFromNet];
+//    };
+//    m_header = header;
 }
 
 

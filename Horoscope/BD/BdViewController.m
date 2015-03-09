@@ -52,6 +52,8 @@
     scrollView.contentSize = CGSizeMake(self.view.bounds.size.width*3, 0);
     scrollView.pagingEnabled = YES;
 //    scrollView.userInteractionEnabled = NO;
+
+    
 //    scrollView.backgroundColor = [UIColor yellowColor];
     [self.view addSubview:scrollView];
     
@@ -108,7 +110,7 @@
         txV.tag = 1999+i;
         
 //        txV.backgroundColor = [UIColor yellowColor];
-        txV.scrollEnabled = YES;
+//        txV.scrollEnabled = YES;
         
         [scrollView addSubview:txV];
     }
@@ -251,9 +253,9 @@
     UITextView *text1 = (UITextView *)[self.view viewWithTag:1999+0];
     UITextView *text2 = (UITextView *)[self.view viewWithTag:1999+1];
     UITextView *text3 = (UITextView *)[self.view viewWithTag:1999+2];
-      text1.scrollEnabled = YES;
-      text2.scrollEnabled = YES;
-      text3.scrollEnabled = YES;
+      text1.editable = NO;
+      text2.editable = NO;
+      text3.editable = NO;
       text1.autoresizingMask = UIViewAutoresizingFlexibleHeight;
       text2.autoresizingMask = UIViewAutoresizingFlexibleHeight;
       text3.autoresizingMask = UIViewAutoresizingFlexibleHeight;
