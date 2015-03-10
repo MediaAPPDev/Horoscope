@@ -19,6 +19,8 @@
     float keyboardhight;
     
     NSString * myUid;
+    MJRefreshHeaderView *m_header;
+    
 }
 @end
 
@@ -51,6 +53,7 @@
     [self buildTableViewHeadView];
     [self createCommentText];
     [self registerForKeyboardNotifications];
+    [self addHeader];
 }
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -95,8 +98,10 @@
     [self.view addSubview:commentBgView];
     
     commentView = [[UIView alloc]initWithFrame:CGRectMake(0, KScreenHeight, KScreenWidth, 55)];
-    commentTF = [[UITextField alloc]initWithFrame:CGRectMake(10, 5, KScreenWidth-20, 45)];
     commentView.backgroundColor = [UIColor whiteColor];
+    [commentBgView addSubview:commentView];
+
+    commentTF = [[UITextField alloc]initWithFrame:CGRectMake(10, 5, KScreenWidth-20, 45)];
     commentTF.backgroundColor = [UIColor whiteColor];
     commentTF.borderStyle = UITextBorderStyleRoundedRect;
     commentTF.font = [UIFont systemFontOfSize:14];
@@ -104,11 +109,11 @@
     commentTF.delegate = self;
     commentTF.returnKeyType =UIReturnKeyGo;
     commentTF.autocapitalizationType = UITextAutocapitalizationTypeNone;
-    commentTF.keyboardType = UIKeyboardTypeDefault;
-    [commentView addSubview:commentTF];
+//    commentTF.keyboardType = UIKeyboardTypeDefault;
     commentTF.autocorrectionType = UITextAutocorrectionTypeNo;
+
+    [commentView addSubview:commentTF];
     
-    [commentBgView addSubview:commentView];
     
 }
 
@@ -124,9 +129,13 @@
         }
         [infoArray removeAllObjects];
         [infoArray addObjectsFromArray:responseObject];
+        [m_header endRefreshing];
+
         [myTableView reloadData];
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [m_header endRefreshing];
+
         [self showAlertViewWithtitle:@"提示" message:@"获取失败"];
     }];
 }
@@ -259,7 +268,7 @@
     NSDictionary *dic = [infoArray objectAtIndex:cell.tag];
 
     
-    NSString *urlStr = [NSString stringWithFormat:@"addcount?cid=%@&zcount=%@&uid=%@",KISDictionaryHaveKey(dic, @"contentid"),KISDictionaryHaveKey(dic, @"zcount"),[[UserCache sharedInstance]objectForKey:KMYUSERID]];
+    NSString *urlStr = [NSString stringWithFormat:@"addcount?cid=%@&zcount=1&uid=%@",KISDictionaryHaveKey(dic, @"contentid"),[[UserCache sharedInstance]objectForKey:KMYUSERID]];
     
     
     [[AFAppDotNetAPIClient sharedClient]POST:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -369,6 +378,19 @@
 //    [self.navigationController pushViewController:senderVC animated:YES];
 }
 
+- (void)addHeader
+{
+    MJRefreshHeaderView *header = [MJRefreshHeaderView header];
+    CGRect headerRect = header.arrowImage.frame;
+    headerRect.size = CGSizeMake(30, 30);
+    header.arrowImage.frame = headerRect;
+    header.activityView.center = header.arrowImage.center;
+    header.scrollView = myTableView;
+    header.beginRefreshingBlock = ^(MJRefreshBaseView *refreshView) {
+        [self getInfoFromNet];
+    };
+    m_header = header;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

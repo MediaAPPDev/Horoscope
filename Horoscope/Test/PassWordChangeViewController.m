@@ -84,7 +84,7 @@
         return;
     }
     
-    NSString * urlStr = [NSString stringWithFormat:@"modifymp?uid=%@&password=%@&newpwd=%@",[[UserCache sharedInstance]objectForKey:KMYUSERID],oldPSTF.text,newPSTF.text];
+    NSString * urlStr = [NSString stringWithFormat:@"modifymp?uid=%@&oldpwd=%@&newpwd=%@",[[UserCache sharedInstance]objectForKey:KMYUSERID],oldPSTF.text,newPSTF.text];
     NSLog(@"http://star.allappropriate.com/%@",urlStr);
     [[AFAppDotNetAPIClient sharedClient]GET:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         

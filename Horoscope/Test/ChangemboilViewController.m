@@ -35,7 +35,7 @@
     zhLabel.borderStyle =UITextBorderStyleRoundedRect;
     zhLabel.textColor =[UIColor blackColor ];
     zhLabel.clearButtonMode = UITextFieldViewModeAlways;
-    zhLabel.secureTextEntry = YES;
+//    zhLabel.secureTextEntry = YES;
     zhLabel.textAlignment = NSTextAlignmentCenter;
     zhLabel.autocapitalizationType = UITextAutocapitalizationTypeNone;
     [self.view addSubview:zhLabel];
@@ -44,7 +44,7 @@
     mmLabel.borderStyle =UITextBorderStyleRoundedRect;
     mmLabel.textColor =[UIColor blackColor ];
     mmLabel.clearButtonMode = UITextFieldViewModeAlways;
-    mmLabel.secureTextEntry = YES;
+//    mmLabel.secureTextEntry = YES;
     mmLabel.textAlignment = NSTextAlignmentCenter;
     mmLabel.autocapitalizationType = UITextAutocapitalizationTypeNone;
     [self.view addSubview:mmLabel];
@@ -64,10 +64,11 @@
     NSString *urlStr =[NSString stringWithFormat:@"veruser?mobilenum=%@&password=%@",zhLabel.text,mmLabel.text];
     [[AFAppDotNetAPIClient sharedClient]GET:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject isKindOfClass:[NSDictionary class]]) {
-            NSString *uid = [responseObject objectForKey:@"uid"];
+            NSString *uid = [responseObject objectForKey:@"id"];
             if ([uid isEqualToString:[[UserCache sharedInstance]objectForKey:KMYUSERID]]) {
               
                 UIView *view =[[ UIView alloc]initWithFrame:CGRectMake(0, startX, width(self.view), height(self.view)-startX)];
+                view.backgroundColor  = [UIColor whiteColor];
                 UILabel *lb =[self buildLabelWithFrame:CGRectMake(0, 0, 200, 30) backgroundColor:[UIColor clearColor] textColor:[UIColor blackColor] font:[UIFont systemFontOfSize:14] textAlignment:NSTextAlignmentCenter text:@"请输入新手机号"];
                 lb.center = CGPointMake(view.center.x, 40);
                 [view addSubview:lb];
@@ -85,7 +86,8 @@
                 button.center = CGPointMake(self.view.bounds.size.width/2, startX+160);
                 [button setTitle:@"提交" forState:UIControlStateNormal];
                 [button addTarget:self action:@selector(changeSuccess:) forControlEvents:UIControlEventTouchUpInside];
-                [self.view addSubview:button];
+                [view addSubview:button];
+                [self.view addSubview:view];
             }
         }
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -97,7 +99,13 @@
     NSString *urlStr =[NSString stringWithFormat:@"modifymm?uid=%@&mobilenum=%@",[[UserCache sharedInstance]objectForKey:KMYUSERID],newMob.text];
     [[AFAppDotNetAPIClient sharedClient]GET:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"RESPONSEOBJECT--->%@",responseObject);
-        
+        if ([responseObject isKindOfClass:[NSDictionary class]]) {
+            NSString *uid = [responseObject objectForKey:@"id"];
+            if ([uid intValue] ==1) {
+                [self showMessageWindowWithContent:@"修改成功" imageType:0];
+                [self.menuController popViewControllerAnimated:YES];
+            }
+        }
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"ERROR-->%@",error);
     }];
