@@ -11,6 +11,8 @@
 @interface PhotoViewController ()
 {
     UILabel * numLb;
+    EGOImageView *imageView;
+    UIScrollView *scr;
 }
 @end
 
@@ -30,11 +32,13 @@
     [self.view addSubview:scrollView];
     
     
+    
+    
     for (int i = 0; i<self.photoArray.count; i++) {
         
-        UIScrollView *scr = [[UIScrollView alloc]initWithFrame:CGRectMake(width(self.view)*i, 0, width(self.view), height(self.view))];
+         scr= [[UIScrollView alloc]initWithFrame:CGRectMake(width(self.view)*i, 0, width(self.view), height(self.view))];
         
-        EGOImageView *imageView =[[EGOImageView alloc]initWithFrame:scr.frame];
+        imageView =[[EGOImageView alloc]initWithFrame:scr.frame];
         imageView.imageURL = [NSURL URLWithString:self.photoArray[i]];
         
         CGFloat imgW = imageView.image.size.width;
@@ -54,16 +58,79 @@
         imageView.userInteractionEnabled = YES;
         imageView.center = CGPointMake(KScreenWidth/2, KScreenHeight/2);
         [scr addSubview:imageView];
+        
+        //长按事件
+        //1.创建一个手势识别器对象
+        UILongPressGestureRecognizer *longpress=[[UILongPressGestureRecognizer alloc]init];
+        //2.设置长按手势识别器的属性
+        //设置最小停留时间
+        //    longpress.minimumPressDuration=3;
+        //手指按下后事件响应前允许手指移动的偏移量
+        longpress.allowableMovement=50;
+        
+        //3.添加手势识别器到view
+        [imageView addGestureRecognizer:longpress];
+        
+        //4.监听手势识别器
+        [longpress addTarget:self action:@selector(longpressView)];
+        //    UILongPressGestureRecognizer * longPress=(UILongPressGestureRecognizer *)gestures;
+        //    [longPress addTarget:self action:@selector(longPressAction:)];
+        //    if(gesture.state==UIGestureRecognizerStateBegan){
+        //    }
+
 
         [scr addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(backView)]];
 //        scr.backgroundColor = [UIColor greenColor];
         [scrollView addSubview:scr];
-    } 
+    }
     
-    numLb = [self buildLabelWithFrame:CGRectMake(width(self.view)-170, height(self.view)-60, 150, 50) backgroundColor:[UIColor clearColor] textColor:[UIColor whiteColor] font:[UIFont boldSystemFontOfSize:40] textAlignment:NSTextAlignmentRight text:[NSString stringWithFormat:@"%d/%lu",self.num+1,(unsigned long)self.photoArray.count]];
+    
+        numLb = [self buildLabelWithFrame:CGRectMake(width(self.view)-170, height(self.view)-60, 150, 50) backgroundColor:[UIColor clearColor] textColor:[UIColor whiteColor] font:[UIFont boldSystemFontOfSize:40] textAlignment:NSTextAlignmentRight text:[NSString stringWithFormat:@"%d/%lu",self.num+1,(unsigned long)self.photoArray.count]];
     [self.view addSubview:numLb];
     // Do any additional setup after loading the view.
 }
+
+
+-(void)longpressView
+{
+     NSLog(@"发生了长按事件");
+//    scr.userInteractionEnabled = NO;
+    
+    UIActionSheet *actionSheet = [[UIActionSheet alloc]
+                                  initWithTitle:@"是否保存图片？"
+                                  delegate:self
+                                  cancelButtonTitle:@"取消"
+                                  destructiveButtonTitle:@"确定"
+                                  otherButtonTitles:nil];
+    actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+    [actionSheet showInView:self.view];
+    
+    
+}
+
+
+#pragma mark - actionsheet delegate
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex==0) {
+        UIImageWriteToSavedPhotosAlbum(imageView.image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+    }
+    imageView.image = nil;
+//    scr.userInteractionEnabled = YES;
+}
+- (void)image: (UIImage *) image didFinishSavingWithError: (NSError *) error contextInfo: (void *) contextInfo
+{
+    NSString *msg = nil ;
+    if(error != NULL){
+        msg = @"需要访问相册权限";
+    }else{
+        msg = @"保存成功" ;
+    }
+    [self showMessageWindowWithContent:msg imageType:0];
+}
+
+
+
 -(void)backView
 {
  [self.menuController popViewControllerAnimated:NO];
