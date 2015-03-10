@@ -55,7 +55,7 @@
                        nil] ;
         
         //设置标题数组
-        strArr = [[NSMutableArray alloc]initWithObjects:@"1:啦啦啦！",@"2:离梦想只有一步之遥", @"3:带你装逼带你飞～",nil];
+        strArr = [[NSMutableArray alloc]initWithObjects:@"1:翩翩起舞！",@"2:曾经的回忆～", @"3:离梦想只有一步之遥。",nil];
 //        adView = [[BMAdScrollView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, 280)] ;
 
 

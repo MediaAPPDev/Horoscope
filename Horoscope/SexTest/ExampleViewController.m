@@ -27,7 +27,6 @@
     
     // Do any additional setup after loading the view from its nib.
 }
-
 -(void) viewDidAppear:(BOOL)animated{
     [self.headImage setImage:[UIImage imageNamed:@"lunbo1.jpg"]];
     self.labelView.frame = CGRectMake(0, 160, KScreenWidth, 40);
@@ -81,7 +80,7 @@
         
         _exampleTitle =[[UITextView alloc]initWithFrame:CGRectMake(20, 5, KScreenWidth-40, 200)];
 //        
-//        _exampleTitle.userInteractionEnabled=NO;
+        _exampleTitle.userInteractionEnabled=NO;
         
         _exampleTitle.scrollEnabled = YES;
         
@@ -190,12 +189,14 @@
         //               NSString * strsdfds=[_answerArray objectAtIndex:_selectedNum];
         _answerText.text =[_answerArray objectAtIndex:_selectedNum];
         
+        
+        
         [_answerText setFont:[UIFont boldSystemFontOfSize:18.0f]];
         
         //                [_answerText setFont:[UIFont fontWithName:@"AppleGothic" size:17]];
         //               [_answerText setBackgroundColor:[UIColor redColor]];
         
-//        _answerText.userInteractionEnabled=NO;
+        _answerText.userInteractionEnabled=NO;
         
         [_answerScrolllView addSubview:_answerText];
 
@@ -211,6 +212,8 @@
         
         [anoterAnswer setFont:[UIFont boldSystemFontOfSize:18.0f]];
         
+        
+        anoterAnswer.editable = NO;
         
         NSMutableString * otherAnswerStr =[NSMutableString string];
         
@@ -248,7 +251,7 @@
         
         
         
-        
+//        _answerScrolllView.userInteractionEnabled = NO;
         
         [self.view addSubview:_answerScrolllView];
         

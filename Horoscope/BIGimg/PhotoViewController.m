@@ -13,6 +13,7 @@
     UILabel * numLb;
     EGOImageView *imageView;
     UIScrollView *scr;
+    UIActionSheet *actionSheet;
 }
 @end
 
@@ -79,9 +80,9 @@
         //    }
 
 
-        [scr addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(backView)]];
+//        [scr addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(backView)]];
 //        scr.backgroundColor = [UIColor greenColor];
-        [scrollView addSubview:scr];
+//        [scrollView addSubview:scr];
     }
     
     
@@ -96,7 +97,7 @@
      NSLog(@"发生了长按事件");
 //    scr.userInteractionEnabled = NO;
     
-    UIActionSheet *actionSheet = [[UIActionSheet alloc]
+     actionSheet = [[UIActionSheet alloc]
                                   initWithTitle:@"是否保存图片？"
                                   delegate:self
                                   cancelButtonTitle:@"取消"
@@ -115,7 +116,7 @@
     if (buttonIndex==0) {
         UIImageWriteToSavedPhotosAlbum(imageView.image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
     }
-    imageView.image = nil;
+//    imageView.image = nil;
 //    scr.userInteractionEnabled = YES;
 }
 - (void)image: (UIImage *) image didFinishSavingWithError: (NSError *) error contextInfo: (void *) contextInfo
@@ -125,6 +126,7 @@
         msg = @"需要访问相册权限";
     }else{
         msg = @"保存成功" ;
+        
     }
     [self showMessageWindowWithContent:msg imageType:0];
 }
