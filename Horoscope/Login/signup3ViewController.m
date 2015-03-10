@@ -180,7 +180,7 @@
 }
 -(void)getInfoFromNetWithUserid
 {
-    NSString * urlStr = [NSString stringWithFormat:@"userdetail.php?uid=%@",[[UserCache sharedInstance]objectForKey:KMYUSERID ]];
+    NSString * urlStr = [NSString stringWithFormat:@"userdetail.php?uid=%@&uuid=1",[[UserCache sharedInstance]objectForKey:KMYUSERID ]];
     [[AFAppDotNetAPIClient sharedClient] GET:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject isKindOfClass:[NSDictionary class]]) {
             NSDictionary * infoDict = [NSMutableDictionary dictionaryWithDictionary:responseObject];

@@ -138,9 +138,9 @@
     [hud show:YES];
     NSString *urlStr ;
     if (self.mytype == COME_MYSELF) {
-        urlStr = [NSString stringWithFormat:@"userdetail.php?uid=%@",[[UserCache sharedInstance]objectForKey:KMYUSERID ]];
+        urlStr = [NSString stringWithFormat:@"userdetail.php?uid=%@&uuid=1",[[UserCache sharedInstance]objectForKey:KMYUSERID ]];
     }else{
-        urlStr = [NSString stringWithFormat:@"userdetail.php?uid=%@",userid];
+        urlStr = [NSString stringWithFormat:@"userdetail.php?uid=%@&uuid=%@",userid,[[UserCache sharedInstance]objectForKey:KMYUSERID ]];
     }
     NSLog(@"http://star.allappropriate.com/%@",urlStr);
      [[AFAppDotNetAPIClient sharedClient] GET:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -243,7 +243,7 @@
     funsBtn= [[UIButton alloc]initWithFrame:CGRectMake(0, height(blackView)-40, width(blackView)*0.56, 40)];
     
     funsBtn.backgroundColor = [UIColor clearColor];
-    [funsBtn setTitle:@"粉丝 205" forState:UIControlStateNormal];
+    [funsBtn setTitle:@"粉丝 0" forState:UIControlStateNormal];
     [funsBtn addTarget:self action:@selector(didClickFuns:) forControlEvents:UIControlEventTouchUpInside];
     [blackView addSubview:funsBtn];
     
@@ -255,7 +255,7 @@
     
     gzBtn.backgroundColor = [UIColor clearColor];
     [gzBtn addTarget:self action:@selector(didClickgz:) forControlEvents:UIControlEventTouchUpInside];
-    [gzBtn setTitle:@"关注 250" forState:UIControlStateNormal];
+    [gzBtn setTitle:@"关注 0" forState:UIControlStateNormal];
     [blackView addSubview:gzBtn];
         
 }
@@ -290,11 +290,14 @@
                 imgView.imageURL = [NSURL URLWithString:url[i]];
             imgView.tag = i;
             [imgView addTarget:self action:@selector(seeBigImg:) forControlEvents:UIControlEventTouchUpInside];
-            UILongPressGestureRecognizer *longPressGR =
-            [[UILongPressGestureRecognizer alloc] initWithTarget:self
-                                                          action:@selector(deleteImg:)];
-            longPressGR.minimumPressDuration = 0.5;
-            [imgView addGestureRecognizer:longPressGR];
+            if (self.mytype == COME_MYSELF) {
+                UILongPressGestureRecognizer *longPressGR =
+                [[UILongPressGestureRecognizer alloc] initWithTarget:self
+                                                              action:@selector(deleteImg:)];
+                longPressGR.minimumPressDuration = 0.5;
+                [imgView addGestureRecognizer:longPressGR];
+
+            }
             [photoView addSubview:imgView];
         }
     }else{
@@ -589,7 +592,14 @@
 #pragma mark ----修改接口之后继续改动
 -(void)getOutList:(id)sender
 {
-    mYActionSheet = [[UIActionSheet alloc]initWithTitle:@"操作" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"关注" otherButtonTitles:@"举报", nil];
+    NSString * gzStr = [infoDict objectForKey:@"relation"];
+    NSString *title;
+    if ([gzStr isEqualToString:@"您是TA的粉丝"]||[gzStr isEqualToString:@"您已关注TA"]||[gzStr isEqualToString:@"互相关注"]) {
+        title = @"取消关注";
+    }else{
+        title = @"关注";
+    }
+    mYActionSheet = [[UIActionSheet alloc]initWithTitle:@"操作" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:title otherButtonTitles:@"举报", nil];
     mYActionSheet.tag =19999999999;
     [mYActionSheet showInView:self.view];
 }
@@ -607,16 +617,31 @@
     
     if (actionSheet.tag ==19999999999) {
         NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+        NSString * gzStr = [infoDict objectForKey:@"relation"];
+
         switch (buttonIndex) {
             case 0:
-                [dic setObject:[[UserCache sharedInstance]objectForKey:KMYUSERID] forKey:@"uid"];
-                [dic setObject:self.userid forKey:@"fid"];
+
+                if ([gzStr isEqualToString:@"您是TA的粉丝"]||[gzStr isEqualToString:@"您已关注TA"]||[gzStr isEqualToString:@"互相关注"]) {
+                    [dic setObject:[[UserCache sharedInstance]objectForKey:KMYUSERID] forKey:@"uid"];
+                    [dic setObject:self.userid forKey:@"fid"];
+                    
+                    [[AFAppDotNetAPIClient sharedClient]POST:@"qfollow" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+                        [self showMessageWindowWithContent:@"取消成功" imageType:0];
+                    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                        [self showMessageWindowWithContent:@"取消失败" imageType:0];
+                    }];
+                }else{
+                    [dic setObject:[[UserCache sharedInstance]objectForKey:KMYUSERID] forKey:@"uid"];
+                    [dic setObject:self.userid forKey:@"fid"];
+                    [[AFAppDotNetAPIClient sharedClient]POST:@"follow" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+                        [self showMessageWindowWithContent:@"关注成功" imageType:0];
+                    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                        [self showMessageWindowWithContent:@"取消失败" imageType:0];
+                    }];
+
+                }
                 
-                [[AFAppDotNetAPIClient sharedClient]POST:@"follow" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
-                    NSLog(@"成功");
-                } failure:^(NSURLSessionDataTask *task, NSError *error) {
-                    NSLog(@"失败");
-                }];
 
                 break;
                case 1:
