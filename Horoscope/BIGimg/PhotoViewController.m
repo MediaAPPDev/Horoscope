@@ -79,6 +79,7 @@
         //    if(gesture.state==UIGestureRecognizerStateBegan){
         //    }
 
+        
 
 //        [scr addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(backView)]];
 //        scr.backgroundColor = [UIColor greenColor];
