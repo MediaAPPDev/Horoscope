@@ -76,7 +76,6 @@
 
 -(void)gzgzgz:(UIButton *)sender
 {
-        [self.gzBtn setTitle:@"已关注" forState:UIControlStateNormal];
         if ([self.delegate respondsToSelector:@selector(didClickFollowWithCell:)]) {
             [self.delegate didClickFollowWithCell:self];
         }

@@ -66,10 +66,7 @@
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"error---%@",error);
     }];
-    
-    
 }
-
 
 #pragma mark  -----关注请求
 
@@ -98,6 +95,8 @@
 {
     NSDictionary *dic = [infoArray objectAtIndex:cell.tag];
     [self getFollowWithFid:KISDictionaryHaveKey(dic, @"uid")];
+    [cell.gzBtn setTitle:@"已关注" forState:UIControlStateNormal];
+
 }
 
 
@@ -127,16 +126,16 @@
     NSDictionary *dic = [infoArray objectAtIndex:indexPath.row];
     cell.headimgView.placeholderImage = KUIImage(@"placeholder.jpg");
     cell.headimgView.imageURL = [NSURL URLWithString:KISDictionaryHaveKey(dic, @"photo")];
-        cell.nameLb.text = KISDictionaryHaveKey(dic, @"nickname");
-        cell.starImgView.image = KUIImage([self GetNameReturnImageWithName:KISDictionaryHaveKey(dic, @"xing")]);
-        cell.starLb.text = KISDictionaryHaveKey(dic, @"xing");;
+    cell.nameLb.text = KISDictionaryHaveKey(dic, @"nickname");
+    cell.starImgView.image = KUIImage([self GetNameReturnImageWithName:KISDictionaryHaveKey(dic, @"xing")]);
+    cell.starLb.text = KISDictionaryHaveKey(dic, @"xing");;
     cell.sexImg.image = KUIImage(@"sexImg");
-
-        cell.signatureLb.text =KISDictionaryHaveKey(dic, @"phrase");;
-//        cell.timeLabel.text = @"1分钟前";
-//        cell.timeLabel.text = @"1分钟前";
-       cell.timeLabel.hidden = YES;
-        return cell;
+    [cell.gzBtn setTitle:@"关注" forState:UIControlStateNormal];
+    cell.signatureLb.text =KISDictionaryHaveKey(dic, @"phrase");;
+    //        cell.timeLabel.text = @"1分钟前";
+    //        cell.timeLabel.text = @"1分钟前";
+    cell.timeLabel.hidden = YES;
+    return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
