@@ -9,6 +9,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SexttestViewController">
             <connections>
                 <outlet property="headView" destination="ZYk-Kh-kKw" id="sgX-du-nk2"/>
+                <outlet property="myTableView" destination="Adc-6P-5a9" id="O3l-OU-Rho"/>
                 <outlet property="testPageControler" destination="dH0-U3-EzT" id="IaD-Ma-Ffw"/>
                 <outlet property="testTableView" destination="Adc-6P-5a9" id="b35-NC-edN"/>
                 <outlet property="titleLable" destination="Yvj-Nq-7YS" id="8JU-mG-CwZ"/>

@@ -25,23 +25,13 @@
     // Do any additional setup after loading the view.
     [self setTopViewWithTitle:@"忘记密码" withBackButton:NO];
     
-//    [self.view setFrame:CGRectMake(0, 0, KScreenWidth, KScreenHeight)];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"regeback.png"]];
+
     
-//    UIImageView *aa = [[UIImageView alloc]initWithFrame:self.view.frame];
-//    aa.image = [UIImage imageNamed:@"regeback.png"];
-//    [self.view addSubview:aa];
-    
-//    UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
-//    imageView.contentMode = UIViewContentModeScaleToFill;
-//    [imageView setImage:[UIImage imageNamed:@"regeback.png"]];
-//     self.view.backgroundColor = [UIColor colorWithPatternImage:imageView.image];
-    
-    
-//    [self.view addSubview:imageView];
-    
-//    self.view.backgroundColor = [UIColor blackColor];
-    
+    UIImage *image = [UIImage imageNamed:@"regeback.png"];
+    self.view.layer.contents = (id) image.CGImage;
+    // 如果需要背景透明加上下面这句
+    self.view.layer.backgroundColor = [UIColor clearColor].CGColor;
+
     
     
     UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(KScreenWidth-60, KISHighVersion_7?20:0, 60, 44)];
@@ -58,7 +48,6 @@
     [backButton addTarget:self action:@selector(backButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:backButton];
 
-//    self.view.backgroundColor =[ UIColor whiteColor];
     mobTf = [[UITextField alloc]initWithFrame:CGRectMake(40, startX+40, KScreenWidth-80, 40)];
     [mobTf setValue:[UIColor colorWithWhite:1 alpha:0.6] forKeyPath:@"_placeholderLabel.textColor"];
     mobTf.borderStyle =UITextBorderStyleRoundedRect;
@@ -97,19 +86,33 @@
 
     [self.view addSubview:passwordTf];
 
+//    UIImage *buttonBackImage = [UIImage imageNamed:@"textNormal.png"];
+    
+//    buttonBackImage
     
     UIButton *button1 = [[UIButton alloc]initWithFrame:CGRectMake(40+(KScreenWidth-80)/3*2+5, startX+100, (KScreenWidth-80)/3*1-5, 40)];
+    [button1 setImage:[UIImage imageNamed:@"textNormal.png"] forState:UIControlStateNormal];
+
     [button1 setTitle:@"获取验证码" forState:UIControlStateNormal];
+    button1.titleLabel.textAlignment = NSTextAlignmentCenter;//设置title的字体居中
+
     button1.titleLabel.font=  [UIFont systemFontOfSize: 12]; ;
-//    button1.backgroundColor =[ UIColor blackColor];
-    button1.alpha = 0.8;
+
+
     [button1 addTarget:self action:@selector(getYzm:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button1];
     
+    
+    
+    
     UIButton *button2 = [[UIButton alloc]initWithFrame:CGRectMake(40, startX+210, KScreenWidth-80, 40)];
+    [button2 setImage:[UIImage imageNamed:@"textNormal.png"] forState:UIControlStateNormal];
+
     [button2 setTitle:@"提交" forState:UIControlStateNormal];
-//    button2.backgroundColor =[ UIColor blackColor];
-    button2.alpha = 0.8;
+    button2.titleLabel.textAlignment = NSTextAlignmentCenter;//设置title的字体居中
+
+    button1.titleLabel.font=  [UIFont systemFontOfSize: 12]; ;
+
     [button2 addTarget:self action:@selector(uploadPassword:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button2];
 

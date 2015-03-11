@@ -33,6 +33,7 @@
 
 @implementation SexttestViewController
 {
+    __weak IBOutlet UITableView *myTableView;
     UICollectionView * m_CollView;
     UICollectionViewFlowLayout * m_layout;
     MJRefreshHeaderView *m_header;
@@ -146,7 +147,7 @@
 
     [self getInfoFromNet];
 
-//    [self addHeader];
+    [self addHeader];
 
     
 }
@@ -248,16 +249,16 @@
 
 - (void)addHeader
 {
-//    MJRefreshHeaderView *header = [MJRefreshHeaderView header];
-//    CGRect headerRect = header.arrowImage.frame;
-//    headerRect.size = CGSizeMake(30, 30);
-//    header.arrowImage.frame = headerRect;
-//    header.activityView.center = header.arrowImage.center;
-//    header.scrollView = m_CollView;
-//    header.beginRefreshingBlock = ^(MJRefreshBaseView *refreshView) {
-////        [self getInfoFromNet];
-//    };
-//    m_header = header;
+    MJRefreshHeaderView *header = [MJRefreshHeaderView header];
+    CGRect headerRect = header.arrowImage.frame;
+    headerRect.size = CGSizeMake(30, 30);
+    header.arrowImage.frame = headerRect;
+    header.activityView.center = header.arrowImage.center;
+    header.scrollView = myTableView;
+    header.beginRefreshingBlock = ^(MJRefreshBaseView *refreshView) {
+        [self getInfoFromNet];
+    };
+    m_header = header;
 }
 
 

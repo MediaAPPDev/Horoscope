@@ -14,6 +14,7 @@
     EGOImageView *imageView;
     UIScrollView *scr;
     UIActionSheet *actionSheet;
+    UILongPressGestureRecognizer *longpress;
 }
 @end
 
@@ -62,10 +63,11 @@
         
         //长按事件
         //1.创建一个手势识别器对象
-        UILongPressGestureRecognizer *longpress=[[UILongPressGestureRecognizer alloc]init];
+        longpress=[[UILongPressGestureRecognizer alloc]init];
+//        UILongPressGestureRecognizer * longPress2=(UILongPressGestureRecognizer *)gestures;
         //2.设置长按手势识别器的属性
         //设置最小停留时间
-        //    longpress.minimumPressDuration=3;
+        longpress.minimumPressDuration=1;
         //手指按下后事件响应前允许手指移动的偏移量
         longpress.allowableMovement=50;
         
@@ -81,9 +83,9 @@
 
         
 
-//        [scr addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(backView)]];
-//        scr.backgroundColor = [UIColor greenColor];
-//        [scrollView addSubview:scr];
+        [scr addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(backView)]];
+        scr.backgroundColor = [UIColor blackColor];
+        [scrollView addSubview:scr];
     }
     
     
@@ -97,7 +99,7 @@
 {
      NSLog(@"发生了长按事件");
 //    scr.userInteractionEnabled = NO;
-    
+    if(longpress.state == UIGestureRecognizerStateBegan || longpress.state == UIGestureRecognizerStatePossible){
      actionSheet = [[UIActionSheet alloc]
                                   initWithTitle:@"是否保存图片？"
                                   delegate:self
@@ -106,8 +108,8 @@
                                   otherButtonTitles:nil];
     actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
     [actionSheet showInView:self.view];
-    
-    
+    }
+
 }
 
 

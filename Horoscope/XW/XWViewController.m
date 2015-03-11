@@ -99,7 +99,7 @@
 //        [cell.facePic setImage:[UIImage imageNamed:@"touxiang1.png"]];
     cell.facePic.placeholderImage = KUIImage(@"touxiang1.png");
     cell.facePic.imageURL = nil;
-    cell.newsPic.placeholderImage = KUIImage(@"touxiang1.png");
+//    cell.newsPic.placeholderImage = KUIImage(@"touxiang1.png");
     cell.newsPic.imageURL =[NSURL URLWithString:KISDictionaryHaveKey(dic, @"photo")];
     NSLog(@"%@",cell.newsPic.imageURL);
     
