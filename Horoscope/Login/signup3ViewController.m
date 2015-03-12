@@ -117,7 +117,8 @@
     }
     
     result=[NSString stringWithFormat:@"%@",[astroString substringWithRange:NSMakeRange(m*2-(d < [[astroFormat substringWithRange:NSMakeRange((m-1), 1)] intValue] - (-19))*2,2)]];
-    
+    NSString *string = @"座";
+    result = [result stringByAppendingString:string];
     
     return [result stringByAppendingString:@"座"];
 }

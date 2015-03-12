@@ -50,9 +50,13 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
     cell.textLabel.text = [titleArr objectAtIndex:indexPath.row];
-    cell.imageView.image = KUIImage(@"忘记密码@2x");
-    cell.backgroundColor = [UIColor lightGrayColor];
-    cell.alpha = 0.1;
+    if (indexPath.row == 0) {
+        cell.imageView.image = KUIImage(@"set_telephone.png");
+
+    }else if(indexPath.row == 1){
+    cell.imageView.image = KUIImage(@"set_password.png");
+    }
+
     cell.accessoryType = YES;
     return cell;
     

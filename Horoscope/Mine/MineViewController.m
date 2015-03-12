@@ -565,6 +565,8 @@ xzImgViwe.image = KUIImage([self getNameReturnStar:KISDictionaryHaveKey(infoDict
 
 
 
+
+
 -(void)seeBigImg:(UIButton *)sender
 {
     PhotoViewController *photoVC = [[PhotoViewController alloc]init];
