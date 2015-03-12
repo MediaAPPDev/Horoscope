@@ -88,7 +88,7 @@
     myTableView.bounces = NO;
     myTableView.delegate = self;
     myTableView.dataSource = self;
-    
+    [self setExtraCellLineHidden:myTableView];
     [mainScrl addSubview:myTableView];
     arr1 = [NSArray arrayWithObjects:@"情感状态",@"外貌",@"职业",@"注册时间", nil];
     arr2 = [NSArray arrayWithObjects:@"单身",@"180cm 55kg 强壮",@"学生",@"泡妞 游戏 电影 读书",@"中 英 法 德 西班牙 日 韩 俄罗斯 意大利",@"China",@"英国剑桥",@"SF", nil];
@@ -108,6 +108,8 @@
     infoDict = [[UserCache sharedInstance]objectForKey:MYINFODICT];
     headImgView.imageURL = [NSURL URLWithString:KISDictionaryHaveKey(infoDict, @"photo")];
     //            xzImgViwe.image = KUIImage(@"");
+    
+xzImgViwe.image = KUIImage([self getNameReturnStar:KISDictionaryHaveKey(infoDict, @"xing")]);    
     [photoWallArray removeAllObjects];
     photoWallArray = [NSMutableArray arrayWithArray:[self segmentationStrign:KISDictionaryHaveKey(infoDict, @"pics") withStr:@"#"]];
     
@@ -155,6 +157,7 @@
             
             headImgView.imageURL = [NSURL URLWithString:KISDictionaryHaveKey(infoDict, @"photo")];
 //            xzImgViwe.image = KUIImage(@"");
+            xzImgViwe.image = KUIImage([self getNameReturnStar:KISDictionaryHaveKey(infoDict, @"xing")]);
             [photoWallArray removeAllObjects];
             photoWallArray = [NSMutableArray arrayWithArray:[self segmentationStrign:KISDictionaryHaveKey(responseObject, @"pics") withStr:@"#"]];
             
