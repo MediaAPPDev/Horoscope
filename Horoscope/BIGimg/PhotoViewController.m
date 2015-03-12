@@ -99,7 +99,7 @@
 {
      NSLog(@"发生了长按事件");
 //    scr.userInteractionEnabled = NO;
-    if(longpress.state == UIGestureRecognizerStateBegan || longpress.state == UIGestureRecognizerStatePossible){
+    if(longpress.state == UIGestureRecognizerStateBegan){
      actionSheet = [[UIActionSheet alloc]
                                   initWithTitle:@"是否保存图片？"
                                   delegate:self

@@ -185,7 +185,7 @@
         cell.starImgView.image = KUIImage([self GetNameReturnImageWithName:KISDictionaryHaveKey(dic, @"xing")]);
         cell.starLb.text = KISDictionaryHaveKey(dic, @"xing");
         cell.sexImg.image = KUIImage(@"sexImg");
-        
+        cell.timeLabel.hidden = YES;
         cell.signatureLb.text =KISDictionaryHaveKey(dic, @"phrase");
         cell.timeLabel.text = @"1分钟前";
         cell.gzBtn.hidden = YES;
