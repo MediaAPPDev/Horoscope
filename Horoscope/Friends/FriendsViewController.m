@@ -92,7 +92,7 @@
     
     ysImgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 100, 110)];
     ysImgView.image = KUIImage(@"ys_c_down");
-    ysImgView.center = CGPointMake(KScreenWidth/2, -37);
+    ysImgView.center = CGPointMake(KScreenWidth/2, -60);
     ysImgView.userInteractionEnabled = YES;
     [ysView addSubview:ysImgView];
     
