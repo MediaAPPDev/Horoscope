@@ -76,7 +76,7 @@
         
         UIView *titleBack = [[UIView alloc]initWithFrame:titleFrame];
         titleBack.backgroundColor =[UIColor blackColor];
-        titleBack.alpha = 0.8;
+        titleBack.alpha = 0.6;
         [self addSubview:titleBack];
         
         //设置标题文字

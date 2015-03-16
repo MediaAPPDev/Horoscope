@@ -12,9 +12,13 @@
 {
     UILabel * numLb;
     EGOImageView *imageView;
+    EGOImageView *saveImageView;
+
     UIScrollView *scr;
+    UIButton *saveButton;
     UIActionSheet *actionSheet;
     UILongPressGestureRecognizer *longpress;
+    int i;
 }
 @end
 
@@ -35,8 +39,13 @@
     
     
     
+//    NSLog(@"------------%@",self.photoArray);
     
-    for (int i = 0; i<self.photoArray.count; i++) {
+
+    
+    
+    
+    for (i = 0; i<self.photoArray.count; i++) {
         
          scr= [[UIScrollView alloc]initWithFrame:CGRectMake(width(self.view)*i, 0, width(self.view), height(self.view))];
         
@@ -59,29 +68,10 @@
         imageView.frame = CGRectMake(0, 0, imgViewWid, imgViewHie);
         imageView.userInteractionEnabled = YES;
         imageView.center = CGPointMake(KScreenWidth/2, KScreenHeight/2);
-        [scr addSubview:imageView];
-        
-        //长按事件
-        //1.创建一个手势识别器对象
-        longpress=[[UILongPressGestureRecognizer alloc]init];
-//        UILongPressGestureRecognizer * longPress2=(UILongPressGestureRecognizer *)gestures;
-        //2.设置长按手势识别器的属性
-        //设置最小停留时间
-        longpress.minimumPressDuration=.5;
-        //手指按下后事件响应前允许手指移动的偏移量
-//        longpress.allowableMovement=50;
-        
-        //3.添加手势识别器到view
-        [imageView addGestureRecognizer:longpress];
-        
-        //4.监听手势识别器
-        [longpress addTarget:self action:@selector(longpressView)];
-        //    UILongPressGestureRecognizer * longPress=(UILongPressGestureRecognizer *)gestures;
-        //    [longPress addTarget:self action:@selector(longPressAction:)];
-        //    if(gesture.state==UIGestureRecognizerStateBegan){
-        //    }
+        imageView.tag = 1000+i;
 
         
+        [scr addSubview:imageView];
 
         [scr addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(backView)]];
         scr.backgroundColor = [UIColor blackColor];
@@ -91,15 +81,29 @@
     
         numLb = [self buildLabelWithFrame:CGRectMake(width(self.view)-170, height(self.view)-60, 150, 50) backgroundColor:[UIColor clearColor] textColor:[UIColor whiteColor] font:[UIFont boldSystemFontOfSize:40] textAlignment:NSTextAlignmentRight text:[NSString stringWithFormat:@"%d/%lu",self.num+1,(unsigned long)self.photoArray.count]];
     [self.view addSubview:numLb];
+
+    
+    saveButton = [[UIButton alloc] initWithFrame:CGRectMake(20, height(self.view)-60, 50, 50)];
+    if (imageView == nil) {
+    [saveButton setBackgroundImage:[UIImage imageNamed:@"save_icon.png"] forState:UIControlStateNormal];
+        saveButton.userInteractionEnabled = NO;
+    }else{
+    [saveButton setBackgroundImage:[UIImage imageNamed:@"save_icon_highlighted.png"] forState:UIControlStateNormal];
+        saveButton.tag = self.num;
+//        NSLog(@"%@",numLb.text);
+//        NSLog(@"😄%d",saveButton.tag);
+    }
+    [saveButton addTarget:self action:@selector(saveAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:saveButton];
     // Do any additional setup after loading the view.
+    
 }
 
 
--(void)longpressView
+
+-(void)saveAction:(UIButton *)sender
 {
-     NSLog(@"发生了长按事件");
-//    scr.userInteractionEnabled = NO;
-    if(longpress.state == UIGestureRecognizerStateBegan){
+
      actionSheet = [[UIActionSheet alloc]
                                   initWithTitle:@"是否保存图片？"
                                   delegate:self
@@ -107,9 +111,15 @@
                                   destructiveButtonTitle:@"确定"
                                   otherButtonTitles:nil];
     actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+    actionSheet.tag = sender.tag;
+//    NSLog(@"%ld",actionSheet.tag);
     [actionSheet showInView:self.view];
-    }
 
+}
+
+- (void) handleLongPressAction:(UILongPressGestureRecognizer*)press
+{
+    
 }
 
 
@@ -117,6 +127,12 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex==0) {
+        imageView.image = nil;
+//        NSLog(@"%ld",imageView.tag);
+//        imageView =[[EGOImageView alloc]initWithFrame:scr.frame];
+
+        imageView.imageURL = [NSURL URLWithString:self.photoArray[saveButton.tag]];
+//        NSLog(@"%ld",saveButton.tag);
         UIImageWriteToSavedPhotosAlbum(imageView.image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
     }
 //    imageView.image = nil;
@@ -148,6 +164,8 @@
     int num = scrollView.contentOffset.x/width(self.view);
     int allnum = scrollView.contentSize.width/width(self.view);
     numLb.text = [NSString stringWithFormat:@"%d/%d",num+1,allnum];
+    saveButton.tag = num;
+//    NSLog(@"----------%d",saveButton.tag);
 }
 
 

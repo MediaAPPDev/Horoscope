@@ -255,6 +255,7 @@
     header.arrowImage.frame = headerRect;
     header.activityView.center = header.arrowImage.center;
     header.scrollView = myTableView;
+    header.backgroundColor = [UIColor blackColor];
     header.beginRefreshingBlock = ^(MJRefreshBaseView *refreshView) {
         [self getInfoFromNet];
     };

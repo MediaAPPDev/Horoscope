@@ -91,7 +91,7 @@
 //    buttonBackImage
     
     UIButton *button1 = [[UIButton alloc]initWithFrame:CGRectMake(40+(KScreenWidth-80)/3*2+5, startX+100, (KScreenWidth-80)/3*1-5, 40)];
-    [button1 setImage:[UIImage imageNamed:@"textNormal.png"] forState:UIControlStateNormal];
+    [button1 setBackgroundImage:[UIImage imageNamed:@"textNormal.png"] forState:UIControlStateNormal];
 
     [button1 setTitle:@"获取验证码" forState:UIControlStateNormal];
     button1.titleLabel.textAlignment = NSTextAlignmentCenter;//设置title的字体居中
@@ -106,7 +106,7 @@
     
     
     UIButton *button2 = [[UIButton alloc]initWithFrame:CGRectMake(40, startX+210, KScreenWidth-80, 40)];
-    [button2 setImage:[UIImage imageNamed:@"textNormal.png"] forState:UIControlStateNormal];
+    [button2 setBackgroundImage:[UIImage imageNamed:@"textNormal.png"] forState:UIControlStateNormal];
 
     [button2 setTitle:@"提交" forState:UIControlStateNormal];
     button2.titleLabel.textAlignment = NSTextAlignmentCenter;//设置title的字体居中

@@ -15,7 +15,13 @@
 
 #define KZFURL @"http://star.allappropriate.com/articlef"
 
+
+
 @interface XWViewController ()
+{
+    MJRefreshHeaderView *m_header;
+
+}
 
 @end
 
@@ -32,28 +38,41 @@
     _tableView.dataSource =self;
     _tableView.frame =CGRectMake(0,startX, KScreenWidth, KScreenHeight -(KISHighVersion_7?64:44));
 //  )
+    
+    [self getInfoFromNet];
+
+    [self addHeader];
+
 //    tableView.frame =self.view.bo;
     //解析
-    [[AFAppDotNetAPIClient sharedClient] GET:@"article.php" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-        
-
-
-        _allArray = responseObject;
-   
-        
-        [_tableView reloadData];
-
-        
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
-    
-        
-    }];
     
 
     [self.view addSubview:_tableView];
     
 //    [self buildTopviewWithBackButton:YES title:@"星文" rightImage:nil];
+}
+
+
+-(void)getInfoFromNet
+{
+    [[AFAppDotNetAPIClient sharedClient] GET:@"article.php" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        
+        
+        _allArray = responseObject;
+        
+        [m_header endRefreshing];
+        
+        [_tableView reloadData];
+        
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+        [m_header endRefreshing];
+        
+        
+    }];
+
 }
 
 
@@ -194,6 +213,22 @@
     //shareImage:[UIImage imageNamed:@"icon.png"]
     //shareToSnsNames:[NSArray arrayWithObjects:UMShareToSina,UMShareToTencent,UMShareToRenren,nil]
     //    delegate:self];
+}
+
+
+
+- (void)addHeader
+{
+    MJRefreshHeaderView *header = [MJRefreshHeaderView header];
+    CGRect headerRect = header.arrowImage.frame;
+    headerRect.size = CGSizeMake(30, 30);
+    header.arrowImage.frame = headerRect;
+    header.activityView.center = header.arrowImage.center;
+    header.scrollView = self.tableView;
+    header.beginRefreshingBlock = ^(MJRefreshBaseView *refreshView) {
+        [self getInfoFromNet];
+    };
+    m_header = header;
 }
 
 /*
