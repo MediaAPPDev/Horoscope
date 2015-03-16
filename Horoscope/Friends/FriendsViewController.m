@@ -35,7 +35,7 @@
     [super viewDidLoad];
     
     [self buildTopviewWithBackButton:NO title:@"" rightImage:@""];
-    ysArr = [NSMutableArray arrayWithObjects:@"我关注的",@"我的粉丝", nil];
+    ysArr = [NSMutableArray arrayWithObjects:@"我关注的",@"我的粉丝", @"相互关注",nil];
     
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshList:) name:@"followSuccess--wx" object:nil];
@@ -90,13 +90,13 @@
     ysView.hidden = YES;
     [self.view addSubview:ysView];
     
-    ysImgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 100, 73)];
+    ysImgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 100, 110)];
     ysImgView.image = KUIImage(@"ys_c_down");
-    ysImgView.center = CGPointMake(KScreenWidth/2, -37);
+    ysImgView.center = CGPointMake(KScreenWidth/2, -60);
     ysImgView.userInteractionEnabled = YES;
     [ysView addSubview:ysImgView];
     
-    for (int i = 0; i<2; i++) {
+    for (int i = 0; i<3; i++) {
         UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(0, i*36, 100, 36)];
         [btn setTitle:ysArr[i] forState:UIControlStateNormal];
         [btn setTag: 1000+i];
@@ -187,7 +187,7 @@
         cell.sexImg.image = KUIImage(@"sexImg");
         cell.timeLabel.hidden = YES;
         cell.signatureLb.text =KISDictionaryHaveKey(dic, @"phrase");
-        cell.timeLabel.text = @"1分钟前";
+//        cell.timeLabel.text = @"1分钟前";
         cell.gzBtn.hidden = YES;
         return cell;
     }
@@ -262,11 +262,17 @@
 
         [self getInfoFromNetWithUrl:[url stringByAppendingString:userid]];
     }
-    else{
+    else if (sender.tag-1000==1){
         NSString *url = @"userfans.php?uid=";
 
         [self getInfoFromNetWithUrl:[url stringByAppendingString:userid]];
+    }else if (sender.tag-1000==2){
+        
+        NSString *url = @"userfriend.php?uid=";
+        [self getInfoFromNetWithUrl:[url stringByAppendingString:userid]];
+
     }
+    
     
     
     [UIView animateWithDuration:0.3 animations:^{

@@ -8,7 +8,7 @@
 
 #import "BaseViewController.h"
 
-@interface signup2ViewController : BaseViewController
+@interface signup2ViewController : BaseViewController<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *telPhoneNumber;
 
 @property (weak, nonatomic) IBOutlet UITextField *sendCode;

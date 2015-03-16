@@ -36,10 +36,14 @@
     [self.view addSubview:button];
      [_telPhoneNumber setText:_telNum];
     
+//    [self.password shouldChangeTextInRange:20 replacementText:@""];
+    
     [_sendCode setValue:[UIColor colorWithWhite:1 alpha:0.6] forKeyPath:@"_placeholderLabel.textColor"];
     
     [_password setValue:[UIColor colorWithWhite:1 alpha:0.6] forKeyPath:@"_placeholderLabel.textColor"];
     
+    
+    _password.delegate = self;
     NSLog(@"lallala========  %@",_password.text);
     [self sendTelCode];
     
@@ -203,6 +207,28 @@
 
     
     
+}
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    //string就是此时输入的那个字符 textField就是此时正在输入的那个输入框 返回YES就是可以改变输入框的值 NO相反
+
+    if ([string isEqualToString:@"n"])//按会车可以改变
+    {
+        return YES;
+    }
+    
+    NSString * toBeString = [textField.text stringByReplacingCharactersInRange:range withString:string]; //得到输入框的内容
+    
+    if (self.password == textField)//判断是否时我们想要限定的那个输入框
+    {
+        if ([toBeString length] > 18) { //如果输入框内容大于18则弹出警告
+            self.password.text = [toBeString substringToIndex:18];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"密码超过18位" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            [alert show];
+            return NO;
+        }
+    }
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning {

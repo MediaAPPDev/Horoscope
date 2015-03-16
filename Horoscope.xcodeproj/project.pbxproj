@@ -655,6 +655,8 @@
 		9A8F303F1A836B5D00907336 /* lunbo4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9A8F303B1A836B5D00907336 /* lunbo4.jpg */; };
 		9A8F30411A83725600907336 /* SexttestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A8F30401A83725600907336 /* SexttestViewController.xib */; };
 		9A9A46501AA9998500489D25 /* BMAdScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A9A464F1AA9998500489D25 /* BMAdScrollView.m */; };
+		9ABA5FA21AB137DA00CFC898 /* set_password.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ABA5FA01AB137DA00CFC898 /* set_password.png */; };
+		9ABA5FA31AB137DA00CFC898 /* set_telephone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ABA5FA11AB137DA00CFC898 /* set_telephone.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1473,6 +1475,8 @@
 		9A9A464E1AA9998500489D25 /* BMAdScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMAdScrollView.h; sourceTree = "<group>"; };
 		9A9A464F1AA9998500489D25 /* BMAdScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMAdScrollView.m; sourceTree = "<group>"; };
 		9A9A46511AA999EC00489D25 /* BMDefineUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMDefineUtils.h; sourceTree = "<group>"; };
+		9ABA5FA01AB137DA00CFC898 /* set_password.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = set_password.png; sourceTree = "<group>"; };
+		9ABA5FA11AB137DA00CFC898 /* set_telephone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = set_telephone.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2774,6 +2778,8 @@
 		64CD98251A303AE600040744 /* Test */ = {
 			isa = PBXGroup;
 			children = (
+				9ABA5FA01AB137DA00CFC898 /* set_password.png */,
+				9ABA5FA11AB137DA00CFC898 /* set_telephone.png */,
 				64C3AAAC1A773D0900A4B9B2 /* about@2x.png */,
 				64C3AAAD1A773D0900A4B9B2 /* about@3x.png */,
 				645400031A426E2900FA69C7 /* SetUpViewController.h */,
@@ -3085,6 +3091,7 @@
 				5ED3CF701A416FCE0083BCDE /* xingyou@3x.png in Resources */,
 				5E9755961A529E46003A4A31 /* caip@3x.png in Resources */,
 				64394D2D1A5E20570034F89E /* UMSLoginViewController.xib in Resources */,
+				9ABA5FA21AB137DA00CFC898 /* set_password.png in Resources */,
 				5ED3CF921A418B0B0083BCDE /* back@3x.png in Resources */,
 				5ED3CF541A416FCE0083BCDE /* darenxiuIanxia@3x.png in Resources */,
 				5E9755C71A529E46003A4A31 /* zonghe@3x.png in Resources */,
@@ -3158,6 +3165,7 @@
 				644E09521A8222D20005CE3C /* 4-4@2x.png in Resources */,
 				645DEEB71A414DCA00E8C524 /* weibo@2x.png in Resources */,
 				5E97559E1A529E46003A4A31 /* chongce@2X.png in Resources */,
+				9ABA5FA31AB137DA00CFC898 /* set_telephone.png in Resources */,
 				647607BB1A3FD7C400B71469 /* 密码图标@3x.png in Resources */,
 				5ED3CF631A416FCE0083BCDE /* tishi@2x.png in Resources */,
 				5ED3CF7C1A416FCE0083BCDE /* yunshiIanxia@2x.png in Resources */,

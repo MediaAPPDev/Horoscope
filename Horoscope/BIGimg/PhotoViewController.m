@@ -67,9 +67,9 @@
 //        UILongPressGestureRecognizer * longPress2=(UILongPressGestureRecognizer *)gestures;
         //2.设置长按手势识别器的属性
         //设置最小停留时间
-        longpress.minimumPressDuration=1;
+        longpress.minimumPressDuration=.5;
         //手指按下后事件响应前允许手指移动的偏移量
-        longpress.allowableMovement=50;
+//        longpress.allowableMovement=50;
         
         //3.添加手势识别器到view
         [imageView addGestureRecognizer:longpress];
