@@ -224,7 +224,7 @@
 //            [scr removeGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hiddenConstellScr:)]];
         }];
     }    
-    [self getInfoFromNetWithStar:[NSString stringWithFormat:@"%d",sender.tag-1000+1]];
+    [self getInfoFromNetWithStar:[NSString stringWithFormat:@"%ld",sender.tag-1000+1]];
     
     /*
      后续添加 选择星座方法 并且添加网络请求 更换星座数据

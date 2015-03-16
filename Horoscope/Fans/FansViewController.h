@@ -7,7 +7,7 @@
 //
 
 #import "BaseViewController.h"
-
-@interface FansViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>
+#import "FriendsCell.h"
+@interface FansViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,FriendsDelegate>
 @property (nonatomic,assign)BOOL isFans;
 @end

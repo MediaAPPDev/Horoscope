@@ -17,5 +17,6 @@ typedef enum
 @property (nonatomic,assign)BOOL isRootView;
 @property (nonatomic,copy) NSString * userid;
 @property (nonatomic,assign)MYINFOTYPE mytype;
+@property (nonatomic,assign)BOOL  isFuns;
 @property (nonatomic,assign)BOOL isUpLoadHeadImg;
 @end

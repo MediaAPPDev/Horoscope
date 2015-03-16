@@ -34,7 +34,6 @@
     NSMutableDictionary * infoDict;
     NSMutableArray * photoWallArray;
     UILabel * tisLb;
-    
     UIActionSheet  * mYActionSheet;
 }
 @end
@@ -52,7 +51,7 @@
     UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(self.view.bounds.size.width-60, KISHighVersion_7?20:0, 60, 44)];
     [self.view addSubview:button];
 
-    if (self.mytype == COME_MYSELF) {
+    if (self.mytype == COME_MYSELF||[self.userid isEqualToString:[[UserCache sharedInstance]objectForKey:KMYUSERID]]) {
         [button setImage:KUIImage(@"editor") forState:UIControlStateNormal];
         [button addTarget:self action:@selector(enterNextPage:) forControlEvents:UIControlEventTouchUpInside];
 
@@ -206,7 +205,7 @@ xzImgViwe.image = KUIImage([self getNameReturnStar:KISDictionaryHaveKey(infoDict
 
     //如果是自己的信息 可以更改头像
     
-    if (self.mytype == COME_MYSELF) {
+    if (self.mytype == COME_MYSELF||[[[UserCache sharedInstance]objectForKey:KMYUSERID]isEqualToString:self.userid]) {
         [headImgView addTarget:self action:@selector(changeHeadImage:) forControlEvents:UIControlEventTouchUpInside];
     }
     [blackView addSubview:headImgView];
@@ -335,7 +334,7 @@ xzImgViwe.image = KUIImage([self getNameReturnStar:KISDictionaryHaveKey(infoDict
         }
     }
     
-    if (self.mytype == COME_MYSELF) {
+    if (self.mytype == COME_MYSELF||[[[UserCache sharedInstance]objectForKey:KMYUSERID]isEqualToString:self.userid]) {
         UIButton *addBtn;
         if (!addBtn) {
             addBtn=[[UIButton alloc]initWithFrame:CGRectMake(width(photoView)/2-15, height(photoView)/2-15, 30, 30)];
@@ -345,9 +344,7 @@ xzImgViwe.image = KUIImage([self getNameReturnStar:KISDictionaryHaveKey(infoDict
             [customView bringSubviewToFront:addBtn];
             [customView addSubview:addBtn];
         }
-      
     }
-    
     
     tisLb = [self buildLabelWithFrame:CGRectMake(0, height(photoView)/2+20, width(photoView), 15) backgroundColor:[UIColor clearColor] textColor:[UIColor grayColor] font:[UIFont systemFontOfSize:13] textAlignment:NSTextAlignmentCenter text:@"主人尚未上传照片"];
     tisLb.hidden = YES;
@@ -543,7 +540,6 @@ xzImgViwe.image = KUIImage([self getNameReturnStar:KISDictionaryHaveKey(infoDict
         FansViewController *fans = [[FansViewController alloc]init];
         fans.isFans = YES;
         [self.menuController pushViewController:fans withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
-
     }
 }
 
@@ -557,20 +553,14 @@ xzImgViwe.image = KUIImage([self getNameReturnStar:KISDictionaryHaveKey(infoDict
         fans.isFans = NO;
         [self.menuController pushViewController:fans withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
     }
-    
 }
-
-
-
-
-
 
 -(void)seeBigImg:(UIButton *)sender
 {
     PhotoViewController *photoVC = [[PhotoViewController alloc]init];
     photoVC.photoArray = [NSMutableArray array];
-    [photoVC.photoArray addObjectsFromArray:[self segmentationStrign:[infoDict objectForKey:@"pics"] withStr:@"#"]];
-    
+//    [photoVC.photoArray addObjectsFromArray:[self segmentationStrign:[infoDict objectForKey:@"pics"] withStr:@"#"]];
+    photoVC.photoArray = [NSMutableArray arrayWithArray:photoWallArray];
     photoVC.num = sender.tag;
     photoVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     
@@ -597,10 +587,15 @@ xzImgViwe.image = KUIImage([self getNameReturnStar:KISDictionaryHaveKey(infoDict
 {
     NSString * gzStr = [infoDict objectForKey:@"relation"];
     NSString *title;
+    if (self.isFuns == YES) {
+        title = @"关注";
+    }else{
+    
     if ([gzStr isEqualToString:@"您是TA的粉丝"]||[gzStr isEqualToString:@"您已关注TA"]||[gzStr isEqualToString:@"互相关注"]) {
         title = @"取消关注";
     }else{
         title = @"关注";
+    }
     }
     mYActionSheet = [[UIActionSheet alloc]initWithTitle:@"操作" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:title otherButtonTitles:@"举报", nil];
     mYActionSheet.tag =19999999999;
@@ -625,6 +620,15 @@ xzImgViwe.image = KUIImage([self getNameReturnStar:KISDictionaryHaveKey(infoDict
         switch (buttonIndex) {
             case 0:
 
+                if (self.isFuns) {
+                    [dic setObject:[[UserCache sharedInstance]objectForKey:KMYUSERID] forKey:@"uid"];
+                    [dic setObject:self.userid forKey:@"fid"];
+                    [[AFAppDotNetAPIClient sharedClient]POST:@"follow" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+                        [self showMessageWindowWithContent:@"关注成功" imageType:0];
+                    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                        [self showMessageWindowWithContent:@"关注失败" imageType:0];
+                    }];
+                }else{
                 if ([gzStr isEqualToString:@"您是TA的粉丝"]||[gzStr isEqualToString:@"您已关注TA"]||[gzStr isEqualToString:@"互相关注"]) {
                     [dic setObject:[[UserCache sharedInstance]objectForKey:KMYUSERID] forKey:@"uid"];
                     [dic setObject:self.userid forKey:@"fid"];
@@ -640,11 +644,11 @@ xzImgViwe.image = KUIImage([self getNameReturnStar:KISDictionaryHaveKey(infoDict
                     [[AFAppDotNetAPIClient sharedClient]POST:@"follow" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
                         [self showMessageWindowWithContent:@"关注成功" imageType:0];
                     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-                        [self showMessageWindowWithContent:@"取消失败" imageType:0];
+                        [self showMessageWindowWithContent:@"关注失败" imageType:0];
                     }];
 
                 }
-                
+                }
 
                 break;
                case 1:
@@ -793,7 +797,7 @@ xzImgViwe.image = KUIImage([self getNameReturnStar:KISDictionaryHaveKey(infoDict
             [photoWallArray removeObjectAtIndex:0];
             
             
-            [photoWallArray insertObject:str atIndex:0];
+            [photoWallArray insertObject:[str stringByReplacingOccurrencesOfString:@"#" withString:@""] atIndex:0];
             
             NSString *imgStr2 = [NSString stringWithFormat:@"%@%@",str,imgStr];
             

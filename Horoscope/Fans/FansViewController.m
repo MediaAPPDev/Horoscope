@@ -88,7 +88,8 @@
     cell.starLb.text = KISDictionaryHaveKey(dic, @"xing");
     cell.sexImg.image = KUIImage(@"sexImg");
     cell.signatureLb.text =KISDictionaryHaveKey(dic, @"phrase");
-    cell.timeLabel.text = @"1分钟前";
+    cell.timeLabel.text = @"";
+    cell.timeLabel.hidden = YES;
     cell.gzBtn.hidden = YES;
     return cell;
 }
@@ -98,6 +99,7 @@
     NSDictionary *dic = [infoArr objectAtIndex:indexPath.row];
     MineViewController *mineVC = [[MineViewController alloc]init];
     mineVC.mytype = COME_OTHER;
+    mineVC.isFuns = YES;
     mineVC.userid = KISDictionaryHaveKey(dic, @"uid");
     [self.menuController pushViewController:mineVC withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
 }

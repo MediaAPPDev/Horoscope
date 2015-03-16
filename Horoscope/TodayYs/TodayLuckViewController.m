@@ -80,11 +80,11 @@
     
     [self buildTopviewWithBackButton:YES title:@"" rightImage:@""];
     
-    rightBtn = [[UIButton alloc]initWithFrame:CGRectMake(self.view.bounds.size.width-60, KISHighVersion_7?20:0, 60, 44)];
-    [rightBtn setImage:KUIImage(@"share") forState:UIControlStateNormal];
-    [rightBtn addTarget:self action:@selector(shareOutInfo:) forControlEvents:UIControlEventTouchUpInside];
-    rightBtn.enabled = NO;
-    [self.view addSubview:rightBtn];
+//    rightBtn = [[UIButton alloc]initWithFrame:CGRectMake(self.view.bounds.size.width-60, KISHighVersion_7?20:0, 60, 44)];
+//    [rightBtn setImage:KUIImage(@"share") forState:UIControlStateNormal];
+//    [rightBtn addTarget:self action:@selector(shareOutInfo:) forControlEvents:UIControlEventTouchUpInside];
+//    rightBtn.enabled = NO;
+//    [self.view addSubview:rightBtn];
 
     
     titleBtn = [[UIButton alloc]initWithFrame:CGRectMake(50, KISHighVersion_7?20:0, KScreenWidth-100, 40)];
@@ -571,6 +571,11 @@
     //    [[UMSocialControllerService defaultControllerService] setShareText:shareText shareImage:shareImage socialUIDelegate:self];
     //    UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:snsName];
     //    snsPlatform.snsClickHandler(self,[UMSocialControllerService defaultControllerService],YES);
+    
+    [UMSocialQQHandler setQQWithAppId:SHAREQQID appKey:SHAREQQAPPKEY url:@"https://www.mugeda.com/"];
+    
+    [UMSocialWechatHandler setWXAppId:SHAREWXID appSecret:SHAREWXAPPKEY url:@"https://www.mugeda.com/"];
+
     
     NSString *titleStr = [NSString stringWithFormat:@"分享了%@的%@",KISDictionaryHaveKey(childInfoDict, @"name"),titleBtn.titleLabel.text];
     
