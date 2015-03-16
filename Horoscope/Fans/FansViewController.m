@@ -100,7 +100,11 @@
     NSDictionary *dic = [infoArr objectAtIndex:indexPath.row];
     MineViewController *mineVC = [[MineViewController alloc]init];
     mineVC.mytype = COME_OTHER;
-    mineVC.isFuns = YES;
+    if (self.isFans) {
+        mineVC.isFuns = YES;
+    }else{
+        mineVC.isFuns = NO;
+    }
     mineVC.userid = KISDictionaryHaveKey(dic, @"uid");
     [self.menuController pushViewController:mineVC withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
 }

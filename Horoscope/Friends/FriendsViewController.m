@@ -246,7 +246,7 @@
 {
     ysView.hidden = NO;
     [UIView animateWithDuration:0.3 animations:^{
-        ysImgView.center = CGPointMake(KScreenWidth/2, 37);
+        ysImgView.center = CGPointMake(KScreenWidth/2, 55);
     } completion:^(BOOL finished) {
         [ysView addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hiddenYsView:)]];
     }];
@@ -276,7 +276,7 @@
     
     
     [UIView animateWithDuration:0.3 animations:^{
-        ysImgView.center = CGPointMake(KScreenWidth/2, -37);
+        ysImgView.center = CGPointMake(KScreenWidth/2, -55);
     } completion:^(BOOL finished) {
         ysView.hidden = YES;
         [ysView removeGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hiddenYsView:)]];
@@ -287,7 +287,7 @@
 -(void)hiddenYsView:(id)sender
 {
     [UIView animateWithDuration:0.3 animations:^{
-        ysImgView.center = CGPointMake(KScreenWidth/2, -37);
+        ysImgView.center = CGPointMake(KScreenWidth/2, -55);
     } completion:^(BOOL finished) {
         ysView.hidden = YES;
         [ysView removeGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hiddenYsView:)]];
