@@ -194,13 +194,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Horoscope/Mine/MineViewController.m"
-            timestampString = "448185192.282802"
+            timestampString = "448274931.927765"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "779"
-            endingLineNumber = "779"
-            landmarkName = "@implementation MineViewController"
-            landmarkType = "3">
+            startingLineNumber = "783"
+            endingLineNumber = "783"
+            landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -210,13 +210,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Horoscope/Mine/MineViewController.m"
-            timestampString = "448185192.282802"
+            timestampString = "448274931.927765"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "800"
-            endingLineNumber = "800"
-            landmarkName = "@implementation MineViewController"
-            landmarkType = "3">
+            startingLineNumber = "804"
+            endingLineNumber = "804"
+            landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -226,13 +226,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Horoscope/Mine/MineViewController.m"
-            timestampString = "448185192.282802"
+            timestampString = "448274931.927765"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "786"
-            endingLineNumber = "786"
-            landmarkName = "@implementation MineViewController"
-            landmarkType = "3">
+            startingLineNumber = "790"
+            endingLineNumber = "790"
+            landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -274,13 +274,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Horoscope/Mine/MineViewController.m"
-            timestampString = "448185192.282802"
+            timestampString = "448274931.927765"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "627"
             endingLineNumber = "627"
-            landmarkName = "@implementation MineViewController"
-            landmarkType = "3">
+            landmarkName = "-actionSheet:clickedButtonAtIndex:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -295,8 +295,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "609"
             endingLineNumber = "609"
-            landmarkName = "@implementation MineViewController"
-            landmarkType = "3">
+            landmarkName = "-changeHeadImage:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -328,6 +328,22 @@
             startingLineNumber = "62"
             endingLineNumber = "62"
             landmarkName = "-getInfoFromNet"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Horoscope/Mine/MineViewController.m"
+            timestampString = "448274931.927765"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "635"
+            endingLineNumber = "635"
+            landmarkName = "-actionSheet:clickedButtonAtIndex:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

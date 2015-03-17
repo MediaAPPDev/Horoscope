@@ -625,6 +625,8 @@ xzImgViwe.image = KUIImage([self getNameReturnStar:KISDictionaryHaveKey(infoDict
                     [dic setObject:self.userid forKey:@"fid"];
                     [[AFAppDotNetAPIClient sharedClient]POST:@"follow" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
                         [self showMessageWindowWithContent:@"关注成功" imageType:0];
+                        self.isFuns =NO;
+                         [self getInfoFromNetWithUserId:self.userid];
                     } failure:^(NSURLSessionDataTask *task, NSError *error) {
                         [self showMessageWindowWithContent:@"关注失败" imageType:0];
                     }];
@@ -635,6 +637,7 @@ xzImgViwe.image = KUIImage([self getNameReturnStar:KISDictionaryHaveKey(infoDict
                     
                     [[AFAppDotNetAPIClient sharedClient]POST:@"qfollow" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
                         [self showMessageWindowWithContent:@"取消成功" imageType:0];
+                        [self getInfoFromNetWithUserId:self.userid];
                     } failure:^(NSURLSessionDataTask *task, NSError *error) {
                         [self showMessageWindowWithContent:@"取消失败" imageType:0];
                     }];
@@ -643,6 +646,7 @@ xzImgViwe.image = KUIImage([self getNameReturnStar:KISDictionaryHaveKey(infoDict
                     [dic setObject:self.userid forKey:@"fid"];
                     [[AFAppDotNetAPIClient sharedClient]POST:@"follow" parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
                         [self showMessageWindowWithContent:@"关注成功" imageType:0];
+                         [self getInfoFromNetWithUserId:self.userid];
                     } failure:^(NSURLSessionDataTask *task, NSError *error) {
                         [self showMessageWindowWithContent:@"关注失败" imageType:0];
                     }];

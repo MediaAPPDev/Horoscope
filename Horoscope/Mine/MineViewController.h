@@ -11,12 +11,12 @@ typedef enum
 {
     COME_MYSELF=0,
     COME_OTHER,
-}MYINFOTYPE;
+}MYFRIENDSTYPE;
 
 @interface MineViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,UIActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,UIAlertViewDelegate>
 @property (nonatomic,assign)BOOL isRootView;
 @property (nonatomic,copy) NSString * userid;
-@property (nonatomic,assign)MYINFOTYPE mytype;
+@property (nonatomic,assign)MYFRIENDSTYPE mytype;
 @property (nonatomic,assign)BOOL  isFuns;
 @property (nonatomic,assign)BOOL isUpLoadHeadImg;
 @end
