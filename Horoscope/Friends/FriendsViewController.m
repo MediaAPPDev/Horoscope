@@ -260,7 +260,8 @@
    if (sender.tag-1000==0){
        NSString *url = @"userfollow.php?uid=";
 
-        [self getInfoFromNetWithUrl:[url stringByAppendingString:userid]];
+        [self getInfoFromNetWithUrl:[url
+                                     stringByAppendingString:userid]];
     }
     else if (sender.tag-1000==1){
         NSString *url = @"userfans.php?uid=";
@@ -268,8 +269,11 @@
         [self getInfoFromNetWithUrl:[url stringByAppendingString:userid]];
     }else if (sender.tag-1000==2){
         
-        NSString *url = @"userfriend.php?uid=";
+        NSString *url = @"userfriend?uid=";
         [self getInfoFromNetWithUrl:[url stringByAppendingString:userid]];
+//        NSString *url2 = @"userfollow.php?uid=";
+//        [self getInfoFromNetWithUrl:[url2 stringByAppendingString:userid]];
+
 
     }
     

@@ -143,7 +143,7 @@ xzImgViwe.image = KUIImage([self getNameReturnStar:KISDictionaryHaveKey(infoDict
     }else{
         urlStr = [NSString stringWithFormat:@"userdetail.php?uid=%@&uuid=%@",userid,[[UserCache sharedInstance]objectForKey:KMYUSERID ]];
     }
-    NSLog(@"http://star.allappropriate.com/%@",urlStr);
+    NSLog(@"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nhttp://star.allappropriate.com/%@\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",urlStr);
      [[AFAppDotNetAPIClient sharedClient] GET:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
           [hud hide:YES];
         if ([responseObject isKindOfClass:[NSDictionary class]]) {
