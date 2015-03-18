@@ -23,7 +23,7 @@
     
     
     MJRefreshHeaderView *m_header;
-
+    UIButton * refreshBtn;
 }
 @end
 
@@ -61,20 +61,39 @@
     [self.view addSubview:m_CollView];
     [self buildBlackView];
     
+    refreshBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 150, 35)];
+    refreshBtn.center = self.view.center;
+    [refreshBtn setTitle:@"重新获取网络数据" forState:UIControlStateNormal];
+    [refreshBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [refreshBtn setBackgroundColor:[UIColor colorWithRed:225/225.0f green:225/225.0f blue:225/225.0f alpha:.7]];
+    [refreshBtn addTarget:self action:@selector(refreshInfo:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:refreshBtn];
+
+    hud = [[MBProgressHUD alloc]initWithView:self.view];
+    [self.view addSubview:hud];
+    
     infoArray = [NSMutableArray array];
     arr1 = [NSMutableArray array];
     allArr = [NSMutableArray array];
-    [self getInfoFromNet];
     [self addHeader];
-
+    [self getInfoFromNet];
+    
+    
 }
-
+-(void)refreshInfo:(UIButton *)sender
+{
+    [self getInfoFromNet];
+}
 -(void)getInfoFromNet
 {
+    hud.labelText = @"获取中。。。";
+    [hud show:YES];
     [[AFAppDotNetAPIClient sharedClient] GET:@"userlist.php" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        [hud hide:YES];
         if ([responseObject isKindOfClass:[NSDictionary class]]) {
             NSLog(@"1");
         }else if([responseObject isKindOfClass:[NSArray class]]){
+            refreshBtn.hidden = YES;
             [allArr removeAllObjects];
             [allArr addObjectsFromArray:responseObject];
             
@@ -95,7 +114,9 @@
         }
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [m_header endRefreshing];
+        [hud hide: YES];
         [self showAlertViewWithtitle:@"提示" message:@"好友列表请求失败"];
+        refreshBtn.hidden = NO;
     }];
 }
 
