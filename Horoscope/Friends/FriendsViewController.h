@@ -7,7 +7,12 @@
 //
 
 #import "BaseViewController.h"
-
+typedef enum
+{
+    COME_FOLLOW=0,
+    COME_FANS,
+    COME_FRIENDS,
+}MYINFOTYPE;
 @interface FriendsViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>
-
+@property (nonatomic,assign)MYINFOTYPE myfriendsType;
 @end

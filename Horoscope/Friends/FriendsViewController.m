@@ -77,9 +77,24 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    NSString *str = [NSString stringWithFormat:@"userfollow.php?uid=%@",[[UserCache sharedInstance]objectForKey:KMYUSERID]];
-    [self getInfoFromNetWithUrl:str];
     
+    NSString *str;
+    switch (self.myfriendsType) {
+        case COME_FANS:
+            str = [NSString stringWithFormat:@"userfans.php?uid=%@",[[UserCache sharedInstance]objectForKey:KMYUSERID]];
+            break;
+        case COME_FOLLOW:
+            str = [NSString stringWithFormat:@"userfollow.php?uid=%@",[[UserCache sharedInstance]objectForKey:KMYUSERID]];
+            break;
+        case COME_FRIENDS:
+            str = [NSString stringWithFormat:@"userfriend.php?uid=%@",[[UserCache sharedInstance]objectForKey:KMYUSERID]];
+            break;
+        default:
+            str = [NSString stringWithFormat:@"userfollow.php?uid=%@",[[UserCache sharedInstance]objectForKey:KMYUSERID]];
+
+            break;
+    }
+    [self getInfoFromNetWithUrl:str];
 }
 
 
@@ -250,7 +265,6 @@
     } completion:^(BOOL finished) {
         [ysView addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hiddenYsView:)]];
     }];
-    
 }
 
 -(void)changeYsTitle:(UIButton *)sender
@@ -259,26 +273,34 @@
     NSString *userid = [[UserCache sharedInstance]objectForKey:KMYUSERID];
    if (sender.tag-1000==0){
        NSString *url = @"userfollow.php?uid=";
+//<<<<<<< HEAD
 
         [self getInfoFromNetWithUrl:[url
                                      stringByAppendingString:userid]];
+//=======
+       self.myfriendsType = COME_FOLLOW;
+        [self getInfoFromNetWithUrl:[url stringByAppendingString:userid]];
+//>>>>>>> origin/master
     }
     else if (sender.tag-1000==1){
         NSString *url = @"userfans.php?uid=";
-
+       self.myfriendsType = COME_FANS;
         [self getInfoFromNetWithUrl:[url stringByAppendingString:userid]];
     }else if (sender.tag-1000==2){
+//<<<<<<< HEAD
         
-        NSString *url = @"userfriend?uid=";
-        [self getInfoFromNetWithUrl:[url stringByAppendingString:userid]];
+//        NSString *url = @"userfriend?uid=";
+//        [self getInfoFromNetWithUrl:[url stringByAppendingString:userid]];
 //        NSString *url2 = @"userfollow.php?uid=";
 //        [self getInfoFromNetWithUrl:[url2 stringByAppendingString:userid]];
 
 
+//=======
+        self.myfriendsType = COME_FRIENDS;
+        NSString *url = @"userfriend.php?uid=";
+        [self getInfoFromNetWithUrl:[url stringByAppendingString:userid]];
+//>>>>>>> origin/master
     }
-    
-    
-    
     [UIView animateWithDuration:0.3 animations:^{
         ysImgView.center = CGPointMake(KScreenWidth/2, -55);
     } completion:^(BOOL finished) {
@@ -310,7 +332,6 @@
 
 /* 
 #pragma mark - Navigation
-
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].

@@ -88,11 +88,10 @@
 
     
     titleBtn = [[UIButton alloc]initWithFrame:CGRectMake(50, KISHighVersion_7?20:0, KScreenWidth-100, 40)];
-    [titleBtn setTitle:@"今日运势" forState:UIControlStateNormal];
+    [titleBtn setTitle:@"今日运势▼" forState:UIControlStateNormal];
     titleBtn.backgroundColor =[ UIColor clearColor];
     [titleBtn addTarget:self action:@selector(changeTitle:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:titleBtn];
-    
     
     scr = [[ UIScrollView alloc]initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height-64)];
     scr.backgroundColor = [UIColor whiteColor];
@@ -104,7 +103,6 @@
 
     imageView1.image = [UIImage imageNamed:@"ys_c_Topbg"];
     [scr addSubview:imageView1];
-    
     
     /*
      点击更换星座
@@ -456,7 +454,8 @@
 
 -(void)changeYsTitle:(UIButton *)sender
 {
-    [titleBtn setTitle:ysArr[sender.tag-1000] forState:UIControlStateNormal];
+    [titleBtn setTitle:[NSString stringWithFormat:@"%@▼", ysArr[sender.tag-1000]] forState:UIControlStateNormal];
+//    [titleBtn setTitle:ysArr[sender.tag-1000] forState:UIControlStateNormal];
     [UIView animateWithDuration:0.3 animations:^{
 //        ysImgView.center = CGPointMake(KScreenWidth/2, -75);
         
