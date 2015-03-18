@@ -1679,7 +1679,6 @@
 				64CD99531A304CD500040744 /* 1.jpg */,
 				646C435A1A37F98400FB683D /* YS */,
 				64CD98621A3042FD00040744 /* LoginIcon */,
-				64CD98751A3042FD00040744 /* MainVIewIcon */,
 			);
 			path = Image;
 			sourceTree = "<group>";
@@ -2561,6 +2560,7 @@
 		647607931A3FD7C400B71469 /* registerIcon */ = {
 			isa = PBXGroup;
 			children = (
+				64CD98751A3042FD00040744 /* MainVIewIcon */,
 				647607941A3FD7C400B71469 /* icon */,
 				647607AC1A3FD7C400B71469 /* iphone6+底图.png */,
 				647607AD1A3FD7C400B71469 /* iphone6底图.png */,
@@ -2876,7 +2876,8 @@
 				64C726FC1A3575B300DFE28E /* 640x1136 */,
 				64C727081A3575B300DFE28E /* 750x1334 */,
 			);
-			path = MainVIewIcon;
+			name = MainVIewIcon;
+			path = ../MainVIewIcon;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
