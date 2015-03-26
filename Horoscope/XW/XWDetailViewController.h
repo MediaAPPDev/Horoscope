@@ -7,7 +7,7 @@
 //
 
 #import "BaseViewController.h"
-
-@interface XWDetailViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource>
-
+#import "EGOImageView.h"
+@interface XWDetailViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource,EGOImageViewDelegate,UITextFieldDelegate>
+@property (nonatomic,copy)NSString *aid;
 @end
