@@ -7,7 +7,9 @@
 //
 
 #import "XWDetailViewController.h"
+#import "XWCommentsVC.h"
 @class XWViewController;
+//@class XWCommentsVC;
 @interface XWDetailViewController ()
 
 @end
@@ -24,7 +26,7 @@
     [button setTitle:@"12345评论>" forState:UIControlStateNormal];
 //    button.backgroundColor = [UIColor redColor];
     button.titleLabel.font = [UIFont fontWithName:@"Arial-BoldItalicMT" size:12];
-    [button addTarget:self action:@selector(enterNextPage:) forControlEvents:UIControlEventTouchUpInside];
+    [button addTarget:self action:@selector(enterNextPage) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
 
     
@@ -32,7 +34,9 @@
 
 -(void) enterNextPage
 {
-    
+    XWCommentsVC *commentVC = [[XWCommentsVC alloc] init];
+    //    derailVC
+    [self.menuController pushViewController:commentVC withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
 }
 
 - (void)didReceiveMemoryWarning {

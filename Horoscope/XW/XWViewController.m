@@ -57,7 +57,7 @@
 
 -(void)getInfoFromNet
 {
-    [[AFAppDotNetAPIClient sharedClient] GET:@"article.php" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+    [[AFAppDotNetAPIClient sharedClient] GET:@"article" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         
         
         
@@ -123,7 +123,8 @@
 //    cell.newsPic.placeholderImage = KUIImage(@"touxiang1.png");
     cell.newsPic.imageURL =[NSURL URLWithString:KISDictionaryHaveKey(dic, @"photo")];
     NSLog(@"%@",cell.newsPic.imageURL);
-        cell.newsText.text=[[[dic valueForKey:@"content"]substringToIndex:50] stringByAppendingString:@" ..."];
+//        cell.newsText.text=[[[dic valueForKey:@"content"]substringToIndex:50] stringByAppendingString:@" ..."];
+    cell.newsText.text = [dic valueForKey:@"content"];
 //            cell.newsText.text=[[dic valueForKey:@"content"]substringToIndex:50];
         cell.newsText.editable =NO;
         cell.newsTime.text =[dic valueForKey:@"crtime"];
@@ -136,12 +137,15 @@
     
     
     cell.share.frame = CGRectMake(74, sy(cell.newsPic)+10, 30, 28);
+    [cell.share setBackgroundImage:[UIImage imageNamed:@"button03-normal@2x"] forState:UIControlStateNormal];
     cell.shareNumLb.frame = CGRectMake(104,  sy(cell.newsPic)+10, 30, 28);
     
     
     cell.zanBtn.frame = CGRectMake(14, sy(cell.newsPic)+10, 30, 28);
     cell.zanNumLb.frame = CGRectMake(44, sy(cell.newsPic)+10, 30, 28);
-    [cell.zanBtn setTitle:@"👍" forState:UIControlStateNormal];
+    cell.zanNumLb.text = [dic valueForKey:@"count1"];
+//    [cell.zanBtn setTitle:@"👍" forState:UIControlStateNormal];
+    [cell.zanBtn setBackgroundImage:[UIImage imageNamed:@"button02-normal@2x"] forState:UIControlStateNormal];
     cell.zanBtn.titleLabel.font = [UIFont boldSystemFontOfSize:15];
 
     
@@ -151,7 +155,7 @@
 //    cell.share.titleLabel.textAlignment = NSTextAlignmentRight;
 //    cell.share.titleLabel.textColor = [UIColor grayColor];
 //    [cell.share setBackgroundImage:KUIImage(@"xw_share") forState:UIControlStateNormal];
-    [cell.share setTitle:@"➡️" forState:UIControlStateNormal];
+//    [cell.share setTitle:@"➡️" forState:UIControlStateNormal];
     cell.share.titleLabel.font = [UIFont boldSystemFontOfSize:15];
     
     
