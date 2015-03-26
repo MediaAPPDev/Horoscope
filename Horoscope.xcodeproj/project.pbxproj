@@ -648,6 +648,8 @@
 		64E349491A5D1F4100DA6B74 /* show_zan.png in Resources */ = {isa = PBXBuildFile; fileRef = 64E349421A5D1F4100DA6B74 /* show_zan.png */; };
 		64E6019F1A7632FA00C07F86 /* XWCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 64E6019E1A7632FA00C07F86 /* XWCell.m */; };
 		64FF05F41A4A92A4002D8EA3 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 64FF05F31A4A92A4002D8EA3 /* MBProgressHUD.m */; };
+		9A6C54571AC12FAD0018F442 /* XWDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A6C54561AC12FAD0018F442 /* XWDetailViewController.m */; };
+		9A6C545A1AC133AD0018F442 /* XWDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A6C54591AC133AD0018F442 /* XWDetailCell.m */; };
 		9A79BD471AB680AC00D00EC6 /* save_icon_highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A79BD451AB680AC00D00EC6 /* save_icon_highlighted.png */; };
 		9A79BD481AB680AC00D00EC6 /* save_icon_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A79BD461AB680AC00D00EC6 /* save_icon_highlighted@2x.png */; };
 		9A79BD4B1AB6899E00D00EC6 /* save_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A79BD491AB6899E00D00EC6 /* save_icon.png */; };
@@ -1469,6 +1471,10 @@
 		64E6019E1A7632FA00C07F86 /* XWCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWCell.m; sourceTree = "<group>"; };
 		64FF05F21A4A92A4002D8EA3 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		64FF05F31A4A92A4002D8EA3 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		9A6C54551AC12FAD0018F442 /* XWDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWDetailViewController.h; sourceTree = "<group>"; };
+		9A6C54561AC12FAD0018F442 /* XWDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWDetailViewController.m; sourceTree = "<group>"; };
+		9A6C54581AC133AD0018F442 /* XWDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWDetailCell.h; sourceTree = "<group>"; };
+		9A6C54591AC133AD0018F442 /* XWDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWDetailCell.m; sourceTree = "<group>"; };
 		9A79BD451AB680AC00D00EC6 /* save_icon_highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = save_icon_highlighted.png; sourceTree = "<group>"; };
 		9A79BD461AB680AC00D00EC6 /* save_icon_highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "save_icon_highlighted@2x.png"; sourceTree = "<group>"; };
 		9A79BD491AB6899E00D00EC6 /* save_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = save_icon.png; sourceTree = "<group>"; };
@@ -1556,10 +1562,10 @@
 				5EF352141A4D445600AB2463 /* Default-1334@2x.png */,
 				5EF352151A4D445600AB2463 /* Default-2208@3x.png */,
 				5EF352161A4D445600AB2463 /* Default@2x.png */,
+				647406BB1A4917DE00CC6DB2 /* Fans */,
 				5ECA51F61A491420006F0CC3 /* Model */,
 				5ECC41AD1A42CB5200A5D3B4 /* RequestURL */,
 				647607D81A4003A700B71469 /* BIGimg */,
-				647406BB1A4917DE00CC6DB2 /* Fans */,
 				5EB87E951A39686600BE4A5D /* Login */,
 				64914EB01A5A2B9B003DED2A /* circleStar */,
 				647BEC611A3971F50049B8C9 /* Mine */,
@@ -2831,6 +2837,10 @@
 			isa = PBXGroup;
 			children = (
 				5ED3CFB11A42861D0083BCDE /* XingWenImage */,
+				9A6C54551AC12FAD0018F442 /* XWDetailViewController.h */,
+				9A6C54561AC12FAD0018F442 /* XWDetailViewController.m */,
+				9A6C54581AC133AD0018F442 /* XWDetailCell.h */,
+				9A6C54591AC133AD0018F442 /* XWDetailCell.m */,
 				64CD982E1A30403900040744 /* XWViewController.h */,
 				64CD982F1A30403900040744 /* XWViewController.m */,
 				64E6019D1A7632FA00C07F86 /* XWCell.h */,
@@ -3559,6 +3569,7 @@
 				5EB13F001A63B9D500B2ABDC /* UserCache.m in Sources */,
 				642B43491A78C87C00869CCF /* ActivityContentViewController.m in Sources */,
 				5E6C7CDB1A42C875005C4554 /* UIImageView+AFNetworking.m in Sources */,
+				9A6C54571AC12FAD0018F442 /* XWDetailViewController.m in Sources */,
 				5E6E29B21A5A7663004F3C89 /* RadioButton.m in Sources */,
 				5E6C7CD21A42C875005C4554 /* AFSecurityPolicy.m in Sources */,
 				64E3493B1A5D18ED00DA6B74 /* TempDate.m in Sources */,
@@ -3568,6 +3579,7 @@
 				2FC71FE21A281569002BB2C5 /* MainViewController.m in Sources */,
 				645DEE931A41474900E8C524 /* TopTableViewCell.m in Sources */,
 				5E6C7CD51A42C875005C4554 /* AFURLResponseSerialization.m in Sources */,
+				9A6C545A1AC133AD0018F442 /* XWDetailCell.m in Sources */,
 				64C3AAAB1A773BE600A4B9B2 /* AboutMeViewController.m in Sources */,
 				645DEE8D1A413F4500E8C524 /* FriendsViewController.m in Sources */,
 				64394D641A5E6A540034F89E /* MJRefreshConst.m in Sources */,

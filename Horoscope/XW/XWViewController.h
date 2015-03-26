@@ -11,7 +11,7 @@
 #import "EGOImageView.h"
 #import "XWCell.h"
 
-@interface XWViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate,UMSocialDataDelegate,UMSocialUIDelegate,xingwenCellDelegate,XwCellDelegate>
+@interface XWViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate,UMSocialDataDelegate,UMSocialUIDelegate,xingwenCellDelegate,XwCellDelegate,textDelegate>
 
 
 @property (nonatomic,strong)NSArray * allArray;
