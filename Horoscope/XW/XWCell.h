@@ -10,6 +10,8 @@
 #import "EGOImageButton.h"
 #import "EGOImageView.h"
 #import "CircleBtn.h"
+
+
 @protocol UITextViewDelegate;
 @protocol XwCellDelegate;
 @interface XWCell : UITableViewCell
