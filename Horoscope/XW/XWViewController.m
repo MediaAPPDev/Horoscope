@@ -284,7 +284,7 @@
 //    cell.zanBtn.hidden = YES;
 //    cell.commLb. hidden = YES;
     [cell.zanBtn setBackgroundImage:[UIImage imageNamed:@"button02-click@2X"] forState:UIControlStateNormal];
-    cell.zanBtn.userInteractionEnabled = NO;
+//    cell.zanBtn.userInteractionEnabled = NO;
     /*
      http://star.allappropriate.com/addcount?cid=3&zcount=102&uid=2696868409
      */
@@ -293,15 +293,23 @@
 //    NSLog(@"---------------%@",_allArray);
     //addcount_article?articleid=0134429197&uid=2326730
     // http://star.allappropriate.com/addcount_article?articleid=&uid=87932944
-
+//addcount_article?articleid=3491090564&uid=87932944
     //    http://star.allappropriate.com/addcount_article?addcount_article?articleid=0134429197&uid=87932944
     NSString *urlStr = [NSString stringWithFormat:@"addcount_article?articleid=%@&uid=%@",KISDictionaryHaveKey(dic, @"aid"),[[UserCache sharedInstance]objectForKey:KMYUSERID]];
     NSLog(@"~~~~~~~~~~~~~~~~%@---------------%@*****************%ld",KISDictionaryHaveKey(dic, @"aid"),_allArray,cell.tag);
-//    NSLog(@"=========%@",urlStr);
+    NSLog(@"=========%@",urlStr);
     
     [[AFAppDotNetAPIClient sharedClient]POST:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         
         NSLog(@"成功---%@",responseObject);
+//        NSDictionary *dic = responseObject;
+        
+        if ([[responseObject valueForKey:@"id"]isEqualToString:@"您已经赞过了"]) {
+//            cell.zanBtn
+            self.hud.labelText = @"你已经赞过了！";
+            [self.hud show:YES];
+
+        }else{
         
         //        NSString *zanCount = KISDictionaryHaveKey(dic, @"zcount");
         //        cell.zanBtn.countLabel.text = [NSString stringWithFormat:@"%d",[zanCount intValue]+1];
@@ -311,9 +319,9 @@
 //        self.hud.labelText = @"点赞成功！";
         [self.hud show:YES];
 
-
+        }
         [self getInfoFromNet];
-        [_tableView reloadData];
+//        [_tableView reloadData];
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"失败");

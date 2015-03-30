@@ -42,9 +42,9 @@
 //>>>>>>> origin/master
     UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(self.view.bounds.size.width-80, KISHighVersion_7?20:0, 80, 44)];
 //    [button setImage:KUIImage(@"123123") forState:UIControlStateNormal];
-    [button setTitle:@"12345评论>" forState:UIControlStateNormal];
+    [button setTitle:[[_exampleDic valueForKey:@"pcount"]stringByAppendingString:@"评论>"] forState:UIControlStateNormal];
 //    button.backgroundColor = [UIColor redColor];
-    button.titleLabel.font = [UIFont fontWithName:@"Arial-BoldItalicMT" size:12];
+    button.titleLabel.font = [UIFont fontWithName:@"Arial-BoldItalicMT" size:14];
     [button addTarget:self action:@selector(enterNextPage) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
     
