@@ -21,13 +21,25 @@
         self.facePic =[[EGOImageButton alloc]initWithFrame:CGRectMake(14, 6, 40, 40)];
         [self addSubview:self.facePic];
         
-        self.titleName = [[UILabel alloc]initWithFrame:CGRectMake(70, 6, 200, 20)];
+        self.titleName = [[UILabel alloc]initWithFrame:CGRectMake(70, 6, 150, 20)];
         self.titleName.textColor  = UIColorFromRGBA(0x1bb5f5, 1);
         self.titleName.backgroundColor = [UIColor clearColor];
-        self.titleName.font = [UIFont systemFontOfSize:15];
+        self.titleName.font = [UIFont systemFontOfSize:16];
         [self addSubview:self.titleName];
         
-        self.newsText = [[UITextView alloc]initWithFrame:CGRectMake(14, 60, KScreenWidth-28, 50)];
+        self.subtitle = [[UILabel alloc]initWithFrame:CGRectMake(14, 60, KScreenWidth-10, 20)];
+        self.subtitle.font = [UIFont systemFontOfSize:15];
+//        self.subtitle.textColor = [UIColor grayColor];
+        [self addSubview:self.subtitle];
+        
+        
+        
+        self.newsTime = [[UILabel alloc]initWithFrame:CGRectMake(250, 6, KScreenWidth-10, 20)];
+        self.newsTime.font = [UIFont systemFontOfSize:14];
+        self.newsTime.textColor = [UIColor grayColor];
+        [self addSubview:self.newsTime];
+        
+        self.newsText = [[UITextView alloc]initWithFrame:CGRectMake(14, 80, KScreenWidth-28, 50)];
         self.newsText.scrollEnabled = NO;
         self.newsText.backgroundColor = [UIColor clearColor];
 //        [self.newsText setNumberOfLines:0];
@@ -100,6 +112,7 @@
 //        self.commLb.titleLabel.textAlignment = NSTextAlignmentRight;
 //        [self.commLb addTarget:self action:@selector(didClikcComm:) forControlEvents:UIControlEventTouchUpInside];
         self.commLb.text = @"评论";
+        self.commLb.textColor = [UIColor grayColor];
         [self addSubview:self.commLb];
         
         

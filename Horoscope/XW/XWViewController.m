@@ -60,7 +60,8 @@
     [[AFAppDotNetAPIClient sharedClient] GET:@"article" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         
         
-        
+        [self.hud hide:YES];
+
         _allArray = responseObject;
         
         [m_header endRefreshing];
@@ -71,7 +72,8 @@
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         
         [m_header endRefreshing];
-        
+        [self.hud hide:YES];
+        [self showAlertViewWithtitle:@"提示" message:@"请求失败"];
         
     }];
 
@@ -90,8 +92,10 @@
     
     CGSize g = [self labelAutoCalculateRectWith:KISDictionaryHaveKey(dic, @"content") FontSize:14 MaxSize:CGSizeMake(KScreenWidth-28, 400)];
     
-    return g.height+250+28;
+    return g.height+250+28+20;
 //    return 600;
+    
+//    return 340;
     
 }
 
@@ -112,11 +116,15 @@
         cell = [[XWCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
     cell.delegate = self;
+    cell.tag = indexPath.row;
+
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     NSDictionary *dic =_allArray[indexPath.row];
     
-        cell.titleName.text = [dic valueForKey:@"title"] ;
-        
+    cell.titleName.text = [dic valueForKey:@"title"] ;
+    
+    cell.subtitle.text = [dic valueForKey:@"subtitle"] ;
+
 //        [cell.facePic setImage:[UIImage imageNamed:@"touxiang1.png"]];
     cell.facePic.placeholderImage = KUIImage(@"touxiang1.png");
     cell.facePic.imageURL = nil;
@@ -124,44 +132,55 @@
     cell.newsPic.imageURL =[NSURL URLWithString:KISDictionaryHaveKey(dic, @"photo")];
     NSLog(@"%@",cell.newsPic.imageURL);
 //        cell.newsText.text=[[[dic valueForKey:@"content"]substringToIndex:50] stringByAppendingString:@" ..."];
-    cell.newsText.text = [dic valueForKey:@"content"];
+    cell.newsText.text = [[dic valueForKey:@"content"]stringByAppendingString:@"..." ];
+    cell.newsText.textColor = [UIColor grayColor];
 //            cell.newsText.text=[[dic valueForKey:@"content"]substringToIndex:50];
         cell.newsText.editable =NO;
         cell.newsTime.text =[dic valueForKey:@"crtime"];
+    NSLog(@"8888888888    %@",cell.newsTime);
     CGSize g = [self labelAutoCalculateRectWith:KISDictionaryHaveKey(dic, @"content") FontSize:14 MaxSize:CGSizeMake(KScreenWidth-28, 70)];
 
     
     
-        cell.newsText.frame = CGRectMake(14, 60, KScreenWidth-28,g.height+10 );
-        cell.newsPic.frame = CGRectMake(14, cell.newsText.frame.origin.y+cell.newsText.frame.size.height+10, KScreenWidth-28, 150);
-    
-    
-    cell.share.frame = CGRectMake(74, sy(cell.newsPic)+10, 30, 28);
-    [cell.share setBackgroundImage:[UIImage imageNamed:@"button03-normal@2x"] forState:UIControlStateNormal];
-    cell.shareNumLb.frame = CGRectMake(104,  sy(cell.newsPic)+10, 30, 28);
-    
-    
-    cell.zanBtn.frame = CGRectMake(14, sy(cell.newsPic)+10, 30, 28);
-    cell.zanNumLb.frame = CGRectMake(44, sy(cell.newsPic)+10, 30, 28);
-    cell.zanNumLb.text = [dic valueForKey:@"count1"];
-//    [cell.zanBtn setTitle:@"👍" forState:UIControlStateNormal];
-    [cell.zanBtn setBackgroundImage:[UIImage imageNamed:@"button02-normal@2x"] forState:UIControlStateNormal];
-    cell.zanBtn.titleLabel.font = [UIFont boldSystemFontOfSize:15];
+    cell.newsText.frame = CGRectMake(14, 80, KScreenWidth-28,g.height+10 );
+    cell.newsPic.frame = CGRectMake(14, cell.newsText.frame.origin.y+cell.newsText.frame.size.height+10, KScreenWidth-28, 150);
+    cell.newsPic.backgroundColor = [UIColor grayColor];
 
     
     
-    cell.newsPic.backgroundColor = [UIColor grayColor];
-//        [cell.share setTitle:[@"  "stringByAppendingString:[_allArray[indexPath.row]valueForKey:@"count3"]] forState:UIControlStateNormal];
-//    cell.share.titleLabel.textAlignment = NSTextAlignmentRight;
-//    cell.share.titleLabel.textColor = [UIColor grayColor];
-//    [cell.share setBackgroundImage:KUIImage(@"xw_share") forState:UIControlStateNormal];
-//    [cell.share setTitle:@"➡️" forState:UIControlStateNormal];
-    cell.share.titleLabel.font = [UIFont boldSystemFontOfSize:15];
     
+    
+    
+    cell.zanBtn.frame = CGRectMake(14, sy(cell.newsPic)+10, 30, 28);
+    //    [cell.zanBtn setTitle:@"👍" forState:UIControlStateNormal];
+    [cell.zanBtn setBackgroundImage:[UIImage imageNamed:@"button02-normal@2x"] forState:UIControlStateNormal];
+    cell.zanBtn.titleLabel.font = [UIFont boldSystemFontOfSize:15];
+    
+    cell.zanNumLb.frame = CGRectMake(44, sy(cell.newsPic)+10, 60, 28);
+    cell.zanNumLb.textColor = [UIColor grayColor];
+    cell.zanNumLb.text = [dic valueForKey:@"zcount"];
+    
+   
+    
+    
+    
+    
+    cell.share.frame = CGRectMake(105, sy(cell.newsPic)+10, 30, 28);
+    [cell.share setBackgroundImage:[UIImage imageNamed:@"button03-normal@2x"] forState:UIControlStateNormal];
+    
+    cell.shareNumLb.frame = CGRectMake(136,  sy(cell.newsPic)+10, 60, 28);
+    cell.shareNumLb.text = [dic valueForKey:@"fcount"];
+    cell.shareNumLb.textColor = [UIColor grayColor];
+    cell.share.titleLabel.font = [UIFont boldSystemFontOfSize:15];
+
+    
+
     
     cell.commLb.frame = CGRectMake(KScreenWidth-60, sy(cell.newsPic)+10, 50, 30);
     cell.commNumLb.frame = CGRectMake(KScreenWidth-90, sy(cell.newsPic)+10, 30, 30);
-    cell.commNumLb.text = @"50";
+    cell.commNumLb.text = [dic valueForKey:@"pcount"];
+    cell.commNumLb.textColor = [UIColor grayColor];
+
 //        [cell.newsText sizeToFit];
     return cell;
 }
@@ -186,6 +205,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     XWDetailViewController *derailVC = [[XWDetailViewController alloc] init];
 //    derailVC
+    derailVC.exampleDic = [_allArray objectAtIndex:indexPath.row];
     [self.menuController pushViewController:derailVC withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
     
 }
@@ -200,7 +220,7 @@
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     NSDictionary *dic = [_allArray objectAtIndex:actionSheet.tag];
-
+    NSLog(@"----------------%ld",actionSheet.tag);
     if (buttonIndex + 1 >= actionSheet.numberOfButtons ) {
         return;
     }
@@ -249,17 +269,28 @@
 
 -(void)didClickZanWithCell:(XWCell *)cell
 {
+    self.hud = [[MBProgressHUD alloc]initWithView:self.view];
+    [self.view addSubview:self.hud];
+    self.hud.labelText = @"点赞成功！";
+    
     NSLog(@"点赞");
-    cell.zanBtn.hidden = YES;
+//    cell.zanBtn.hidden = YES;
 //    cell.commLb. hidden = YES;
+    [cell.zanBtn setBackgroundImage:[UIImage imageNamed:@"button02-click@2X"] forState:UIControlStateNormal];
+    cell.zanBtn.userInteractionEnabled = NO;
     /*
      http://star.allappropriate.com/addcount?cid=3&zcount=102&uid=2696868409
      */
-    NSDictionary *dic = [infoArray objectAtIndex:cell.tag];
+    NSDictionary *dic = [_allArray objectAtIndex:cell.tag];
     
-    
-    NSString *urlStr = [NSString stringWithFormat:@"addcount?cid=%@&zcount=1&uid=%@",KISDictionaryHaveKey(dic, @"contentid"),[[UserCache sharedInstance]objectForKey:KMYUSERID]];
-    
+//    NSLog(@"---------------%@",_allArray);
+    //addcount_article?articleid=0134429197&uid=2326730
+    // http://star.allappropriate.com/addcount_article?articleid=&uid=87932944
+
+    //    http://star.allappropriate.com/addcount_article?addcount_article?articleid=0134429197&uid=87932944
+    NSString *urlStr = [NSString stringWithFormat:@"addcount_article?articleid=%@&uid=%@",KISDictionaryHaveKey(dic, @"aid"),[[UserCache sharedInstance]objectForKey:KMYUSERID]];
+    NSLog(@"~~~~~~~~~~~~~~~~%@---------------%@*****************%ld",KISDictionaryHaveKey(dic, @"aid"),_allArray,cell.tag);
+//    NSLog(@"=========%@",urlStr);
     
     [[AFAppDotNetAPIClient sharedClient]POST:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         
@@ -267,8 +298,15 @@
         
         //        NSString *zanCount = KISDictionaryHaveKey(dic, @"zcount");
         //        cell.zanBtn.countLabel.text = [NSString stringWithFormat:@"%d",[zanCount intValue]+1];
-        [cell.zanBtn setTitle:@"已赞" forState:UIControlStateNormal];
+//        [cell.zanBtn setTitle:@"已赞" forState:UIControlStateNormal];
+//        self.hud = [[MBProgressHUD alloc]initWithView:self.view];
+//        [self.view addSubview:self.hud];
+//        self.hud.labelText = @"点赞成功！";
+        [self.hud show:YES];
+
+
         [self getInfoFromNet];
+        [_tableView reloadData];
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"失败");
