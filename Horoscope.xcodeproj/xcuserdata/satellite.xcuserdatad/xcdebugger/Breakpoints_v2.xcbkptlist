@@ -375,7 +375,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "145"
             endingLineNumber = "145"
-            landmarkName = "-sendButtonAction"
+            landmarkName = "-viewDidLoad"
             landmarkType = "5">
             <Locations>
                <Location
