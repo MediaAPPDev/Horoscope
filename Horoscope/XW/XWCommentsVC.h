@@ -7,7 +7,7 @@
 //
 
 #import "BaseViewController.h"
-
-@interface XWCommentsVC : BaseViewController
-
+#import "XWCommentCell.h"
+@interface XWCommentsVC : BaseViewController<UITableViewDataSource,UITableViewDelegate,commentCellDelegate>
+@property (nonatomic, copy)NSString * commentId;
 @end

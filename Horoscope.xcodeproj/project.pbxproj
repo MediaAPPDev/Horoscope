@@ -548,6 +548,7 @@
 		647DC32D1A529DE4009AD4DC /* star-4@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 647DC3221A529DE4009AD4DC /* star-4@3x.png */; };
 		647DC32E1A529DE4009AD4DC /* star-5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 647DC3231A529DE4009AD4DC /* star-5@2x.png */; };
 		647DC32F1A529DE4009AD4DC /* star-5@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 647DC3241A529DE4009AD4DC /* star-5@3x.png */; };
+		6480BBA11AC5279300F07C3B /* XWCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6480BBA01AC5279300F07C3B /* XWCommentCell.m */; };
 		6486897D1A6F4EAA00F10EDA /* xingyou_03@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 648689651A6F4EAA00F10EDA /* xingyou_03@2x.png */; };
 		6486897E1A6F4EAA00F10EDA /* xingyou_05@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 648689661A6F4EAA00F10EDA /* xingyou_05@2x.png */; };
 		6486897F1A6F4EAA00F10EDA /* xingyou_07@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 648689671A6F4EAA00F10EDA /* xingyou_07@2x.png */; };
@@ -1377,6 +1378,8 @@
 		647DC3231A529DE4009AD4DC /* star-5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-5@2x.png"; sourceTree = "<group>"; };
 		647DC3241A529DE4009AD4DC /* star-5@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-5@3x.png"; sourceTree = "<group>"; };
 		647F7B211A63D10B00696CA3 /* NSLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSLog.h; sourceTree = "<group>"; };
+		6480BB9F1AC5279300F07C3B /* XWCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWCommentCell.h; sourceTree = "<group>"; };
+		6480BBA01AC5279300F07C3B /* XWCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWCommentCell.m; sourceTree = "<group>"; };
 		648689651A6F4EAA00F10EDA /* xingyou_03@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xingyou_03@2x.png"; sourceTree = "<group>"; };
 		648689661A6F4EAA00F10EDA /* xingyou_05@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xingyou_05@2x.png"; sourceTree = "<group>"; };
 		648689671A6F4EAA00F10EDA /* xingyou_07@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xingyou_07@2x.png"; sourceTree = "<group>"; };
@@ -2913,6 +2916,8 @@
 				64E6019E1A7632FA00C07F86 /* XWCell.m */,
 				9A5E919A1AC3DCFC00DD0C79 /* XWCommentsVC.h */,
 				9A5E919B1AC3DCFC00DD0C79 /* XWCommentsVC.m */,
+				6480BB9F1AC5279300F07C3B /* XWCommentCell.h */,
+				6480BBA01AC5279300F07C3B /* XWCommentCell.m */,
 				5ED3CFAC1A4283230083BCDE /* XingWenTableViewCell.h */,
 				5ED3CFAD1A4283230083BCDE /* XingWenTableViewCell.m */,
 				5ED3CFAE1A4283230083BCDE /* XingWenTableViewCell.xib */,
@@ -3651,6 +3656,7 @@
 				64E6019F1A7632FA00C07F86 /* XWCell.m in Sources */,
 				645400081A42708500FA69C7 /* SafeViewController.m in Sources */,
 				645400111A42724800FA69C7 /* PrivacyViewController.m in Sources */,
+				6480BBA11AC5279300F07C3B /* XWCommentCell.m in Sources */,
 				64CD982A1A303B1500040744 /* BdViewController.m in Sources */,
 				5E6C7CD81A42C875005C4554 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				5E6C7CDD1A42C875005C4554 /* UIRefreshControl+AFNetworking.m in Sources */,
