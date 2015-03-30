@@ -205,7 +205,14 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     XWDetailViewController *derailVC = [[XWDetailViewController alloc] init];
 //    derailVC
+//<<<<<<< HEAD
     derailVC.exampleDic = [_allArray objectAtIndex:indexPath.row];
+//=======
+    NSDictionary *dic =_allArray[indexPath.row];
+
+    derailVC.aid =KISDictionaryHaveKey(dic, @"aid");
+    
+//>>>>>>> origin/master
     [self.menuController pushViewController:derailVC withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
     
 }

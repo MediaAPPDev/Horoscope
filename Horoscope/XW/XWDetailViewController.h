@@ -8,8 +8,11 @@
 
 #import "BaseViewController.h"
 #import "EGOImageView.h"
+//<<<<<<< HEAD
 
-@interface XWDetailViewController : BaseViewController<UITextFieldDelegate>
+//@interface XWDetailViewController : BaseViewController<UITextFieldDelegate>
+@interface XWDetailViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource,EGOImageViewDelegate,UITextFieldDelegate>
+
 @property (nonatomic,strong)NSMutableDictionary  * exampleDic;
 //@interface XWDetailCell : UITableViewCell
 @property (strong, nonatomic)  UILabel *titleName;
@@ -19,4 +22,8 @@
 @property (strong, nonatomic)  UITextField *commTF;
 @property (strong, nonatomic)  UIImageView *commTfBackImageView;
 @property (strong, nonatomic)  UIButton *commSendButton;
+//=======
+//@interface XWDetailViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource,EGOImageViewDelegate,UITextFieldDelegate>
+@property (nonatomic,copy)NSString *aid;
+//>>>>>>> origin/master
 @end
