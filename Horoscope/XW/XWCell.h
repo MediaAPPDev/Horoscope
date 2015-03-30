@@ -28,7 +28,7 @@
 @property (nonatomic,strong)UILabel * zanNumLb;
 @property (nonatomic,strong)UILabel *commLb;
 @property (nonatomic,strong)UILabel *commNumLb;
-
+@property (nonatomic,strong)UILabel *subtitle;
 @end
 
 @protocol XwCellDelegate <NSObject>
