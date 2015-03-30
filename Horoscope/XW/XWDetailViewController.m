@@ -64,6 +64,7 @@
     contentTextView = [[UITextView alloc]initWithFrame:CGRectMake(10, startX+90+(width(self.view)-20)/2, width(self.view)-20, 400)];
     contentTextView.font = [UIFont systemFontOfSize:14];
     [self.view addSubview:contentTextView];
+    contentTextView.userInteractionEnabled = NO;
     [self createCommentText];
     [self registerForKeyboardNotifications];
     [self getInfoFromNetWithUid:self.aid];
@@ -74,6 +75,14 @@
 #pragma mark---创建评论条
 -(void)createCommentText
 {
+    
+    commentBgView = [[UIView alloc]initWithFrame:CGRectMake(0, KScreenHeight-startX, KScreenWidth, 50)];
+    //    commentView.backgroundColor = UIColorFromRGBA(0xa2a2a2, 1);
+    commentBgView.backgroundColor = [UIColor colorWithWhite:0.0f alpha:.6];
+    commentBgView.hidden = YES;
+    [commentBgView addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(goBackKeyBoard:)]];
+    [self.view addSubview:commentBgView];
+
     commentView = [[UIView alloc]initWithFrame:CGRectMake(0, KScreenHeight-50, KScreenWidth, 50)];
 //    commentView.backgroundColor = UIColorFromRGBA(0xa2a2a2, 1);
     commentView.backgroundColor = [UIColor whiteColor];
@@ -106,16 +115,12 @@
     [commentView addSubview:lineImgeView];
     
     
-    
-    
     sendBtn = [[UIButton alloc]initWithFrame:CGRectMake(KScreenWidth-60, 7.5f, 50, 35)];
     [sendBtn setBackgroundImage:KUIImage(@"Send-disabled") forState:UIControlStateNormal];
 //    [sendBtn setBackgroundColor: [UIColor whiteColor]];
     sendBtn.userInteractionEnabled = NO;
     [sendBtn addTarget:self action:@selector(senderComment:) forControlEvents:UIControlEventTouchUpInside];
     [commentView addSubview:sendBtn];
-    
-    
 }
 
 -(void)getInfoFromNetWithUid:(NSString *)uid
@@ -144,6 +149,7 @@
     XWCommentsVC *commentVC = [[XWCommentsVC alloc] init];
     //    derailVC
     commentVC.commentId = self.aid;
+    commentVC.contentDict = [NSDictionary dictionaryWithDictionary:contentDict];
     [self.menuController pushViewController:commentVC withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
 }
 
@@ -163,7 +169,7 @@
 
 - (void)registerForKeyboardNotifications
 {
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardadf:) name:UIKeyboardDidChangeFrameNotification object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardadf:) name:UIKeyboardDidShowNotification object:nil];
 }
 
 
@@ -178,17 +184,21 @@
 
 -(void)begainMoveUpAnimation:(float)heigth
 {
+    commentBgView.frame = CGRectMake(0, startX, KScreenWidth, KScreenHeight-startX);
+    commentBgView.hidden = NO;
     [UIView animateWithDuration:0.00  animations:^{
         commentView.frame =CGRectMake(0, KScreenHeight-55- heigth, KScreenWidth, 55);
     } completion:^(BOOL finished) {
     }];
 }
 
--(void)goBackKeyBoard:(UITapGestureRecognizer *)tap
+-(void)goBackKeyBoard:(id)tap
 {
     [commentTF resignFirstResponder];
     commentView.frame = CGRectMake(0, KScreenHeight-55, KScreenWidth, 55);
+    commentBgView.hidden = YES;
     [commentBgView removeGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(goBackKeyBoard:)]];
+    
     commentBgView.hidden = YES;
 }
 #pragma mark ----发送评论
@@ -206,6 +216,7 @@
     [[AFAppDotNetAPIClient sharedClient]GET:[urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"%@",responseObject);
         commentTF.text = @"";
+        [self goBackKeyBoard:nil];
         [commentTF resignFirstResponder];
         [self showMessageWindowWithContent:@"发送成功" imageType:0];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -226,7 +237,11 @@
     NSLog(@"%lu",(unsigned long)range.location);
     return YES;
 }
-
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [self senderComment:nil];
+    return YES;
+}
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 

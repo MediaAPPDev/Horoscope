@@ -19,6 +19,8 @@
 @property (nonatomic, strong)UILabel * timeLabel;
 @property (nonatomic, strong)UIButton * zanBtn;
 @property (nonatomic, strong)UILabel  * zanLabel;
+@property (nonatomic, strong)UILabel * replyLable;
+
 @property (nonatomic, assign)id<commentCellDelegate>delegate;
 @end
 @protocol commentCellDelegate <NSObject>

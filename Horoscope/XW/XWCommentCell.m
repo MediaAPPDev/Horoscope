@@ -44,6 +44,16 @@
         self.commentLabel.font = [UIFont boldSystemFontOfSize:14];
         [self addSubview:self.commentLabel];
 
+        self.replyLable = [[UILabel alloc]initWithFrame:CGRectMake(80, 110, KScreenWidth-100, 50)];
+        self.replyLable.backgroundColor = UIColorFromRGBA(0xf0f0f0, 1);
+        self.replyLable.numberOfLines = 3;
+        self.replyLable.textColor = UIColorFromRGBA(0x000000, 1);
+        self.replyLable.font = [UIFont systemFontOfSize:12];
+        [self addSubview:self.replyLable];
+
+        
+        
+        
         self.zanBtn = [[UIButton alloc]initWithFrame:CGRectMake(KScreenWidth-90, 25, 80, 35)];
 //        [self.zanBtn setTitle:@"202" forState:UIControlStateNormal];
         [self.zanBtn setBackgroundImage:KUIImage(@"button01-normal") forState:UIControlStateNormal];
