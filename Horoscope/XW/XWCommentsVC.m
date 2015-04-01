@@ -83,7 +83,11 @@
     cell.timeLabel.text = KISDictionaryHaveKey(dic, @"crtime");
     
     cell.commentLabel.text = KISDictionaryHaveKey(dic, @"comment");
-    
+    if (![self isEmtity:KISDictionaryHaveKey(dic, @"zancount")]) {
+        cell.zanLabel.text = KISDictionaryHaveKey(dic, @"zancount");
+    }else{
+        cell.zanLabel.text = @"0";
+    }
     cell.commentLabel.frame = CGRectMake(80, 60, KScreenWidth-100, [self labelAutoCalculateRectWith:KISDictionaryHaveKey(dic, @"comment") FontSize:12.0 MaxSize:CGSizeMake(KScreenWidth-100, 200)].height+3*cell.commentLabel.numberOfLines);
     
     cell.replyLable.text = KISDictionaryHaveKey(dic, @"replaycomment");
@@ -163,9 +167,11 @@
         NSString * info = [responseObject objectForKey:@"id"];
         if ([info isEqualToString:@"您已经赞过了"]) {
             [self showAlertViewWithtitle:@"提示" message:@"您已经赞过了"];
+            return;
         }
-    [cell.zanBtn setBackgroundImage:KUIImage(@"") forState:UIControlStateNormal];
-  
+    [cell.zanBtn setBackgroundImage:KUIImage(@"button01-selected") forState:UIControlStateNormal];
+        [self showMessageWindowWithContent:@"点赞成功" imageType:0];
+        cell.zanLabel.text = [NSString stringWithFormat:@"%d",[cell.zanLabel.text intValue]+1];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         
     }];
