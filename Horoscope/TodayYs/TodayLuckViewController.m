@@ -265,16 +265,27 @@
         infoDict = [NSMutableDictionary dictionaryWithDictionary:responseObject];
         childInfoDict =KISDictionaryHaveKey(infoDict, @"result");
         
+        if ([dateStr isEqualToString:@"week"]||[dateStr isEqualToString:@"month"]) {
+            customysView.hidden = YES;
+            ysTextView.frame = CGRectMake(0, 188, width(self.view),scr.contentSize.height-188);
+            ysTextView.text = [NSString stringWithFormat:@"健康:\n%@\n工作:\n%@\n爱情:\n%@\n财运:\n%@\n工作:\n%@",KISDictionaryHaveKey(childInfoDict,@"health"),KISDictionaryHaveKey(childInfoDict,@"job"),KISDictionaryHaveKey(childInfoDict,@"love"),KISDictionaryHaveKey(childInfoDict,@"money"),KISDictionaryHaveKey(childInfoDict,@"work")];
+        }
+        else{
+            customysView.hidden= NO;
+            ysTextView.frame = CGRectMake(20, 188+139, self.view.bounds.size.width-40, 400);
+
+            ysTextView.text = KISDictionaryHaveKey(childInfoDict, @"summary");
+            colorLabel.text = [NSString stringWithFormat:@"%@色",KISDictionaryHaveKey(childInfoDict, @"color")];
+            numLabel.text  = KISDictionaryHaveKey(childInfoDict, @"number");
+            spStarLabel.text = KISDictionaryHaveKey(childInfoDict, @"OFriend");
+            zhImgeView.image = KUIImage([self getImgWithString:KISDictionaryHaveKey(childInfoDict, @"all")]);
+            loveImgView.image = KUIImage([self getImgWithString:KISDictionaryHaveKey(childInfoDict, @"love")]);
+            workImgView.image = KUIImage([self getImgWithString:KISDictionaryHaveKey(childInfoDict, @"work")]);
+            moneyImgView.image = KUIImage([self getImgWithString:KISDictionaryHaveKey(childInfoDict, @"money")]);
+            healthLabel.image = KUIImage([self getImgWithString:KISDictionaryHaveKey(childInfoDict, @"health")]);
+         }
         
-        ysTextView.text = KISDictionaryHaveKey(childInfoDict, @"summary");
-        colorLabel.text = [NSString stringWithFormat:@"%@色",KISDictionaryHaveKey(childInfoDict, @"color")];
-        numLabel.text  = KISDictionaryHaveKey(childInfoDict, @"number");
-        spStarLabel.text = KISDictionaryHaveKey(childInfoDict, @"OFriend");
-        zhImgeView.image = KUIImage([self getImgWithString:KISDictionaryHaveKey(childInfoDict, @"all")]);
-        loveImgView.image = KUIImage([self getImgWithString:KISDictionaryHaveKey(childInfoDict, @"love")]);
-        workImgView.image = KUIImage([self getImgWithString:KISDictionaryHaveKey(childInfoDict, @"work")]);
-        moneyImgView.image = KUIImage([self getImgWithString:KISDictionaryHaveKey(childInfoDict, @"money")]);
-        healthLabel.image = KUIImage([self getImgWithString:KISDictionaryHaveKey(childInfoDict, @"health")]);
+        
         
         
         

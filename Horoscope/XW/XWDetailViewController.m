@@ -263,7 +263,6 @@
 #pragma mark---创建评论条
 -(void)createCommentText
 {
-    
     commentBgView = [[UIView alloc]initWithFrame:CGRectMake(0, KScreenHeight-startX, KScreenWidth, 50)];
     //    commentView.backgroundColor = UIColorFromRGBA(0xa2a2a2, 1);
     commentBgView.backgroundColor = [UIColor colorWithWhite:0.0f alpha:.6];
