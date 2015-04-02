@@ -9,6 +9,9 @@
 #import "XWCommentsVC.h"
 #import "XWCommentCell.h"
 #import "MineViewController.h"
+#import "LoginViewController.h"
+#import "LoginViewController.h"
+
 @interface XWCommentsVC ()
 {
     UITableView * myTabelView;
@@ -21,10 +24,35 @@
     UIButton *sendBtn;
     BOOL isReply;//判断是不是给评论者的评论 默认是NO
     NSDictionary * commentDic;
+    NSString *urlStrid;
+    UIButton *logInButton;
+
 }
 @end
 
 @implementation XWCommentsVC
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [self getInfoFromNet];
+    
+}
+
+
+-(void)getInfoFromNet
+{
+    //    UIImage *image = [UIImage imageNamed:@""];
+    //    commentView.layer.contents = (id)image.CGImage;
+    
+    
+    urlStrid = [[UserCache sharedInstance]objectForKey:KMYUSERID];
+    if (urlStrid == nil) {
+        logInButton.hidden = NO;
+    }else{
+        logInButton.hidden = YES;
+    }
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -70,6 +98,9 @@
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    commentDic = infoArr[indexPath.row];
+
     static NSString * indentifier = @"cell";
     XWCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:indentifier];
     if (!cell) {
@@ -81,12 +112,21 @@
     cell.headImgBtn.imageURL = [NSURL URLWithString:KISDictionaryHaveKey(dic, @"userphotos")];
     cell.nickname.text = KISDictionaryHaveKey(dic, @"nickname");
     cell.timeLabel.text = KISDictionaryHaveKey(dic, @"crtime");
-    
-    cell.commentLabel.text = KISDictionaryHaveKey(dic, @"comment");
+
+//    if (isReply) {
+        cell.commentLabel.text = KISDictionaryHaveKey(dic, @"comment");
+
+//    }else{
+//        cell.commentLabel.text = [[NSString stringWithFormat:@"%@%@",@"@",KISDictionaryHaveKey(commentDic, @"nickname")] stringByAppendingString: KISDictionaryHaveKey(dic, @"comment")];
+//        NSLog(@"===========    %@",KISDictionaryHaveKey(commentDic, @"nickname"));
+//    }
     
     cell.commentLabel.frame = CGRectMake(80, 60, KScreenWidth-100, [self labelAutoCalculateRectWith:KISDictionaryHaveKey(dic, @"comment") FontSize:12.0 MaxSize:CGSizeMake(KScreenWidth-100, 200)].height+3*cell.commentLabel.numberOfLines);
     
-    cell.replyLable.text = KISDictionaryHaveKey(dic, @"replaycomment");
+    
+    cell.replyLable.text = [[NSString stringWithFormat:@"%@%@ : ",@"@",KISDictionaryHaveKey(commentDic, @"nickname")] stringByAppendingString: KISDictionaryHaveKey(dic, @"replaycomment")];
+
+//    cell.replyLable.text = KISDictionaryHaveKey(dic, @"replaycomment");
     if ([self isEmtity:KISDictionaryHaveKey(dic, @"replaycomment")]) {
         cell.replyLable.frame = CGRectMake(0, 0, 0, 0);
     }else{
@@ -100,6 +140,8 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     commentDic = infoArr[indexPath.row];
     commentTF.placeholder = [NSString stringWithFormat:@"%@%@",@"@",KISDictionaryHaveKey(commentDic, @"nickname")];
+    NSLog(@"===========    %@",KISDictionaryHaveKey(commentDic, @"nickname"));
+
     [commentTF becomeFirstResponder];
     isReply = YES;
 
@@ -233,6 +275,27 @@
     [commentView addSubview:sendBtn];
     
     
+    logInButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, 50)];
+    [logInButton setBackgroundImage:[UIImage imageNamed:@"h1136-Login-click@2x"] forState:UIControlStateNormal];
+    [logInButton setTitle:@"请先登陆" forState:UIControlStateNormal];
+    [logInButton addTarget:self action:@selector(loginAction) forControlEvents:UIControlEventTouchUpInside];
+    [commentView addSubview:logInButton];
+    
+    
+}
+
+
+-(void) loginAction
+{
+    //    GuidePageViewController *guidePageVC = [[GuidePageViewController alloc]init];
+    ////    self.window.rootViewController =guidePageVC;
+    //    [[NSUserDefaults standardUserDefaults]setObject:@"1" forKey:@"FirstLoign"];
+    LoginViewController *loginVC = [[LoginViewController alloc] init];
+    [self presentViewController:loginVC animated:YES completion:^(void){
+        
+        
+        
+    }];
 }
 
 #pragma mark ----评论条
@@ -282,7 +345,7 @@
         NSString *urlStr = [NSString stringWithFormat:@"http://star.allappropriate.com/commentarticle?articleid=%@&comment=%@&userid=%@",KISDictionaryHaveKey(self.contentDict, @"aid"),commentTF.text,[[UserCache sharedInstance]objectForKey:KMYUSERID]];
         
         [[AFAppDotNetAPIClient sharedClient]GET:[urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-            NSLog(@"%@",responseObject);
+            NSLog(@"~~~~~~~~~~~~%@",responseObject);
             commentTF.text = @"";
             [self goBackKeyBoard:nil];
             [commentTF resignFirstResponder];
@@ -302,7 +365,7 @@
         commentTF.placeholder = @"";
         isReply = NO;
         [[AFAppDotNetAPIClient sharedClient]GET:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-            NSLog(@"%@",responseObject);
+            NSLog(@"****************%@",responseObject);
             [self goBackKeyBoard:nil];
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
             
@@ -334,6 +397,12 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)dealloc
+{
+    commentTF.delegate = nil;
+}
+
 
 /*
 #pragma mark - Navigation

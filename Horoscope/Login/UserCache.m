@@ -98,5 +98,24 @@ static UserCache *sharedObj = nil;
     }
 }
 
+//-(void)isLogIn
+//{
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    NSString *userName = [defaults objectForKey:@"username"];
+//    NSString *password = [defaults objectForKey:@"password"];
+//    if (userName != nil && password != nil) {
+//        NSLog(@"已经登录过");
+//        
+//    }else{
+//        UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"LoginViewController.xib" bundle:nil];
+//        
+//        LoginViewController *loginVC = [storyBoard instantiateViewControllerWithIdentifier:@"LoginViewController.xib"];
+//        loginVC.successBlock = ^(id info){
+//            
+//        };
+//    }
+//
+//}
+
 
 @end

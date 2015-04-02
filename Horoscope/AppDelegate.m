@@ -59,8 +59,13 @@
             [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
     
     //****************************** MDMenuViewController initialisation ******************************************
-
+   
     
+    // 这3行代码 的作用 是从持久化中移除已经存储的用户数据
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    [defaults removeObjectForKey:@"username"];
+//    [defaults removeObjectForKey:@"password"];
+
     
     
     

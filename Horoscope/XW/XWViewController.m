@@ -13,7 +13,7 @@
 
 #import "UIImageView+AFNetworking.h"
 #import "XWDetailViewController.h"
-#define KZFURL @"http://star.allappropriate.com/articlef"
+#define KZFURL @"http://star.allappropriate.com/article"
 
 
 
@@ -62,6 +62,7 @@
         
         [self.hud hide:YES];
 
+        NSLog(@"88888888     %@",responseObject);
         _allArray = responseObject;
         
         [m_header endRefreshing];

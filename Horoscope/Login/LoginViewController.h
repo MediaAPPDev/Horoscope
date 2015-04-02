@@ -7,10 +7,12 @@
 //
 
 #import "BaseViewController.h"
+typedef void (^LoginBlock)(id info);
 
 @interface LoginViewController : BaseViewController<UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *username;
 @property (weak, nonatomic) IBOutlet UITextField *password;
 @property (weak, nonatomic) IBOutlet UIButton *forgetPassword;
+@property(nonatomic, copy)LoginBlock successBlock;
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+//#import "LoginViewController.h"
 @interface UserCache : NSObject
 
 //+ (UserCache*) sharedInstance ;
@@ -20,5 +20,5 @@
 - (id)objectForKeyedSubscript:(id)key;
 
 - (void)setObject:(id)obj forKeyedSubscript:(id)key;
-
+//- (void) isLogIn;
 @end

@@ -8,6 +8,9 @@
 
 #import "XWDetailViewController.h"
 #import "XWCommentsVC.h"
+//#import "GuidePageViewController.h"
+#import "LoginViewController.h"
+
 @class XWViewController;
 //@class XWCommentsVC;
 @interface XWDetailViewController ()
@@ -23,6 +26,9 @@
     UITextField *commentTF;
     UIButton *sendBtn;
     NSDictionary *contentDict;
+    UIButton *enterButton;
+    UIButton *logInButton;
+    NSString *urlStrid;
 }
 @end
 
@@ -35,18 +41,20 @@
     NSLog(@"000000000-----------%@",_exampleDic);
     [self setTopViewWithTitle:@"星文" withBackButton:YES];
     self.view.backgroundColor = [UIColor whiteColor];
+    
 //<<<<<<< HEAD
 //=======
+    
     contentDict = [NSMutableDictionary dictionary];
     
 //>>>>>>> origin/master
-    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(self.view.bounds.size.width-80, KISHighVersion_7?20:0, 80, 44)];
+    enterButton = [[UIButton alloc]initWithFrame:CGRectMake(self.view.bounds.size.width-80, KISHighVersion_7?20:0, 80, 44)];
 //    [button setImage:KUIImage(@"123123") forState:UIControlStateNormal];
-    [button setTitle:[[_exampleDic valueForKey:@"pcount"]stringByAppendingString:@"评论>"] forState:UIControlStateNormal];
+    [enterButton setTitle:[[_exampleDic valueForKey:@"pcount"]stringByAppendingString:@"评论>"] forState:UIControlStateNormal];
 //    button.backgroundColor = [UIColor redColor];
-    button.titleLabel.font = [UIFont fontWithName:@"Arial-BoldItalicMT" size:14];
-    [button addTarget:self action:@selector(enterNextPage) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:button];
+    enterButton.titleLabel.font = [UIFont fontWithName:@"Arial-BoldItalicMT" size:14];
+    [enterButton addTarget:self action:@selector(enterNextPage) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:enterButton];
 //
 //    
 //    self.titleName = [[UILabel alloc]initWithFrame:CGRectMake(28, 20+60, KScreenWidth-56, 30)];
@@ -154,8 +162,16 @@
 //>>>>>>> origin/master
     
     [self createCommentText];
+//    urlStrid = [[UserCache sharedInstance]objectForKey:KMYUSERID];
+//    if (urlStrid == nil) {
+//        logInButton.hidden = NO;
+//    }else{
+//        logInButton.hidden = YES;
+//    }
     [self registerForKeyboardNotifications];
     [self getInfoFromNetWithUid:self.aid];
+    
+
 }
 
 //<<<<<<< HEAD
@@ -293,6 +309,15 @@
     sendBtn.userInteractionEnabled = NO;
     [sendBtn addTarget:self action:@selector(senderComment:) forControlEvents:UIControlEventTouchUpInside];
     [commentView addSubview:sendBtn];
+    
+    
+    
+    
+    logInButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, 50)];
+    [logInButton setBackgroundImage:[UIImage imageNamed:@"h1136-Login-click@2x"] forState:UIControlStateNormal];
+    [logInButton setTitle:@"请先登陆" forState:UIControlStateNormal];
+    [logInButton addTarget:self action:@selector(loginAction) forControlEvents:UIControlEventTouchUpInside];
+    [commentView addSubview:logInButton];
 //<<<<<<< HEAD
 //=======
     
@@ -316,6 +341,7 @@
         timeLabel.text =KISDictionaryHaveKey(contentDict, @"crtime");
         contentImageView.imageURL = [NSURL URLWithString:KISDictionaryHaveKey(contentDict, @"photo")];
         contentTextView.text = KISDictionaryHaveKey(contentDict, @"content");
+        [enterButton setTitle:[[contentDict valueForKey:@"pcount"]stringByAppendingString:@"评论>"] forState:UIControlStateNormal];
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         
@@ -379,6 +405,44 @@
     
     commentBgView.hidden = YES;
 }
+
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [self getInfoFromNet];
+    
+}
+
+
+-(void)getInfoFromNet
+{
+//    UIImage *image = [UIImage imageNamed:@""];
+//    commentView.layer.contents = (id)image.CGImage;
+    
+    
+    urlStrid = [[UserCache sharedInstance]objectForKey:KMYUSERID];
+    if (urlStrid == nil) {
+        logInButton.hidden = NO;
+    }else{
+        logInButton.hidden = YES;
+    }
+}
+
+
+-(void) loginAction
+{
+//    GuidePageViewController *guidePageVC = [[GuidePageViewController alloc]init];
+////    self.window.rootViewController =guidePageVC;
+//    [[NSUserDefaults standardUserDefaults]setObject:@"1" forKey:@"FirstLoign"];
+    LoginViewController *loginVC = [[LoginViewController alloc] init];
+    [self presentViewController:loginVC animated:YES completion:^(void){
+        
+        
+        
+    }];
+}
 #pragma mark ----发送评论
 -(void)senderComment:(id)sender
 {
@@ -397,6 +461,8 @@
         [self goBackKeyBoard:nil];
         [commentTF resignFirstResponder];
         [self showMessageWindowWithContent:@"发送成功" imageType:0];
+        [self getInfoFromNetWithUid:self.aid];
+
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [self showAlertViewWithtitle:@"提示" message:@"评论失败"];
     }];
@@ -424,6 +490,12 @@
 {
 
 }
+
+- (void)dealloc
+{
+    commentTF.delegate = nil;
+}
+
 /*
 #pragma mark - Navigation
 

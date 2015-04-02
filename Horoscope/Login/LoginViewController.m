@@ -48,8 +48,19 @@
     [_password setValue:[UIColor colorWithWhite:1 alpha:0.6] forKeyPath:@"_placeholderLabel.textColor"];
     
     
+    //添加手势
+    UISwipeGestureRecognizer *wipeBackListView = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(wipeBackListViewAction)];
+    [self.view addGestureRecognizer:wipeBackListView];
+    
     // Do any additional setup after loading the view from its nib.
 }
+
+
+- (void)wipeBackListViewAction
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 -(void)backButtonClick:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
@@ -113,6 +124,9 @@
                                     [self dismissViewControllerAnimated:YES completion:^{
                                         
                                     }];
+//                                    [self.presentingViewController dismissViewControllerAnimated:YES completion:^{
+//                                        _successBlock(userInfo);
+//                                    }];
                                     
                                     
                                     
