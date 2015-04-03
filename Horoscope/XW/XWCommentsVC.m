@@ -366,6 +366,7 @@
             [self goBackKeyBoard:nil];
             [commentTF resignFirstResponder];
             [self showMessageWindowWithContent:@"发送成功" imageType:0];
+            [self getInfoFromNetWithCommentId:self.commentId];
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
             [self showAlertViewWithtitle:@"提示" message:@"评论失败"];
         }];
@@ -386,6 +387,8 @@
         [[AFAppDotNetAPIClient sharedClient]GET:urlStr parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
             NSLog(@"****************%@",responseObject);
             [self goBackKeyBoard:nil];
+            [self getInfoFromNetWithCommentId:self.commentId];
+
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
             
         }];
