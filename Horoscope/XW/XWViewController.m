@@ -256,21 +256,21 @@
         NSLog(@"%@",responseObject);
         [UMSocialQQHandler setQQWithAppId:SHAREQQID appKey:SHAREQQAPPKEY url:responseObject];
         [UMSocialWechatHandler setWXAppId:SHAREWXID appSecret:SHAREWXAPPKEY url:responseObject];
-        
+        [[UMSocialDataService defaultDataService] postSNSWithTypes:@[arr[buttonIndex]] content:titleStr image:imgData location:nil urlResource:nil presentedController:self completion:^(UMSocialResponseEntity * response){
+            if (response.responseCode == UMSResponseCodeSuccess) {
+                UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"成功" message:@"分享成功" delegate:nil cancelButtonTitle:@"好" otherButtonTitles:nil];
+                [alertView show];
+                
+            } else if(response.responseCode != UMSResponseCodeCancel) {
+                UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"失败" message:@"分享失败" delegate:nil cancelButtonTitle:@"好" otherButtonTitles:nil];
+                [alertView show];
+            }
+        }];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         
     }];
     
-    [[UMSocialDataService defaultDataService] postSNSWithTypes:@[arr[buttonIndex]] content:titleStr image:imgData location:nil urlResource:nil presentedController:self completion:^(UMSocialResponseEntity * response){
-        if (response.responseCode == UMSResponseCodeSuccess) {
-            UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"成功" message:@"分享成功" delegate:nil cancelButtonTitle:@"好" otherButtonTitles:nil];
-            [alertView show];
-            
-        } else if(response.responseCode != UMSResponseCodeCancel) {
-            UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"失败" message:@"分享失败" delegate:nil cancelButtonTitle:@"好" otherButtonTitles:nil];
-            [alertView show];
-        }
-    }];
+   
     
     
     //    [UMSocialSnsService presentSnsIconSheetView:self

@@ -446,7 +446,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Horoscope/XW/XWViewController.m"
-            timestampString = "449732749.599498"
+            timestampString = "449736659.457417"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "259"
@@ -492,11 +492,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Horoscope/XW/XWViewController.m"
-            timestampString = "449732749.599498"
+            timestampString = "449736659.457417"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "261"
-            endingLineNumber = "261"
+            startingLineNumber = "270"
+            endingLineNumber = "270"
             landmarkName = "-actionSheet:clickedButtonAtIndex:"
             landmarkType = "5">
          </BreakpointContent>
