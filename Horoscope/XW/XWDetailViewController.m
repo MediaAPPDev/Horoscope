@@ -149,7 +149,7 @@
     _imageView.imageURL =[NSURL URLWithString:KISDictionaryHaveKey(_exampleDic, @"photo")];
     [scr addSubview:self.imageView];
     
-    self.contentTV = [[UITextView alloc]initWithFrame:CGRectMake(14, 295, KScreenWidth-30,500)];
+    self.contentTV = [[UITextView alloc]initWithFrame:CGRectMake(14, 295, KScreenWidth-30,KScreenHeight-100)];
     self.contentTV.scrollEnabled = YES;
     self.contentTV.text = [_exampleDic valueForKey:@"content"]/*stringByAppendingString:@"中新社法国塞讷阿尔卑斯3月26日电  对德翼航空A320空难展开调查的法国司法部门26日证实，该航班坠毁时驾驶仓内只有副驾驶员一人，他还按下降低飞行高度的按钮。此举可被视为“有意毁灭飞机”的行                           据此间媒体报道，马赛共和国检察官布里斯·罗班(BriceRobin)在法国马赛机场举行的新闻发布会上透露，根据黑匣子记录的数据，机长和副驾驶员在前二十分钟内都在正常交谈。布里斯·罗班表示，对话录音显示，机长随后将驾驶飞机的工作交给副驾驶员，起身离开驾驶舱。据推测，机长应该是出去如厕。此时，只有副驾驶员一人留在驾驶仓内，并启动了下降按钮。这位检察官说，接下来就听到机长数次通过对讲系统要求副驾驶员开门，但未获回应。录音中的激烈撞门声应该是被锁在驾驶舱外的机长试图破门而入的努力。此外，直至飞机坠毁时驾驶舱内都有人的呼吸声，可见副驾驶员活到了最后一刻。"]*/;
     self.contentTV.backgroundColor = [UIColor clearColor];
