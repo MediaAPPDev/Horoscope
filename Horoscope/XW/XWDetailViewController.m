@@ -54,14 +54,9 @@
 //    [button setImage:KUIImage(@"123123") forState:UIControlStateNormal];
     [enterButton setTitle:[[_exampleDic valueForKey:@"pcount"]stringByAppendingString:@"评论>"] forState:UIControlStateNormal];
 //    button.backgroundColor = [UIColor redColor];
-<<<<<<< Updated upstream
     enterButton.titleLabel.font = [UIFont fontWithName:@"Arial-BoldItalicMT" size:14];
     [enterButton addTarget:self action:@selector(enterNextPage) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:enterButton];
-=======
-    button.titleLabel.font = [UIFont fontWithName:@"Arial-BoldItalicMT" size:14];
-    [button addTarget:self action:@selector(enterNextPage) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:button];
     
     scr = [[UIScrollView alloc]initWithFrame:CGRectMake(0, startX, KScreenWidth,KScreenHeight-startX)];
     scr.contentSize = CGSizeMake(0, KScreenHeight+200);
@@ -70,7 +65,6 @@
     [self.view addSubview:scr];
     
     
->>>>>>> Stashed changes
 //
 //    
 //    self.titleName = [[UILabel alloc]initWithFrame:CGRectMake(28, 20+60, KScreenWidth-56, 30)];

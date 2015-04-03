@@ -251,6 +251,13 @@
     
     NSString *shareUrlStr =[@"http://star.allappropriate.com/articlef?aid="stringByAppendingString:KISDictionaryHaveKey(dic, @"aid")];
     
+//    [[AFAppDotNetAPIClient sharedClient]GET:shareUrlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+//        
+//    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+//        
+//    }];
+    
+    
     [UMSocialQQHandler setQQWithAppId:SHAREQQID appKey:SHAREQQAPPKEY url:shareUrlStr];
     [UMSocialWechatHandler setWXAppId:SHAREWXID appSecret:SHAREWXAPPKEY url:shareUrlStr];
     
