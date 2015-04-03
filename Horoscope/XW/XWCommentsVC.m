@@ -354,9 +354,13 @@
      */
     
     if (!isReply) {
-        NSString *urlStr = [NSString stringWithFormat:@"http://star.allappropriate.com/commentarticle?articleid=%@&comment=%@&userid=%@",KISDictionaryHaveKey(self.contentDict, @"aid"),commentTF.text,[[UserCache sharedInstance]objectForKey:KMYUSERID]];
+        NSString *urlStr = [NSString stringWithFormat:@"http://star.allappropriate.com/commentarticle"];
         
-        [[AFAppDotNetAPIClient sharedClient]GET:[urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSDictionary *dic = [NSDictionary dictionaryWithObjects:@[KISDictionaryHaveKey(self.contentDict, @"aid"),[commentTF.text stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding],[[UserCache sharedInstance]objectForKey:KMYUSERID]] forKeys:@[@"articleid",@"comment",@"userid"]];
+        
+        NSLog(@"%@",dic);
+        
+        [[AFAppDotNetAPIClient sharedClient]GET:urlStr parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
             NSLog(@"~~~~~~~~~~~~%@",responseObject);
             commentTF.text = @"";
             [self goBackKeyBoard:nil];
@@ -365,18 +369,21 @@
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
             [self showAlertViewWithtitle:@"提示" message:@"评论失败"];
         }];
-   
+        
     }else{
         /*
          http://star.allappropriate.com/reply_comment?commentid=7972592692
          &reply=YYYYYY&userid=23267309
          */
-        NSString * urlStr =[NSString stringWithFormat:@"http://star.allappropriate.com/reply_comment?commentid=%@&reply=%@&userid=%@",KISDictionaryHaveKey(commentDic, @"commentid"),commentTF.text,[[UserCache sharedInstance]objectForKey:KMYUSERID]];
+        NSString * urlStr =[NSString stringWithFormat:@"http://star.allappropriate.com/reply_comment"];
+        
+        NSDictionary *dic = [NSDictionary dictionaryWithObjects:@[KISDictionaryHaveKey(commentDic, @"commentid"),[commentTF.text stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding],[[UserCache sharedInstance]objectForKey:KMYUSERID]] forKeys:@[@"commentid",@"reply",@"userid"]];
         
         commentTF.text = @"";
         commentTF.placeholder = @"";
         isReply = NO;
-        [[AFAppDotNetAPIClient sharedClient]GET:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        [[AFAppDotNetAPIClient sharedClient]GET:urlStr parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
             NSLog(@"****************%@",responseObject);
             [self goBackKeyBoard:nil];
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -385,8 +392,7 @@
         
     }
     
-}
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+}- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     if (range.location>0&&![self isEmtity:textField.text]) {
         [sendBtn setBackgroundImage:KUIImage(@"Send-normal") forState:UIControlStateNormal];

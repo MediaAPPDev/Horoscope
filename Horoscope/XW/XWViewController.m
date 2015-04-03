@@ -91,12 +91,12 @@
     
 //    float f = [self getContenSizeAction:text];
     
-    CGSize g = [self labelAutoCalculateRectWith:KISDictionaryHaveKey(dic, @"content") FontSize:14 MaxSize:CGSizeMake(KScreenWidth-28, 400)];
-    
-    return g.height+250+28+20;
+    CGSize g = [self labelAutoCalculateRectWith:KISDictionaryHaveKey(dic, @"content") FontSize:14 MaxSize:CGSizeMake(KScreenWidth-28, 100)];
+    NSLog(@"CGSize = %@",NSStringFromCGSize(g));
+//    return g.height+250+28+20;
 //    return 600;
     
-//    return 340;
+    return 320;
     
 }
 
@@ -132,18 +132,18 @@
 //    cell.newsPic.placeholderImage = KUIImage(@"touxiang1.png");
     cell.newsPic.imageURL =[NSURL URLWithString:KISDictionaryHaveKey(dic, @"photo")];
     NSLog(@"%@",cell.newsPic.imageURL);
-//        cell.newsText.text=[[[dic valueForKey:@"content"]substringToIndex:50] stringByAppendingString:@" ..."];
-    cell.newsText.text = [[dic valueForKey:@"content"]stringByAppendingString:@"..." ];
+        cell.newsText.text=[[[dic valueForKey:@"content"]substringToIndex:10] stringByAppendingString:@"......       显示更多"];
+//    cell.newsText.text = [[dic valueForKey:@"content"]stringByAppendingString:@"..." ];
     cell.newsText.textColor = [UIColor grayColor];
 //            cell.newsText.text=[[dic valueForKey:@"content"]substringToIndex:50];
         cell.newsText.editable =NO;
         cell.newsTime.text =[dic valueForKey:@"crtime"];
     NSLog(@"8888888888    %@",cell.newsTime);
-    CGSize g = [self labelAutoCalculateRectWith:KISDictionaryHaveKey(dic, @"content") FontSize:14 MaxSize:CGSizeMake(KScreenWidth-28, 70)];
+//    CGSize g = [self labelAutoCalculateRectWith:KISDictionaryHaveKey(dic, @"content") FontSize:14 MaxSize:CGSizeMake(KScreenWidth-28, 70)];
 
     
     
-    cell.newsText.frame = CGRectMake(14, 80, KScreenWidth-28,g.height+10 );
+    cell.newsText.frame = CGRectMake(14, 80, KScreenWidth-28,30 );
     cell.newsPic.frame = CGRectMake(14, cell.newsText.frame.origin.y+cell.newsText.frame.size.height+10, KScreenWidth-28, 150);
     cell.newsPic.backgroundColor = [UIColor grayColor];
 

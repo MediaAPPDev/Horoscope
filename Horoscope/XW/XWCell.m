@@ -21,7 +21,7 @@
         self.facePic =[[EGOImageButton alloc]initWithFrame:CGRectMake(14, 6, 40, 40)];
         [self addSubview:self.facePic];
         
-        self.titleName = [[UILabel alloc]initWithFrame:CGRectMake(70, 6, 150, 20)];
+        self.titleName = [[UILabel alloc]initWithFrame:CGRectMake(60, 6, 145, 20)];
         self.titleName.textColor  = UIColorFromRGBA(0x1bb5f5, 1);
         self.titleName.backgroundColor = [UIColor clearColor];
         self.titleName.font = [UIFont systemFontOfSize:16];
@@ -34,14 +34,15 @@
         
         
         
-        self.newsTime = [[UILabel alloc]initWithFrame:CGRectMake(250, 6, KScreenWidth-10, 20)];
-        self.newsTime.font = [UIFont systemFontOfSize:14];
+        self.newsTime = [[UILabel alloc]initWithFrame:CGRectMake(KScreenWidth-105, 6, 100, 20)];
+        self.newsTime.font = [UIFont systemFontOfSize:12];
         self.newsTime.textColor = [UIColor grayColor];
         [self addSubview:self.newsTime];
         
         self.newsText = [[UITextView alloc]initWithFrame:CGRectMake(14, 80, KScreenWidth-28, 50)];
         self.newsText.scrollEnabled = NO;
         self.newsText.backgroundColor = [UIColor clearColor];
+        self.newsText.editable = NO;
 //        [self.newsText setNumberOfLines:0];
         self.newsText.font = [UIFont systemFontOfSize:14];
         [self addSubview:self.newsText];

@@ -387,6 +387,7 @@
 
 -(void)begainMoveUpAnimation:(float)heigth
 {
+    [commentTF becomeFirstResponder];
     commentBgView.frame = CGRectMake(0, startX, KScreenWidth, KScreenHeight-startX);
     commentBgView.hidden = NO;
     [UIView animateWithDuration:0.00  animations:^{
@@ -461,6 +462,11 @@
         [commentTF resignFirstResponder];
         [self showMessageWindowWithContent:@"发送成功" imageType:0];
         [self getInfoFromNetWithUid:self.aid];
+        XWCommentsVC *commentVC = [[XWCommentsVC alloc] init];
+        //    derailVC
+        commentVC.commentId = self.aid;
+        commentVC.contentDict = [NSDictionary dictionaryWithDictionary:contentDict];
+        [self.menuController pushViewController:commentVC withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
 
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [self showAlertViewWithtitle:@"提示" message:@"评论失败"];
