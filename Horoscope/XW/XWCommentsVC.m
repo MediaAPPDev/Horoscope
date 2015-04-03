@@ -44,7 +44,8 @@
 {
     //    UIImage *image = [UIImage imageNamed:@""];
     //    commentView.layer.contents = (id)image.CGImage;
-    
+//    [self.hud hide:YES];
+
     
     urlStrid = [[UserCache sharedInstance]objectForKey:KMYUSERID];
     if (urlStrid == nil) {
@@ -78,13 +79,16 @@
         if (![responseObject isKindOfClass:[NSArray class]]) {
             return ;
         }
+        [self.hud hide:YES];
+
         
         [infoArr removeAllObjects];
         [infoArr addObjectsFromArray:responseObject];
         [myTabelView reloadData];
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
+        [self showAlertViewWithtitle:@"提示" message:@"请求失败"];
+
     }];
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -125,11 +129,11 @@
 //=======
     
     cell.commentLabel.text = KISDictionaryHaveKey(dic, @"comment");
-    if (![self isEmtity:KISDictionaryHaveKey(dic, @"zancount")]) {
+//    if (![self isEmtity:KISDictionaryHaveKey(dic, @"zancount")]) {
         cell.zanLabel.text = KISDictionaryHaveKey(dic, @"zancount");
-    }else{
-        cell.zanLabel.text = @"0";
-    }
+//    }else{
+//        cell.zanLabel.text = @"0";
+//    }
 //>>>>>>> origin/master
     cell.commentLabel.frame = CGRectMake(80, 60, KScreenWidth-100, [self labelAutoCalculateRectWith:KISDictionaryHaveKey(dic, @"comment") FontSize:12.0 MaxSize:CGSizeMake(KScreenWidth-100, 200)].height+3*cell.commentLabel.numberOfLines);
     
@@ -142,6 +146,7 @@
     }else{
     cell.replyLable.frame = CGRectMake(80, 65+[self labelAutoCalculateRectWith:KISDictionaryHaveKey(dic, @"comment") FontSize:12.0 MaxSize:CGSizeMake(KScreenWidth-100, 200)].height+3*cell.commentLabel.numberOfLines, KScreenWidth-100, [self labelAutoCalculateRectWith:KISDictionaryHaveKey(dic, @"replaycomment") FontSize:11.0 MaxSize:CGSizeMake(KScreenWidth-100, 200)].height+1*cell.commentLabel.numberOfLines);
     }
+    NSLog(@"😄%@",cell.zanLabel.text);
     return cell;
 
 }
@@ -202,30 +207,124 @@
     /*
      http://star.allappropriate.com/addcount_article?articleid=0134429197&uid=2326730
      */
-    NSDictionary *dic = infoArr[cell.tag];
+//    NSDictionary *dic = infoArr[cell.tag];
+//    
+//    NSLog(@"--点击评论的赞~~~%ld  %@",(long)cell.tag,dic);
+//    
+//    NSString *urlStr = [NSString stringWithFormat:@"http://star.allappropriate.com/addcount_article?articleid=%@&uid=%@",KISDictionaryHaveKey(dic, @"articleid"),[[UserCache sharedInstance]objectForKey:KMYUSERID]];
+//    [[AFAppDotNetAPIClient sharedClient]GET:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+//        
+//        if (![responseObject isKindOfClass:[NSDictionary class]]) {
+//            return ;
+//        }
+//        NSString * info = [responseObject objectForKey:@"id"];
+//        if ([info isEqualToString:@"您已经赞过了"]) {
+//            [self showAlertViewWithtitle:@"提示" message:@"您已经赞过了"];
+//            return;
+//        }
+//    [cell.zanBtn setBackgroundImage:KUIImage(@"button01-selected") forState:UIControlStateNormal];
+//        [self showMessageWindowWithContent:@"点赞成功" imageType:0];
+//        cell.zanLabel.text = [NSString stringWithFormat:@"%d",[cell.zanLabel.text intValue]+1];
+//    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+//        
+//    }];
     
-    NSLog(@"--点击评论的赞~~~%ld  %@",(long)cell.tag,dic);
     
-    NSString *urlStr = [NSString stringWithFormat:@"http://star.allappropriate.com/addcount_article?articleid=%@&uid=%@",KISDictionaryHaveKey(dic, @"articleid"),[[UserCache sharedInstance]objectForKey:KMYUSERID]];
-    [[AFAppDotNetAPIClient sharedClient]GET:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+    
+    
+    
+    
+    self.hud = [[MBProgressHUD alloc]initWithView:self.view];
+    [self.view addSubview:self.hud];
+    self.hud.labelText = @"点赞成功！";
+    
+    NSDictionary *dic = [infoArr objectAtIndex:cell.tag];
+    NSLog(@"~~~~~~~~~~~~~     %@",dic);
+    if ([KISDictionaryHaveKey(dic, @"replyid") isEqualToString:@"N"]) {
+        NSLog(@"评论");
+
+    //http://star.allappropriate.com/addcount_comment?commentid=6277425637&uid=18746671
         
-        if (![responseObject isKindOfClass:[NSDictionary class]]) {
-            return ;
-        }
-        NSString * info = [responseObject objectForKey:@"id"];
-        if ([info isEqualToString:@"您已经赞过了"]) {
-            [self showAlertViewWithtitle:@"提示" message:@"您已经赞过了"];
-            return;
-        }
-    [cell.zanBtn setBackgroundImage:KUIImage(@"button01-selected") forState:UIControlStateNormal];
-        [self showMessageWindowWithContent:@"点赞成功" imageType:0];
-        cell.zanLabel.text = [NSString stringWithFormat:@"%d",[cell.zanLabel.text intValue]+1];
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        //评论点赞接口
+        NSString *urlStr = [NSString stringWithFormat:@"addcount_comment?commentid=%@&uid=%@",KISDictionaryHaveKey(dic, @"commentid"),[[UserCache sharedInstance]objectForKey:KMYUSERID]];
+        NSLog(@"url---%@",urlStr);
+        //
+        [[AFAppDotNetAPIClient sharedClient]POST:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+            //
+            NSLog(@"成功---%@",responseObject);
+                        //        NSDictionary *dic = responseObject;
+            //
+                        if ([[responseObject valueForKey:@"id"]isEqualToString:@"您已经赞过了"]) {
+                            //            cell.zanBtn
+                            self.hud.labelText = @"你已经赞过了！";
+                            [self.hud show:YES];
+            
+                        }else{
+            
+                            NSString *zanCount = KISDictionaryHaveKey(dic, @"zancount");
+                            cell.zanLabel.text = [NSString stringWithFormat:@"%d",[zanCount intValue]+1];
+                            NSLog(@"````````````````      %@",cell.zanLabel.text)  ;
+
+//                            [cell.zanBtn setTitle:@"已赞" forState:UIControlStateNormal];
+                            self.hud = [[MBProgressHUD alloc]initWithView:self.view];
+                            [self.view addSubview:self.hud];
+                            self.hud.labelText = @"评论点赞成功！";
+                            [self.hud show:YES];
+//                            [self.hud show:YES];
+            
+                        }
+            [self getInfoFromNetWithCommentId:self.commentId];
+                        //        [_tableView reloadData];
+            //
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                        NSLog(@"失败");
+        }];
+
         
-    }];
-    
-    
-    
+           }else {
+        NSLog(@"回复");
+
+               //addcount_reply?replayid=5045582687&uid=18746671
+               //http://star.allappropriate.com/addcount_reply?replayid=5045582687&uid=18746671
+               NSString *urlStr = [NSString stringWithFormat:@"addcount_reply?replayid=%@&uid=%@",KISDictionaryHaveKey(dic, @"replyid"),[[UserCache sharedInstance]objectForKey:KMYUSERID]];
+               NSLog(@"url---%@",urlStr);
+               //
+               [[AFAppDotNetAPIClient sharedClient]POST:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+                   //
+                   NSLog(@"成功---%@",responseObject);
+//                   NSDictionary *dic = responseObject;
+                   if (![responseObject isKindOfClass:[NSDictionary class]]) {
+                                   return ;
+                               }
+
+                   if ([[responseObject objectForKey:@"id"]isEqualToString:@"您已经赞过了"]) {
+                                   //            cell.zanBtn
+                                   self.hud.labelText = @"你已经赞过了！";
+                                   [self.hud show:YES];
+                   //
+                               }else{
+                   //
+                           NSString *zanCount = KISDictionaryHaveKey(dic, @"zancount");
+                           cell.zanLabel.text = [NSString stringWithFormat:@"%d",[zanCount intValue]+1];
+                                   NSLog(@"`````````````    %@",cell.zanLabel.text)  ;
+//                           [cell.zanBtn setTitle:@"已赞" forState:UIControlStateNormal];
+                           self.hud = [[MBProgressHUD alloc]initWithView:self.view];
+                           [self.view addSubview:self.hud];
+                            self.hud.labelText = @"回复点赞成功！";
+                            [self.hud show:YES];
+                   //
+                            }
+                   [self getInfoFromNetWithCommentId:self.commentId];
+                   //            //        [_tableView reloadData];
+                   //            
+               } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                               NSLog(@"失败");
+               }];
+
+
+    }
+
+
 }
 
 -(void)didClickReplyWithCell:(XWCommentCell*)cell
