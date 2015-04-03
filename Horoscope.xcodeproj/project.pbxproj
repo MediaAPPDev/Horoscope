@@ -3918,7 +3918,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2d948964-5b6a-4aea-b7cf-646d36b0d6f5";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Horoscope/MainVC/Horoscope-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -3955,7 +3955,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2d948964-5b6a-4aea-b7cf-646d36b0d6f5";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Horoscope/MainVC/Horoscope-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

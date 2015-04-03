@@ -251,20 +251,21 @@
     
     NSString *shareUrlStr =[@"http://star.allappropriate.com/articlef?aid="stringByAppendingString:KISDictionaryHaveKey(dic, @"aid")];
     
-//    [[AFAppDotNetAPIClient sharedClient]GET:shareUrlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-//        
-//    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-//        
-//    }];
-    
-    
-    [UMSocialQQHandler setQQWithAppId:SHAREQQID appKey:SHAREQQAPPKEY url:shareUrlStr];
-    [UMSocialWechatHandler setWXAppId:SHAREWXID appSecret:SHAREWXAPPKEY url:shareUrlStr];
+    [[AFAppDotNetAPIClient sharedClient]GET:shareUrlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        NSLog(@"%@",responseObject);
+        [UMSocialQQHandler setQQWithAppId:SHAREQQID appKey:SHAREQQAPPKEY url:responseObject];
+        [UMSocialWechatHandler setWXAppId:SHAREWXID appSecret:SHAREWXAPPKEY url:responseObject];
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
     
     [[UMSocialDataService defaultDataService] postSNSWithTypes:@[arr[buttonIndex]] content:titleStr image:imgData location:nil urlResource:nil presentedController:self completion:^(UMSocialResponseEntity * response){
         if (response.responseCode == UMSResponseCodeSuccess) {
             UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"成功" message:@"分享成功" delegate:nil cancelButtonTitle:@"好" otherButtonTitles:nil];
             [alertView show];
+            
         } else if(response.responseCode != UMSResponseCodeCancel) {
             UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"失败" message:@"分享失败" delegate:nil cancelButtonTitle:@"好" otherButtonTitles:nil];
             [alertView show];

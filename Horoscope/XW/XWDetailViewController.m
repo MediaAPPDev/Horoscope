@@ -35,7 +35,17 @@
 @end
 
 @implementation XWDetailViewController
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    [self registerForKeyboardNotifications];
+}
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:YES];
+    
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:UIKeyboardDidShowNotification object:nil];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -382,12 +392,12 @@
 
 - (void)registerForKeyboardNotifications
 {
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardadf:) name:UIKeyboardDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardadfFFF:) name:UIKeyboardDidShowNotification object:nil];
 }
 
 
 
--(void)keyboardadf:(NSNotification*)aNotification
+-(void)keyboardadfFFF:(NSNotification*)aNotification
 {
     NSDictionary *info = [aNotification userInfo];
     CGSize kbSize =[[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
@@ -505,6 +515,7 @@
 {
 
 }
+
 
 - (void)dealloc
 {

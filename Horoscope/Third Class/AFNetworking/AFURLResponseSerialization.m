@@ -264,6 +264,11 @@ static id AFJSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJSONReadingO
                     NSString *receiveStr = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
                     responseObject = [receiveStr JSONValue];
                     
+                    if (!responseObject) {
+                        responseObject = receiveStr;
+                    }
+                    
+                    
                     NSLog(@"获得数据---%@",receiveStr);
                     
                     NSLog(@"获取数据JSON--%@",responseObject);
