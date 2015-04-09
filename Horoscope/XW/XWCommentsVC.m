@@ -9,15 +9,14 @@
 #import "XWCommentsVC.h"
 #import "XWCommentCell.h"
 #import "MineViewController.h"
-#import "LoginViewController.h"
-#import "LoginViewController.h"
+#import "SingupViewController.h"
 
 @interface XWCommentsVC ()
 {
     UITableView * myTabelView;
     NSMutableArray * infoArr;
     XWCommentCell *cell3;
-    
+//    NSInteger flag;
     UIView * commentBgView;
     UIView * commentView;
     UITextField *commentTF;
@@ -26,6 +25,7 @@
     NSDictionary * commentDic;
     NSString *urlStrid;
     UIButton *logInButton;
+    UIButton *backButton;
 
 }
 @end
@@ -34,7 +34,7 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    
+//    flag = 0;
     [self getInfoFromNet];
     
 }
@@ -42,9 +42,9 @@
 
 -(void)getInfoFromNet
 {
-    //    UIImage *image = [UIImage imageNamed:@""];
-    //    commentView.layer.contents = (id)image.CGImage;
-//    [self.hud hide:YES];
+        UIImage *image = [UIImage imageNamed:@""];
+        commentView.layer.contents = (id)image.CGImage;
+    [self.hud hide:YES];
 
     
     urlStrid = [[UserCache sharedInstance]objectForKey:KMYUSERID];
@@ -59,6 +59,18 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setTopViewWithTitle:@"评论" withBackButton:YES];
+//    self.navigationController.navigationBarHidden = YES;
+//    self.navigationItem.title = @"评论";
+//    backButton = [[UIButton alloc]initWithFrame:CGRectMake(80, KISHighVersion_7?20:0, 80, 44)];
+//    //    [button setImage:KUIImage(@"123123") forState:UIControlStateNormal];
+//    backButton.titleLabel.text = @"返回";
+//    //    button.backgroundColor = [UIColor redColor];
+//    backButton.titleLabel.font = [UIFont fontWithName:@"Arial-BoldItalicMT" size:14];
+//    [backButton addTarget:self action:@selector(enterNextPage) forControlEvents:UIControlEventTouchUpInside];
+//    [self.view addSubview:backButton];
+    
+    
+    
     isReply = NO;
     infoArr = [NSMutableArray array];
     myTabelView = [[UITableView alloc]initWithFrame:CGRectMake(0, startX, width(self.view), height(self.view)-startX) style:UITableViewStylePlain];
@@ -116,31 +128,20 @@
     cell.headImgBtn.imageURL = [NSURL URLWithString:KISDictionaryHaveKey(dic, @"userphotos")];
     cell.nickname.text = KISDictionaryHaveKey(dic, @"nickname");
     cell.timeLabel.text = KISDictionaryHaveKey(dic, @"crtime");
-//<<<<<<< HE/AD
-
-//    if (isReply) {
-        cell.commentLabel.text = KISDictionaryHaveKey(dic, @"comment");
-
-//    }else{
-//        cell.commentLabel.text = [[NSString stringWithFormat:@"%@%@",@"@",KISDictionaryHaveKey(commentDic, @"nickname")] stringByAppendingString: KISDictionaryHaveKey(dic, @"comment")];
-//        NSLog(@"===========    %@",KISDictionaryHaveKey(commentDic, @"nickname"));
-//    }
-    
-//=======
-    
     cell.commentLabel.text = KISDictionaryHaveKey(dic, @"comment");
-//    if (![self isEmtity:KISDictionaryHaveKey(dic, @"zancount")]) {
+
+    if ([KISDictionaryHaveKey(commentDic, @"replyid") isEqualToString:@"N"]) {
         cell.zanLabel.text = KISDictionaryHaveKey(dic, @"zancount");
-//    }else{
-//        cell.zanLabel.text = @"0";
-//    }
-//>>>>>>> origin/master
+
+    }else{
+        cell.zanLabel.text = KISDictionaryHaveKey(dic, @"zanrecount");
+
+    }
+    cell.commentLabel.text = KISDictionaryHaveKey(dic, @"comment");
+
     cell.commentLabel.frame = CGRectMake(80, 60, KScreenWidth-100, [self labelAutoCalculateRectWith:KISDictionaryHaveKey(dic, @"comment") FontSize:12.0 MaxSize:CGSizeMake(KScreenWidth-100, 200)].height+3*cell.commentLabel.numberOfLines);
     
-    
     cell.replyLable.text = [[NSString stringWithFormat:@"%@%@ : ",@"@",KISDictionaryHaveKey(commentDic, @"nickname")] stringByAppendingString: KISDictionaryHaveKey(dic, @"replaycomment")];
-
-//    cell.replyLable.text = KISDictionaryHaveKey(dic, @"replaycomment");
     if ([self isEmtity:KISDictionaryHaveKey(dic, @"replaycomment")]) {
         cell.replyLable.frame = CGRectMake(0, 0, 0, 0);
     }else{
@@ -168,12 +169,7 @@
     float height = 0.0f;
     height += 70;
     
-//    float height2 = 0.0f;
-//    if (cell.commentLabel.numberOfLines==3) {
-//        height2 +=50;
-//    }else {
-//        height2 +=200;
-//    }
+
     CGSize size = [self labelAutoCalculateRectWith:KISDictionaryHaveKey(dic, @"comment") FontSize:12.0 MaxSize:CGSizeMake(KScreenWidth-100, 200)];
 
     height+=size.height+20;
@@ -182,6 +178,62 @@
     height +=size1.height;
     return height;
 }
+
+//- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+//
+//{
+//    
+//    if(!decelerate){
+//        
+//        flag = 1;
+//        
+//    }
+//    
+//}
+
+
+
+//- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+//
+//{
+
+//    [self  loadImagesForOnscreenRows];
+//    toolbar.hidden= YES;
+//    [self setTopViewWithTitle:@"评论" withBackButton:YES withHidden:YES];
+
+    
+//}
+//
+//- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+//    CGRect frame = scrollView.frame;
+//    float scrollViewY = frame.origin.y;
+//    frame.origin.y = frame.origin.y - scrollView.contentOffset.y;
+//    NSLog(@"scrollView.contentOffset.y = %.2f, frame.origin.y = %.2f, scrollView.bounds.origin.y = %.2f", scrollView.contentOffset.y, frame.origin.y,scrollView.bounds.origin.y);
+//    
+//    CGFloat height = 40;//height of top control on tableview
+//    
+//    CGRect aOriginRect = scrollView.frame;
+//    aOriginRect.origin.y = aOriginRect.origin.y - scrollView.contentOffset.y;
+//    
+//    if (aOriginRect.origin.y <= height && aOriginRect.origin.y >= 0){
+//        
+//        CGRect aOriginBounds = scrollView.bounds;
+//        aOriginBounds.origin = CGPointMake(0, 0);
+//        scrollView.bounds = aOriginBounds;
+//    }
+//    else if (aOriginRect.origin.y > height){
+//        aOriginRect.origin.y = height;
+//    }
+//    else{
+//        aOriginRect.origin.y = 0;
+//    }
+//    CGSize screenSize = [[UIScreen mainScreen] bounds].size;
+//    aOriginRect.size.height = screenSize.height - aOriginRect.origin.y - 20 - 40; //20:statusBarHeight   40:bottom bar height
+//    
+//    scrollView.frame = aOriginRect;
+//    
+//    self.titleView.frame = CGRectMake(self.titleView.frame.origin.x, scrollView.frame.origin.y - height, self.titleView.frame.size.width, self.titleView.frame.size.height);
+//}
 
 #pragma mark----commentCellDelegate
 
@@ -204,35 +256,7 @@
 
 -(void)didClickZanWithCell:(XWCommentCell*)cell
 {
-    /*
-     http://star.allappropriate.com/addcount_article?articleid=0134429197&uid=2326730
-     */
-//    NSDictionary *dic = infoArr[cell.tag];
-//    
-//    NSLog(@"--点击评论的赞~~~%ld  %@",(long)cell.tag,dic);
-//    
-//    NSString *urlStr = [NSString stringWithFormat:@"http://star.allappropriate.com/addcount_article?articleid=%@&uid=%@",KISDictionaryHaveKey(dic, @"articleid"),[[UserCache sharedInstance]objectForKey:KMYUSERID]];
-//    [[AFAppDotNetAPIClient sharedClient]GET:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-//        
-//        if (![responseObject isKindOfClass:[NSDictionary class]]) {
-//            return ;
-//        }
-//        NSString * info = [responseObject objectForKey:@"id"];
-//        if ([info isEqualToString:@"您已经赞过了"]) {
-//            [self showAlertViewWithtitle:@"提示" message:@"您已经赞过了"];
-//            return;
-//        }
-//    [cell.zanBtn setBackgroundImage:KUIImage(@"button01-selected") forState:UIControlStateNormal];
-//        [self showMessageWindowWithContent:@"点赞成功" imageType:0];
-//        cell.zanLabel.text = [NSString stringWithFormat:@"%d",[cell.zanLabel.text intValue]+1];
-//    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-//        
-//    }];
-    
-    
-    
-    
-    
+ 
     
     self.hud = [[MBProgressHUD alloc]initWithView:self.view];
     [self.view addSubview:self.hud];
@@ -304,7 +328,7 @@
                    //
                                }else{
                    //
-                           NSString *zanCount = KISDictionaryHaveKey(dic, @"zancount");
+                           NSString *zanCount = KISDictionaryHaveKey(dic, @"zanrecount");
                            cell.zanLabel.text = [NSString stringWithFormat:@"%d",[zanCount intValue]+1];
                                    NSLog(@"`````````````    %@",cell.zanLabel.text)  ;
 //                           [cell.zanBtn setTitle:@"已赞" forState:UIControlStateNormal];
@@ -398,11 +422,9 @@
 
 -(void) loginAction
 {
-    //    GuidePageViewController *guidePageVC = [[GuidePageViewController alloc]init];
-    ////    self.window.rootViewController =guidePageVC;
-    //    [[NSUserDefaults standardUserDefaults]setObject:@"1" forKey:@"FirstLoign"];
-    LoginViewController *loginVC = [[LoginViewController alloc] init];
-    [self presentViewController:loginVC animated:YES completion:^(void){
+    SingupViewController *loginVC = [[SingupViewController alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginVC];
+    [self presentViewController:nav animated:YES completion:^(void){
         
         
         
@@ -521,6 +543,8 @@
 - (void)dealloc
 {
     commentTF.delegate = nil;
+    myTabelView.delegate = nil;
+    myTabelView.dataSource = nil;
     [[NSNotificationCenter defaultCenter]removeObserver:self name:UIKeyboardDidShowNotification object:nil];
 }
 

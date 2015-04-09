@@ -24,7 +24,8 @@
 
 - (void)setTopViewWithTitle:(NSString*)titleStr withBackButton:(BOOL)hasBacButton;
 -(void)showAlertViewWithtitle:(NSString *)title message:(NSString *)message;
-
+-(void)hiddenTopView;
+//- (void)setTopViewWithTitle:(NSString*)titleStr withBackButton:(BOOL)hasBacButton withHidden:(BOOL)hidden;
 
 /*
  *lable 高度自适应 传入数据 返回size

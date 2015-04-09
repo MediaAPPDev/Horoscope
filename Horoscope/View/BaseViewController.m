@@ -19,6 +19,8 @@
     float baseTopHeight;
     UILabel * showLabel;
     UIView * showWindowView;
+    NSInteger flag;
+
 }
 -(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -37,6 +39,8 @@
 {
     [super viewDidLoad];
     startX = KISHighVersion_7?64:44;
+    flag = 0;
+
 //    hud = [[MBProgressHUD alloc]initWithView:self.view];
 //    [self.view addSubview:hud];
     self.navigationController.navigationBarHidden = YES;
@@ -157,8 +161,8 @@
     label.text = text;
     return label;
 }
-
-
+//
+//
 - (void)setTopViewWithTitle:(NSString*)titleStr withBackButton:(BOOL)hasBacButton
 {
     UIImageView* topImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, KISHighVersion_7 ? 64 : 44)];
@@ -195,6 +199,48 @@
     }
 }
 
+
+//- (void)setTopViewWithTitle:(NSString*)titleStr withBackButton:(BOOL)hasBacButton withHidden:(BOOL)hidden
+//{
+//    UIImageView* topImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, KISHighVersion_7 ? 64 : 44)];
+//    topImageView.userInteractionEnabled = YES;
+//    topImageView.backgroundColor = kColorWithRGB(0, 0, 0, 1.0);
+//    topImageView.image = KUIImage(@"nav_bg");
+//    [self.view addSubview:topImageView];
+//    
+//    //    UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapTopViewClick:)];
+//    //    tapGesture.delegate = self;
+//    //    [topImageView addGestureRecognizer:tapGesture];
+//    
+//    baseTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, KISHighVersion_7 ? 20 : 0, KScreenWidth-100, 44)];
+//    baseTitleLabel.textColor = [UIColor whiteColor];
+//    baseTitleLabel.backgroundColor = [UIColor clearColor];
+//    baseTitleLabel.text = titleStr;
+//    baseTitleLabel.textAlignment = NSTextAlignmentCenter;
+//    baseTitleLabel.font = [UIFont boldSystemFontOfSize:20];
+//    [self.view addSubview:baseTitleLabel];
+//    
+//    m_loginActivity = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+//    m_loginActivity.color = [UIColor whiteColor];
+//    m_loginActivity.activityIndicatorViewStyle =UIActivityIndicatorViewStyleWhite;
+//    [self.view addSubview:m_loginActivity];
+//    [self changeActivityPositionWithTitle:baseTitleLabel.text];
+//    
+//    if (hasBacButton) {
+//        UIButton* backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, KISHighVersion_7 ? 20 : 0, 65, 44)];
+//        [backButton setImage:KUIImage(@"back") forState:UIControlStateNormal];
+//        [backButton setImage:KUIImage(@"back") forState:UIControlStateHighlighted];
+//        backButton.backgroundColor = [UIColor clearColor];
+//        [backButton addTarget:self action:@selector(backButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+//        [self.view addSubview:backButton];
+//    }
+//    if (hidden) {
+//        topImageView.hidden = YES;
+//        baseTitleLabel.hidden = YES;
+//        baseTitleLabel.hidden = YES;
+//    }
+//}
+
 //根据标题的长度更改UIActivity的位置
 -(void)changeActivityPositionWithTitle:(NSString *)title
 {
@@ -225,12 +271,43 @@
 - (void)backButtonClick:(id)sender
 {
 //    [self.navigationController popViewControllerAnimated:YES];
-    
-    [self.menuController popViewControllerAnimated:YES];
+//    if (flag == 1) {
+        [self.menuController popViewControllerAnimated:YES];
+ 
+//    }
     
 //    [[RequestTaskService singleton] clearRequest:[NSString stringWithUTF8String:object_getClassName(self)]];
     
 }
+
+
+//- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+//
+//{
+
+//    if(!decelerate){
+//        
+//        flag = 1;
+//        
+//    }
+//    if (decelerate)
+//    {
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            printf("STOP IT!!\n");
+//            [scrollView setContentOffset:scrollView.contentOffset animated:NO];
+//        });
+//    }
+//    
+//}
+
+//- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+//
+//{
+//
+//    flag = 1;
+//
+//}
+
 
 //去除无数据时tableview下方的各种横线
 - (void)setExtraCellLineHidden: (UITableView *)tableView

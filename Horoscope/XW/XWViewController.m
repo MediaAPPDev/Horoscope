@@ -132,7 +132,7 @@
 //    cell.newsPic.placeholderImage = KUIImage(@"touxiang1.png");
     cell.newsPic.imageURL =[NSURL URLWithString:KISDictionaryHaveKey(dic, @"photo")];
     NSLog(@"%@",cell.newsPic.imageURL);
-        cell.newsText.text=[[[dic valueForKey:@"content"]substringToIndex:10] stringByAppendingString:@"......       显示更多"];
+        cell.newsText.text=[[[dic valueForKey:@"content"]substringToIndex:15] stringByAppendingString:@"..."];
 //    cell.newsText.text = [[dic valueForKey:@"content"]stringByAppendingString:@"..." ];
     cell.newsText.textColor = [UIColor grayColor];
 //            cell.newsText.text=[[dic valueForKey:@"content"]substringToIndex:50];

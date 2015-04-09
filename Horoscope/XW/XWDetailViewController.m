@@ -9,7 +9,7 @@
 #import "XWDetailViewController.h"
 #import "XWCommentsVC.h"
 //#import "GuidePageViewController.h"
-#import "LoginViewController.h"
+#import "SingupViewController.h"
 
 @class XWViewController;
 //@class XWCommentsVC;
@@ -373,8 +373,9 @@
     //    derailVC
     commentVC.commentId = self.aid;
     commentVC.contentDict = [NSDictionary dictionaryWithDictionary:contentDict];
-    [self.menuController pushViewController:commentVC withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
-}
+//    [self.menuController pushViewController:commentVC withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
+//    commentVC.title = @"星文";
+    [self.menuController pushViewController:commentVC withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];}
 
 #pragma mark---EGOIMAGE DELEGATE
 - (void)imageViewLoadedImage:(EGOImageView*)imageView
@@ -453,11 +454,9 @@
 
 -(void) loginAction
 {
-//    GuidePageViewController *guidePageVC = [[GuidePageViewController alloc]init];
-////    self.window.rootViewController =guidePageVC;
-//    [[NSUserDefaults standardUserDefaults]setObject:@"1" forKey:@"FirstLoign"];
-    LoginViewController *loginVC = [[LoginViewController alloc] init];
-    [self presentViewController:loginVC animated:YES completion:^(void){
+    SingupViewController *loginVC = [[SingupViewController alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginVC];
+    [self presentViewController:nav animated:YES completion:^(void){
         
         
         
