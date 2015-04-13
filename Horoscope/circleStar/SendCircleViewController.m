@@ -34,6 +34,7 @@
     senderTextView = [[UITextView alloc]initWithFrame:CGRectMake(0, startX, width(self.view), width(self.view)/2)];
     senderTextView.font = [UIFont systemFontOfSize:14];
     senderTextView.backgroundColor = [UIColor colorWithRed:180/225.0f green:180/225.0f blue:180/225.0f alpha:1];
+    senderTextView.delegate = self;
     [self.view addSubview:senderTextView];
     
     self.view .backgroundColor = [UIColor whiteColor];
@@ -170,6 +171,16 @@
     [self showAlertViewWithtitle:@"提示" message:@"发送失败，请检查网络"];
 }];
         
+}
+
+//按下Done按钮的调用方法，我们让键盘消失
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    
+    
+    
+    [textField resignFirstResponder];
+    
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning {

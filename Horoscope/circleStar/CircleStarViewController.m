@@ -17,7 +17,7 @@
     UIView * commentBgView;
     NSMutableDictionary * commentDict;
     float keyboardhight;
-    
+    UILabel *userNameLabel;
     NSString * myUid;
     MJRefreshHeaderView *m_header;
     
@@ -34,7 +34,7 @@
 //    self.view.backgroundColor =[ UIColor blackColor];
     
     UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(self.view.bounds.size.width-60, KISHighVersion_7?20:0, 60, 44)];
-    [button setImage:KUIImage(@"123123") forState:UIControlStateNormal];
+    [button setImage:KUIImage(@"starfriendcircle_fabu_narmol") forState:UIControlStateNormal];
     [button addTarget:self action:@selector(enterNextPage:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
 
@@ -56,6 +56,7 @@
     [self addHeader];
 }
 -(void)viewDidAppear:(BOOL)animated
+
 {
     [super viewDidAppear:animated];
     
@@ -74,14 +75,20 @@
     [view addSubview:imgView];
     
     EGOImageView *headImg = [[EGOImageView alloc]initWithFrame:CGRectMake(width(self.view)-80-50, width(self.view)/2-40, 80, 80)];
-    
     headImg.placeholderImage = KUIImage(@"placeholder.jpg");
-    
-    
     NSString *img = [[[UserCache sharedInstance]objectForKey:MYINFODICT]objectForKey:@"photo"];
     headImg.imageURL = [NSURL URLWithString:img];
 //    headImg.imageURL = nil;
     [view addSubview:headImg];
+    
+    userNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(width(self.view)-80-110, width(self.view)/2-25, 60, 20)];
+    userNameLabel.backgroundColor = [UIColor clearColor];
+    userNameLabel.textColor =[UIColor whiteColor];
+    userNameLabel.text = KISDictionaryHaveKey([[UserCache sharedInstance]objectForKey:MYINFODICT], @"nickname");
+    userNameLabel.font = [UIFont systemFontOfSize:10];
+    [view addSubview:userNameLabel];
+    
+    
     
     myTableView.tableHeaderView = view;
     
@@ -191,7 +198,7 @@
     cell.timeLabel.text = KISDictionaryHaveKey(dic, @"crtime");
 //    [cell.zanBtn setTitle:KISDictionaryHaveKey(dic, @"zcount") forState:UIControlStateNormal];
 //    [cell.commBtn setTitle:@"1" forState:UIControlStateNormal];
-    
+//    cell.nameLabel.text = KISDictionaryHaveKey([[UserCache sharedInstance]objectForKey:MYINFODICT], @"nickname");
     cell.zanBtn.countLabel.text = KISDictionaryHaveKey(dic, @"zcount");
     cell.commBtn.countLabel.text = @"1";
     
@@ -310,7 +317,7 @@
 {
     NSString *urlStr = [NSString stringWithFormat:@"addcomment?uid=%@&cid=%@&comment=%@&nickname=%@",KISDictionaryHaveKey(commentDict, @"uid"),KISDictionaryHaveKey(commentDict, @"contentid"),commentTF.text,KISDictionaryHaveKey([[UserCache sharedInstance]objectForKey:MYINFODICT], @"nickname")];
     
-//    NSLog(@"评论列表-%@",commentDict);
+    NSLog(@"－－－－－－－－－－－－-%@",KISDictionaryHaveKey([[UserCache sharedInstance]objectForKey:MYINFODICT], @"nickname"));
     
     urlStr = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     

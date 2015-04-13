@@ -120,7 +120,8 @@
     NSString *string = @"座";
     result = [result stringByAppendingString:string];
     
-    return [result stringByAppendingString:@"座"];
+//    return [result stringByAppendingString:@"座"];
+    return result;
 }
 
 

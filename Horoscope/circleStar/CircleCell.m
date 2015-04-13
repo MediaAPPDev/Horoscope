@@ -97,7 +97,7 @@
         [self addSubview:self.zanView];
         
     }
-    lb.text = @"1231231231";
+    lb.text = KISDictionaryHaveKey([[UserCache sharedInstance]objectForKey:MYINFODICT], @"nickname");
 }
 
 -(void)buildCommentViewWithDic:(NSArray *)arr

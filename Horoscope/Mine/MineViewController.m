@@ -45,13 +45,14 @@
      self.view.backgroundColor= [UIColor blackColor];
     // Do any additional setup after loading the view.
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(refreshInfo:) name:@"REFRESHMINEPAGE" object:nil];
-    
+    NSLog(@"ha----------%@",self.userid);
+
     [self setTopViewWithTitle:@"" withBackButton:YES];
     
     UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(self.view.bounds.size.width-60, KISHighVersion_7?20:0, 60, 44)];
     [self.view addSubview:button];
 
-    if (self.mytype == COME_MYSELF||[self.userid isEqualToString:[[UserCache sharedInstance]objectForKey:KMYUSERID]]) {
+    if (self.mytype == COME_MYSELF&&[self.userid isEqualToString:[[UserCache sharedInstance]objectForKey:KMYUSERID]]) {
         [button setImage:KUIImage(@"editor") forState:UIControlStateNormal];
         [button addTarget:self action:@selector(enterNextPage:) forControlEvents:UIControlEventTouchUpInside];
 
@@ -138,7 +139,7 @@ xzImgViwe.image = KUIImage([self getNameReturnStar:KISDictionaryHaveKey(infoDict
     hud.labelText = @"获取中...";
     [hud show:YES];
     NSString *urlStr ;
-    if (self.mytype == COME_MYSELF) {
+    if (self.mytype == COME_MYSELF&&[self.userid isEqualToString:[[UserCache sharedInstance]objectForKey:KMYUSERID]]) {
         urlStr = [NSString stringWithFormat:@"userdetail.php?uid=%@&uuid=1",[[UserCache sharedInstance]objectForKey:KMYUSERID ]];
     }else{
         urlStr = [NSString stringWithFormat:@"userdetail.php?uid=%@&uuid=%@",userid,[[UserCache sharedInstance]objectForKey:KMYUSERID ]];

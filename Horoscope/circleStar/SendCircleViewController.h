@@ -8,6 +8,6 @@
 
 #import "BaseViewController.h"
 
-@interface SendCircleViewController : BaseViewController<UIActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
+@interface SendCircleViewController : BaseViewController<UIActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,UITextViewDelegate>
 @property (nonatomic,strong)UIImage * img;
 @end

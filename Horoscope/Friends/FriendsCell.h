@@ -20,9 +20,10 @@
 @property (nonatomic,strong)UILabel * ageLb;
 @property (nonatomic,strong)UILabel * signatureLb;
 @property (nonatomic,strong)UILabel * timeLabel;
-@property (nonatomic,strong)UIImageView * sexImg;
+@property (nonatomic,strong)UILabel * sexImg;
 @property (nonatomic,strong)UIButton * gzBtn;
 @property (nonatomic,assign)id<FriendsDelegate>delegate;
+//@property (nonatomic,strong)UILabel *sexLabel;
 @end
 
 @protocol FriendsDelegate <NSObject>

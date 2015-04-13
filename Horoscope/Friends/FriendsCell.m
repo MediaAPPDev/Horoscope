@@ -26,9 +26,11 @@
         
         
         
-        self.sexImg = [[UIImageView alloc]initWithFrame:CGRectMake(sx(self.headimgView)+10, sy(self.nameLb)+7, 35, 15)];
-//        self.sexImg.backgroundColor = [UIColor redColor];
-
+        self.sexImg = [[UILabel alloc]initWithFrame:CGRectMake(sx(self.headimgView)+10, sy(self.nameLb)+7, 35, 15)];
+        self.sexImg.backgroundColor = [UIColor redColor];
+        self.sexImg.textColor = [UIColor whiteColor];
+        self.sexImg.font = [UIFont boldSystemFontOfSize:12];
+        self.sexImg.layer.cornerRadius = 10;
         [self addSubview:self.sexImg];
         
         self.ageLb = [[UILabel alloc]initWithFrame:CGRectMake(sx(self.headimgView)+10, sy(self.nameLb)+7, 35, 13)];

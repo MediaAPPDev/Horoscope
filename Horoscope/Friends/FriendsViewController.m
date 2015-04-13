@@ -66,7 +66,7 @@
     [self.view addSubview:myTabelView];
     
     nameArr = [NSArray arrayWithObjects:@"通讯录",@"新朋友",@"活动", nil];
-    imgArr =[NSArray arrayWithObjects:@"xinpingyou",@"dianhualianxiren",@"dianhualianxiren", nil];
+    imgArr =[NSArray arrayWithObjects:@"dianhualianxiren",@"xinpingyou",@"small_huodong", nil];
 
     infoArr = [NSMutableArray array];
     infoDic = [NSMutableDictionary dictionary];
@@ -199,7 +199,15 @@
         cell.nameLb.text = KISDictionaryHaveKey(dic, @"nickname");
         cell.starImgView.image = KUIImage([self GetNameReturnImageWithName:KISDictionaryHaveKey(dic, @"xing")]);
         cell.starLb.text = KISDictionaryHaveKey(dic, @"xing");
-        cell.sexImg.image = KUIImage(@"sexImg");
+//        cell.sexImg.image = KUIImage(@"sexImg");
+        if ([KISDictionaryHaveKey(dic, @"sex")isEqualToString:@"男"]) {
+            cell.sexImg.text = [NSString stringWithFormat:@"♂ %@",KISDictionaryHaveKey(dic,@"userage")];
+            NSLog(@"😄   %@",cell.sexImg.text);
+            cell.sexImg.backgroundColor = RGB(27, 167, 255);
+        }else{
+            cell.sexImg.text = [NSString stringWithFormat:@"♀ %@",KISDictionaryHaveKey(dic,@"userage")];
+            cell.sexImg.backgroundColor = RGB(251, 0, 134);
+        }
         cell.timeLabel.hidden = YES;
         cell.signatureLb.text =KISDictionaryHaveKey(dic, @"phrase");
 //        cell.timeLabel.text = @"1分钟前";

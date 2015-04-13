@@ -86,7 +86,16 @@
     cell.nameLb.text = KISDictionaryHaveKey(dic, @"nickname");
     cell.starImgView.image = KUIImage(@"ys_c_by");
     cell.starLb.text = KISDictionaryHaveKey(dic, @"xing");
-    cell.sexImg.image = KUIImage(@"sexImg");
+//    cell.sexImg.image = KUIImage(@"sexImg");
+    if ([KISDictionaryHaveKey(dic, @"sex")isEqualToString:@"男"]) {
+        cell.sexImg.text = [NSString stringWithFormat:@"♂%@",KISDictionaryHaveKey(dic,@"userage")];
+        NSLog(@"😄   %@",cell.sexImg.text);
+        cell.sexImg.backgroundColor = RGB(27, 167, 255);
+    }else{
+        cell.sexImg.text =  [NSString stringWithFormat:@"♀%@",KISDictionaryHaveKey(dic,@"userage")];
+        cell.sexImg.backgroundColor = RGB(251, 0, 134);
+    }
+
     cell.signatureLb.text =KISDictionaryHaveKey(dic, @"phrase");
     cell.timeLabel.text = @"";
     cell.timeLabel.hidden = YES;

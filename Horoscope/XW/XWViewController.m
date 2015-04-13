@@ -32,6 +32,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    UIView *v = [[UIView alloc] initWithFrame:CGRectMake(0,0,KScreenWidth,KScreenHeight)];
+    self.tableView.tableFooterView = v;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self buildTopviewWithBackButton:YES title:@"星文" rightImage:@"订阅－正常"];
     self.view.backgroundColor = [UIColor blackColor];
     _tableView =[[UITableView alloc]init];
@@ -127,7 +130,7 @@
     cell.subtitle.text = [dic valueForKey:@"subtitle"] ;
 
 //        [cell.facePic setImage:[UIImage imageNamed:@"touxiang1.png"]];
-    cell.facePic.placeholderImage = KUIImage(@"touxiang1.png");
+    cell.facePic.placeholderImage = KUIImage(@"appicont.png");
     cell.facePic.imageURL = nil;
 //    cell.newsPic.placeholderImage = KUIImage(@"touxiang1.png");
     cell.newsPic.imageURL =[NSURL URLWithString:KISDictionaryHaveKey(dic, @"photo")];
