@@ -116,11 +116,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Horoscope/BD/BdViewController.m"
-            timestampString = "447139177.394701"
+            timestampString = "450609100.130723"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "235"
-            endingLineNumber = "235"
+            startingLineNumber = "245"
+            endingLineNumber = "245"
             landmarkName = "-changeConstellation:"
             landmarkType = "5">
             <Locations>
@@ -498,6 +498,22 @@
             startingLineNumber = "270"
             endingLineNumber = "270"
             landmarkName = "-actionSheet:clickedButtonAtIndex:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Horoscope/BD/BdViewController.m"
+            timestampString = "450675735.804993"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "268"
+            endingLineNumber = "268"
+            landmarkName = "-getInfoFromNetWithStar:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

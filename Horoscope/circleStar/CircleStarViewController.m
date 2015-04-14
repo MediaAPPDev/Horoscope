@@ -219,7 +219,6 @@
     }else{
         [cell buildCommentViewWithDic:nil];
     }
-    
     return cell;
 }
 

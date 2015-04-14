@@ -425,15 +425,20 @@
 
 -(void)chooseConstellation:(UIButton *)sender
 {
-    constellationScrl.hidden = NO;
-    [UIView animateWithDuration:0.3 animations:^{
-        constellationScrl.frame = CGRectMake(0, 64, KScreenWidth, 80);
-        scr.frame = CGRectMake(0, 144, KScreenWidth, KScreenHeight-144);
-        
-        [scr addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hiddenConstellScr:)]];
-        
-    } completion:^(BOOL finished) {
-    }];
+    if (constellationScrl.hidden) {
+        constellationScrl.hidden = NO;
+        [UIView animateWithDuration:0.3 animations:^{
+            constellationScrl.frame = CGRectMake(0, startX, KScreenWidth, 80);
+            scr.frame = CGRectMake(0, 144, KScreenWidth, KScreenHeight-144);
+            
+            [scr addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hiddenConstellScr:)]];
+            
+        } completion:^(BOOL finished) {
+        }];
+
+    }else{
+        [self hiddenConstellScr:nil];
+    }
 
 }
 

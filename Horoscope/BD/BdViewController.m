@@ -7,7 +7,7 @@
 //
 
 #import "BdViewController.h"
-
+#import "BDContent.h"
 @interface BdViewController ()
 {
     UIImageView *blueImageView;
@@ -56,7 +56,7 @@
     
 //    scrollView.backgroundColor = [UIColor yellowColor];
     [self.view addSubview:scrollView];
-    
+    [BDContent WithStar:@"白羊座"];
     
     
 //    NSArray *arr= [ NSArray arrayWithObjects:@"1",@"2",@"3", nil];
@@ -109,6 +109,18 @@
         txV.alwaysBounceVertical = YES;
         txV.tag = 1999+i;
         
+        
+        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+        paragraphStyle.lineSpacing = 10;// 字体的行间距
+        
+        NSDictionary *attributes = @{
+                                     NSFontAttributeName:[UIFont systemFontOfSize:15],
+                                     NSParagraphStyleAttributeName:paragraphStyle
+                                     };
+        NSString *sss = [NSString stringWithFormat:@"content%d",i+1];
+        txV.attributedText = [[NSAttributedString alloc] initWithString:KISDictionaryHaveKey([BDContent WithStar:@"白羊座"],sss ) attributes:attributes];
+        
+        
 //        txV.backgroundColor = [UIColor yellowColor];
 //        txV.scrollEnabled = YES;
         
@@ -129,7 +141,7 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [self getInfoFromNetWithStar:@"1"];
+//    [self getInfoFromNetWithStar:@"1"];
 
 }
 
@@ -224,7 +236,7 @@
 //            [scr removeGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hiddenConstellScr:)]];
         }];
     }    
-    [self getInfoFromNetWithStar:[NSString stringWithFormat:@"%ld",sender.tag-1000+1]];
+    [self getInfoFromNetWithStar:[xArray[sender.tag-1000] stringByAppendingString:@"座"]];
     
     /*
      后续添加 选择星座方法 并且添加网络请求 更换星座数据
@@ -237,28 +249,31 @@
 -(void)getInfoFromNetWithStar:(NSString *)star
 {
 //    NSString *urlStr=[NSString string];
-    [self.hud show:YES];
-    NSString *urlStr = [NSString stringWithFormat:@"book.php?name=%@",star];
-//    urlStr = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSLog(@"urlstr---%@",urlStr);
-
-  [[AFAppDotNetAPIClient sharedClient] GET:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-    [self.hud hide:YES];
-        NSLog(@"responseObject -- %@",responseObject);
+//    [self.hud show:YES];
+//    NSString *urlStr = [NSString stringWithFormat:@"book.php?name=%@",star];
+////    urlStr = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//    NSLog(@"urlstr---%@",urlStr);
+//
+//  [[AFAppDotNetAPIClient sharedClient] GET:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+//    [self.hud hide:YES];
+//        NSLog(@"responseObject -- %@",responseObject);
+//    
+//    if (![responseObject isKindOfClass:[NSDictionary class]]) {
+//        return ;
+//    }
     
-    if (![responseObject isKindOfClass:[NSDictionary class]]) {
-        return ;
-    }
-    NSDictionary *dic = responseObject;
+    
+    
+    NSDictionary *dic = [BDContent WithStar:star];
     UITextView *text1 = (UITextView *)[self.view viewWithTag:1999+0];
     UITextView *text2 = (UITextView *)[self.view viewWithTag:1999+1];
     UITextView *text3 = (UITextView *)[self.view viewWithTag:1999+2];
-      text1.editable = NO;
-      text2.editable = NO;
-      text3.editable = NO;
-      text1.autoresizingMask = UIViewAutoresizingFlexibleHeight;
-      text2.autoresizingMask = UIViewAutoresizingFlexibleHeight;
-      text3.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+    text1.editable = NO;
+    text2.editable = NO;
+    text3.editable = NO;
+    text1.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+    text2.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+    text3.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     text1.text = KISDictionaryHaveKey(dic, @"content1");
     text2.text = KISDictionaryHaveKey(dic, @"content2");
     text3.text = KISDictionaryHaveKey(dic, @"content3");
@@ -266,10 +281,10 @@
 
       
     
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        [self.hud hide:YES];
-        [self showAlertViewWithtitle:@"提示" message:@"请求失败"];
-    }];
+//    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+//        [self.hud hide:YES];
+//        [self showAlertViewWithtitle:@"提示" message:@"请求失败"];
+//    }];
 }
 
 //更改星座
@@ -281,16 +296,29 @@
 //    } completion:^(BOOL finished) {
 //        [starView addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hiddenYsView:)]];
 //    }];
+    if (constellationScrl.hidden) {
+        constellationScrl.hidden = NO;
+        [UIView animateWithDuration:0.3 animations:^{
+            constellationScrl.frame = CGRectMake(0, startX, KScreenWidth, 80);
+            //        scr.frame = CGRectMake(0, 144, KScreenWidth, KScreenHeight-144);
+            
+            //        [scr addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hiddenConstellScr:)]];
+            
+        } completion:^(BOOL finished) {
+        }];
 
-    constellationScrl.hidden = NO;
-    [UIView animateWithDuration:0.3 animations:^{
-        constellationScrl.frame = CGRectMake(0, 64, KScreenWidth, 80);
-//        scr.frame = CGRectMake(0, 144, KScreenWidth, KScreenHeight-144);
-        
-//        [scr addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hiddenConstellScr:)]];
-        
-    } completion:^(BOOL finished) {
-    }];
+    }else{
+        constellationScrl.hidden = YES;
+        [UIView animateWithDuration:0.3 animations:^{
+            constellationScrl.frame = CGRectMake(0, -startX, KScreenWidth, 80);
+            //        scr.frame = CGRectMake(0, 144, KScreenWidth, KScreenHeight-144);
+            
+            //        [scr addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hiddenConstellScr:)]];
+            
+        } completion:^(BOOL finished) {
+        }];
+  
+    }
     
 
     

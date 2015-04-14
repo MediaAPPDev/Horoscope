@@ -536,6 +536,17 @@
 		6477EC091A6E557200A6FC0C /* Female@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6477EC051A6E557200A6FC0C /* Female@2x.png */; };
 		6477EC0A1A6E557200A6FC0C /* Female@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6477EC061A6E557200A6FC0C /* Female@3x.png */; };
 		647BEC641A3972100049B8C9 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 647BEC631A3972100049B8C9 /* MineViewController.m */; };
+		647C1F7B1ADCC21B00B8329C /* 金牛座.TXT in Resources */ = {isa = PBXBuildFile; fileRef = 647C1F781ADCC21B00B8329C /* 金牛座.TXT */; };
+		647C1F7C1ADCC21B00B8329C /* 巨蟹座.TXT in Resources */ = {isa = PBXBuildFile; fileRef = 647C1F791ADCC21B00B8329C /* 巨蟹座.TXT */; };
+		647C1F851ADCC61100B8329C /* 摩羯座.TXT in Resources */ = {isa = PBXBuildFile; fileRef = 647C1F7D1ADCC61100B8329C /* 摩羯座.TXT */; };
+		647C1F861ADCC61100B8329C /* 射手座.TXT in Resources */ = {isa = PBXBuildFile; fileRef = 647C1F7E1ADCC61100B8329C /* 射手座.TXT */; };
+		647C1F871ADCC61100B8329C /* 狮子座.TXT in Resources */ = {isa = PBXBuildFile; fileRef = 647C1F7F1ADCC61100B8329C /* 狮子座.TXT */; };
+		647C1F881ADCC61100B8329C /* 双鱼座.TXT in Resources */ = {isa = PBXBuildFile; fileRef = 647C1F801ADCC61100B8329C /* 双鱼座.TXT */; };
+		647C1F891ADCC61100B8329C /* 双子座.TXT in Resources */ = {isa = PBXBuildFile; fileRef = 647C1F811ADCC61100B8329C /* 双子座.TXT */; };
+		647C1F8A1ADCC61100B8329C /* 水瓶座.TXT in Resources */ = {isa = PBXBuildFile; fileRef = 647C1F821ADCC61100B8329C /* 水瓶座.TXT */; };
+		647C1F8B1ADCC61100B8329C /* 天秤座.TXT in Resources */ = {isa = PBXBuildFile; fileRef = 647C1F831ADCC61100B8329C /* 天秤座.TXT */; };
+		647C1F8C1ADCC61100B8329C /* 天蝎座.TXT in Resources */ = {isa = PBXBuildFile; fileRef = 647C1F841ADCC61100B8329C /* 天蝎座.TXT */; };
+		647C1F8E1ADCC62500B8329C /* 处女座.TXT in Resources */ = {isa = PBXBuildFile; fileRef = 647C1F8D1ADCC62500B8329C /* 处女座.TXT */; };
 		647DAB021A809E7F00AFDB9E /* editor.png in Resources */ = {isa = PBXBuildFile; fileRef = 647DAB011A809E7F00AFDB9E /* editor.png */; };
 		647DC3251A529DE4009AD4DC /* star-0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 647DC31A1A529DE4009AD4DC /* star-0@2x.png */; };
 		647DC3261A529DE4009AD4DC /* star-1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 647DC31B1A529DE4009AD4DC /* star-1@2x.png */; };
@@ -598,6 +609,8 @@
 		649E9C7B1A4E65890024B10C /* DatyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 649E9C7A1A4E65890024B10C /* DatyView.m */; };
 		649E9C7E1A4E6ACB0024B10C /* TastCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 649E9C7D1A4E6ACB0024B10C /* TastCell.m */; };
 		649E9C801A4E803F0024B10C /* 123.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 649E9C7F1A4E803F0024B10C /* 123.jpg */; };
+		64BCED441ADBB45A00876E3C /* BDContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 64BCED431ADBB45A00876E3C /* BDContent.m */; };
+		64BCED461ADBB60900876E3C /* 白羊座.TXT in Resources */ = {isa = PBXBuildFile; fileRef = 64BCED451ADBB60900876E3C /* 白羊座.TXT */; };
 		64BEC4FC1A2D6D5F00931E0F /* NewMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64BEC4FB1A2D6D5F00931E0F /* NewMainViewController.m */; };
 		64C3AAAB1A773BE600A4B9B2 /* AboutMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64C3AAAA1A773BE600A4B9B2 /* AboutMeViewController.m */; };
 		64C3AAAE1A773D0900A4B9B2 /* about@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 64C3AAAC1A773D0900A4B9B2 /* about@2x.png */; };
@@ -1371,6 +1384,17 @@
 		6477EC061A6E557200A6FC0C /* Female@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Female@3x.png"; sourceTree = "<group>"; };
 		647BEC621A3972100049B8C9 /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
 		647BEC631A3972100049B8C9 /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
+		647C1F781ADCC21B00B8329C /* 金牛座.TXT */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "金牛座.TXT"; sourceTree = "<group>"; };
+		647C1F791ADCC21B00B8329C /* 巨蟹座.TXT */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "巨蟹座.TXT"; sourceTree = "<group>"; };
+		647C1F7D1ADCC61100B8329C /* 摩羯座.TXT */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "摩羯座.TXT"; sourceTree = "<group>"; };
+		647C1F7E1ADCC61100B8329C /* 射手座.TXT */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "射手座.TXT"; sourceTree = "<group>"; };
+		647C1F7F1ADCC61100B8329C /* 狮子座.TXT */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "狮子座.TXT"; sourceTree = "<group>"; };
+		647C1F801ADCC61100B8329C /* 双鱼座.TXT */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "双鱼座.TXT"; sourceTree = "<group>"; };
+		647C1F811ADCC61100B8329C /* 双子座.TXT */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "双子座.TXT"; sourceTree = "<group>"; };
+		647C1F821ADCC61100B8329C /* 水瓶座.TXT */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "水瓶座.TXT"; sourceTree = "<group>"; };
+		647C1F831ADCC61100B8329C /* 天秤座.TXT */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "天秤座.TXT"; sourceTree = "<group>"; };
+		647C1F841ADCC61100B8329C /* 天蝎座.TXT */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "天蝎座.TXT"; sourceTree = "<group>"; };
+		647C1F8D1ADCC62500B8329C /* 处女座.TXT */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "处女座.TXT"; sourceTree = "<group>"; };
 		647DAB011A809E7F00AFDB9E /* editor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = editor.png; sourceTree = "<group>"; };
 		647DC31A1A529DE4009AD4DC /* star-0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-0@2x.png"; sourceTree = "<group>"; };
 		647DC31B1A529DE4009AD4DC /* star-1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-1@2x.png"; sourceTree = "<group>"; };
@@ -1445,6 +1469,9 @@
 		649E9C7C1A4E6ACB0024B10C /* TastCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TastCell.h; sourceTree = "<group>"; };
 		649E9C7D1A4E6ACB0024B10C /* TastCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TastCell.m; sourceTree = "<group>"; };
 		649E9C7F1A4E803F0024B10C /* 123.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 123.jpg; sourceTree = "<group>"; };
+		64BCED421ADBB45A00876E3C /* BDContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDContent.h; sourceTree = "<group>"; };
+		64BCED431ADBB45A00876E3C /* BDContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDContent.m; sourceTree = "<group>"; };
+		64BCED451ADBB60900876E3C /* 白羊座.TXT */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "白羊座.TXT"; sourceTree = "<group>"; };
 		64BEC4FA1A2D6D5F00931E0F /* NewMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewMainViewController.h; sourceTree = "<group>"; };
 		64BEC4FB1A2D6D5F00931E0F /* NewMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewMainViewController.m; sourceTree = "<group>"; };
 		64BEC4FE1A2D729400931E0F /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -2842,6 +2869,20 @@
 			children = (
 				64CD98281A303B1500040744 /* BdViewController.h */,
 				64CD98291A303B1500040744 /* BdViewController.m */,
+				64BCED421ADBB45A00876E3C /* BDContent.h */,
+				64BCED431ADBB45A00876E3C /* BDContent.m */,
+				64BCED451ADBB60900876E3C /* 白羊座.TXT */,
+				647C1F8D1ADCC62500B8329C /* 处女座.TXT */,
+				647C1F781ADCC21B00B8329C /* 金牛座.TXT */,
+				647C1F791ADCC21B00B8329C /* 巨蟹座.TXT */,
+				647C1F7D1ADCC61100B8329C /* 摩羯座.TXT */,
+				647C1F7E1ADCC61100B8329C /* 射手座.TXT */,
+				647C1F7F1ADCC61100B8329C /* 狮子座.TXT */,
+				647C1F801ADCC61100B8329C /* 双鱼座.TXT */,
+				647C1F811ADCC61100B8329C /* 双子座.TXT */,
+				647C1F821ADCC61100B8329C /* 水瓶座.TXT */,
+				647C1F831ADCC61100B8329C /* 天秤座.TXT */,
+				647C1F841ADCC61100B8329C /* 天蝎座.TXT */,
 			);
 			path = BD;
 			sourceTree = "<group>";
@@ -3126,6 +3167,7 @@
 				646C43A81A37FB2400FB683D /* ys_c_mojie@3x.png in Resources */,
 				645DEEF01A41715200E8C524 /* say2.png in Resources */,
 				2F21163C1A25B5A2009B21EB /* LaunchScreen.xib in Resources */,
+				647C1F851ADCC61100B8329C /* 摩羯座.TXT in Resources */,
 				645400221A42860200FA69C7 /* 手机绑定图标大@2x.png in Resources */,
 				5ED3CF661A416FCE0083BCDE /* touxiang1@3x.png in Resources */,
 				5ED3CF5B1A416FCE0083BCDE /* menuBeijing@2x.png in Resources */,
@@ -3255,6 +3297,7 @@
 				5ED3CF701A416FCE0083BCDE /* xingyou@3x.png in Resources */,
 				5E9755961A529E46003A4A31 /* caip@3x.png in Resources */,
 				64394D2D1A5E20570034F89E /* UMSLoginViewController.xib in Resources */,
+				647C1F881ADCC61100B8329C /* 双鱼座.TXT in Resources */,
 				9A5E91961AC3D24800DD0C79 /* Send-disabled@2x.png in Resources */,
 				9ABA5FA21AB137DA00CFC898 /* set_password.png in Resources */,
 				5ED3CF921A418B0B0083BCDE /* back@3x.png in Resources */,
@@ -3316,6 +3359,7 @@
 				5ED3CF911A418B0B0083BCDE /* back@2x.png in Resources */,
 				648689941A6F4EAA00F10EDA /* xingyou_33@3x.png in Resources */,
 				5E484AA31A5FBDA900582DE7 /* lineBottom@2x.png in Resources */,
+				647C1F7C1ADCC21B00B8329C /* 巨蟹座.TXT in Resources */,
 				9A5E91931AC3D24800DD0C79 /* Login-normal@3x.png in Resources */,
 				9A8F303C1A836B5D00907336 /* lunbo1.jpg in Resources */,
 				64914EBA1A5A3656003DED2A /* More－Normal@3x.png in Resources */,
@@ -3329,6 +3373,7 @@
 				646C43AF1A37FB2400FB683D /* ys_c_sy@2x.png in Resources */,
 				64914EBE1A5A5626003DED2A /* zan-Normal@3x.png in Resources */,
 				5ED3CFA71A418BA80083BCDE /* icon_back_white.png in Resources */,
+				647C1F7B1ADCC21B00B8329C /* 金牛座.TXT in Resources */,
 				9A79BD4C1AB6899E00D00EC6 /* save_icon@2x.png in Resources */,
 				5E484AA61A5FBDA900582DE7 /* lineTop@3x.png in Resources */,
 				644E09521A8222D20005CE3C /* 4-4@2x.png in Resources */,
@@ -3367,8 +3412,10 @@
 				5ED3CF561A416FCE0083BCDE /* faxian@3x.png in Resources */,
 				5E484A811A5F7D3E00582DE7 /* sigup@2x.png in Resources */,
 				64394D2B1A5E20570034F89E /* UMShareEditViewController.xib in Resources */,
+				647C1F8E1ADCC62500B8329C /* 处女座.TXT in Resources */,
 				5E97559F1A529E46003A4A31 /* chongce@3X.png in Resources */,
 				647DAB021A809E7F00AFDB9E /* editor.png in Resources */,
+				647C1F861ADCC61100B8329C /* 射手座.TXT in Resources */,
 				646C43CD1A381CE800FB683D /* ys_c_star_gray@2x.png in Resources */,
 				645DEEFD1A4172D300E8C524 /* 2.png in Resources */,
 				647607B11A3FD7C400B71469 /* 下一级@3x.png in Resources */,
@@ -3437,6 +3484,7 @@
 				5EB87EB91A396EBF00BE4A5D /* fogetPass@3x.png in Resources */,
 				9A5E917C1AC3D24800DD0C79 /* arrow@3x.png in Resources */,
 				64914EBD1A5A5626003DED2A /* zan-Normal@2x.png in Resources */,
+				64BCED461ADBB60900876E3C /* 白羊座.TXT in Resources */,
 				648689841A6F4EAA00F10EDA /* xingyou_25@2x.png in Resources */,
 				644AD24D1A833C81001C8256 /* 5-568h.png in Resources */,
 				645DEF041A41766E00E8C524 /* sexImg.png in Resources */,
@@ -3455,6 +3503,7 @@
 				645DEEB91A414DCA00E8C524 /* weixin@2x.png in Resources */,
 				646C43BA1A38136400FB683D /* ys_c_Topbg@3x.png in Resources */,
 				5ED3CF711A416FCE0083BCDE /* xingyouIanxia@2x.png in Resources */,
+				647C1F871ADCC61100B8329C /* 狮子座.TXT in Resources */,
 				2F2116FC1A25B64A009B21EB /* MenuViewController.xib in Resources */,
 				5ECC41C81A43D26200A5D3B4 /* zanP@3X.png in Resources */,
 				647607C81A3FD7C400B71469 /* iphone6底图.png in Resources */,
@@ -3506,6 +3555,7 @@
 				5ED3CFAA1A418BA80083BCDE /* phone-icon.png in Resources */,
 				647607BD1A3FD7C400B71469 /* 忘记密码@3x.png in Resources */,
 				5E9755911A529E46003A4A31 /* buttonP@2x.png in Resources */,
+				647C1F8A1ADCC61100B8329C /* 水瓶座.TXT in Resources */,
 				5ED3CF611A416FCE0083BCDE /* taluopaiIanxia@2x.png in Resources */,
 				646C43A31A37FB2400FB683D /* ys_c_jinniu@2x.png in Resources */,
 				6441674A1A4957F1004277F8 /* blackView.png in Resources */,
@@ -3539,6 +3589,7 @@
 				5ED3CF721A416FCE0083BCDE /* xingyouIanxia@3x.png in Resources */,
 				5E484A7E1A5F7C3800582DE7 /* SingupViewController.xib in Resources */,
 				64982B811A58F0FE005338AA /* screening.png in Resources */,
+				647C1F891ADCC61100B8329C /* 双子座.TXT in Resources */,
 				647607BA1A3FD7C400B71469 /* 密码图标@2x.png in Resources */,
 				645DEEFC1A4172D300E8C524 /* 1.png in Resources */,
 				646C43A51A37FB2400FB683D /* ys_c_juxie@2x.png in Resources */,
@@ -3547,6 +3598,7 @@
 				5EF352211A4D461100AB2463 /* icon.png in Resources */,
 				5E97558F1A529E46003A4A31 /* button@2x.png in Resources */,
 				645DEEBA1A414DCA00E8C524 /* weixin@3x.png in Resources */,
+				647C1F8C1ADCC61100B8329C /* 天蝎座.TXT in Resources */,
 				5E9755C31A529E46003A4A31 /* zhun@3X.png in Resources */,
 				646C43D11A381D0900FB683D /* ys_c_datebg@2x.png in Resources */,
 				5ED3CF5A1A416FCE0083BCDE /* fenxianlan@3x.png in Resources */,
@@ -3616,6 +3668,7 @@
 				5ED3CF4C1A416FCE0083BCDE /* baodianIanxia@3x.png in Resources */,
 				5E9755BF1A529E46003A4A31 /* zhanbi@2X.png in Resources */,
 				9A5E91981AC3D24800DD0C79 /* Send-normal@2x.png in Resources */,
+				647C1F8B1ADCC61100B8329C /* 天秤座.TXT in Resources */,
 				9A5E91821AC3D24800DD0C79 /* button01-selected@3x.png in Resources */,
 				5ED3CF4A1A416FCE0083BCDE /* baodian@2x.png in Resources */,
 				647607B71A3FD7C400B71469 /* 删除按钮选中状态@3x.png in Resources */,
@@ -3756,6 +3809,7 @@
 				5E484A7D1A5F7C3800582DE7 /* SingupViewController.m in Sources */,
 				645DEEBD1A41607500E8C524 /* FoundViewController.m in Sources */,
 				64CD98301A30403900040744 /* XWViewController.m in Sources */,
+				64BCED441ADBB45A00876E3C /* BDContent.m in Sources */,
 				2FC71FDA1A2721AC002BB2C5 /* BaseViewController.m in Sources */,
 				64E348F81A5CE35900DA6B74 /* SendCircleViewController.m in Sources */,
 				64394D631A5E6A540034F89E /* MJRefreshBaseView.m in Sources */,
