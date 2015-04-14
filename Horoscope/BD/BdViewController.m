@@ -100,8 +100,12 @@
 //        UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(self.view.bounds.size.width*i, 0, self.view.bounds.size.width, self.view.bounds.size.height-64-44)];
 //        imageView.image = [UIImage imageNamed:arr[i]];
 //        [scrollView addSubview:imageView];
+        UIScrollView *txScr = [[UIScrollView alloc]initWithFrame:CGRectMake(self.view.bounds.size.width*i, 0, self.view.bounds.size.width, self.view.bounds.size.height-64-44)];
         
-        UITextView *txV = [[UITextView alloc]initWithFrame:CGRectMake(self.view.bounds.size.width*i, 0, self.view.bounds.size.width, self.view.bounds.size.height-64-44)];
+        txScr.showsHorizontalScrollIndicator = NO;
+        txScr.showsVerticalScrollIndicator = NO;
+        
+        UITextView *txV = [[UITextView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height-64-44)];
         txV.backgroundColor = [UIColor whiteColor];
         txV.textColor = [UIColor blackColor];
         txV.font = [UIFont systemFontOfSize:16];
@@ -124,7 +128,9 @@
 //        txV.backgroundColor = [UIColor yellowColor];
 //        txV.scrollEnabled = YES;
         
-        [scrollView addSubview:txV];
+        [txScr addSubview:txV];
+        txScr.contentSize = CGSizeMake(0, txV.contentSize.height);
+        [scrollView addSubview:txScr];
     }
     self.hud = [[MBProgressHUD alloc]initWithView:self.view];
     [self.view addSubview:self.hud];
@@ -277,7 +283,12 @@
     text1.text = KISDictionaryHaveKey(dic, @"content1");
     text2.text = KISDictionaryHaveKey(dic, @"content2");
     text3.text = KISDictionaryHaveKey(dic, @"content3");
-
+    UIScrollView *scr1 = (UIScrollView*)text1.superview;
+    scr1.contentSize = CGSizeMake(0, text1.contentSize.height);
+    UIScrollView *scr2 = (UIScrollView*)text2.superview;
+    scr2.contentSize = CGSizeMake(0, text2.contentSize.height);
+    UIScrollView *scr3 = (UIScrollView*)text3.superview;
+    scr3.contentSize = CGSizeMake(0, text3.contentSize.height);
 
       
     
