@@ -141,7 +141,9 @@
 
     cell.commentLabel.frame = CGRectMake(80, 60, KScreenWidth-100, [self labelAutoCalculateRectWith:KISDictionaryHaveKey(dic, @"comment") FontSize:12.0 MaxSize:CGSizeMake(KScreenWidth-100, 200)].height+3*cell.commentLabel.numberOfLines);
     
-    cell.replyLable.text = [[NSString stringWithFormat:@"%@%@ : ",@"@",KISDictionaryHaveKey(commentDic, @"nickname")] stringByAppendingString: KISDictionaryHaveKey(dic, @"replaycomment")];
+    cell.replyLable.text = [[NSString stringWithFormat:@"%@%@ : ",@"@",KISDictionaryHaveKey(commentDic, @"originator")] stringByAppendingString: KISDictionaryHaveKey(dic, @"replaycomment")];
+    NSLog(@"-------------%@-------------%@",KISDictionaryHaveKey(commentDic, @"nickname"),KISDictionaryHaveKey(dic, @"replaycomment"));
+    
     if ([self isEmtity:KISDictionaryHaveKey(dic, @"replaycomment")]) {
         cell.replyLable.frame = CGRectMake(0, 0, 0, 0);
     }else{
