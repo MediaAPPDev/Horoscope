@@ -547,6 +547,42 @@
 		647C1F8B1ADCC61100B8329C /* 天秤座.TXT in Resources */ = {isa = PBXBuildFile; fileRef = 647C1F831ADCC61100B8329C /* 天秤座.TXT */; };
 		647C1F8C1ADCC61100B8329C /* 天蝎座.TXT in Resources */ = {isa = PBXBuildFile; fileRef = 647C1F841ADCC61100B8329C /* 天蝎座.TXT */; };
 		647C1F8E1ADCC62500B8329C /* 处女座.TXT in Resources */ = {isa = PBXBuildFile; fileRef = 647C1F8D1ADCC62500B8329C /* 处女座.TXT */; };
+		647C1FB41ADD020500B8329C /* 双子－传说_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 647C1F901ADD020500B8329C /* 双子－传说_03.png */; };
+		647C1FB51ADD020500B8329C /* 双子－爱情_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 647C1F911ADD020500B8329C /* 双子－爱情_03.png */; };
+		647C1FB61ADD020500B8329C /* 双子－特点_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 647C1F921ADD020500B8329C /* 双子－特点_03.png */; };
+		647C1FB71ADD020500B8329C /* 双鱼－传说_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 647C1F931ADD020500B8329C /* 双鱼－传说_03.png */; };
+		647C1FB81ADD020500B8329C /* 双鱼－爱情_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 647C1F941ADD020500B8329C /* 双鱼－爱情_03.png */; };
+		647C1FB91ADD020500B8329C /* 双鱼－特点_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 647C1F951ADD020500B8329C /* 双鱼－特点_03.png */; };
+		647C1FBA1ADD020500B8329C /* 处女－传说_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 647C1F961ADD020500B8329C /* 处女－传说_03.png */; };
+		647C1FBB1ADD020500B8329C /* 处女－爱情_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 647C1F971ADD020500B8329C /* 处女－爱情_03.png */; };
+		647C1FBC1ADD020500B8329C /* 处女－特点_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 647C1F981ADD020500B8329C /* 处女－特点_03.png */; };
+		647C1FBD1ADD020500B8329C /* 天秤－传说_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 647C1F991ADD020500B8329C /* 天秤－传说_03.png */; };
+		647C1FBE1ADD020500B8329C /* 天秤－爱情_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 647C1F9A1ADD020500B8329C /* 天秤－爱情_03.png */; };
+		647C1FBF1ADD020500B8329C /* 天秤－特点_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 647C1F9B1ADD020500B8329C /* 天秤－特点_03.png */; };
+		647C1FC01ADD020500B8329C /* 天蝎－传说_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 647C1F9C1ADD020500B8329C /* 天蝎－传说_03.png */; };
+		647C1FC11ADD020500B8329C /* 天蝎－爱情_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 647C1F9D1ADD020500B8329C /* 天蝎－爱情_03.png */; };
+		647C1FC21ADD020500B8329C /* 天蝎－特点_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 647C1F9E1ADD020500B8329C /* 天蝎－特点_03.png */; };
+		647C1FC31ADD020500B8329C /* 射手－传说_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 647C1F9F1ADD020500B8329C /* 射手－传说_03.png */; };
+		647C1FC41ADD020500B8329C /* 射手－爱情_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 647C1FA01ADD020500B8329C /* 射手－爱情_03.png */; };
+		647C1FC51ADD020500B8329C /* 射手－特点_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 647C1FA11ADD020500B8329C /* 射手－特点_03.png */; };
+		647C1FC61ADD020500B8329C /* 巨蟹－传说_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 647C1FA21ADD020500B8329C /* 巨蟹－传说_03.png */; };
+		647C1FC71ADD020500B8329C /* 巨蟹－性格_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 647C1FA31ADD020500B8329C /* 巨蟹－性格_03.png */; };
+		647C1FC81ADD020500B8329C /* 巨蟹－爱情_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 647C1FA41ADD020500B8329C /* 巨蟹－爱情_03.png */; };
+		647C1FC91ADD020500B8329C /* 摩羯－传说_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 647C1FA51ADD020500B8329C /* 摩羯－传说_03.png */; };
+		647C1FCA1ADD020500B8329C /* 摩羯－特点_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 647C1FA61ADD020500B8329C /* 摩羯－特点_03.png */; };
+		647C1FCB1ADD020500B8329C /* 水瓶－传说_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 647C1FA71ADD020500B8329C /* 水瓶－传说_03.png */; };
+		647C1FCC1ADD020500B8329C /* 水瓶－爱情_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 647C1FA81ADD020500B8329C /* 水瓶－爱情_03.png */; };
+		647C1FCD1ADD020500B8329C /* 水瓶－特点_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 647C1FA91ADD020500B8329C /* 水瓶－特点_03.png */; };
+		647C1FCE1ADD020500B8329C /* 狮子－传说_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 647C1FAA1ADD020500B8329C /* 狮子－传说_03.png */; };
+		647C1FCF1ADD020500B8329C /* 狮子－爱情_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 647C1FAB1ADD020500B8329C /* 狮子－爱情_03.png */; };
+		647C1FD01ADD020500B8329C /* 狮子－特点_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 647C1FAC1ADD020500B8329C /* 狮子－特点_03.png */; };
+		647C1FD11ADD020500B8329C /* 白羊－传说_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 647C1FAD1ADD020500B8329C /* 白羊－传说_03.png */; };
+		647C1FD21ADD020500B8329C /* 白羊－爱情_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 647C1FAE1ADD020500B8329C /* 白羊－爱情_03.png */; };
+		647C1FD31ADD020500B8329C /* 白羊－特点_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 647C1FAF1ADD020500B8329C /* 白羊－特点_03.png */; };
+		647C1FD41ADD020500B8329C /* 金牛－传说_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 647C1FB01ADD020500B8329C /* 金牛－传说_03.png */; };
+		647C1FD51ADD020500B8329C /* 金牛－爱情_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 647C1FB11ADD020500B8329C /* 金牛－爱情_03.png */; };
+		647C1FD61ADD020500B8329C /* 金牛－特点_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 647C1FB21ADD020500B8329C /* 金牛－特点_03.png */; };
+		647C1FD71ADD020500B8329C /* 魔羯－爱情_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 647C1FB31ADD020500B8329C /* 魔羯－爱情_03.png */; };
 		647DAB021A809E7F00AFDB9E /* editor.png in Resources */ = {isa = PBXBuildFile; fileRef = 647DAB011A809E7F00AFDB9E /* editor.png */; };
 		647DC3251A529DE4009AD4DC /* star-0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 647DC31A1A529DE4009AD4DC /* star-0@2x.png */; };
 		647DC3261A529DE4009AD4DC /* star-1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 647DC31B1A529DE4009AD4DC /* star-1@2x.png */; };
@@ -1395,6 +1431,42 @@
 		647C1F831ADCC61100B8329C /* 天秤座.TXT */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "天秤座.TXT"; sourceTree = "<group>"; };
 		647C1F841ADCC61100B8329C /* 天蝎座.TXT */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "天蝎座.TXT"; sourceTree = "<group>"; };
 		647C1F8D1ADCC62500B8329C /* 处女座.TXT */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "处女座.TXT"; sourceTree = "<group>"; };
+		647C1F901ADD020500B8329C /* 双子－传说_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "双子－传说_03.png"; sourceTree = "<group>"; };
+		647C1F911ADD020500B8329C /* 双子－爱情_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "双子－爱情_03.png"; sourceTree = "<group>"; };
+		647C1F921ADD020500B8329C /* 双子－特点_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "双子－特点_03.png"; sourceTree = "<group>"; };
+		647C1F931ADD020500B8329C /* 双鱼－传说_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "双鱼－传说_03.png"; sourceTree = "<group>"; };
+		647C1F941ADD020500B8329C /* 双鱼－爱情_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "双鱼－爱情_03.png"; sourceTree = "<group>"; };
+		647C1F951ADD020500B8329C /* 双鱼－特点_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "双鱼－特点_03.png"; sourceTree = "<group>"; };
+		647C1F961ADD020500B8329C /* 处女－传说_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "处女－传说_03.png"; sourceTree = "<group>"; };
+		647C1F971ADD020500B8329C /* 处女－爱情_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "处女－爱情_03.png"; sourceTree = "<group>"; };
+		647C1F981ADD020500B8329C /* 处女－特点_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "处女－特点_03.png"; sourceTree = "<group>"; };
+		647C1F991ADD020500B8329C /* 天秤－传说_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "天秤－传说_03.png"; sourceTree = "<group>"; };
+		647C1F9A1ADD020500B8329C /* 天秤－爱情_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "天秤－爱情_03.png"; sourceTree = "<group>"; };
+		647C1F9B1ADD020500B8329C /* 天秤－特点_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "天秤－特点_03.png"; sourceTree = "<group>"; };
+		647C1F9C1ADD020500B8329C /* 天蝎－传说_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "天蝎－传说_03.png"; sourceTree = "<group>"; };
+		647C1F9D1ADD020500B8329C /* 天蝎－爱情_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "天蝎－爱情_03.png"; sourceTree = "<group>"; };
+		647C1F9E1ADD020500B8329C /* 天蝎－特点_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "天蝎－特点_03.png"; sourceTree = "<group>"; };
+		647C1F9F1ADD020500B8329C /* 射手－传说_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "射手－传说_03.png"; sourceTree = "<group>"; };
+		647C1FA01ADD020500B8329C /* 射手－爱情_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "射手－爱情_03.png"; sourceTree = "<group>"; };
+		647C1FA11ADD020500B8329C /* 射手－特点_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "射手－特点_03.png"; sourceTree = "<group>"; };
+		647C1FA21ADD020500B8329C /* 巨蟹－传说_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "巨蟹－传说_03.png"; sourceTree = "<group>"; };
+		647C1FA31ADD020500B8329C /* 巨蟹－性格_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "巨蟹－性格_03.png"; sourceTree = "<group>"; };
+		647C1FA41ADD020500B8329C /* 巨蟹－爱情_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "巨蟹－爱情_03.png"; sourceTree = "<group>"; };
+		647C1FA51ADD020500B8329C /* 摩羯－传说_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "摩羯－传说_03.png"; sourceTree = "<group>"; };
+		647C1FA61ADD020500B8329C /* 摩羯－特点_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "摩羯－特点_03.png"; sourceTree = "<group>"; };
+		647C1FA71ADD020500B8329C /* 水瓶－传说_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "水瓶－传说_03.png"; sourceTree = "<group>"; };
+		647C1FA81ADD020500B8329C /* 水瓶－爱情_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "水瓶－爱情_03.png"; sourceTree = "<group>"; };
+		647C1FA91ADD020500B8329C /* 水瓶－特点_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "水瓶－特点_03.png"; sourceTree = "<group>"; };
+		647C1FAA1ADD020500B8329C /* 狮子－传说_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "狮子－传说_03.png"; sourceTree = "<group>"; };
+		647C1FAB1ADD020500B8329C /* 狮子－爱情_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "狮子－爱情_03.png"; sourceTree = "<group>"; };
+		647C1FAC1ADD020500B8329C /* 狮子－特点_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "狮子－特点_03.png"; sourceTree = "<group>"; };
+		647C1FAD1ADD020500B8329C /* 白羊－传说_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "白羊－传说_03.png"; sourceTree = "<group>"; };
+		647C1FAE1ADD020500B8329C /* 白羊－爱情_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "白羊－爱情_03.png"; sourceTree = "<group>"; };
+		647C1FAF1ADD020500B8329C /* 白羊－特点_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "白羊－特点_03.png"; sourceTree = "<group>"; };
+		647C1FB01ADD020500B8329C /* 金牛－传说_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "金牛－传说_03.png"; sourceTree = "<group>"; };
+		647C1FB11ADD020500B8329C /* 金牛－爱情_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "金牛－爱情_03.png"; sourceTree = "<group>"; };
+		647C1FB21ADD020500B8329C /* 金牛－特点_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "金牛－特点_03.png"; sourceTree = "<group>"; };
+		647C1FB31ADD020500B8329C /* 魔羯－爱情_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "魔羯－爱情_03.png"; sourceTree = "<group>"; };
 		647DAB011A809E7F00AFDB9E /* editor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = editor.png; sourceTree = "<group>"; };
 		647DC31A1A529DE4009AD4DC /* star-0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-0@2x.png"; sourceTree = "<group>"; };
 		647DC31B1A529DE4009AD4DC /* star-1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-1@2x.png"; sourceTree = "<group>"; };
@@ -2741,6 +2813,49 @@
 			path = Mine;
 			sourceTree = "<group>";
 		};
+		647C1F8F1ADD020500B8329C /* 切图 */ = {
+			isa = PBXGroup;
+			children = (
+				647C1F901ADD020500B8329C /* 双子－传说_03.png */,
+				647C1F911ADD020500B8329C /* 双子－爱情_03.png */,
+				647C1F921ADD020500B8329C /* 双子－特点_03.png */,
+				647C1F931ADD020500B8329C /* 双鱼－传说_03.png */,
+				647C1F941ADD020500B8329C /* 双鱼－爱情_03.png */,
+				647C1F951ADD020500B8329C /* 双鱼－特点_03.png */,
+				647C1F961ADD020500B8329C /* 处女－传说_03.png */,
+				647C1F971ADD020500B8329C /* 处女－爱情_03.png */,
+				647C1F981ADD020500B8329C /* 处女－特点_03.png */,
+				647C1F991ADD020500B8329C /* 天秤－传说_03.png */,
+				647C1F9A1ADD020500B8329C /* 天秤－爱情_03.png */,
+				647C1F9B1ADD020500B8329C /* 天秤－特点_03.png */,
+				647C1F9C1ADD020500B8329C /* 天蝎－传说_03.png */,
+				647C1F9D1ADD020500B8329C /* 天蝎－爱情_03.png */,
+				647C1F9E1ADD020500B8329C /* 天蝎－特点_03.png */,
+				647C1F9F1ADD020500B8329C /* 射手－传说_03.png */,
+				647C1FA01ADD020500B8329C /* 射手－爱情_03.png */,
+				647C1FA11ADD020500B8329C /* 射手－特点_03.png */,
+				647C1FA21ADD020500B8329C /* 巨蟹－传说_03.png */,
+				647C1FA31ADD020500B8329C /* 巨蟹－性格_03.png */,
+				647C1FA41ADD020500B8329C /* 巨蟹－爱情_03.png */,
+				647C1FA51ADD020500B8329C /* 摩羯－传说_03.png */,
+				647C1FA61ADD020500B8329C /* 摩羯－特点_03.png */,
+				647C1FA71ADD020500B8329C /* 水瓶－传说_03.png */,
+				647C1FA81ADD020500B8329C /* 水瓶－爱情_03.png */,
+				647C1FA91ADD020500B8329C /* 水瓶－特点_03.png */,
+				647C1FAA1ADD020500B8329C /* 狮子－传说_03.png */,
+				647C1FAB1ADD020500B8329C /* 狮子－爱情_03.png */,
+				647C1FAC1ADD020500B8329C /* 狮子－特点_03.png */,
+				647C1FAD1ADD020500B8329C /* 白羊－传说_03.png */,
+				647C1FAE1ADD020500B8329C /* 白羊－爱情_03.png */,
+				647C1FAF1ADD020500B8329C /* 白羊－特点_03.png */,
+				647C1FB01ADD020500B8329C /* 金牛－传说_03.png */,
+				647C1FB11ADD020500B8329C /* 金牛－爱情_03.png */,
+				647C1FB21ADD020500B8329C /* 金牛－特点_03.png */,
+				647C1FB31ADD020500B8329C /* 魔羯－爱情_03.png */,
+			);
+			path = "切图";
+			sourceTree = "<group>";
+		};
 		647DC3191A529DE4009AD4DC /* xingxing */ = {
 			isa = PBXGroup;
 			children = (
@@ -2871,6 +2986,7 @@
 				64CD98291A303B1500040744 /* BdViewController.m */,
 				64BCED421ADBB45A00876E3C /* BDContent.h */,
 				64BCED431ADBB45A00876E3C /* BDContent.m */,
+				647C1F8F1ADD020500B8329C /* 切图 */,
 				64BCED451ADBB60900876E3C /* 白羊座.TXT */,
 				647C1F8D1ADCC62500B8329C /* 处女座.TXT */,
 				647C1F781ADCC21B00B8329C /* 金牛座.TXT */,
@@ -3151,18 +3267,21 @@
 				5E9755BA1A529E46003A4A31 /* xingge@3x.png in Resources */,
 				6486898B1A6F4EAA00F10EDA /* xingyou_07@3x.png in Resources */,
 				64394D301A5E20570034F89E /* UMSocialSDKResourcesNew.bundle in Resources */,
+				647C1FB61ADD020500B8329C /* 双子－特点_03.png in Resources */,
 				645DEEE31A41715200E8C524 /* news1.png in Resources */,
 				6477EC071A6E557200A6FC0C /*  Male@2x.png in Resources */,
 				5E9755951A529E46003A4A31 /* caiP@2x.png in Resources */,
 				64CD98D01A3042FD00040744 /*  微博图标@2x.png in Resources */,
 				5ED3CF761A416FCE0083BCDE /* xingyouquanIanxia@3x.png in Resources */,
 				645F7BAC1A5142EF0023D9C1 /* 3-4@2x.png in Resources */,
+				647C1FB71ADD020500B8329C /* 双鱼－传说_03.png in Resources */,
 				64CD98E01A3042FD00040744 /* 登陆.jpg in Resources */,
 				648689901A6F4EAA00F10EDA /* xingyou_25@3x.png in Resources */,
 				648689861A6F4EAA00F10EDA /* xingyou_29@2x.png in Resources */,
 				5E484A911A5FA83300582DE7 /* signup3ViewController.xib in Resources */,
 				64394D281A5E20570034F89E /* UMSCommentDetailController.xib in Resources */,
 				64C727201A3575B300DFE28E /* rank@3x.png in Resources */,
+				647C1FCF1ADD020500B8329C /* 狮子－爱情_03.png in Resources */,
 				5E97558B1A529E46003A4A31 /* aiqing@2x.png in Resources */,
 				646C43A81A37FB2400FB683D /* ys_c_mojie@3x.png in Resources */,
 				645DEEF01A41715200E8C524 /* say2.png in Resources */,
@@ -3176,6 +3295,7 @@
 				64CD98D91A3042FD00040744 /* 线条@3x.png in Resources */,
 				645F7BBB1A5142EF0023D9C1 /* start-normal@2x.png in Resources */,
 				5ED3CF681A416FCE0083BCDE /* touxiangbiankuang@3x.png in Resources */,
+				647C1FC01ADD020500B8329C /* 天蝎－传说_03.png in Resources */,
 				5E9755C51A529E46003A4A31 /* zhunP@3x.png in Resources */,
 				5E6E29BB1A5B8CBB004F3C89 /* radio_checked.png in Resources */,
 				646C43B31A37FB2400FB683D /* ys_c_tc@2x.png in Resources */,
@@ -3185,6 +3305,7 @@
 				9A5E918A1AC3D24800DD0C79 /* button03-click@3x.png in Resources */,
 				5E9755A71A529E46003A4A31 /* lunboHui@2X.png in Resources */,
 				9A8F303D1A836B5D00907336 /* lunbo2.jpg in Resources */,
+				647C1FD01ADD020500B8329C /* 狮子－特点_03.png in Resources */,
 				5ED3CF731A416FCE0083BCDE /* xingyouquan@2x.png in Resources */,
 				5EF352191A4D445600AB2463 /* Default-2208@3x.png in Resources */,
 				645DEEE51A41715200E8C524 /* news3.png in Resources */,
@@ -3195,6 +3316,7 @@
 				6486898A1A6F4EAA00F10EDA /* xingyou_05@3x.png in Resources */,
 				5ED3CFA61A418BA80083BCDE /* icon_1320_white60.png in Resources */,
 				648689911A6F4EAA00F10EDA /* xingyou_27@3x.png in Resources */,
+				647C1FC71ADD020500B8329C /* 巨蟹－性格_03.png in Resources */,
 				6477EC091A6E557200A6FC0C /* Female@2x.png in Resources */,
 				5ED3CF651A416FCE0083BCDE /* touxiang1@2x.png in Resources */,
 				9A5E91901AC3D24800DD0C79 /* h1334-Login-normal@2x.png in Resources */,
@@ -3251,6 +3373,7 @@
 				648689871A6F4EAA00F10EDA /* xingyou_31@2x.png in Resources */,
 				9A5E91861AC3D24800DD0C79 /* button02-normal@3x.png in Resources */,
 				5E484A8C1A5FA81000582DE7 /* signup2ViewController.xib in Resources */,
+				647C1FC91ADD020500B8329C /* 摩羯－传说_03.png in Resources */,
 				645F7BBA1A5142EF0023D9C1 /* start-normal-6plus@3x.png in Resources */,
 				645F7BB81A5142EF0023D9C1 /* start-click@2x.png in Resources */,
 				648689931A6F4EAA00F10EDA /* xingyou_31@3x.png in Resources */,
@@ -3261,6 +3384,7 @@
 				5EB87EC01A396EBF00BE4A5D /* regepass@2x.png in Resources */,
 				9A5E918B1AC3D24800DD0C79 /* button03-normal@2x.png in Resources */,
 				5E9755971A529E46003A4A31 /* ceshidangqianye@2X.png in Resources */,
+				647C1FB41ADD020500B8329C /* 双子－传说_03.png in Resources */,
 				645400251A42860200FA69C7 /* qq绑定图标大@2x.png in Resources */,
 				645DEEE91A41715200E8C524 /* 发现－按下.png in Resources */,
 				5ECC41BF1A43D26200A5D3B4 /* pinglunP@2X.png in Resources */,
@@ -3282,17 +3406,21 @@
 				645400241A42860200FA69C7 /* 微信绑定图标大@2x.png in Resources */,
 				64C3AAB31A7768F300A4B9B2 /* xw_share@3x.png in Resources */,
 				645DEEB61A414DCA00E8C524 /* shouji@3x.png in Resources */,
+				647C1FD21ADD020500B8329C /* 白羊－爱情_03.png in Resources */,
 				9A5E91831AC3D24800DD0C79 /* button02-click@2X.png in Resources */,
 				648689831A6F4EAA00F10EDA /* xingyou_23@2x.png in Resources */,
 				646C437F1A37F9F300FB683D /* 双子@2x.png in Resources */,
+				647C1FCD1ADD020500B8329C /* 水瓶－特点_03.png in Resources */,
 				647607C11A3FD7C400B71469 /* 用户图标@3x.png in Resources */,
 				6486897E1A6F4EAA00F10EDA /* xingyou_05@2x.png in Resources */,
 				64CD98D31A3042FD00040744 /* 微信图标@2x.png in Resources */,
 				64E349471A5D1F4100DA6B74 /* show_nozan.png in Resources */,
+				647C1FCA1ADD020500B8329C /* 摩羯－特点_03.png in Resources */,
 				5E9755C81A529E46003A4A31 /* zongheP@2x.png in Resources */,
 				5E9755901A529E46003A4A31 /* button@3x.png in Resources */,
 				2F2116391A25B5A2009B21EB /* Images.xcassets in Resources */,
 				5E9755BB1A529E46003A4A31 /* xinggeP@2x.png in Resources */,
+				647C1FBA1ADD020500B8329C /* 处女－传说_03.png in Resources */,
 				5E484A961A5FA84500582DE7 /* signup4ViewController.xib in Resources */,
 				5ED3CF701A416FCE0083BCDE /* xingyou@3x.png in Resources */,
 				5E9755961A529E46003A4A31 /* caip@3x.png in Resources */,
@@ -3320,11 +3448,13 @@
 				5EB87EB41A396EBF00BE4A5D /* after60@2x.png in Resources */,
 				9A8F303E1A836B5D00907336 /* lunbo3.jpg in Resources */,
 				9A5E91841AC3D24800DD0C79 /* button02-click@3x.png in Resources */,
+				647C1FB81ADD020500B8329C /* 双鱼－爱情_03.png in Resources */,
 				645DEF001A4172FA00E8C524 /* 灰色底框.png in Resources */,
 				647DC32B1A529DE4009AD4DC /* star-3@3x.png in Resources */,
 				64CD98DC1A3042FD00040744 /* iPhone4底图.png in Resources */,
 				5E484AA41A5FBDA900582DE7 /* lineBottom@3x.png in Resources */,
 				5ED3CF7B1A416FCE0083BCDE /* yunshi@3x_10.png in Resources */,
+				647C1FBF1ADD020500B8329C /* 天秤－特点_03.png in Resources */,
 				5E6E29BC1A5B8CBB004F3C89 /* radio_checked@2x.png in Resources */,
 				5E9755AE1A529E46003A4A31 /* quceshiP@3X.png in Resources */,
 				5EF352181A4D445600AB2463 /* Default-1334@2x.png in Resources */,
@@ -3339,6 +3469,7 @@
 				5E97559D1A529E46003A4A31 /* chonceP@2x.png in Resources */,
 				5ED3CFA31A418BA80083BCDE /* backBtn.png in Resources */,
 				64E349461A5D1F4100DA6B74 /* show_noattention.png in Resources */,
+				647C1FBE1ADD020500B8329C /* 天秤－爱情_03.png in Resources */,
 				5E97558C1A529E46003A4A31 /* aiqingN@2x.png in Resources */,
 				5E9755AF1A529E46003A4A31 /* tianjia@2X.png in Resources */,
 				5ED3CF951A418B0B0083BCDE /* side_menu@2x.png in Resources */,
@@ -3364,10 +3495,12 @@
 				9A8F303C1A836B5D00907336 /* lunbo1.jpg in Resources */,
 				64914EBA1A5A3656003DED2A /* More－Normal@3x.png in Resources */,
 				5ED3CF581A416FCE0083BCDE /* faxianIanxia@3x.png in Resources */,
+				647C1FCC1ADD020500B8329C /* 水瓶－爱情_03.png in Resources */,
 				645DEEEF1A41715200E8C524 /* 星友圈－按下.png in Resources */,
 				5E9755A51A529E46003A4A31 /* hot-@2X.png in Resources */,
 				649E9C801A4E803F0024B10C /* 123.jpg in Resources */,
 				64E349431A5D1F4100DA6B74 /* show_add.png in Resources */,
+				647C1FC41ADD020500B8329C /* 射手－爱情_03.png in Resources */,
 				644E095B1A822F5C0005CE3C /* place.png in Resources */,
 				646C43C51A381CDB00FB683D /* ys_c_downline@2x.png in Resources */,
 				646C43AF1A37FB2400FB683D /* ys_c_sy@2x.png in Resources */,
@@ -3375,6 +3508,7 @@
 				5ED3CFA71A418BA80083BCDE /* icon_back_white.png in Resources */,
 				647C1F7B1ADCC21B00B8329C /* 金牛座.TXT in Resources */,
 				9A79BD4C1AB6899E00D00EC6 /* save_icon@2x.png in Resources */,
+				647C1FC31ADD020500B8329C /* 射手－传说_03.png in Resources */,
 				5E484AA61A5FBDA900582DE7 /* lineTop@3x.png in Resources */,
 				644E09521A8222D20005CE3C /* 4-4@2x.png in Resources */,
 				645DEEB71A414DCA00E8C524 /* weibo@2x.png in Resources */,
@@ -3400,6 +3534,7 @@
 				5E9755A81A529E46003A4A31 /* lunboLan@2X.png in Resources */,
 				645DEEEE1A41715200E8C524 /* say1.png in Resources */,
 				5ECC41BD1A43D26200A5D3B4 /* pinglun@2X.png in Resources */,
+				647C1FD31ADD020500B8329C /* 白羊－特点_03.png in Resources */,
 				646C43751A37F9F300FB683D /* 金牛@2x.png in Resources */,
 				645DEEF11A41715200E8C524 /* 星友说－按下.png in Resources */,
 				64C3AAAE1A773D0900A4B9B2 /* about@2x.png in Resources */,
@@ -3437,8 +3572,10 @@
 				5E9755A91A529E46003A4A31 /* lunboLan@3X.png in Resources */,
 				5ED3CFA51A418BA80083BCDE /* concept-icon-poster60.png in Resources */,
 				64CD98DB1A3042FD00040744 /* textbg@3x.png in Resources */,
+				647C1FBC1ADD020500B8329C /* 处女－特点_03.png in Resources */,
 				64394D621A5E6A540034F89E /* MJRefresh.bundle in Resources */,
 				648689851A6F4EAA00F10EDA /* xingyou_27@2x.png in Resources */,
+				647C1FC11ADD020500B8329C /* 天蝎－爱情_03.png in Resources */,
 				646C43BD1A38146E00FB683D /* 摩羯@2x.png in Resources */,
 				646C437C1A37F9F300FB683D /* 狮子@3x.png in Resources */,
 				645DEEEB1A41715200E8C524 /* 星文－按下.png in Resources */,
@@ -3459,6 +3596,7 @@
 				647607BC1A3FD7C400B71469 /* 忘记密码@2x.png in Resources */,
 				646C43C31A381CDB00FB683D /* ys_c_down@2x.png in Resources */,
 				5ED3CF941A418B0B0083BCDE /* back_active@3x.png in Resources */,
+				647C1FC81ADD020500B8329C /* 巨蟹－爱情_03.png in Resources */,
 				646C43741A37F9F300FB683D /* 处女@3x.png in Resources */,
 				5E2D73931A51387F00FB8EBA /* testDetailedViewController.xib in Resources */,
 				5ED3CF691A416FCE0083BCDE /* touxiangdikuang@2x.png in Resources */,
@@ -3485,11 +3623,14 @@
 				9A5E917C1AC3D24800DD0C79 /* arrow@3x.png in Resources */,
 				64914EBD1A5A5626003DED2A /* zan-Normal@2x.png in Resources */,
 				64BCED461ADBB60900876E3C /* 白羊座.TXT in Resources */,
+				647C1FCE1ADD020500B8329C /* 狮子－传说_03.png in Resources */,
 				648689841A6F4EAA00F10EDA /* xingyou_25@2x.png in Resources */,
 				644AD24D1A833C81001C8256 /* 5-568h.png in Resources */,
+				647C1FD51ADD020500B8329C /* 金牛－爱情_03.png in Resources */,
 				645DEF041A41766E00E8C524 /* sexImg.png in Resources */,
 				9A5E91811AC3D24800DD0C79 /* button01-selected@2x.png in Resources */,
 				646C43761A37F9F300FB683D /* 金牛@3x.png in Resources */,
+				647C1FD11ADD020500B8329C /* 白羊－传说_03.png in Resources */,
 				5E9755AC1A529E46003A4A31 /* quceshi@3X.png in Resources */,
 				5ED3CF781A416FCE0083BCDE /* xuazhongditiao@3x_20.png in Resources */,
 				5EB87EBA1A396EBF00BE4A5D /* next@2x.png in Resources */,
@@ -3508,6 +3649,7 @@
 				5ECC41C81A43D26200A5D3B4 /* zanP@3X.png in Resources */,
 				647607C81A3FD7C400B71469 /* iphone6底图.png in Resources */,
 				648689811A6F4EAA00F10EDA /* xingyou_12@2x.png in Resources */,
+				647C1FC21ADD020500B8329C /* 天蝎－特点_03.png in Resources */,
 				5E9755A61A529E46003A4A31 /* hot-@3X.png in Resources */,
 				5E9755941A529E46003A4A31 /* cai@3X.png in Resources */,
 				646C876E1AA7083900C98377 /* baodian@3x.png in Resources */,
@@ -3516,6 +3658,7 @@
 				645F7BAB1A5142EF0023D9C1 /* 2@3x.png in Resources */,
 				645DEE9B1A41486B00E8C524 /* xinpingyou@3x.png in Resources */,
 				64CD99541A304CD500040744 /* 1.jpg in Resources */,
+				647C1FC51ADD020500B8329C /* 射手－特点_03.png in Resources */,
 				64394D291A5E20570034F89E /* UMSCommentInputController.xib in Resources */,
 				64394D2A1A5E20570034F89E /* UMSCommentInputControlleriPad.xib in Resources */,
 				646C43B21A37FB2400FB683D /* ys_c_sz@3x.png in Resources */,
@@ -3552,6 +3695,7 @@
 				5ED3CF6E1A416FCE0083BCDE /* xingwenIanxia@2x.png in Resources */,
 				9A8F30411A83725600907336 /* SexttestViewController.xib in Resources */,
 				647607B41A3FD7C400B71469 /* 删除按钮正常状态@2x.png in Resources */,
+				647C1FD61ADD020500B8329C /* 金牛－特点_03.png in Resources */,
 				5ED3CFAA1A418BA80083BCDE /* phone-icon.png in Resources */,
 				647607BD1A3FD7C400B71469 /* 忘记密码@3x.png in Resources */,
 				5E9755911A529E46003A4A31 /* buttonP@2x.png in Resources */,
@@ -3560,6 +3704,7 @@
 				646C43A31A37FB2400FB683D /* ys_c_jinniu@2x.png in Resources */,
 				6441674A1A4957F1004277F8 /* blackView.png in Resources */,
 				645DEEED1A41715200E8C524 /* xingyou.png in Resources */,
+				647C1FC61ADD020500B8329C /* 巨蟹－传说_03.png in Resources */,
 				9A5E91871AC3D24800DD0C79 /* button02-selected@2x.png in Resources */,
 				645DEE871A41371400E8C524 /* 123123.png in Resources */,
 				5E484AA51A5FBDA900582DE7 /* lineTop@2x.png in Resources */,
@@ -3598,15 +3743,20 @@
 				5EF352211A4D461100AB2463 /* icon.png in Resources */,
 				5E97558F1A529E46003A4A31 /* button@2x.png in Resources */,
 				645DEEBA1A414DCA00E8C524 /* weixin@3x.png in Resources */,
+				647C1FD41ADD020500B8329C /* 金牛－传说_03.png in Resources */,
 				647C1F8C1ADCC61100B8329C /* 天蝎座.TXT in Resources */,
 				5E9755C31A529E46003A4A31 /* zhun@3X.png in Resources */,
 				646C43D11A381D0900FB683D /* ys_c_datebg@2x.png in Resources */,
 				5ED3CF5A1A416FCE0083BCDE /* fenxianlan@3x.png in Resources */,
+				647C1FBB1ADD020500B8329C /* 处女－爱情_03.png in Resources */,
 				5ED3CF4E1A416FCE0083BCDE /* ceshi@3x.png in Resources */,
 				647DC32F1A529DE4009AD4DC /* star-5@3x.png in Resources */,
 				646C439F1A37FB2400FB683D /* ys_c_by@2x.png in Resources */,
 				646C43831A37F9F300FB683D /* 天秤@2x.png in Resources */,
+				647C1FB91ADD020500B8329C /* 双鱼－特点_03.png in Resources */,
+				647C1FB51ADD020500B8329C /* 双子－爱情_03.png in Resources */,
 				5E9755C21A529E46003A4A31 /* zhun@2X.png in Resources */,
+				647C1FBD1ADD020500B8329C /* 天秤－传说_03.png in Resources */,
 				64C3AAB51A776C3F00A4B9B2 /* password.png in Resources */,
 				5ECC41C71A43D26200A5D3B4 /* zanp@2X.png in Resources */,
 				5ED3CFB31A42861D0083BCDE /* xingwenback.png in Resources */,
@@ -3634,6 +3784,7 @@
 				5ED3CF571A416FCE0083BCDE /* faxianIanxia@2x.png in Resources */,
 				647607C91A3FD7C400B71469 /* 注册iPhone4.png in Resources */,
 				648689921A6F4EAA00F10EDA /* xingyou_29@3x.png in Resources */,
+				647C1FCB1ADD020500B8329C /* 水瓶－传说_03.png in Resources */,
 				5ED3CF751A416FCE0083BCDE /* xingyouquanIanxia@2x.png in Resources */,
 				5ED3CF641A416FCE0083BCDE /* tishi@3x.png in Resources */,
 				644AD24E1A833C81001C8256 /* 5.png in Resources */,
@@ -3673,6 +3824,7 @@
 				5ED3CF4A1A416FCE0083BCDE /* baodian@2x.png in Resources */,
 				647607B71A3FD7C400B71469 /* 删除按钮选中状态@3x.png in Resources */,
 				5EB87EC51A396EBF00BE4A5D /* textNormal@3x.png in Resources */,
+				647C1FD71ADD020500B8329C /* 魔羯－爱情_03.png in Resources */,
 				646C437D1A37F9F300FB683D /* 双鱼@2x.png in Resources */,
 				9A5E91941AC3D24800DD0C79 /* Send-click@2x.png in Resources */,
 				5ED3CF601A416FCE0083BCDE /* taluopai@3x.png in Resources */,

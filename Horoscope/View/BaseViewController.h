@@ -74,5 +74,5 @@
 
 //动态获取textView的高度
 - (CGFloat)getContenSizeAction:(UITextView *)textView;
-
+-(float) heightForTextView: (UITextView *)textView WithText: (NSString *) strText;
 @end

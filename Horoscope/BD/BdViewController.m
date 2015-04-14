@@ -104,32 +104,42 @@
         
         txScr.showsHorizontalScrollIndicator = NO;
         txScr.showsVerticalScrollIndicator = NO;
+        txScr.backgroundColor = [UIColor greenColor];
+        UIImageView *imgView = [[UIImageView alloc]initWithFrame:CGRectMake(15, 15, width(self.view)-30, (width(self.view)-30)/69*37)];
         
-        UITextView *txV = [[UITextView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height-64-44)];
-        txV.backgroundColor = [UIColor whiteColor];
-        txV.textColor = [UIColor blackColor];
-        txV.font = [UIFont systemFontOfSize:16];
-        txV.bounces = YES;
-        txV.alwaysBounceVertical = YES;
-        txV.tag = 1999+i;
+         NSString *sss1 = [NSString stringWithFormat:@"img%d",i+1];
+        NSString *headimgStr =KISDictionaryHaveKey(KISDictionaryHaveKey([BDContent WithStar:@"白羊座"],@"img" ), sss1);
+        imgView.image =KUIImage(headimgStr);
         
+        [txScr addSubview:imgView];
         
         NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
         paragraphStyle.lineSpacing = 10;// 字体的行间距
-        
+
         NSDictionary *attributes = @{
                                      NSFontAttributeName:[UIFont systemFontOfSize:15],
                                      NSParagraphStyleAttributeName:paragraphStyle
                                      };
         NSString *sss = [NSString stringWithFormat:@"content%d",i+1];
-        txV.attributedText = [[NSAttributedString alloc] initWithString:KISDictionaryHaveKey([BDContent WithStar:@"白羊座"],sss ) attributes:attributes];
+
+        NSString *textStr = KISDictionaryHaveKey([BDContent WithStar:@"白羊座"],sss );
         
+        UITextView *txV = [[UITextView alloc]initWithFrame:CGRectMake(0, (width(self.view)-30)/69*37+30, width(txScr), [self labelAutoCalculateRectWith:textStr FontSize:16 MaxSize:CGSizeMake(self.view.bounds.size.width, 2000)].height)];
+        txV.backgroundColor = [UIColor whiteColor];
+        txV.textColor = [UIColor blackColor];
+        txV.font = [UIFont systemFontOfSize:16];
+        txV.tag = 1999+i;
+        txV.delegate = self;
+        txV.scrollEnabled = NO;
+        txV.attributedText = [[NSAttributedString alloc] initWithString:textStr attributes:attributes];
         
 //        txV.backgroundColor = [UIColor yellowColor];
 //        txV.scrollEnabled = YES;
-        
+
         [txScr addSubview:txV];
-        txScr.contentSize = CGSizeMake(0, txV.contentSize.height);
+        NSLog(@"%f,%f",[self labelAutoCalculateRectWith:textStr FontSize:16 MaxSize:CGSizeMake(self.view.bounds.size.width, 2000)].height,txV.contentSize.height);
+//        txV.frame =CGRectMake(0, (width(self.view)-30)/69*37+30, width(txScr),txV.contentSize.height);
+        txScr.contentSize = CGSizeMake(0, txV.contentSize.height+(width(self.view)-30)/69*37+30);
         [scrollView addSubview:txScr];
     }
     self.hud = [[MBProgressHUD alloc]initWithView:self.view];
@@ -284,11 +294,18 @@
     text2.text = KISDictionaryHaveKey(dic, @"content2");
     text3.text = KISDictionaryHaveKey(dic, @"content3");
     UIScrollView *scr1 = (UIScrollView*)text1.superview;
-    scr1.contentSize = CGSizeMake(0, text1.contentSize.height);
+    scr1.contentSize = CGSizeMake(0, text1.contentSize.height+(width(self.view)-30)/69*37);
+    text1.frame = CGRectMake(0, (width(self.view)-30)/69*37+30, width(scr1), text1.contentSize.height);
+
+    
+    
+    
     UIScrollView *scr2 = (UIScrollView*)text2.superview;
-    scr2.contentSize = CGSizeMake(0, text2.contentSize.height);
+    scr2.contentSize = CGSizeMake(0, text2.contentSize.height+(width(self.view)-30)/69*37);
+    text2.frame = CGRectMake(0, (width(self.view)-30)/69*37+30, width(scr2), text2.contentSize.height);
     UIScrollView *scr3 = (UIScrollView*)text3.superview;
-    scr3.contentSize = CGSizeMake(0, text3.contentSize.height);
+    scr3.contentSize = CGSizeMake(0, text3.contentSize.height+(width(self.view)-30)/69*37);
+    text3.frame = CGRectMake(0, (width(self.view)-30)/69*37+30, width(scr3), text3.contentSize.height);
 
       
     
@@ -426,7 +443,10 @@
 {
     return @"baodian";
 }
-
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    NSLog(@"%f",scrollView.contentOffset.y);
+}
 /*
 #pragma mark - Navigation
 

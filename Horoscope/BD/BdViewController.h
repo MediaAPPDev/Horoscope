@@ -8,6 +8,6 @@
 
 #import "BaseViewController.h"
 
-@interface BdViewController : BaseViewController
+@interface BdViewController : BaseViewController<UITextViewDelegate,UIScrollViewDelegate>
 
 @end
