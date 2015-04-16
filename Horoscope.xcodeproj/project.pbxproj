@@ -743,6 +743,7 @@
 		9A8F303F1A836B5D00907336 /* lunbo4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9A8F303B1A836B5D00907336 /* lunbo4.jpg */; };
 		9A8F30411A83725600907336 /* SexttestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A8F30401A83725600907336 /* SexttestViewController.xib */; };
 		9A9A46501AA9998500489D25 /* BMAdScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A9A464F1AA9998500489D25 /* BMAdScrollView.m */; };
+		9A9A8DA01ADE25A3005D26FC /* systemInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A9A8D9F1ADE25A3005D26FC /* systemInfo.m */; };
 		9A9BB0C81AD7C92900704DDF /* starfriendcircle_fabu_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A9BB0C61AD7C92900704DDF /* starfriendcircle_fabu_down.png */; };
 		9A9BB0C91AD7C92900704DDF /* starfriendcircle_fabu_narmol.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A9BB0C71AD7C92900704DDF /* starfriendcircle_fabu_narmol.png */; };
 		9AA3295A1AD659CA00677A39 /* small_huodong@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AA329591AD659CA00677A39 /* small_huodong@3x.png */; };
@@ -1662,6 +1663,8 @@
 		9A9A464E1AA9998500489D25 /* BMAdScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMAdScrollView.h; sourceTree = "<group>"; };
 		9A9A464F1AA9998500489D25 /* BMAdScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMAdScrollView.m; sourceTree = "<group>"; };
 		9A9A46511AA999EC00489D25 /* BMDefineUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMDefineUtils.h; sourceTree = "<group>"; };
+		9A9A8D9C1ADE2559005D26FC /* systemInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = systemInfo.h; sourceTree = "<group>"; };
+		9A9A8D9F1ADE25A3005D26FC /* systemInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = systemInfo.m; sourceTree = "<group>"; };
 		9A9BB0C61AD7C92900704DDF /* starfriendcircle_fabu_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = starfriendcircle_fabu_down.png; sourceTree = "<group>"; };
 		9A9BB0C71AD7C92900704DDF /* starfriendcircle_fabu_narmol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = starfriendcircle_fabu_narmol.png; sourceTree = "<group>"; };
 		9AA329591AD659CA00677A39 /* small_huodong@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "small_huodong@3x.png"; sourceTree = "<group>"; };
@@ -1734,6 +1737,8 @@
 			isa = PBXGroup;
 			children = (
 				647F7B211A63D10B00696CA3 /* NSLog.h */,
+				9A9A8D9C1ADE2559005D26FC /* systemInfo.h */,
+				9A9A8D9F1ADE25A3005D26FC /* systemInfo.m */,
 				5E2D73841A51330800FB8EBA /* SexTest */,
 				645F7B861A5140270023D9C1 /* GuidePage */,
 				5EF3521B1A4D461100AB2463 /* LoadingImage */,
@@ -3929,6 +3934,7 @@
 				64D2F5DF1A4BB828005C6368 /* SearchResultViewController.m in Sources */,
 				645400141A42730800FA69C7 /* FeedbackViewController.m in Sources */,
 				649C74E51A70E52000D6700A /* PassWordChangeViewController.m in Sources */,
+				9A9A8DA01ADE25A3005D26FC /* systemInfo.m in Sources */,
 				64394D661A5E6A540034F89E /* MJRefreshHeaderView.m in Sources */,
 				2F2116F71A25B64A009B21EB /* JDSideMenu.m in Sources */,
 				645F7B891A5140360023D9C1 /* GuidePageViewController.m in Sources */,

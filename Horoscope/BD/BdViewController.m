@@ -19,7 +19,16 @@
     UIScrollView *constellationScrl;
     NSMutableArray * cArray; //选择星座
     NSMutableArray * xArray; //星座
-
+    UIScrollView *txScr;
+    NSString *textStr;
+    NSInteger strLenth;
+    NSInteger textHeight1;
+    NSInteger textHeight2;
+    NSInteger textHeight3;
+    
+    
+    
+//    UITableView *conth
 }
 @end
 
@@ -50,16 +59,14 @@
     
     scrollView  = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 110, self.view.bounds.size.width, self.view.bounds.size.height*100)];
     scrollView.contentSize = CGSizeMake(self.view.bounds.size.width, 0);
+    scrollView.backgroundColor=  [UIColor clearColor];
     scrollView.pagingEnabled = YES;
 //    scrollView.userInteractionEnabled = NO;
 
     
-//    scrollView.backgroundColor = [UIColor yellowColor];
     [self.view addSubview:scrollView];
     [BDContent WithStar:@"白羊座"];
     
-    
-//    NSArray *arr= [ NSArray arrayWithObjects:@"1",@"2",@"3", nil];
     
     NSArray * titleArr = [NSArray arrayWithObjects:@"传说",@"特点",@"爱情", nil];
     
@@ -97,14 +104,11 @@
             [button setTitleColor:UIColorFromRGBA(0x1bb5f5, 1) forState:UIControlStateNormal];
         }
         
-//        UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(self.view.bounds.size.width*i, 0, self.view.bounds.size.width, self.view.bounds.size.height-64-44)];
-//        imageView.image = [UIImage imageNamed:arr[i]];
-//        [scrollView addSubview:imageView];
-        UIScrollView *txScr = [[UIScrollView alloc]initWithFrame:CGRectMake(self.view.bounds.size.width*i, 0, self.view.bounds.size.width, self.view.bounds.size.height-64-44)];
-        
+
+        txScr = [[UIScrollView alloc]initWithFrame:CGRectMake(self.view.bounds.size.width*i, 0, self.view.bounds.size.width, KScreenHeight-64-44)];
         txScr.showsHorizontalScrollIndicator = NO;
         txScr.showsVerticalScrollIndicator = NO;
-        txScr.backgroundColor = [UIColor greenColor];
+        txScr.backgroundColor = [UIColor redColor];
         UIImageView *imgView = [[UIImageView alloc]initWithFrame:CGRectMake(15, 15, width(self.view)-30, (width(self.view)-30)/69*37)];
         
          NSString *sss1 = [NSString stringWithFormat:@"img%d",i+1];
@@ -122,24 +126,32 @@
                                      };
         NSString *sss = [NSString stringWithFormat:@"content%d",i+1];
 
-        NSString *textStr = KISDictionaryHaveKey([BDContent WithStar:@"白羊座"],sss );
+        textStr = KISDictionaryHaveKey([BDContent WithStar:@"白羊座"],sss );
+
+        CGSize titleSize = [textStr boundingRectWithSize:CGSizeMake(KScreenWidth, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]} context:nil].size;
+
         
-        UITextView *txV = [[UITextView alloc]initWithFrame:CGRectMake(0, (width(self.view)-30)/69*37+30, width(txScr), [self labelAutoCalculateRectWith:textStr FontSize:16 MaxSize:CGSizeMake(self.view.bounds.size.width, 2000)].height)];
+        [self getTextHeight:textStr];
+        
+        
+        UILabel *txV = [[UILabel alloc]initWithFrame:CGRectMake(20, (width(self.view)-30)/69*37+30, width(txScr)-40, textHeight1*30+50)];
+        [txV  sizeThatFits:titleSize];
         txV.backgroundColor = [UIColor whiteColor];
         txV.textColor = [UIColor blackColor];
         txV.font = [UIFont systemFontOfSize:16];
         txV.tag = 1999+i;
-        txV.delegate = self;
-        txV.scrollEnabled = NO;
+//        txV.textAlignment = UITextAlignmentRight;
+        txV.adjustsFontSizeToFitWidth = YES;
+        txV.numberOfLines = 0;
+//        txV.delegate = self;
+//        txV.scrollEnabled = NO;
+//        txV.editable = NO;
+        txV.userInteractionEnabled = NO;
         txV.attributedText = [[NSAttributedString alloc] initWithString:textStr attributes:attributes];
-        
-//        txV.backgroundColor = [UIColor yellowColor];
-//        txV.scrollEnabled = YES;
 
         [txScr addSubview:txV];
-        NSLog(@"%f,%f",[self labelAutoCalculateRectWith:textStr FontSize:16 MaxSize:CGSizeMake(self.view.bounds.size.width, 2000)].height,txV.contentSize.height);
-//        txV.frame =CGRectMake(0, (width(self.view)-30)/69*37+30, width(txScr),txV.contentSize.height);
-        txScr.contentSize = CGSizeMake(0, txV.contentSize.height+(width(self.view)-30)/69*37+30);
+//self.view.bounds.size.width/3
+        txScr.contentSize = CGSizeMake(0, textHeight1*30+self.view.bounds.size.width/3+150);
         [scrollView addSubview:txScr];
     }
     self.hud = [[MBProgressHUD alloc]initWithView:self.view];
@@ -153,6 +165,63 @@
 //    [self.leftButton addTarget:self action:@selector(gotoMenu:) forControlEvents:UIControlEventTouchUpInside];
     
 }
+//得到文本高度
+-(CGFloat)getTextHeight:(NSString *)str
+{
+
+    NSString *subString = @"\n";
+    NSArray *array = [str componentsSeparatedByString:subString];
+//    NSLog(@"^^^^^^^^^^^^^^^^    %ld",array.count);
+    NSInteger count = [array count] - 1;
+//    NSLog(@"888888     %ld",str.length);
+    if ((unsigned long)KScreenWidth==375) {
+        //6
+        textHeight1 = (str.length+count*12)/24;
+    }else if ((unsigned long)KScreenWidth==320){
+        //4
+        textHeight1 = (str.length+count*10)/20;
+    }else if((unsigned long)KScreenWidth==414){
+        //6p
+        textHeight1 = (str.length+count*13)/26;
+        
+    }else{
+        //5
+        textHeight1 = (str.length+count*10)/20;
+        
+    }
+    int i = 0;
+    NSLog(@"==========%d     %ld",i,textHeight1);
+    i++;
+    return textHeight1;
+}
+
+
+/**
+ @method 获取指定宽度width,字体大小fontSize,字符串value的高度
+ @param value 待计算的字符串
+ @param fontSize 字体的大小
+ @param Width 限制字符串显示区域的宽度
+ @result float 返回的高度
+ */
+//- (float) heightForString:(NSString *)value andWidth:(float)width{
+//    //获取当前文本的属性
+//    NSAttributedString *attrStr = [[NSAttributedString alloc] initWithString:value];
+//    _text.attributedText = attrStr;
+//    NSRange range = NSMakeRange(0, attrStr.length);
+//    // 获取该段attributedString的属性字典
+//    NSDictionary *dic = [attrStr attributesAtIndex:0 effectiveRange:&range];
+//    // 计算文本的大小
+//    CGSize sizeToFit = [value boundingRectWithSize:CGSizeMake(width - 16.0, MAXFLOAT) // 用于计算文本绘制时占据的矩形块
+//                                           options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading // 文本绘制时的附加选项
+//                                        attributes:dic        // 文字的属性
+//                                           context:nil].size; // context上下文。包括一些信息，例如如何调整字间距以及缩放。该对象包含的信息将用于文本绘制。该参数可为nil
+//    return sizeToFit.height + 16.0;
+//}
+
+
+//得到文本长度
+//-(NSInteger)getTextLenth:
+
 
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -248,7 +317,7 @@
              dateLabel.text = ;
              */
             
-            NSLog(@"----%@",xArray[sender.tag-1000]);
+//            NSLog(@"----%@",xArray[sender.tag-1000]);
 //            [scr removeGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hiddenConstellScr:)]];
         }];
     }    
@@ -264,48 +333,40 @@
 
 -(void)getInfoFromNetWithStar:(NSString *)star
 {
-//    NSString *urlStr=[NSString string];
-//    [self.hud show:YES];
-//    NSString *urlStr = [NSString stringWithFormat:@"book.php?name=%@",star];
-////    urlStr = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-//    NSLog(@"urlstr---%@",urlStr);
-//
-//  [[AFAppDotNetAPIClient sharedClient] GET:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-//    [self.hud hide:YES];
-//        NSLog(@"responseObject -- %@",responseObject);
-//    
-//    if (![responseObject isKindOfClass:[NSDictionary class]]) {
-//        return ;
-//    }
-    
-    
+
     
     NSDictionary *dic = [BDContent WithStar:star];
-    UITextView *text1 = (UITextView *)[self.view viewWithTag:1999+0];
-    UITextView *text2 = (UITextView *)[self.view viewWithTag:1999+1];
-    UITextView *text3 = (UITextView *)[self.view viewWithTag:1999+2];
-    text1.editable = NO;
-    text2.editable = NO;
-    text3.editable = NO;
-    text1.autoresizingMask = UIViewAutoresizingFlexibleHeight;
-    text2.autoresizingMask = UIViewAutoresizingFlexibleHeight;
-    text3.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+    UILabel *text1 = (UILabel *)[self.view viewWithTag:1999+0];
+    UILabel *text2 = (UILabel *)[self.view viewWithTag:1999+1];
+    UILabel *text3 = (UILabel *)[self.view viewWithTag:1999+2];
+//    text1.editable = NO;
+//    text2.editable = NO;
+//    text3.editable = NO;
+//    text1.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+//    text2.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+//    text3.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     text1.text = KISDictionaryHaveKey(dic, @"content1");
     text2.text = KISDictionaryHaveKey(dic, @"content2");
     text3.text = KISDictionaryHaveKey(dic, @"content3");
-    UIScrollView *scr1 = (UIScrollView*)text1.superview;
-    scr1.contentSize = CGSizeMake(0, text1.contentSize.height+(width(self.view)-30)/69*37);
-    text1.frame = CGRectMake(0, (width(self.view)-30)/69*37+30, width(scr1), text1.contentSize.height);
+//    textHeight1 = text1.text.length/24;
+//    textHeight2 = text2.text.length/24;
+//    textHeight3 = text3.text.length/24;
+          [self getTextHeight:text1.text];
+          [self getTextHeight:text2.text];
+          [self getTextHeight:text3.text];
+//    [self setLabel:text1];
+//    [self setLabel:text2];
+//    [self setLabel:text3];
+//    text1.adjustsFontSizeToFitWidth = YES;
+//    text1.numberOfLines = 0;
 
-    
-    
-    
+//    NSLog(@"😄%ld    %ld     %ld",textHeight1,textHeight2,textHeight3);
+    UIScrollView *scr1 = (UIScrollView*)text1.superview;
+    scr1.contentSize = CGSizeMake(0, textHeight1*30+self.view.bounds.size.width/3+150);
     UIScrollView *scr2 = (UIScrollView*)text2.superview;
-    scr2.contentSize = CGSizeMake(0, text2.contentSize.height+(width(self.view)-30)/69*37);
-    text2.frame = CGRectMake(0, (width(self.view)-30)/69*37+30, width(scr2), text2.contentSize.height);
+    scr2.contentSize = CGSizeMake(0, textHeight1*30+self.view.bounds.size.width/3+150);
     UIScrollView *scr3 = (UIScrollView*)text3.superview;
-    scr3.contentSize = CGSizeMake(0, text3.contentSize.height+(width(self.view)-30)/69*37);
-    text3.frame = CGRectMake(0, (width(self.view)-30)/69*37+30, width(scr3), text3.contentSize.height);
+    scr3.contentSize = CGSizeMake(0, textHeight1*30+self.view.bounds.size.width/3+150);
 
       
     
@@ -314,6 +375,37 @@
 //        [self showAlertViewWithtitle:@"提示" message:@"请求失败"];
 //    }];
 }
+
+//-(void) setLabel:(UILabel *)label
+//{
+//    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+//    paragraphStyle.lineSpacing = 10;// 字体的行间距
+//    
+//    NSDictionary *attributes = @{
+//                                 NSFontAttributeName:[UIFont systemFontOfSize:15],
+//                                 NSParagraphStyleAttributeName:paragraphStyle
+//                                 };
+//    CGSize titleSize = [textStr boundingRectWithSize:CGSizeMake(KScreenWidth, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]} context:nil].size;
+//    
+//    
+//    [self getTextHeight:textStr];
+//    
+//    
+//    label = [[UILabel alloc]initWithFrame:CGRectMake(20, (width(self.view)-30)/69*37+30, width(txScr)-40, textHeight1*30+50)];
+//    [label  sizeThatFits:titleSize];
+//    label.backgroundColor = [UIColor whiteColor];
+//    label.textColor = [UIColor blackColor];
+//    label.font = [UIFont systemFontOfSize:16];
+//    //        txV.textAlignment = UITextAlignmentRight;
+//    label.adjustsFontSizeToFitWidth = YES;
+//    label.numberOfLines = 0;
+//    //        txV.delegate = self;
+//    //        txV.scrollEnabled = NO;
+//    //        txV.editable = NO;
+//    label.userInteractionEnabled = NO;
+//    label.attributedText = [[NSAttributedString alloc] initWithString:textStr attributes:attributes];
+//
+//}
 
 //更改星座
 -(void)changeXing:(UIButton *)sender
@@ -445,7 +537,7 @@
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    NSLog(@"%f",scrollView.contentOffset.y);
+//    NSLog(@"%f",scrollView.contentOffset.y);
 }
 /*
 #pragma mark - Navigation
