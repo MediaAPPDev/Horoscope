@@ -198,31 +198,6 @@
 }
 
 
-/**
- @method 获取指定宽度width,字体大小fontSize,字符串value的高度
- @param value 待计算的字符串
- @param fontSize 字体的大小
- @param Width 限制字符串显示区域的宽度
- @result float 返回的高度
- */
-//- (float) heightForString:(NSString *)value andWidth:(float)width{
-//    //获取当前文本的属性
-//    NSAttributedString *attrStr = [[NSAttributedString alloc] initWithString:value];
-//    _text.attributedText = attrStr;
-//    NSRange range = NSMakeRange(0, attrStr.length);
-//    // 获取该段attributedString的属性字典
-//    NSDictionary *dic = [attrStr attributesAtIndex:0 effectiveRange:&range];
-//    // 计算文本的大小
-//    CGSize sizeToFit = [value boundingRectWithSize:CGSizeMake(width - 16.0, MAXFLOAT) // 用于计算文本绘制时占据的矩形块
-//                                           options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading // 文本绘制时的附加选项
-//                                        attributes:dic        // 文字的属性
-//                                           context:nil].size; // context上下文。包括一些信息，例如如何调整字间距以及缩放。该对象包含的信息将用于文本绘制。该参数可为nil
-//    return sizeToFit.height + 16.0;
-//}
-
-
-//得到文本长度
-//-(NSInteger)getTextLenth:
 
 
 -(void)viewDidAppear:(BOOL)animated
@@ -264,41 +239,7 @@
 
 
 
-//- (void)gotoMenu:(UIGestureRecognizer * )ges
-//{
-//    if ([self.sideMenuController isMenuVisible]) {
-//        [self.sideMenuController hideMenuAnimated:YES];
-//    }else
-//    {
-//        [self.sideMenuController showMenuAnimated:YES];
-//    }
-//    
-//    
-//}
-//-(void)buildYsView
-//{
-//    starView = [[UIView alloc]initWithFrame:CGRectMake(0, KISHighVersion_7?64:44, KScreenWidth, KScreenHeight-(KISHighVersion_7?64:44))];
-//    starView.backgroundColor = kColorWithRGB(0, 0, 0, 0.5);
-//    starView.hidden = YES;
-//    [self.view addSubview:starView];
-//    
-//    starImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 100, 432)];
-//    starImageView.image = KUIImage(@"ys_c_down");
-//    starImageView.center = CGPointMake(KScreenWidth, 216);
-//    starImageView.userInteractionEnabled = YES;
-//    [starView addSubview:starImageView];
-//    
-//    
-//    for (int i = 0; i<12; i++) {
-//        UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(0, i*36, 100, 36)];
-//        [btn setTitle:ysArr[i] forState:UIControlStateNormal];
-//        [btn setTag: 1000+i];
-//        [btn addTarget:self action:@selector(changeTitle:) forControlEvents:UIControlEventTouchUpInside];
-//        [starImageView addSubview:btn];
-//    }
-//    
-//    
-//}
+
 //点击星座选择button方法
 -(void)changeConstellation:(UIButton *)sender
 {
@@ -310,17 +251,7 @@
         } completion:^(BOOL finished) {
             constellationScrl. hidden =YES;
             [rightBtn setTitle:[NSString stringWithFormat:@"%@座",xArray[sender.tag-1000]] forState:UIControlStateNormal];
-//            [starButton setBackgroundImage:KUIImage(xArray[sender.tag-1000]) forState:UIControlStateNormal];
-            
-//            nameLabel.text = [NSString stringWithFormat:@"%@座",xArray[sender.tag-1000]];
-            /*
-             重写 namelabel。text  datelabel.text、
-             
-             dateLabel.text = ;
-             */
-            
-//            NSLog(@"----%@",xArray[sender.tag-1000]);
-//            [scr removeGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hiddenConstellScr:)]];
+
         }];
     }    
     [self getInfoFromNetWithStar:[xArray[sender.tag-1000] stringByAppendingString:@"座"]];
@@ -359,28 +290,11 @@
     text1.text = KISDictionaryHaveKey(dic, @"content1");
     text2.text = KISDictionaryHaveKey(dic, @"content2");
     text3.text = KISDictionaryHaveKey(dic, @"content3");
-//    textHeight1 = text1.text.length/24;
-//    textHeight2 = text2.text.length/24;
-//    textHeight3 = text3.text.length/24;
-//          [self getTextHeight:text1.text];
-//          [self getTextHeight:text2.text];
-//          [self getTextHeight:text3.text];
-//    [self setLabel:text1];
-//    [self setLabel:text2];
-//    [self setLabel:text3];
-//    text1.adjustsFontSizeToFitWidth = YES;
-//    text1.numberOfLines = 0;
 
-//    NSLog(@"😄%ld    %ld     %ld",textHeight1,textHeight2,textHeight3);
-//    scr1.contentSize = CGSizeMake(0, textHeight1*30+self.view.bounds.size.width/3+500);
-//    scr2.contentSize = CGSizeMake(0, textHeight1*30+self.view.bounds.size.width/3+500);
-//    scr3.contentSize = CGSizeMake(0, textHeight1*30+self.view.bounds.size.width/3+500);
     
-    
-    
-    CGSize size1 = [self labelAutoCalculateRectWith:text1.text FontSize:16 MaxSize:CGSizeMake(self.view.bounds.size.width-40, 30000)];
-    CGSize size2 = [self labelAutoCalculateRectWith:text2.text FontSize:16 MaxSize:CGSizeMake(self.view.bounds.size.width-40, 30000)];
-    CGSize size3 = [self labelAutoCalculateRectWith:text3.text FontSize:16 MaxSize:CGSizeMake(self.view.bounds.size.width-40, 30000)];
+    CGSize size1 = [self labelAutoCalculateRectWith:text1.text FontSize:15 MaxSize:CGSizeMake(self.view.bounds.size.width-40, 30000)];
+    CGSize size2 = [self labelAutoCalculateRectWith:text2.text FontSize:15 MaxSize:CGSizeMake(self.view.bounds.size.width-40, 30000)];
+    CGSize size3 = [self labelAutoCalculateRectWith:text3.text FontSize:15 MaxSize:CGSizeMake(self.view.bounds.size.width-40, 30000)];
     
     
     text1.frame = CGRectMake(20, (width(self.view)-30)/69*37+30, width(self.view)-40, size1.height);
@@ -392,66 +306,20 @@
     scr2.contentSize = CGSizeMake(0, size2.height+(width(self.view)-30)/69*37+40);
     scr3.contentSize = CGSizeMake(0, size3.height+(width(self.view)-30)/69*37+40);
     
-//    text1.attributedText = [[NSAttributedString alloc] initWithString:text1.text attributes:attributes];
-//    text2.attributedText = [[NSAttributedString alloc] initWithString:text2.text attributes:attributes];
-//    text3.attributedText = [[NSAttributedString alloc] initWithString:text3.text attributes:attributes];
 
-    
-    
-//    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-//        [self.hud hide:YES];
-//        [self showAlertViewWithtitle:@"提示" message:@"请求失败"];
-//    }];
 }
 
-//-(void) setLabel:(UILabel *)label
-//{
-//    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-//    paragraphStyle.lineSpacing = 10;// 字体的行间距
-//    
-//    NSDictionary *attributes = @{
-//                                 NSFontAttributeName:[UIFont systemFontOfSize:15],
-//                                 NSParagraphStyleAttributeName:paragraphStyle
-//                                 };
-//    CGSize titleSize = [textStr boundingRectWithSize:CGSizeMake(KScreenWidth, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]} context:nil].size;
-//    
-//    
-//    [self getTextHeight:textStr];
-//    
-//    
-//    label = [[UILabel alloc]initWithFrame:CGRectMake(20, (width(self.view)-30)/69*37+30, width(txScr)-40, textHeight1*30+50)];
-//    [label  sizeThatFits:titleSize];
-//    label.backgroundColor = [UIColor whiteColor];
-//    label.textColor = [UIColor blackColor];
-//    label.font = [UIFont systemFontOfSize:16];
-//    //        txV.textAlignment = UITextAlignmentRight;
-//    label.adjustsFontSizeToFitWidth = YES;
-//    label.numberOfLines = 0;
-//    //        txV.delegate = self;
-//    //        txV.scrollEnabled = NO;
-//    //        txV.editable = NO;
-//    label.userInteractionEnabled = NO;
-//    label.attributedText = [[NSAttributedString alloc] initWithString:textStr attributes:attributes];
-//
-//}
+
 
 //更改星座
 -(void)changeXing:(UIButton *)sender
 {
-//    starView.hidden = NO;
-//    [UIView animateWithDuration:0.3 animations:^{
-//        starImageView.center = CGPointMake(KScreenWidth-50, 216);
-//    } completion:^(BOOL finished) {
-//        [starView addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hiddenYsView:)]];
-//    }];
+
     if (constellationScrl.hidden) {
         constellationScrl.hidden = NO;
         [UIView animateWithDuration:0.3 animations:^{
             constellationScrl.frame = CGRectMake(0, startX, KScreenWidth, 80);
-            //        scr.frame = CGRectMake(0, 144, KScreenWidth, KScreenHeight-144);
-            
-            //        [scr addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hiddenConstellScr:)]];
-            
+
         } completion:^(BOOL finished) {
         }];
 
@@ -459,9 +327,7 @@
         constellationScrl.hidden = YES;
         [UIView animateWithDuration:0.3 animations:^{
             constellationScrl.frame = CGRectMake(0, -startX, KScreenWidth, 80);
-            //        scr.frame = CGRectMake(0, 144, KScreenWidth, KScreenHeight-144);
-            
-            //        [scr addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hiddenConstellScr:)]];
+
             
         } completion:^(BOOL finished) {
         }];
