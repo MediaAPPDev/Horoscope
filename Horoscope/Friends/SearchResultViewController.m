@@ -64,7 +64,7 @@
 
     cell.signatureLb.text =KISDictionaryHaveKey(dic, @"phrase");
 //    cell.timeLabel.text = @"1分钟前";
-//    cell.gzBtn.hidden = YES;
+    cell.gzBtn.hidden = YES;
 
     return cell;
 }
