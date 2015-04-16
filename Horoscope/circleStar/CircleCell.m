@@ -152,13 +152,9 @@
 
 -(void)showZanBtn:(UIButton *)sender
 {
-    if (self.zanBtn.hidden) {
-        self.zanBtn.hidden = NO;
-        self.commBtn.hidden = NO;
-    }else{
-        self.zanBtn.hidden = YES;
-        self.commBtn.hidden = YES;
-
+    
+    if (self.delegate &&[self.delegate respondsToSelector:@selector(didClickMenuWithCell:)]) {
+        [self.delegate didClickMenuWithCell:self];
     }
 }
 

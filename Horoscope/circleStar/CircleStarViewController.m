@@ -20,6 +20,7 @@
     UILabel *userNameLabel;
     NSString * myUid;
     MJRefreshHeaderView *m_header;
+    CircleCell *circleCell;
     
 }
 @end
@@ -259,9 +260,38 @@
     NSLog(@"height----%f---%f",height,size.height);
     return height;
 }
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    circleCell.zanBtn.hidden = YES;
+    circleCell.commBtn.hidden = YES;
+}
 
 
 #pragma mark-----CircleCell delegate ----did ZAN AND COMMENT
+-(void)didClickMenuWithCell:(CircleCell*)cell
+{
+    if(circleCell) //如果有打开的cell
+    {
+        CircleCell* cell = circleCell;
+        cell.zanBtn.hidden = YES;
+        cell.commBtn.hidden = YES;
+        if (circleCell.tag == cell.tag) {    //如果打开的是自己
+            circleCell=nil;
+            return;
+        }
+    }
+    circleCell  =cell;
+    [cell.contentView  becomeFirstResponder];
+    circleCell.zanBtn.hidden = NO;
+    circleCell.commBtn.hidden = NO;
+//    if (self.zanBtn.hidden) {
+//        self.zanBtn.hidden = NO;
+//        self.commBtn.hidden = NO;
+//    }else{
+//        self.zanBtn.hidden = YES;
+//        self.commBtn.hidden = YES;
+//    }
+
+}
 
 -(void)didClickZanWithCell:(CircleCell *)cell
 {

@@ -35,5 +35,5 @@
 
 -(void)didClickZanWithCell:(CircleCell *)cell;
 -(void)didClickCommWithCell:(CircleCell *)cell;
-
+-(void)didClickMenuWithCell:(CircleCell*)cell;
 @end
