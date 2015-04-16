@@ -19,7 +19,7 @@
     UIScrollView *constellationScrl;
     NSMutableArray * cArray; //选择星座
     NSMutableArray * xArray; //星座
-    UIScrollView *txScr;
+//    UIScrollView *txScr;
     NSString *textStr;
     NSInteger strLenth;
     NSInteger textHeight1;
@@ -27,7 +27,8 @@
     NSInteger textHeight3;
     
     
-    
+    NSMutableParagraphStyle *paragraphStyle;
+    NSDictionary *attributes;
 //    UITableView *conth
 }
 @end
@@ -105,22 +106,23 @@
         }
         
 
-        txScr = [[UIScrollView alloc]initWithFrame:CGRectMake(self.view.bounds.size.width*i, 0, self.view.bounds.size.width, KScreenHeight-64-44)];
+        UIScrollView *txScr = [[UIScrollView alloc]initWithFrame:CGRectMake(self.view.bounds.size.width*i, 0, self.view.bounds.size.width, KScreenHeight-64-44)];
         txScr.showsHorizontalScrollIndicator = NO;
         txScr.showsVerticalScrollIndicator = NO;
-        txScr.backgroundColor = [UIColor redColor];
+        txScr.backgroundColor = [UIColor whiteColor];
         UIImageView *imgView = [[UIImageView alloc]initWithFrame:CGRectMake(15, 15, width(self.view)-30, (width(self.view)-30)/69*37)];
-        
+        imgView.tag = 19999+i;
          NSString *sss1 = [NSString stringWithFormat:@"img%d",i+1];
         NSString *headimgStr =KISDictionaryHaveKey(KISDictionaryHaveKey([BDContent WithStar:@"白羊座"],@"img" ), sss1);
+        NSLog(@"pppppp     %@",headimgStr);
         imgView.image =KUIImage(headimgStr);
         
         [txScr addSubview:imgView];
         
-        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+        paragraphStyle = [[NSMutableParagraphStyle alloc] init];
         paragraphStyle.lineSpacing = 10;// 字体的行间距
 
-        NSDictionary *attributes = @{
+        attributes = @{
                                      NSFontAttributeName:[UIFont systemFontOfSize:15],
                                      NSParagraphStyleAttributeName:paragraphStyle
                                      };
@@ -128,7 +130,7 @@
 
         textStr = KISDictionaryHaveKey([BDContent WithStar:@"白羊座"],sss );
 
-        CGSize titleSize = [textStr boundingRectWithSize:CGSizeMake(KScreenWidth, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]} context:nil].size;
+        CGSize titleSize = [textStr boundingRectWithSize:CGSizeMake(KScreenWidth, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15]} context:nil].size;
 
         
         [self getTextHeight:textStr];
@@ -138,7 +140,7 @@
         [txV  sizeThatFits:titleSize];
         txV.backgroundColor = [UIColor whiteColor];
         txV.textColor = [UIColor blackColor];
-        txV.font = [UIFont systemFontOfSize:16];
+        txV.font = [UIFont systemFontOfSize:15];
         txV.tag = 1999+i;
 //        txV.textAlignment = UITextAlignmentRight;
         txV.adjustsFontSizeToFitWidth = YES;
@@ -251,7 +253,7 @@
         lb.textColor = [UIColor whiteColor];
         lb.textAlignment = NSTextAlignmentCenter;
         lb.text = xArray[i];
-        lb.font = [UIFont systemFontOfSize:13];
+        lb.font = [UIFont systemFontOfSize:15];
         [constellationScrl addSubview:lb];
         
         
@@ -334,26 +336,35 @@
 -(void)getInfoFromNetWithStar:(NSString *)star
 {
 
-    
+//    NSLog(@"0000000     %@",star);
     NSDictionary *dic = [BDContent WithStar:star];
     UILabel *text1 = (UILabel *)[self.view viewWithTag:1999+0];
     UILabel *text2 = (UILabel *)[self.view viewWithTag:1999+1];
     UILabel *text3 = (UILabel *)[self.view viewWithTag:1999+2];
-//    text1.editable = NO;
-//    text2.editable = NO;
-//    text3.editable = NO;
-//    text1.autoresizingMask = UIViewAutoresizingFlexibleHeight;
-//    text2.autoresizingMask = UIViewAutoresizingFlexibleHeight;
-//    text3.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+
+    for (int i =0; i<3; i++) {
+        UIImageView *image = (UIImageView *)[self.view viewWithTag:19999+i];
+        NSString *sss1 = [NSString stringWithFormat:@"img%d",i+1];
+        NSString *headimgStr =KISDictionaryHaveKey(KISDictionaryHaveKey([BDContent WithStar:star],@"img" ), sss1);
+        NSLog(@"------------%@",headimgStr);
+        image.image =KUIImage(headimgStr);
+
+    }
+
+    UIScrollView *scr1 = (UIScrollView*)text1.superview;
+    UIScrollView *scr2 = (UIScrollView*)text2.superview;
+    UIScrollView *scr3 = (UIScrollView*)text3.superview;
+    
+    
     text1.text = KISDictionaryHaveKey(dic, @"content1");
     text2.text = KISDictionaryHaveKey(dic, @"content2");
     text3.text = KISDictionaryHaveKey(dic, @"content3");
 //    textHeight1 = text1.text.length/24;
 //    textHeight2 = text2.text.length/24;
 //    textHeight3 = text3.text.length/24;
-          [self getTextHeight:text1.text];
-          [self getTextHeight:text2.text];
-          [self getTextHeight:text3.text];
+//          [self getTextHeight:text1.text];
+//          [self getTextHeight:text2.text];
+//          [self getTextHeight:text3.text];
 //    [self setLabel:text1];
 //    [self setLabel:text2];
 //    [self setLabel:text3];
@@ -361,14 +372,31 @@
 //    text1.numberOfLines = 0;
 
 //    NSLog(@"😄%ld    %ld     %ld",textHeight1,textHeight2,textHeight3);
-    UIScrollView *scr1 = (UIScrollView*)text1.superview;
-    scr1.contentSize = CGSizeMake(0, textHeight1*30+self.view.bounds.size.width/3+150);
-    UIScrollView *scr2 = (UIScrollView*)text2.superview;
-    scr2.contentSize = CGSizeMake(0, textHeight1*30+self.view.bounds.size.width/3+150);
-    UIScrollView *scr3 = (UIScrollView*)text3.superview;
-    scr3.contentSize = CGSizeMake(0, textHeight1*30+self.view.bounds.size.width/3+150);
+//    scr1.contentSize = CGSizeMake(0, textHeight1*30+self.view.bounds.size.width/3+500);
+//    scr2.contentSize = CGSizeMake(0, textHeight1*30+self.view.bounds.size.width/3+500);
+//    scr3.contentSize = CGSizeMake(0, textHeight1*30+self.view.bounds.size.width/3+500);
+    
+    
+    
+    CGSize size1 = [self labelAutoCalculateRectWith:text1.text FontSize:16 MaxSize:CGSizeMake(self.view.bounds.size.width-40, 30000)];
+    CGSize size2 = [self labelAutoCalculateRectWith:text2.text FontSize:16 MaxSize:CGSizeMake(self.view.bounds.size.width-40, 30000)];
+    CGSize size3 = [self labelAutoCalculateRectWith:text3.text FontSize:16 MaxSize:CGSizeMake(self.view.bounds.size.width-40, 30000)];
+    
+    
+    text1.frame = CGRectMake(20, (width(self.view)-30)/69*37+30, width(self.view)-40, size1.height);
+    text2.frame = CGRectMake(20, (width(self.view)-30)/69*37+30, width(self.view)-40, size2.height);
+    text3.frame = CGRectMake(20, (width(self.view)-30)/69*37+30, width(self.view)-40, size3.height);
+    
+    
+    scr1.contentSize = CGSizeMake(0, size1.height+(width(self.view)-30)/69*37+40);
+    scr2.contentSize = CGSizeMake(0, size2.height+(width(self.view)-30)/69*37+40);
+    scr3.contentSize = CGSizeMake(0, size3.height+(width(self.view)-30)/69*37+40);
+    
+//    text1.attributedText = [[NSAttributedString alloc] initWithString:text1.text attributes:attributes];
+//    text2.attributedText = [[NSAttributedString alloc] initWithString:text2.text attributes:attributes];
+//    text3.attributedText = [[NSAttributedString alloc] initWithString:text3.text attributes:attributes];
 
-      
+    
     
 //    } failure:^(NSURLSessionDataTask *task, NSError *error) {
 //        [self.hud hide:YES];
