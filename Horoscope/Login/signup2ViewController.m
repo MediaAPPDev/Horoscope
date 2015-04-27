@@ -68,8 +68,6 @@
 //倒计时
 -(void)startTime{
     _resenVerificationCode.userInteractionEnabled = NO;
-
-    
     __block int timeout = 60; //倒计时时间
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_source_t _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0,queue);
@@ -98,33 +96,38 @@
                 
             });
             timeout--;
-            
         }
     });
     dispatch_resume(_timer);
-
 }
 
 
 //重新发送验证码事件
 -(void) VerifyButtonAction{
-    NSString * loginStr =[NSString stringWithFormat:@"veruser?mobilenum=%@",_telPhoneNumber.text];
-    
-    [[AFAppDotNetAPIClient sharedClient] GET:loginStr parameters:nil success:^ (NSURLSessionDataTask *task, id responseObject) {
-        NSString * state   =KISDictionaryHaveKey(responseObject, @"id");
-        NSLog(@"😄－－－－－－－%@",state);
-        if ([state isEqualToString:@"0"]) {
-            [[UserCache sharedInstance] setObject:_telPhoneNumber.text forKey:@"regTel"];
-            signup2ViewController * signStep2 =[[signup2ViewController alloc]init];
-            signStep2.telNum =[NSMutableString stringWithString:_telPhoneNumber.text];
-//            [self.navigationController pushViewController:signStep2 animated:YES];
-            //                [self.menuController pushViewController:signStep2 withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
-        }else{
-            [self showAlertViewWithtitle:@"提示" message:@"此账号已被注册"];
+
+    UIImage *buttonImageNomal=[UIImage imageNamed:@"button-click@2x.png"];
+    UIImage *stretchableButtonImageNomal=[buttonImageNomal stretchableImageWithLeftCapWidth:12 topCapHeight:0];
+    [_resenVerificationCode setBackgroundImage:stretchableButtonImageNomal forState:UIControlStateNormal];
+    _resenVerificationCode.userInteractionEnabled = NO;
+    NSString * parameterStr =[NSString stringWithFormat:@"mobilesms?mobnum=%@",_telNum];
+    NSLog(@"😄－－－－－%@",parameterStr);
+    //😄－－－－－mobilesms?mobnum=18210453451
+    [[AFAppDotNetAPIClient sharedClient] GET:parameterStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        if ([responseObject isKindOfClass:[NSDictionary class]]) {
+            NSString *state  =KISDictionaryHaveKey(responseObject, @"SMSCODE");
+            NSLog(@"😄－－－－－%@",state);
+            if (![state isEqualToString:@""]) {
+                //                [_sendCode setText:state ];
+                sjyzmStr = state;
+            }
+            //-------------------//-------13261649688--------//-----------//-------------//--------------//-------//
+        }
+        else{
+            UIAlertView * alert =[[UIAlertView alloc]initWithTitle:@"错误" message:@"验证码返回失败！" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            [alert show];
         }
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
     }];
-
 }
 
 
@@ -142,7 +145,6 @@
     NSLog(@"😄－－－－－%@",parameterStr);
     //😄－－－－－mobilesms?mobnum=18210453451
     [[AFAppDotNetAPIClient sharedClient] GET:parameterStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-        
         if ([responseObject isKindOfClass:[NSDictionary class]]) {
             NSString *state  =KISDictionaryHaveKey(responseObject, @"SMSCODE");
             NSLog(@"😄－－－－－%@",state);
@@ -188,20 +190,16 @@
         [self  showAlertViewWithtitle:@"提示" message:@"验证码不正确"];
         return;
     }
-    
-    
         signup3ViewController * signStep3 =[[signup3ViewController alloc]init];
         signStep3.telPhoneNumber = self.telPhoneNumber.text;
         signStep3.passWordStr = self.password.text;
         NSLog(@"lalalla========    %@",signStep3.telPhoneNumber);
-
         NSLog(@"lalalla========    %@",signStep3.passWordStr);
 //        [self.menuController pushViewController:signStep3 withTransitionAnimator:[MDTransitionAnimatorFactory transitionAnimatorWithType:MDAnimationTypeSlideFromRight]];
         [self.navigationController pushViewController:signStep3 animated:YES];
     }else{
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"密码不能少于6位或大于18位" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
         [alertView show];
-
     }
 //    }
 

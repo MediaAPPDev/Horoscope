@@ -99,7 +99,7 @@
         _label = [[UILabel alloc] initWithFrame:CGRectMake(0, frame.size.height-40, frame.size.width*4, 40)];
         _label.backgroundColor = [UIColor blackColor];
         _label.alpha = 0.6;
-        _label.text = @" 你的闺蜜是小三吗？";
+//        _label.text = @" 你的闺蜜是小三吗？";
         _label.textColor = [UIColor whiteColor];
 //        [_scrollView addSubview:_label];
         //设置滚动视图的代理

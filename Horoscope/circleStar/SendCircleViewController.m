@@ -27,7 +27,8 @@
     [self setTopViewWithTitle:@"发表说说" withBackButton:YES];
     
     UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(self.view.bounds.size.width-60, KISHighVersion_7?20:0, 60, 44)];
-    [button setImage:KUIImage(@"123123") forState:UIControlStateNormal];
+//    [button setImage:KUIImage(@"123123") forState:UIControlStateNormal];
+    [button setTitle:@"发送" forState:UIControlStateNormal];
     [button addTarget:self action:@selector(senderNewCircle:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
 
@@ -181,6 +182,12 @@
     [textField resignFirstResponder];
     
     return YES;
+}
+
+-(void)dealloc
+{
+
+    senderTextView.delegate = nil;
 }
 
 - (void)didReceiveMemoryWarning {

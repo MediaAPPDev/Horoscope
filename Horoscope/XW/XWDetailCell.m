@@ -43,7 +43,7 @@
 
         self.contentTV = [[UITextView alloc]initWithFrame:CGRectMake(14, 60, KScreenWidth-30, 50)];
         self.contentTV.scrollEnabled = NO;
-        self.contentTV.backgroundColor = [UIColor clearColor];
+        self.contentTV.backgroundColor = [UIColor yellowColor];
         //        [self.newsText setNumberOfLines:0];
         self.contentTV.font = [UIFont systemFontOfSize:14];
         [self addSubview:self.contentTV];

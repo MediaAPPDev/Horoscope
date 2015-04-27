@@ -31,6 +31,8 @@
     UIButton *enterButton;
     UIButton *logInButton;
     NSString *urlStrid;
+    NSInteger textHeight1;
+
 }
 @end
 
@@ -67,9 +69,9 @@
     enterButton.titleLabel.font = [UIFont fontWithName:@"Arial-BoldItalicMT" size:14];
     [enterButton addTarget:self action:@selector(enterNextPage) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:enterButton];
-    
+    [self getTextHeight:[_exampleDic valueForKey:@"content"] ];
     scr = [[UIScrollView alloc]initWithFrame:CGRectMake(0, startX, KScreenWidth,KScreenHeight-startX)];
-    scr.contentSize = CGSizeMake(0, KScreenHeight+200);
+    scr.contentSize = CGSizeMake(0, textHeight1*30+500);
     scr.showsHorizontalScrollIndicator = NO;
     scr.showsVerticalScrollIndicator = NO;
     [self.view addSubview:scr];
@@ -149,12 +151,22 @@
     _imageView.imageURL =[NSURL URLWithString:KISDictionaryHaveKey(_exampleDic, @"photo")];
     [scr addSubview:self.imageView];
     
-    self.contentTV = [[UITextView alloc]initWithFrame:CGRectMake(14, 295, KScreenWidth-30,KScreenHeight-100)];
+    self.contentTV = [[UITextView alloc]initWithFrame:CGRectMake(14, 295, KScreenWidth-30,textHeight1*30+100)];
     self.contentTV.scrollEnabled = YES;
-    self.contentTV.text = [_exampleDic valueForKey:@"content"]/*stringByAppendingString:@"中新社法国塞讷阿尔卑斯3月26日电  对德翼航空A320空难展开调查的法国司法部门26日证实，该航班坠毁时驾驶仓内只有副驾驶员一人，他还按下降低飞行高度的按钮。此举可被视为“有意毁灭飞机”的行                           据此间媒体报道，马赛共和国检察官布里斯·罗班(BriceRobin)在法国马赛机场举行的新闻发布会上透露，根据黑匣子记录的数据，机长和副驾驶员在前二十分钟内都在正常交谈。布里斯·罗班表示，对话录音显示，机长随后将驾驶飞机的工作交给副驾驶员，起身离开驾驶舱。据推测，机长应该是出去如厕。此时，只有副驾驶员一人留在驾驶仓内，并启动了下降按钮。这位检察官说，接下来就听到机长数次通过对讲系统要求副驾驶员开门，但未获回应。录音中的激烈撞门声应该是被锁在驾驶舱外的机长试图破门而入的努力。此外，直至飞机坠毁时驾驶舱内都有人的呼吸声，可见副驾驶员活到了最后一刻。"]*/;
-    self.contentTV.backgroundColor = [UIColor clearColor];
+//    self.contentTV.text = [_exampleDic valueForKey:@"content"]/*stringByAppendingString:@"中新社法国塞讷阿尔卑斯3月26日电  对德翼航空A320空难展开调查的法国司法部门26日证实，该航班坠毁时驾驶仓内只有副驾驶员一人，他还按下降低飞行高度的按钮。此举可被视为“有意毁灭飞机”的行                           据此间媒体报道，马赛共和国检察官布里斯·罗班(BriceRobin)在法国马赛机场举行的新闻发布会上透露，根据黑匣子记录的数据，机长和副驾驶员在前二十分钟内都在正常交谈。布里斯·罗班表示，对话录音显示，机长随后将驾驶飞机的工作交给副驾驶员，起身离开驾驶舱。据推测，机长应该是出去如厕。此时，只有副驾驶员一人留在驾驶仓内，并启动了下降按钮。这位检察官说，接下来就听到机长数次通过对讲系统要求副驾驶员开门，但未获回应。录音中的激烈撞门声应该是被锁在驾驶舱外的机长试图破门而入的努力。此外，直至飞机坠毁时驾驶舱内都有人的呼吸声，可见副驾驶员活到了最后一刻。"]*/;
+    self.contentTV.backgroundColor = [UIColor whiteColor];
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.lineSpacing = 10;// 字体的行间距
+    
+    NSDictionary *attributes = @{
+                                 NSFontAttributeName:[UIFont systemFontOfSize:14],
+                                 NSParagraphStyleAttributeName:paragraphStyle
+                                 };
+    self.contentTV.attributedText = [[NSAttributedString alloc] initWithString:[_exampleDic valueForKey:@"content"] attributes:attributes];
+
     //        [self.newsText setNumberOfLines:0];
     self.contentTV.userInteractionEnabled=  NO;
+    self.contentTV.autoresizingMask = UIViewAutoresizingFlexibleHeight;//自适应高度
     self.contentTV.font = [UIFont systemFontOfSize:14];
     [scr addSubview:self.contentTV];
     
@@ -192,6 +204,37 @@
     [self getInfoFromNetWithUid:self.aid];
     
 
+}
+
+
+//得到文本高度
+-(CGFloat)getTextHeight:(NSString *)str
+{
+    
+    NSString *subString = @"\n";
+    NSArray *array = [str componentsSeparatedByString:subString];
+    //    NSLog(@"^^^^^^^^^^^^^^^^    %ld",array.count);
+    NSInteger count = [array count] - 1;
+    //    NSLog(@"888888     %ld",str.length);
+    if ((unsigned long)KScreenWidth==375) {
+        //6
+        textHeight1 = (str.length+count*12)/24;
+    }else if ((unsigned long)KScreenWidth==320){
+        //4
+        textHeight1 = (str.length+count*10)/20;
+    }else if((unsigned long)KScreenWidth==414){
+        //6p
+        textHeight1 = (str.length+count*13)/26;
+        
+    }else{
+        //5
+        textHeight1 = (str.length+count*10)/20;
+        
+    }
+    int i = 0;
+    NSLog(@"==========%d     %ld",i,textHeight1);
+    i++;
+    return textHeight1;
 }
 
 //<<<<<<< HEAD
@@ -348,7 +391,7 @@
 -(void)getInfoFromNetWithUid:(NSString *)uid
 {
     NSString * urlStr = [NSString stringWithFormat:@"articledetail?articleid=%@",uid];
-    NSLog(@"%@ %@",urlStr,uid);
+    NSLog(@"%@",urlStr,uid);
     [[AFAppDotNetAPIClient sharedClient] GET:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         
 //        if (![responseObject isKindOfClass:[NSDictionary class]]) {
@@ -357,9 +400,11 @@
         contentDict = [responseObject lastObject];
         
         titileLabel.text =KISDictionaryHaveKey(contentDict, @"title");
+        
         timeLabel.text =KISDictionaryHaveKey(contentDict, @"crtime");
         contentImageView.imageURL = [NSURL URLWithString:KISDictionaryHaveKey(contentDict, @"photo")];
         contentTextView.text = KISDictionaryHaveKey(contentDict, @"content");
+        
         [enterButton setTitle:[[contentDict valueForKey:@"pcount"]stringByAppendingString:@"评论>"] forState:UIControlStateNormal];
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
